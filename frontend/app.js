@@ -28,6 +28,8 @@ const starContainer = document.getElementById("star-container");
 const ratingHint = document.getElementById("ratingHint");
 const skipButton = document.getElementById("skipButton");
 const getRecsButton = document.getElementById("getRecsButton");
+const getRecsButtonLabel = document.querySelector("#getRecsButton .button-text");
+const getRecsButtonStatus = document.getElementById("ctaStatus");
 
 const modeSelector = document.getElementById("modeSelector");
 const modeToggleButton = document.getElementById("modeToggle");
@@ -51,6 +53,9 @@ const refreshRecsButton = document.getElementById("refreshRecsButton");
 const showModelsButton = document.getElementById("showModelsButton");
 const modelsPanel = document.getElementById("modelsPanel");
 const modelsTableBody = document.querySelector("#modelsTable tbody");
+
+const CTA_LABEL = "Calculer mes affinités";
+const CTA_LOADING_LABEL = "Calcul des affinités…";
 
 // -----------------------------------------------------------------------------
 // Utils
@@ -83,14 +88,31 @@ function getImageUrl(item) {
 }
 
 function setButtonLoading(button, isLoading) {
-    button.disabled = isLoading;
+    setCtaDisabled(isLoading);
     if (isLoading) {
-        button.dataset.originalText = button.textContent;
-        button.textContent = "Chargement…";
-    } else if (button.dataset.originalText) {
-        button.textContent = button.dataset.originalText;
-        delete button.dataset.originalText;
+        button.setAttribute("aria-busy", "true");
+        updateCtaMessaging(CTA_LOADING_LABEL);
+    } else {
+        button.removeAttribute("aria-busy");
+        updateCtaMessaging(CTA_LABEL);
     }
+}
+
+function updateCtaMessaging(text) {
+    if (getRecsButtonLabel) {
+        getRecsButtonLabel.textContent = text;
+    }
+    if (getRecsButtonStatus) {
+        getRecsButtonStatus.textContent = text;
+    }
+    if (getRecsButton) {
+        getRecsButton.setAttribute("aria-label", text);
+    }
+}
+
+function setCtaDisabled(isDisabled) {
+    getRecsButton.disabled = isDisabled;
+    getRecsButton.setAttribute("aria-disabled", isDisabled ? "true" : "false");
 }
 
 function focusActiveModeTab() {
@@ -174,7 +196,8 @@ async function fetchSampleItems() {
     currentRating = 0;
     hoverRating = 0;
     ratingsGivenCount = 0;
-    getRecsButton.disabled = true;
+    setCtaDisabled(true);
+    updateCtaMessaging(CTA_LABEL);
     renderCurrentItem();
     showSection(ratingSection);
 }
@@ -514,7 +537,7 @@ async function submitCurrentRating() {
     renderStars();
 
     if (ratingsGivenCount >= 3) {
-        getRecsButton.disabled = false;
+        setCtaDisabled(false);
     }
 
     goToNextItem();
