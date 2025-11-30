@@ -13,6 +13,7 @@ let currentRating = 0;
 let hoverRating = 0;
 let ratingsGivenCount = 0;
 let predictionsData = [];
+let isModeMenuOpen = false;
 
 // -----------------------------------------------------------------------------
 // DOM elements
@@ -28,7 +29,10 @@ const ratingHint = document.getElementById("ratingHint");
 const skipButton = document.getElementById("skipButton");
 const getRecsButton = document.getElementById("getRecsButton");
 
+const modeSelector = document.getElementById("modeSelector");
+const modeToggleButton = document.getElementById("modeToggle");
 const modeTabs = document.getElementById("modeTabs");
+const modeTabsWrapper = document.getElementById("modeTabsWrapper");
 const modeSelect = document.getElementById("modeSelect");
 const sortSelect = document.getElementById("sort-order");
 const predictionsList = document.getElementById("predictions-list");
@@ -87,6 +91,58 @@ function setButtonLoading(button, isLoading) {
         button.textContent = button.dataset.originalText;
         delete button.dataset.originalText;
     }
+}
+
+function focusActiveModeTab() {
+    if (!modeTabs) return;
+    const active = modeTabs.querySelector(".mode-tab-active") || modeTabs.querySelector(".mode-tab");
+    if (active) {
+        active.focus();
+    }
+}
+
+function setModeMenuState(open) {
+    if (!modeSelector || !modeToggleButton) return;
+    isModeMenuOpen = open;
+    modeSelector.classList.toggle("menu-open", open);
+    modeToggleButton.setAttribute("aria-expanded", String(open));
+    if (open) {
+        requestAnimationFrame(focusActiveModeTab);
+    }
+}
+
+function toggleModeMenu(forcedState) {
+    const nextState = typeof forcedState === "boolean" ? forcedState : !isModeMenuOpen;
+    setModeMenuState(nextState);
+}
+
+function closeModeMenu() {
+    setModeMenuState(false);
+}
+
+function handleModeTabKeydown(event) {
+    if (!modeTabs) return;
+    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+    if (!keys.includes(event.key)) return;
+
+    const tabs = Array.from(modeTabs.querySelectorAll(".mode-tab"));
+    const currentIndex = tabs.indexOf(event.currentTarget);
+    if (currentIndex === -1) return;
+
+    event.preventDefault();
+
+    if (event.key === "Home") {
+        tabs[0]?.focus();
+        return;
+    }
+    if (event.key === "End") {
+        tabs[tabs.length - 1]?.focus();
+        return;
+    }
+
+    const delta = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+    const nextIndex = (currentIndex + delta + tabs.length) % tabs.length;
+    tabs[nextIndex]?.focus();
 }
 
 // -----------------------------------------------------------------------------
@@ -171,11 +227,16 @@ function renderModeSelector() {
             btn.className = "mode-tab" + (mode.id === currentMode ? " mode-tab-active" : "");
             btn.textContent = mode.label;
             btn.addEventListener("click", async () => {
-                if (mode.id === currentMode) return;
+                if (mode.id === currentMode) {
+                    closeModeMenu();
+                    return;
+                }
                 currentMode = mode.id;
                 renderModeSelector();
                 await fetchSampleItems();
+                closeModeMenu();
             });
+            btn.addEventListener("keydown", handleModeTabKeydown);
             modeTabs.appendChild(btn);
         });
     }
@@ -462,6 +523,25 @@ async function submitCurrentRating() {
 // -----------------------------------------------------------------------------
 // Event bindings
 // -----------------------------------------------------------------------------
+if (modeToggleButton) {
+    setModeMenuState(false);
+    modeToggleButton.addEventListener("click", () => toggleModeMenu());
+}
+
+document.addEventListener("click", (event) => {
+    if (!isModeMenuOpen || !modeSelector) return;
+    if (!modeSelector.contains(event.target)) {
+        closeModeMenu();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isModeMenuOpen) {
+        closeModeMenu();
+        modeToggleButton?.focus();
+    }
+});
+
 sortSelect.addEventListener("change", (e) => {
     sortPredictions(e.target.value);
 });

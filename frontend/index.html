@@ -14,9 +14,24 @@
             <h1>Machine Learning Recommendation app</h1>
         </header>
 
-        <div class="mode-selector">
-            <span class="mode-label">Mode :</span>
-            <div class="mode-tabs" id="modeTabs"></div>
+        <div class="mode-selector" id="modeSelector">
+            <div class="mode-selector-header">
+                <button
+                    id="modeToggle"
+                    class="mode-toggle"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="modeTabsWrapper"
+                >
+                    <span class="mode-toggle-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Ouvrir le sélecteur de mode</span>
+                </button>
+                <span class="mode-label">Mode :</span>
+            </div>
+
+            <div class="mode-tabs-wrapper" id="modeTabsWrapper">
+                <div class="mode-tabs" id="modeTabs"></div>
+            </div>
         </div>
 
         <!-- STEP 1: rating 3 colors -->
