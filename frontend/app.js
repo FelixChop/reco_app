@@ -5,7 +5,7 @@ const API_BASE = "http://localhost:8000";
 // -----------------------------------------------------------------------------
 let sessionUserId = null;
 let availableModes = [];
-let currentMode = "colors";
+let currentMode = "politicians";
 let sampledItems = [];
 let currentIndex = 0;
 let currentItem = null;
@@ -13,6 +13,7 @@ let currentRating = 0;
 let hoverRating = 0;
 let ratingsGivenCount = 0;
 let predictionsData = [];
+let isModeMenuOpen = false;
 
 // -----------------------------------------------------------------------------
 // DOM elements
@@ -30,7 +31,10 @@ const getRecsButton = document.getElementById("getRecsButton");
 const getRecsButtonLabel = document.querySelector("#getRecsButton .button-text");
 const getRecsButtonStatus = document.getElementById("ctaStatus");
 
+const modeSelector = document.getElementById("modeSelector");
+const modeToggleButton = document.getElementById("modeToggle");
 const modeTabs = document.getElementById("modeTabs");
+const modeTabsWrapper = document.getElementById("modeTabsWrapper");
 const modeSelect = document.getElementById("modeSelect");
 const sortSelect = document.getElementById("sort-order");
 const predictionsList = document.getElementById("predictions-list");
@@ -111,6 +115,58 @@ function setCtaDisabled(isDisabled) {
     getRecsButton.setAttribute("aria-disabled", isDisabled ? "true" : "false");
 }
 
+function focusActiveModeTab() {
+    if (!modeTabs) return;
+    const active = modeTabs.querySelector(".mode-tab-active") || modeTabs.querySelector(".mode-tab");
+    if (active) {
+        active.focus();
+    }
+}
+
+function setModeMenuState(open) {
+    if (!modeSelector || !modeToggleButton) return;
+    isModeMenuOpen = open;
+    modeSelector.classList.toggle("menu-open", open);
+    modeToggleButton.setAttribute("aria-expanded", String(open));
+    if (open) {
+        requestAnimationFrame(focusActiveModeTab);
+    }
+}
+
+function toggleModeMenu(forcedState) {
+    const nextState = typeof forcedState === "boolean" ? forcedState : !isModeMenuOpen;
+    setModeMenuState(nextState);
+}
+
+function closeModeMenu() {
+    setModeMenuState(false);
+}
+
+function handleModeTabKeydown(event) {
+    if (!modeTabs) return;
+    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+    if (!keys.includes(event.key)) return;
+
+    const tabs = Array.from(modeTabs.querySelectorAll(".mode-tab"));
+    const currentIndex = tabs.indexOf(event.currentTarget);
+    if (currentIndex === -1) return;
+
+    event.preventDefault();
+
+    if (event.key === "Home") {
+        tabs[0]?.focus();
+        return;
+    }
+    if (event.key === "End") {
+        tabs[tabs.length - 1]?.focus();
+        return;
+    }
+
+    const delta = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+    const nextIndex = (currentIndex + delta + tabs.length) % tabs.length;
+    tabs[nextIndex]?.focus();
+}
+
 // -----------------------------------------------------------------------------
 // API calls
 // -----------------------------------------------------------------------------
@@ -128,7 +184,7 @@ async function initSession() {
 async function fetchModes() {
     const res = await fetch(`${API_BASE}/modes`);
     availableModes = await res.json();
-    currentMode = availableModes[0]?.id || "colors";
+    currentMode = availableModes[0]?.id || "politicians";
     renderModeSelector();
 }
 
@@ -194,11 +250,16 @@ function renderModeSelector() {
             btn.className = "mode-tab" + (mode.id === currentMode ? " mode-tab-active" : "");
             btn.textContent = mode.label;
             btn.addEventListener("click", async () => {
-                if (mode.id === currentMode) return;
+                if (mode.id === currentMode) {
+                    closeModeMenu();
+                    return;
+                }
                 currentMode = mode.id;
                 renderModeSelector();
                 await fetchSampleItems();
+                closeModeMenu();
             });
+            btn.addEventListener("keydown", handleModeTabKeydown);
             modeTabs.appendChild(btn);
         });
     }
@@ -485,6 +546,25 @@ async function submitCurrentRating() {
 // -----------------------------------------------------------------------------
 // Event bindings
 // -----------------------------------------------------------------------------
+if (modeToggleButton) {
+    setModeMenuState(false);
+    modeToggleButton.addEventListener("click", () => toggleModeMenu());
+}
+
+document.addEventListener("click", (event) => {
+    if (!isModeMenuOpen || !modeSelector) return;
+    if (!modeSelector.contains(event.target)) {
+        closeModeMenu();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isModeMenuOpen) {
+        closeModeMenu();
+        modeToggleButton?.focus();
+    }
+});
+
 sortSelect.addEventListener("change", (e) => {
     sortPredictions(e.target.value);
 });
