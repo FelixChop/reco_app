@@ -1,0 +1,802 @@
+[
+  {
+    "name": "Paris",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg/960px-La_Tour_Eiffel_vue_de_la_Tour_Saint-Jacques%2C_Paris_ao%C3%BBt_2014_%282%29.jpg",
+    "image_keyword": "Paris France travel",
+    "is_french": true
+  },
+  {
+    "name": "Nice",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Collagedenice.jpg/960px-Collagedenice.jpg",
+    "image_keyword": "Nice France travel",
+    "is_french": true
+  },
+  {
+    "name": "Lyon",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/Montage-Lyon-2023.jpg/600px-Montage-Lyon-2023.jpg",
+    "image_keyword": "Lyon France travel",
+    "is_french": true
+  },
+  {
+    "name": "Marseille",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Notre_Dame_de_la_Garde.jpg/960px-Notre_Dame_de_la_Garde.jpg",
+    "image_keyword": "Marseille France travel",
+    "is_french": true
+  },
+  {
+    "name": "Bordeaux",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Bordeaux_Place_de_la_Bourse_de_nuit.jpg/960px-Bordeaux_Place_de_la_Bourse_de_nuit.jpg",
+    "image_keyword": "Bordeaux France travel",
+    "is_french": true
+  },
+  {
+    "name": "Toulouse",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Montage_Toulouse_3.jpg/600px-Montage_Toulouse_3.jpg",
+    "image_keyword": "Toulouse France travel",
+    "is_french": true
+  },
+  {
+    "name": "Strasbourg",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Strasbourg_vue_a%C3%A9rienne_vers_la_cath%C3%A9drale_septembre_2015.jpg/960px-Strasbourg_vue_a%C3%A9rienne_vers_la_cath%C3%A9drale_septembre_2015.jpg",
+    "image_keyword": "Strasbourg France travel",
+    "is_french": true
+  },
+  {
+    "name": "Lille",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Lille_Collage.jpg/960px-Lille_Collage.jpg",
+    "image_keyword": "Lille France travel",
+    "is_french": true
+  },
+  {
+    "name": "Nantes",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Ch%C3%A2teau_des_Ducs_de_Bretagne_%C3%A0_Nantes_-_Anne.jpg/960px-Ch%C3%A2teau_des_Ducs_de_Bretagne_%C3%A0_Nantes_-_Anne.jpg",
+    "image_keyword": "Nantes France travel",
+    "is_french": true
+  },
+  {
+    "name": "Montpellier",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Place_de_la_Com%C3%A9die_%282377437375%29.jpg/960px-Place_de_la_Com%C3%A9die_%282377437375%29.jpg",
+    "image_keyword": "Montpellier France travel",
+    "is_french": true
+  },
+  {
+    "name": "Rennes",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Rennes-Place-du-Champ-Jacquet-Statue-Leperdit-Mars-2020.jpg/960px-Rennes-Place-du-Champ-Jacquet-Statue-Leperdit-Mars-2020.jpg",
+    "image_keyword": "Rennes France travel",
+    "is_french": true
+  },
+  {
+    "name": "Reims",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Fontaine_sube_crop_HQ_v2.jpg/600px-Fontaine_sube_crop_HQ_v2.jpg",
+    "image_keyword": "Reims France travel",
+    "is_french": true
+  },
+  {
+    "name": "Dijon",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Dijon_-_Palais_des_Ducs_et_des_%C3%89tats_de_Bourgogne_-_01.jpg/960px-Dijon_-_Palais_des_Ducs_et_des_%C3%89tats_de_Bourgogne_-_01.jpg",
+    "image_keyword": "Dijon France travel",
+    "is_french": true
+  },
+  {
+    "name": "Grenoble",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Cath%C3%A9drale_Notre-Dame_%C3%A0_Grenoble_2014-09-27.jpg/960px-Cath%C3%A9drale_Notre-Dame_%C3%A0_Grenoble_2014-09-27.jpg",
+    "image_keyword": "Grenoble France travel",
+    "is_french": true
+  },
+  {
+    "name": "Annecy",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Annecy%2C_France_%2837635411615%29.jpg/960px-Annecy%2C_France_%2837635411615%29.jpg",
+    "image_keyword": "Annecy France travel",
+    "is_french": true
+  },
+  {
+    "name": "Aix-en-Provence",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Fontaine_de_la_Rotonde_-_Aix-en-Provence.JPG/960px-Fontaine_de_la_Rotonde_-_Aix-en-Provence.JPG",
+    "image_keyword": "Aix-en-Provence France travel",
+    "is_french": true
+  },
+  {
+    "name": "Avignon",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Vue_a%C3%A9rienne_2_JP_Campomar.jpg/960px-Vue_a%C3%A9rienne_2_JP_Campomar.jpg",
+    "image_keyword": "Avignon France travel",
+    "is_french": true
+  },
+  {
+    "name": "Arles",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/1_arles_france_2016.jpg/960px-1_arles_france_2016.jpg",
+    "image_keyword": "Arles France travel",
+    "is_french": true
+  },
+  {
+    "name": "Nîmes",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Maison_Carree_in_Nimes_%2812%29.jpg/960px-Maison_Carree_in_Nimes_%2812%29.jpg",
+    "image_keyword": "Nîmes France travel",
+    "is_french": true
+  },
+  {
+    "name": "Cannes",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Cannes_-_port_et_croisette.jpg/960px-Cannes_-_port_et_croisette.jpg",
+    "image_keyword": "Cannes France travel",
+    "is_french": true
+  },
+  {
+    "name": "Antibes",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Antibes_in_winter_%2816352944512%29.jpg/960px-Antibes_in_winter_%2816352944512%29.jpg",
+    "image_keyword": "Antibes France travel",
+    "is_french": true
+  },
+  {
+    "name": "Saint-Tropez",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Bell_tower_of_the_church_Our_Lady_of_the_Assumption_in_Saint-Tropez%2C_France_%2852723273607%29.jpg/960px-Bell_tower_of_the_church_Our_Lady_of_the_Assumption_in_Saint-Tropez%2C_France_%2852723273607%29.jpg",
+    "image_keyword": "Saint-Tropez France travel",
+    "is_french": true
+  },
+  {
+    "name": "Menton",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": null,
+    "image_keyword": "Menton France travel",
+    "is_french": true
+  },
+  {
+    "name": "Biarritz",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Biarritz_vue_g%C3%A9n%C3%A9rale.jpg/960px-Biarritz_vue_g%C3%A9n%C3%A9rale.jpg",
+    "image_keyword": "Biarritz France travel",
+    "is_french": true
+  },
+  {
+    "name": "Bayonne",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Bayonne-Centre_historique-20130811.jpg/960px-Bayonne-Centre_historique-20130811.jpg",
+    "image_keyword": "Bayonne France travel",
+    "is_french": true
+  },
+  {
+    "name": "Saint-Jean-de-Luz",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/France_Aquitaine_Pyrenees_Atlantiques_Saint-Jean-de-Luz_01.JPG/960px-France_Aquitaine_Pyrenees_Atlantiques_Saint-Jean-de-Luz_01.JPG",
+    "image_keyword": "Saint-Jean-de-Luz France travel",
+    "is_french": true
+  },
+  {
+    "name": "La Rochelle",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Entree_vieux_port_La_Rochelle.JPG/960px-Entree_vieux_port_La_Rochelle.JPG",
+    "image_keyword": "La Rochelle France travel",
+    "is_french": true
+  },
+  {
+    "name": "Île de Ré",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Ile-de-Re_vue_du_ciel.JPG/600px-Ile-de-Re_vue_du_ciel.JPG",
+    "image_keyword": "Île de Ré France travel",
+    "is_french": true
+  },
+  {
+    "name": "Mont Saint-Michel",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Mont_St_Michel_in_the_afternoon.jpg/960px-Mont_St_Michel_in_the_afternoon.jpg",
+    "image_keyword": "Mont Saint-Michel France travel",
+    "is_french": true
+  },
+  {
+    "name": "Saint-Malo",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/IMG_2935_StMalo.JPG/960px-IMG_2935_StMalo.JPG",
+    "image_keyword": "Saint-Malo France travel",
+    "is_french": true
+  },
+  {
+    "name": "Étretat",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Vue_d%27%C3%89tretat.jpg/960px-Vue_d%27%C3%89tretat.jpg",
+    "image_keyword": "Étretat France travel",
+    "is_french": true
+  },
+  {
+    "name": "Deauville",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/France-000638_-_Grand_Casino_%2814974258481%29.jpg/960px-France-000638_-_Grand_Casino_%2814974258481%29.jpg",
+    "image_keyword": "Deauville France travel",
+    "is_french": true
+  },
+  {
+    "name": "Honfleur",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/France_Calvados_Honfleur_port2.jpg/960px-France_Calvados_Honfleur_port2.jpg",
+    "image_keyword": "Honfleur France travel",
+    "is_french": true
+  },
+  {
+    "name": "Chamonix",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": null,
+    "image_keyword": "Chamonix France travel",
+    "is_french": true
+  },
+  {
+    "name": "Megève",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/fr/thumb/7/78/Logo_Meg%C3%A8ve_Haute-Savoie_2022.svg/600px-Logo_Meg%C3%A8ve_Haute-Savoie_2022.svg.png",
+    "image_keyword": "Megève France travel",
+    "is_french": true
+  },
+  {
+    "name": "Courchevel",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Courchevel_1850.JPG/960px-Courchevel_1850.JPG",
+    "image_keyword": "Courchevel France travel",
+    "is_french": true
+  },
+  {
+    "name": "Val-d'Isère",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/RGA_231.JPG/960px-RGA_231.JPG",
+    "image_keyword": "Val-d'Isère France travel",
+    "is_french": true
+  },
+  {
+    "name": "Les Arcs",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": null,
+    "image_keyword": "Les Arcs France travel",
+    "is_french": true
+  },
+  {
+    "name": "Carcassonne",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/25/1_carcassonne_aerial_2016.jpg/960px-1_carcassonne_aerial_2016.jpg",
+    "image_keyword": "Carcassonne France travel",
+    "is_french": true
+  },
+  {
+    "name": "Colmar",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Musee_d_Unterlinden_colmar.jpg/960px-Musee_d_Unterlinden_colmar.jpg",
+    "image_keyword": "Colmar France travel",
+    "is_french": true
+  },
+  {
+    "name": "Riquewihr",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Town_hall_of_Riquewihr_%283%29.jpg/960px-Town_hall_of_Riquewihr_%283%29.jpg",
+    "image_keyword": "Riquewihr France travel",
+    "is_french": true
+  },
+  {
+    "name": "Eguisheim",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Eguisheim_-_Mairie.jpg/960px-Eguisheim_-_Mairie.jpg",
+    "image_keyword": "Eguisheim France travel",
+    "is_french": true
+  },
+  {
+    "name": "Amiens",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Amiens_France_Quai-Belu-03.jpg/960px-Amiens_France_Quai-Belu-03.jpg",
+    "image_keyword": "Amiens France travel",
+    "is_french": true
+  },
+  {
+    "name": "Rouen",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/97/Rouen_mosaique.png",
+    "image_keyword": "Rouen France travel",
+    "is_french": true
+  },
+  {
+    "name": "Chartres",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Chartres_-_Vue_ville_et_cath%C3%A9trale.jpg/960px-Chartres_-_Vue_ville_et_cath%C3%A9trale.jpg",
+    "image_keyword": "Chartres France travel",
+    "is_french": true
+  },
+  {
+    "name": "Versailles",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_073.jpg/960px-Vue_a%C3%A9rienne_du_domaine_de_Versailles_par_ToucanWings_-_Creative_Commons_By_Sa_3.0_-_073.jpg",
+    "image_keyword": "Versailles France travel",
+    "is_french": true
+  },
+  {
+    "name": "Clermont-Ferrand",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Ville_de_Clermont-Ferrand.jpg",
+    "image_keyword": "Clermont-Ferrand France travel",
+    "is_french": true
+  },
+  {
+    "name": "Perpignan",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Cour_du_Campo_Santo.jpg/960px-Cour_du_Campo_Santo.jpg",
+    "image_keyword": "Perpignan France travel",
+    "is_french": true
+  },
+  {
+    "name": "Ajaccio",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Aiacciu.jpg/960px-Aiacciu.jpg",
+    "image_keyword": "Ajaccio France travel",
+    "is_french": true
+  },
+  {
+    "name": "Bastia",
+    "subtitle": "France",
+    "country": "France",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/23/Port_of_Bastia%2C_Corsica%2C_France_%2852723300062%29.jpg/960px-Port_of_Bastia%2C_Corsica%2C_France_%2852723300062%29.jpg",
+    "image_keyword": "Bastia France travel",
+    "is_french": true
+  },
+  {
+    "name": "London",
+    "subtitle": "United Kingdom",
+    "country": "United Kingdom",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/London_Skyline_%28125508655%29.jpeg/960px-London_Skyline_%28125508655%29.jpeg",
+    "image_keyword": "London United Kingdom travel",
+    "is_french": false
+  },
+  {
+    "name": "New York City",
+    "subtitle": "United States",
+    "country": "United States",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7a/View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg/960px-View_of_Empire_State_Building_from_Rockefeller_Center_New_York_City_dllu_%28cropped%29.jpg",
+    "image_keyword": "New York City United States travel",
+    "is_french": false
+  },
+  {
+    "name": "Tokyo",
+    "subtitle": "Japan",
+    "country": "Japan",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/960px-Skyscrapers_of_Shinjuku_2009_January.jpg",
+    "image_keyword": "Tokyo Japan travel",
+    "is_french": false
+  },
+  {
+    "name": "Bangkok",
+    "subtitle": "Thailand",
+    "country": "Thailand",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Bangkok_Montage_2024_2.jpg/960px-Bangkok_Montage_2024_2.jpg",
+    "image_keyword": "Bangkok Thailand travel",
+    "is_french": false
+  },
+  {
+    "name": "Barcelona",
+    "subtitle": "Spain",
+    "country": "Spain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg/960px-Aerial_view_of_Barcelona%2C_Spain_%2851227309370%29_edited.jpg",
+    "image_keyword": "Barcelona Spain travel",
+    "is_french": false
+  },
+  {
+    "name": "Rome",
+    "subtitle": "Italy",
+    "country": "Italy",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/960px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+    "image_keyword": "Rome Italy travel",
+    "is_french": false
+  },
+  {
+    "name": "Florence",
+    "subtitle": "Italy",
+    "country": "Italy",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/FirenzeDec092023_01.jpg/960px-FirenzeDec092023_01.jpg",
+    "image_keyword": "Florence Italy travel",
+    "is_french": false
+  },
+  {
+    "name": "Venice",
+    "subtitle": "Italy",
+    "country": "Italy",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Venezia_aerial_view.jpg/960px-Venezia_aerial_view.jpg",
+    "image_keyword": "Venice Italy travel",
+    "is_french": false
+  },
+  {
+    "name": "Amsterdam",
+    "subtitle": "Netherlands",
+    "country": "Netherlands",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/960px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png",
+    "image_keyword": "Amsterdam Netherlands travel",
+    "is_french": false
+  },
+  {
+    "name": "Berlin",
+    "subtitle": "Germany",
+    "country": "Germany",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg/960px-Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg",
+    "image_keyword": "Berlin Germany travel",
+    "is_french": false
+  },
+  {
+    "name": "Prague",
+    "subtitle": "Czech Republic",
+    "country": "Czech Republic",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/960px-Prague_%286365119737%29.jpg",
+    "image_keyword": "Prague Czech Republic travel",
+    "is_french": false
+  },
+  {
+    "name": "Vienna",
+    "subtitle": "Austria",
+    "country": "Austria",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Schoenbrunn_philharmoniker_2012.jpg/960px-Schoenbrunn_philharmoniker_2012.jpg",
+    "image_keyword": "Vienna Austria travel",
+    "is_french": false
+  },
+  {
+    "name": "Budapest",
+    "subtitle": "Hungary",
+    "country": "Hungary",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg/960px-View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg",
+    "image_keyword": "Budapest Hungary travel",
+    "is_french": false
+  },
+  {
+    "name": "Lisbon",
+    "subtitle": "Portugal",
+    "country": "Portugal",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Lisboa_-_Portugal_%2852597836992%29.jpg/960px-Lisboa_-_Portugal_%2852597836992%29.jpg",
+    "image_keyword": "Lisbon Portugal travel",
+    "is_french": false
+  },
+  {
+    "name": "Madrid",
+    "subtitle": "Spain",
+    "country": "Spain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Madrid_-_Sky_Bar_360%C2%BA_%28Hotel_Riu_Plaza_Espa%C3%B1a%29%2C_vistas_19.jpg/960px-Madrid_-_Sky_Bar_360%C2%BA_%28Hotel_Riu_Plaza_Espa%C3%B1a%29%2C_vistas_19.jpg",
+    "image_keyword": "Madrid Spain travel",
+    "is_french": false
+  },
+  {
+    "name": "Seville",
+    "subtitle": "Spain",
+    "country": "Spain",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Sevilla_Cathedral_-_Southeast.jpg/960px-Sevilla_Cathedral_-_Southeast.jpg",
+    "image_keyword": "Seville Spain travel",
+    "is_french": false
+  },
+  {
+    "name": "Marrakech",
+    "subtitle": "Morocco",
+    "country": "Morocco",
+    "image_url": null,
+    "image_keyword": "Marrakech Morocco travel",
+    "is_french": false
+  },
+  {
+    "name": "Dubai",
+    "subtitle": "United Arab Emirates",
+    "country": "United Arab Emirates",
+    "image_url": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c7/Burj_Khalifa_2021.jpg/960px-Burj_Khalifa_2021.jpg",
+    "image_keyword": "Dubai United Arab Emirates travel",
+    "is_french": false
+  },
+  {
+    "name": "Istanbul",
+    "subtitle": "Turkey",
+    "country": "Turkey",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Historical_peninsula_and_modern_skyline_of_Istanbul.jpg/960px-Historical_peninsula_and_modern_skyline_of_Istanbul.jpg",
+    "image_keyword": "Istanbul Turkey travel",
+    "is_french": false
+  },
+  {
+    "name": "Singapore",
+    "subtitle": "Singapore",
+    "country": "Singapore",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/600px-Flag_of_Singapore.svg.png",
+    "image_keyword": "Singapore Singapore travel",
+    "is_french": false
+  },
+  {
+    "name": "Hong Kong",
+    "subtitle": "China",
+    "country": "China",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/Flag_of_Hong_Kong.svg/600px-Flag_of_Hong_Kong.svg.png",
+    "image_keyword": "Hong Kong China travel",
+    "is_french": false
+  },
+  {
+    "name": "Macau",
+    "subtitle": "China",
+    "country": "China",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/63/Flag_of_Macau.svg/600px-Flag_of_Macau.svg.png",
+    "image_keyword": "Macau China travel",
+    "is_french": false
+  },
+  {
+    "name": "Sydney",
+    "subtitle": "Australia",
+    "country": "Australia",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg/960px-Sydney_Opera_House_and_Harbour_Bridge_Dusk_%282%29_2019-06-21.jpg",
+    "image_keyword": "Sydney Australia travel",
+    "is_french": false
+  },
+  {
+    "name": "Melbourne",
+    "subtitle": "Australia",
+    "country": "Australia",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Melburnian_Skyline_b.jpg/960px-Melburnian_Skyline_b.jpg",
+    "image_keyword": "Melbourne Australia travel",
+    "is_french": false
+  },
+  {
+    "name": "Auckland",
+    "subtitle": "New Zealand",
+    "country": "New Zealand",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Auckland_skyline_-_May_2024_%282%29.jpg/960px-Auckland_skyline_-_May_2024_%282%29.jpg",
+    "image_keyword": "Auckland New Zealand travel",
+    "is_french": false
+  },
+  {
+    "name": "Cape Town",
+    "subtitle": "South Africa",
+    "country": "South Africa",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Bo-Kaap_from_roof_of_Strand_South_hotel%2C_Cape_Town.jpg/960px-Bo-Kaap_from_roof_of_Strand_South_hotel%2C_Cape_Town.jpg",
+    "image_keyword": "Cape Town South Africa travel",
+    "is_french": false
+  },
+  {
+    "name": "Rio de Janeiro",
+    "subtitle": "Brazil",
+    "country": "Brazil",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Cidade_Maravilhosa.jpg/960px-Cidade_Maravilhosa.jpg",
+    "image_keyword": "Rio de Janeiro Brazil travel",
+    "is_french": false
+  },
+  {
+    "name": "Buenos Aires",
+    "subtitle": "Argentina",
+    "country": "Argentina",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Puerto_Madero%2C_Buenos_Aires_%2840689219792%29_%28cropped%29.jpg/960px-Puerto_Madero%2C_Buenos_Aires_%2840689219792%29_%28cropped%29.jpg",
+    "image_keyword": "Buenos Aires Argentina travel",
+    "is_french": false
+  },
+  {
+    "name": "Mexico City",
+    "subtitle": "Mexico",
+    "country": "Mexico",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg/960px-Sobrevuelos_CDMX_HJ2A4913_%2825514321687%29_%28cropped%29.jpg",
+    "image_keyword": "Mexico City Mexico travel",
+    "is_french": false
+  },
+  {
+    "name": "Los Angeles",
+    "subtitle": "United States",
+    "country": "United States",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hollywood_Sign_%28Zuschnitt%29.jpg/960px-Hollywood_Sign_%28Zuschnitt%29.jpg",
+    "image_keyword": "Los Angeles United States travel",
+    "is_french": false
+  },
+  {
+    "name": "San Francisco",
+    "subtitle": "United States",
+    "country": "United States",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/San_Francisco_Downtown_Aerial%2C_August_2025.jpg/960px-San_Francisco_Downtown_Aerial%2C_August_2025.jpg",
+    "image_keyword": "San Francisco United States travel",
+    "is_french": false
+  },
+  {
+    "name": "Chicago",
+    "subtitle": "United States",
+    "country": "United States",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Chicago_River_ferry_b.jpg/960px-Chicago_River_ferry_b.jpg",
+    "image_keyword": "Chicago United States travel",
+    "is_french": false
+  },
+  {
+    "name": "Miami",
+    "subtitle": "United States",
+    "country": "United States",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Little_Havana%2C_Miami%2C_Florida_2021_-_Welcome.jpg/960px-Little_Havana%2C_Miami%2C_Florida_2021_-_Welcome.jpg",
+    "image_keyword": "Miami United States travel",
+    "is_french": false
+  },
+  {
+    "name": "Vancouver",
+    "subtitle": "Canada",
+    "country": "Canada",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Concord_Pacific_Master_Plan_Area.jpg/960px-Concord_Pacific_Master_Plan_Area.jpg",
+    "image_keyword": "Vancouver Canada travel",
+    "is_french": false
+  },
+  {
+    "name": "Toronto",
+    "subtitle": "Canada",
+    "country": "Canada",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Toronto_Skyline_viewed_from_Algonquin_Island_%2816-9_crop%29.jpg/960px-Toronto_Skyline_viewed_from_Algonquin_Island_%2816-9_crop%29.jpg",
+    "image_keyword": "Toronto Canada travel",
+    "is_french": false
+  },
+  {
+    "name": "Montreal",
+    "subtitle": "Canada",
+    "country": "Canada",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Mtl_from_mont_royal_%28cropped%29.jpg/960px-Mtl_from_mont_royal_%28cropped%29.jpg",
+    "image_keyword": "Montreal Canada travel",
+    "is_french": false
+  },
+  {
+    "name": "Bali",
+    "subtitle": "Indonesia",
+    "country": "Indonesia",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Bali_in_Indonesia_%28special_marker%29.svg/960px-Bali_in_Indonesia_%28special_marker%29.svg.png",
+    "image_keyword": "Bali Indonesia travel",
+    "is_french": false
+  },
+  {
+    "name": "Phuket",
+    "subtitle": "Thailand",
+    "country": "Thailand",
+    "image_url": null,
+    "image_keyword": "Phuket Thailand travel",
+    "is_french": false
+  },
+  {
+    "name": "Chiang Mai",
+    "subtitle": "Thailand",
+    "country": "Thailand",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/0020-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg/960px-0020-%E0%B8%A7%E0%B8%B1%E0%B8%94%E0%B8%9E%E0%B8%A3%E0%B8%B0%E0%B8%AA%E0%B8%B4%E0%B8%87%E0%B8%AB%E0%B9%8C%E0%B8%A7%E0%B8%A3%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A7%E0%B8%B4%E0%B8%AB%E0%B8%B2%E0%B8%A3.jpg",
+    "image_keyword": "Chiang Mai Thailand travel",
+    "is_french": false
+  },
+  {
+    "name": "Seoul",
+    "subtitle": "South Korea",
+    "country": "South Korea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/%EB%8D%95%EC%88%98%EA%B6%81%EC%9D%98_%EA%B0%80%EC%9D%84.jpg/960px-%EB%8D%95%EC%88%98%EA%B6%81%EC%9D%98_%EA%B0%80%EC%9D%84.jpg",
+    "image_keyword": "Seoul South Korea travel",
+    "is_french": false
+  },
+  {
+    "name": "Busan",
+    "subtitle": "South Korea",
+    "country": "South Korea",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Gwangandaegyo_Bridge_in_Busan%2C_South_Korea_%28iau2207b%29.tiff/lossy-page1-600px-Gwangandaegyo_Bridge_in_Busan%2C_South_Korea_%28iau2207b%29.tiff.jpg",
+    "image_keyword": "Busan South Korea travel",
+    "is_french": false
+  },
+  {
+    "name": "Hanoi",
+    "subtitle": "Vietnam",
+    "country": "Vietnam",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Hanoi_skyline_with_Ba_Vi_Mountain.jpg/960px-Hanoi_skyline_with_Ba_Vi_Mountain.jpg",
+    "image_keyword": "Hanoi Vietnam travel",
+    "is_french": false
+  },
+  {
+    "name": "Ho Chi Minh City",
+    "subtitle": "Vietnam",
+    "country": "Vietnam",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Ho_Chi_Minh_City_panorama_2019_%28cropped2%29.jpg/960px-Ho_Chi_Minh_City_panorama_2019_%28cropped2%29.jpg",
+    "image_keyword": "Ho Chi Minh City Vietnam travel",
+    "is_french": false
+  },
+  {
+    "name": "Siem Reap",
+    "subtitle": "Cambodia",
+    "country": "Cambodia",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Front_porch_of_Wat_Damnak.jpg/960px-Front_porch_of_Wat_Damnak.jpg",
+    "image_keyword": "Siem Reap Cambodia travel",
+    "is_french": false
+  },
+  {
+    "name": "Cairo",
+    "subtitle": "Egypt",
+    "country": "Egypt",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Cairo_From_Tower_%28cropped%29.jpg/960px-Cairo_From_Tower_%28cropped%29.jpg",
+    "image_keyword": "Cairo Egypt travel",
+    "is_french": false
+  },
+  {
+    "name": "Petra",
+    "subtitle": "Jordan",
+    "country": "Jordan",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Urn_Tomb%2C_Petra_01.jpg/960px-Urn_Tomb%2C_Petra_01.jpg",
+    "image_keyword": "Petra Jordan travel",
+    "is_french": false
+  },
+  {
+    "name": "Santorini",
+    "subtitle": "Greece",
+    "country": "Greece",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/2011_Dimos_Thiras.png/960px-2011_Dimos_Thiras.png",
+    "image_keyword": "Santorini Greece travel",
+    "is_french": false
+  },
+  {
+    "name": "Mykonos",
+    "subtitle": "Greece",
+    "country": "Greece",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/2011_Dimos_Mykonou.png/960px-2011_Dimos_Mykonou.png",
+    "image_keyword": "Mykonos Greece travel",
+    "is_french": false
+  },
+  {
+    "name": "Reykjavik",
+    "subtitle": "Iceland",
+    "country": "Iceland",
+    "image_url": null,
+    "image_keyword": "Reykjavik Iceland travel",
+    "is_french": false
+  },
+  {
+    "name": "Cancún",
+    "subtitle": "Mexico",
+    "country": "Mexico",
+    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Cancun_Strand_Luftbild_%2822143397586%29.jpg/960px-Cancun_Strand_Luftbild_%2822143397586%29.jpg",
+    "image_keyword": "Cancún Mexico travel",
+    "is_french": false
+  }
+]

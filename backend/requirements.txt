@@ -1,0 +1,8 @@
+fastapi
+numpy==1.26.4
+uvicorn[standard]
+sqlalchemy
+pydantic
+pydantic-settings
+pandas
+scikit-surprise

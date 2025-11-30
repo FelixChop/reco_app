@@ -1,0 +1,14 @@
+# MacOS
+.DS_Store
+
+# Environnement virtuel
+.venv/
+venv/
+
+# Cache Python
+__pycache__/
+
+# Fichiers DB locaux (SQLite etc.)
+*.db
+*.sqlite3
+
