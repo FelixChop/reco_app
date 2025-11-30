@@ -68,8 +68,8 @@ Base.metadata.create_all(bind=engine)
 # -------------------------------------------------------------------
 
 MODES = {
-    "colors": "Couleurs",
     "politicians": "Personnalités politiques françaises",
+    "colors": "Couleurs",
     "destinations": "Destinations de vacances",
     "movies": "Films",
 }
