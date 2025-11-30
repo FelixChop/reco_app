@@ -5,7 +5,7 @@ const API_BASE = "http://localhost:8000";
 // -----------------------------------------------------------------------------
 let sessionUserId = null;
 let availableModes = [];
-let currentMode = "colors";
+let currentMode = "politicians";
 let sampledItems = [];
 let currentIndex = 0;
 let currentItem = null;
@@ -106,7 +106,7 @@ async function initSession() {
 async function fetchModes() {
     const res = await fetch(`${API_BASE}/modes`);
     availableModes = await res.json();
-    currentMode = availableModes[0]?.id || "colors";
+    currentMode = availableModes[0]?.id || "politicians";
     renderModeSelector();
 }
 
