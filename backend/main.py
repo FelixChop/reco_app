@@ -402,16 +402,25 @@ def new_session():
 
 
 @app.get("/sample-items", response_model=List[ItemOut])
-def sample_items(mode: str = Query("colors")):
+def sample_items(
+    mode: str = Query("colors"),
+    limit: int = Query(3, ge=1, le=50),
+    exclude_ids: List[int] = Query(default_factory=list),
+):
     if mode not in MODES:
         raise HTTPException(status_code=400, detail="Unknown mode")
     db = SessionLocal()
     try:
-        items = db.query(Item).filter(Item.mode == mode).all()
-        if len(items) == 0:
-            raise HTTPException(status_code=404, detail="No items for this mode")
-        sample_size = min(3, len(items))
-        return random.sample(items, sample_size)
+        query = db.query(Item).filter(Item.mode == mode)
+        if exclude_ids:
+            query = query.filter(~Item.id.in_(exclude_ids))
+
+        available_items = query.all()
+        if len(available_items) == 0:
+            return []
+
+        sample_size = min(limit, len(available_items))
+        return random.sample(available_items, sample_size)
     finally:
         db.close()
 

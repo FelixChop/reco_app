@@ -13,6 +13,7 @@ let currentRating = 0;
 let hoverRating = 0;
 let ratingsGivenCount = 0;
 let predictionsData = [];
+let seenItemIdsByMode = {};
 let isModeMenuOpen = false;
 
 // -----------------------------------------------------------------------------
@@ -75,6 +76,17 @@ function getStoredUserId() {
 
 function setStoredUserId(id) {
     localStorage.setItem("color_recommender_user_id", id);
+}
+
+function getSeenIdsForMode(mode = currentMode) {
+    if (!seenItemIdsByMode[mode]) {
+        seenItemIdsByMode[mode] = new Set();
+    }
+    return seenItemIdsByMode[mode];
+}
+
+function resetSeenIdsForMode(mode = currentMode) {
+    seenItemIdsByMode[mode] = new Set();
 }
 
 function getImageUrl(item) {
@@ -196,8 +208,32 @@ async function fetchModes() {
 }
 
 async function fetchSampleItems() {
-    const res = await fetch(`${API_BASE}/sample-items?mode=${currentMode}`);
-    sampledItems = await res.json();
+    const seenIds = Array.from(getSeenIdsForMode());
+    const params = new URLSearchParams({ mode: currentMode });
+    seenIds.forEach((id) => params.append("exclude_ids", id));
+
+    const res = await fetch(`${API_BASE}/sample-items?${params.toString()}`);
+    let items = [];
+
+    if (res.ok) {
+        items = await res.json();
+    }
+
+    // Si tous les items ont été vus, on réinitialise le suivi et on réessaie
+    if (items.length === 0 && seenIds.length > 0) {
+        resetSeenIdsForMode();
+        return fetchSampleItems();
+    }
+
+    const seenSet = getSeenIdsForMode();
+    sampledItems = items.filter((item) => !seenSet.has(item.id));
+    sampledItems.forEach((item) => seenSet.add(item.id));
+
+    if (sampledItems.length === 0) {
+        alert("Aucun item disponible pour le moment.");
+        return;
+    }
+
     currentIndex = 0;
     currentItem = sampledItems[0];
     currentRating = 0;
@@ -506,12 +542,19 @@ function renderDiagnostics(data) {
 // -----------------------------------------------------------------------------
 // Navigation helpers
 // -----------------------------------------------------------------------------
-function goToNextItem() {
+async function goToNextItem() {
     if (sampledItems.length === 0) return;
-    currentIndex = (currentIndex + 1) % sampledItems.length;
-    currentRating = 0;
-    hoverRating = 0;
-    renderCurrentItem();
+
+    if (currentIndex < sampledItems.length - 1) {
+        currentIndex += 1;
+        currentRating = 0;
+        hoverRating = 0;
+        renderCurrentItem();
+        return;
+    }
+
+    // On a consommé le lot courant, récupérer de nouveaux items
+    await fetchSampleItems();
 }
 
 function handleStarClick(value) {
@@ -534,7 +577,7 @@ async function submitCurrentRating() {
         setCtaDisabled(false);
     }
 
-    goToNextItem();
+    await goToNextItem();
 }
 
 // -----------------------------------------------------------------------------
@@ -571,11 +614,11 @@ restartBtn.addEventListener("click", async () => {
     await fetchSampleItems();
 });
 
-skipButton.addEventListener("click", () => {
+skipButton.addEventListener("click", async () => {
     currentRating = 0;
     hoverRating = 0;
     renderStars();
-    goToNextItem();
+    await goToNextItem();
 });
 
 getRecsButton.addEventListener("click", async () => {
