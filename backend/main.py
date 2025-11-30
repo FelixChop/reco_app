@@ -10,7 +10,7 @@ from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy import (
-    create_engine, Column, Integer, String, Float, Boolean, ForeignKey
+    create_engine, Column, Integer, String, Float, Boolean, ForeignKey, func
 )
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
@@ -448,6 +448,24 @@ def rate_item(payload: RatingIn):
         db.add(rating)
         db.commit()
         return {"status": "ok"}
+    finally:
+        db.close()
+
+
+@app.get("/rating-counts")
+def get_rating_counts(user_id: str):
+    db = SessionLocal()
+    try:
+        counts = (
+            db.query(Rating.mode, func.count(Rating.id))
+            .filter(
+                Rating.user_id == user_id,
+                Rating.is_synthetic == False,  # noqa: E712
+            )
+            .group_by(Rating.mode)
+            .all()
+        )
+        return {mode: count for mode, count in counts}
     finally:
         db.close()
 
