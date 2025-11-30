@@ -44,9 +44,6 @@ const trainingStats = document.getElementById("trainingStats");
 const algoList = document.getElementById("algoList");
 const recsGrid = document.getElementById("recsGrid");
 const refreshRecsButton = document.getElementById("refreshRecsButton");
-const showModelsButton = document.getElementById("showModelsButton");
-const modelsPanel = document.getElementById("modelsPanel");
-const modelsTableBody = document.querySelector("#modelsTable tbody");
 
 // -----------------------------------------------------------------------------
 // Utils
@@ -152,7 +149,6 @@ async function trainAndPredict() {
     predictionsData = data.predictions;
     renderPredictions();
     renderDiagnostics(data);
-    renderModelsTable(data.leaderboard);
 
     trainingOverlay.classList.add("hidden");
     showSection(predictionsSection);
@@ -411,20 +407,6 @@ function renderDiagnostics(data) {
     });
 }
 
-function renderModelsTable(leaderboard) {
-    modelsTableBody.innerHTML = "";
-    leaderboard.forEach((entry) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${entry.model_name}</td>
-            <td>${entry.rmse.toFixed(3)}</td>
-            <td>${entry.rmse.toFixed(3)}</td>
-            <td>${entry.rank}</td>
-        `;
-        modelsTableBody.appendChild(tr);
-    });
-}
-
 // -----------------------------------------------------------------------------
 // Navigation helpers
 // -----------------------------------------------------------------------------
@@ -488,10 +470,6 @@ getRecsButton.addEventListener("click", async () => {
 refreshRecsButton.addEventListener("click", async () => {
     await trainAndPredict();
     refreshRecsButton.classList.add("hidden");
-});
-
-showModelsButton.addEventListener("click", () => {
-    modelsPanel.classList.toggle("hidden");
 });
 
 // -----------------------------------------------------------------------------

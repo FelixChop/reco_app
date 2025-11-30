@@ -57,12 +57,6 @@
 
         <!-- STEP 3: predictions -->
         <section id="predictions-section" class="card hidden">
-
-            <button id="showModelsButton" class="btn-secondary">
-                Voir les modèles de ML
-            </button>
-
-
             <button id="refreshRecsButton" class="btn-primary-outline hidden">
                 Actualiser les recommandations
             </button>
@@ -87,28 +81,11 @@
         </section>
 
         <!-- STEP 4: diagnostics -->
-
-        <div id="modelsPanel" class="models-panel hidden">
-            <h3>Leaderboard des modèles</h3>
-            <table id="modelsTable">
-                <thead>
-                    <tr>
-                        <th>Modèle</th>
-                        <th>RMSE global</th>
-                        <th>RMSE pour toi</th>
-                        <th>Rang</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-
-
         <section id="diagnostics-section" class="card hidden">
             <h2>Diagnostic des modèles</h2>
 
             <h3>Leaderboard des modèles</h3>
-            <table class="leaderboard">
+            <table class="leaderboard data-table">
                 <thead>
                     <tr>
                         <th>Modèle</th>
@@ -126,7 +103,7 @@
             <p class="confusion-hint">
                 Lignes = note réelle · Colonnes = note prédite (arrondies de 1 à 5)
             </p>
-            <table class="confusion-table">
+            <table class="confusion-table data-table">
                 <thead>
                     <tr>
                         <th>Réel \ Prédit</th>
