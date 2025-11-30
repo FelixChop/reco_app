@@ -74,16 +74,11 @@
         <!-- STEP 3: predictions -->
         <section id="predictions-section" class="card hidden">
 
-            <button id="showModelsButton" class="btn-secondary">
-                Voir les modèles de ML
-            </button>
-
 
             <button id="refreshRecsButton" class="btn-primary-outline hidden">
                 Actualiser les recommandations
             </button>
             <div id="recsGrid" class="recs-grid"></div>
-
 
             <div class="predictions-controls">
                 <label for="sort-order">Trier par note prédite :</label>
@@ -103,22 +98,6 @@
         </section>
 
         <!-- STEP 4: diagnostics -->
-
-        <div id="modelsPanel" class="models-panel hidden">
-            <h3>Leaderboard des modèles</h3>
-            <table id="modelsTable">
-                <thead>
-                    <tr>
-                        <th>Modèle</th>
-                        <th>RMSE global</th>
-                        <th>RMSE pour toi</th>
-                        <th>Rang</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-
 
         <section id="diagnostics-section" class="card hidden">
             <h2>Diagnostic des modèles</h2>
