@@ -1,53 +1,65 @@
 const API_BASE = "http://localhost:8000";
 
+// -----------------------------------------------------------------------------
+// State
+// -----------------------------------------------------------------------------
 let sessionUserId = null;
 let availableModes = [];
 let currentMode = "colors";
 let sampledItems = [];
 let currentIndex = 0;
-let predictionsData = [];
+let currentItem = null;
 let currentRating = 0;
 let hoverRating = 0;
+let ratingsGivenCount = 0;
+let predictionsData = [];
 
-
-// DOM elements (comme avant)
+// -----------------------------------------------------------------------------
+// DOM elements
+// -----------------------------------------------------------------------------
 const ratingSection = document.getElementById("rating-section");
-const loadingSection = document.getElementById("loading-section");
 const predictionsSection = document.getElementById("predictions-section");
 const diagnosticsSection = document.getElementById("diagnostics-section");
 
-const modeSelect = document.getElementById("mode-select");
-
-const currentIndexSpan = document.getElementById("current-index");
 const colorSwatch = document.getElementById("color-swatch");
 const colorName = document.getElementById("color-name");
 const starContainer = document.getElementById("star-container");
+const ratingHint = document.getElementById("ratingHint");
+const skipButton = document.getElementById("skipButton");
+const getRecsButton = document.getElementById("getRecsButton");
 
+const modeTabs = document.getElementById("modeTabs");
 const sortSelect = document.getElementById("sort-order");
 const predictionsList = document.getElementById("predictions-list");
 const toDiagnosticsBtn = document.getElementById("to-diagnostics");
+const restartBtn = document.getElementById("restart");
 
 const leaderboardBody = document.getElementById("leaderboard-body");
 const bestModelSummary = document.getElementById("best-model-summary");
 const confusionBody = document.getElementById("confusion-body");
-const restartBtn = document.getElementById("restart");
 
-// ------------------------------------------------------------------
+const trainingOverlay = document.getElementById("trainingOverlay");
+const trainingStats = document.getElementById("trainingStats");
+const algoList = document.getElementById("algoList");
+const recsGrid = document.getElementById("recsGrid");
+const refreshRecsButton = document.getElementById("refreshRecsButton");
+const showModelsButton = document.getElementById("showModelsButton");
+const modelsPanel = document.getElementById("modelsPanel");
+const modelsTableBody = document.querySelector("#modelsTable tbody");
+
+// -----------------------------------------------------------------------------
 // Utils
-// ------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
 function showSection(section) {
-    [ratingSection, loadingSection, predictionsSection, diagnosticsSection].forEach(
-        (sec) => {
-            if (sec === section) {
-                sec.classList.add("active");
-                sec.classList.remove("hidden");
-            } else {
-                sec.classList.remove("active");
-                sec.classList.add("hidden");
-            }
+    [ratingSection, predictionsSection, diagnosticsSection].forEach((sec) => {
+        if (sec === section) {
+            sec.classList.add("active");
+            sec.classList.remove("hidden");
+        } else {
+            sec.classList.remove("active");
+            sec.classList.add("hidden");
         }
-    );
+    });
 }
 
 function getStoredUserId() {
@@ -60,24 +72,27 @@ function setStoredUserId(id) {
 
 function getImageUrl(item) {
     if (currentMode === "colors") return null;
-
-    // 1) On privilégie l’URL fournie par le backend (Wikipedia, TMDb, etc.)
-    if (item.image_url) {
-        return item.image_url;
-    }
-
-    // 2) Sinon on retombe sur un placeholder dynamique (Unsplash)
+    if (item.image_url) return item.image_url;
     const kw = item.image_keyword || item.name;
     return "https://source.unsplash.com/featured/?" + encodeURIComponent(kw);
 }
 
+function setButtonLoading(button, isLoading) {
+    button.disabled = isLoading;
+    if (isLoading) {
+        button.dataset.originalText = button.textContent;
+        button.textContent = "Chargement…";
+    } else if (button.dataset.originalText) {
+        button.textContent = button.dataset.originalText;
+        delete button.dataset.originalText;
+    }
+}
 
-// ------------------------------------------------------------------
+// -----------------------------------------------------------------------------
 // API calls
-// ------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
 async function initSession() {
-    let existing = getStoredUserId();
+    const existing = getStoredUserId();
     if (existing) {
         sessionUserId = existing;
         return;
@@ -90,22 +105,21 @@ async function initSession() {
 async function fetchModes() {
     const res = await fetch(`${API_BASE}/modes`);
     availableModes = await res.json();
-    modeSelect.innerHTML = "";
-    availableModes.forEach((m) => {
-        const opt = document.createElement("option");
-        opt.value = m.id;
-        opt.textContent = m.label;
-        modeSelect.appendChild(opt);
-    });
     currentMode = availableModes[0]?.id || "colors";
-    modeSelect.value = currentMode;
+    renderModeTabs();
 }
 
 async function fetchSampleItems() {
     const res = await fetch(`${API_BASE}/sample-items?mode=${currentMode}`);
     sampledItems = await res.json();
     currentIndex = 0;
+    currentItem = sampledItems[0];
+    currentRating = 0;
+    hoverRating = 0;
+    ratingsGivenCount = 0;
+    getRecsButton.disabled = true;
     renderCurrentItem();
+    showSection(ratingSection);
 }
 
 async function sendRating(itemId, ratingValue) {
@@ -123,98 +137,101 @@ async function sendRating(itemId, ratingValue) {
 }
 
 async function trainAndPredict() {
-    showSection(loadingSection);
-    await new Promise((resolve) => setTimeout(resolve, 600));
+    setButtonLoading(getRecsButton, true);
+    trainingOverlay.classList.remove("hidden");
+    trainingStats.textContent = "Préparation des données…";
+    algoList.innerHTML = "";
+
     const res = await fetch(
         `${API_BASE}/train-and-predict?user_id=${sessionUserId}&mode=${currentMode}`,
         { method: "POST" }
     );
     const data = await res.json();
+
     predictionsData = data.predictions;
     renderPredictions();
     renderDiagnostics(data);
+    renderModelsTable(data.leaderboard);
+
+    trainingOverlay.classList.add("hidden");
     showSection(predictionsSection);
+    setButtonLoading(getRecsButton, false);
 }
 
-// ------------------------------------------------------------------
-// Rendering
-// ------------------------------------------------------------------
+// -----------------------------------------------------------------------------
+// Rendering helpers
+// -----------------------------------------------------------------------------
+function renderModeTabs() {
+    modeTabs.innerHTML = "";
+    availableModes.forEach((mode) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "mode-tab" + (mode.id === currentMode ? " mode-tab-active" : "");
+        btn.textContent = mode.label;
+        btn.addEventListener("click", async () => {
+            if (mode.id === currentMode) return;
+            currentMode = mode.id;
+            renderModeTabs();
+            await fetchSampleItems();
+        });
+        modeTabs.appendChild(btn);
+    });
+}
 
 function renderStars() {
-    ratingStarsContainer.innerHTML = "";
+    starContainer.innerHTML = "";
+    const effectiveRating = hoverRating || currentRating;
 
     for (let value = 1; value <= 5; value++) {
         const star = document.createElement("button");
         star.type = "button";
-        star.className = "star";
+        star.className = "star" + (value <= effectiveRating ? " star-active" : "");
         star.dataset.value = value;
-        star.innerHTML = "★";
+        star.textContent = "★";
 
-        const effectiveRating = hoverRating || currentRating;
-        if (value <= effectiveRating) {
-            star.classList.add("star-active");   // jaune
-        }
-
-        // clic = on fixe la note
-        star.addEventListener("click", () => {
-            handleStarClick(value);
-        });
-
-        // survol = on met à jour hoverRating
+        star.addEventListener("click", () => handleStarClick(value));
         star.addEventListener("mouseenter", () => {
             hoverRating = value;
             renderStars();
         });
-
-        ratingStarsContainer.appendChild(star);
+    
+        starContainer.appendChild(star);
     }
 
-    // en sortant du conteneur, on enlève le hover
-    ratingStarsContainer.addEventListener("mouseleave", () => {
+    starContainer.addEventListener("mouseleave", () => {
         hoverRating = 0;
         renderStars();
     }, { once: true });
 }
 
-function handleStarClick(value) {
-    currentRating = value;
-    hoverRating = 0;
-    renderStars();
-    submitCurrentRating();
-}
-
-
 function renderCurrentItem() {
-    const item = sampledItems[currentIndex];
-    currentIndexSpan.textContent = currentIndex + 1;
+    currentItem = sampledItems[currentIndex];
+    if (!currentItem) return;
 
-    // Affichage différent selon le mode
     if (currentMode === "colors") {
-        colorSwatch.style.backgroundColor = item.hex || "#ffffff";
+        colorSwatch.style.backgroundColor = currentItem.hex || "#ffffff";
         colorSwatch.innerHTML = "";
     } else {
         colorSwatch.style.backgroundColor = "#ffffff";
         colorSwatch.innerHTML = "";
-
-        const url = getImageUrl(item);
-
+        const url = getImageUrl(currentItem);
         if (url) {
             const img = document.createElement("img");
             img.className = "item-image";
             img.src = url;
-            img.alt = item.name;
+            img.alt = currentItem.name;
             colorSwatch.appendChild(img);
         } else {
             const label = document.createElement("div");
             label.className = "item-label";
-            label.textContent = item.name;
+            label.textContent = currentItem.name;
             colorSwatch.appendChild(label);
         }
     }
 
-    let title = item.name;
-    if (item.subtitle) {
-        title += " · " + item.subtitle;
+    let title = currentItem.name;
+    if (currentItem.subtitle) {
+        title += " · " + currentItem.subtitle;
     }
     colorName.textContent = title;
 
@@ -222,40 +239,108 @@ function renderCurrentItem() {
 }
 
 function renderPredictions() {
+    recsGrid.innerHTML = "";
     predictionsList.innerHTML = "";
-    predictionsData.forEach((p) => {
-        const item = p; // déjà les champs nécessaires
 
+    predictionsData.forEach((item) => {
+        // Grid cards with inline rating
         const card = document.createElement("div");
-        card.className = "prediction-item";
+        card.className = "rec-card";
 
-        let thumb;
+        const imgUrl = getImageUrl(item);
+        if (imgUrl) {
+            const img = document.createElement("img");
+            img.src = imgUrl;
+            img.alt = item.name;
+            img.className = "item-image";
+            card.appendChild(img);
+        } else if (currentMode === "colors") {
+            const swatch = document.createElement("div");
+            swatch.className = "prediction-thumb";
+            swatch.style.backgroundColor = item.hex || "#ffffff";
+            card.appendChild(swatch);
+        }
+
+        const title = document.createElement("div");
+        title.className = "rec-title";
+        title.textContent = item.subtitle ? `${item.name} · ${item.subtitle}` : item.name;
+        card.appendChild(title);
+
+        const score = document.createElement("div");
+        score.className = "prediction-score";
+        score.textContent = item.predicted_rating.toFixed(2);
+        card.appendChild(score);
+
+        const starsContainer = document.createElement("div");
+        starsContainer.className = "rec-stars";
+        card.appendChild(starsContainer);
+        renderRecStars(starsContainer, item);
+
+        recsGrid.appendChild(card);
+
+        // List view
+        const row = document.createElement("div");
+        row.className = "prediction-item";
+
+        const thumb = document.createElement(currentMode === "colors" ? "div" : "img");
+        thumb.className = "prediction-thumb";
         if (currentMode === "colors") {
-            thumb = document.createElement("div");
-            thumb.className = "prediction-thumb";
             thumb.style.backgroundColor = item.hex || "#ffffff";
         } else {
-            thumb = document.createElement("img");
-            thumb.className = "prediction-thumb";
-            thumb.src = getImageUrl(item);
+            thumb.src = imgUrl;
             thumb.alt = item.name;
         }
+        row.appendChild(thumb);
 
         const nameDiv = document.createElement("div");
         nameDiv.className = "prediction-name";
-        nameDiv.textContent = item.subtitle
-            ? `${item.name} · ${item.subtitle}`
-            : item.name;
+        nameDiv.textContent = item.subtitle ? `${item.name} · ${item.subtitle}` : item.name;
+        row.appendChild(nameDiv);
 
         const scoreDiv = document.createElement("div");
         scoreDiv.className = "prediction-score";
         scoreDiv.textContent = item.predicted_rating.toFixed(2);
+        row.appendChild(scoreDiv);
 
-        card.appendChild(thumb);
-        card.appendChild(nameDiv);
-        card.appendChild(scoreDiv);
-        predictionsList.appendChild(card);
+        predictionsList.appendChild(row);
     });
+}
+
+function renderRecStars(container, item) {
+    container.innerHTML = "";
+    let hover = 0;
+    const effectiveBase = Math.round(item.predicted_rating);
+
+    for (let value = 1; value <= 5; value++) {
+        const star = document.createElement("button");
+        star.type = "button";
+        star.className = "star";
+        star.textContent = "★";
+
+        const effective = hover || item.user_rating || effectiveBase;
+        if (value <= effective) {
+            star.classList.add("star-active");
+        }
+
+        star.addEventListener("mouseenter", () => {
+            hover = value;
+            renderRecStars(container, item);
+        });
+
+        star.addEventListener("mouseleave", () => {
+            hover = 0;
+            renderRecStars(container, item);
+        });
+
+        star.addEventListener("click", async () => {
+            await sendRating(item.item_id, value);
+            item.user_rating = value;
+            refreshRecsButton.classList.remove("hidden");
+            renderRecStars(container, item);
+        });
+
+        container.appendChild(star);
+    }
 }
 
 function sortPredictions(order) {
@@ -287,9 +372,7 @@ function renderDiagnostics(data) {
         leaderboardBody.appendChild(tr);
     });
 
-    bestModelSummary.textContent = `Le meilleur modèle est ${data.best_model_name} avec un RMSE de ${data.best_model_rmse.toFixed(
-        3
-    )} pour le mode ${currentMode}.`;
+    bestModelSummary.textContent = `Le meilleur modèle est ${data.best_model_name} avec un RMSE de ${data.best_model_rmse.toFixed(3)} pour le mode ${currentMode}.`;
 
     confusionBody.innerHTML = "";
     data.confusion_matrix.forEach((row, i) => {
@@ -306,10 +389,57 @@ function renderDiagnostics(data) {
     });
 }
 
-// ------------------------------------------------------------------
-// Events
-// ------------------------------------------------------------------
+function renderModelsTable(leaderboard) {
+    modelsTableBody.innerHTML = "";
+    leaderboard.forEach((entry) => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+            <td>${entry.model_name}</td>
+            <td>${entry.rmse.toFixed(3)}</td>
+            <td>${entry.rmse.toFixed(3)}</td>
+            <td>${entry.rank}</td>
+        `;
+        modelsTableBody.appendChild(tr);
+    });
+}
 
+// -----------------------------------------------------------------------------
+// Navigation helpers
+// -----------------------------------------------------------------------------
+function goToNextItem() {
+    if (sampledItems.length === 0) return;
+    currentIndex = (currentIndex + 1) % sampledItems.length;
+    currentRating = 0;
+    hoverRating = 0;
+    renderCurrentItem();
+}
+
+function handleStarClick(value) {
+    currentRating = value;
+    hoverRating = 0;
+    renderStars();
+    submitCurrentRating();
+}
+
+async function submitCurrentRating() {
+    if (!currentRating || !currentItem) return;
+    await sendRating(currentItem.id, currentRating);
+    ratingsGivenCount += 1;
+    ratingHint.textContent = `Notes données : ${ratingsGivenCount} / 3`;
+    currentRating = 0;
+    hoverRating = 0;
+    renderStars();
+
+    if (ratingsGivenCount >= 3) {
+        getRecsButton.disabled = false;
+    }
+
+    goToNextItem();
+}
+
+// -----------------------------------------------------------------------------
+// Event bindings
+// -----------------------------------------------------------------------------
 sortSelect.addEventListener("change", (e) => {
     sortPredictions(e.target.value);
 });
@@ -320,19 +450,31 @@ toDiagnosticsBtn.addEventListener("click", () => {
 
 restartBtn.addEventListener("click", async () => {
     await fetchSampleItems();
-    showSection(ratingSection);
 });
 
-modeSelect.addEventListener("change", async (e) => {
-    currentMode = e.target.value;
-    await fetchSampleItems();
-    showSection(ratingSection);
+skipButton.addEventListener("click", () => {
+    currentRating = 0;
+    hoverRating = 0;
+    renderStars();
+    goToNextItem();
 });
 
-// ------------------------------------------------------------------
+getRecsButton.addEventListener("click", async () => {
+    await trainAndPredict();
+});
+
+refreshRecsButton.addEventListener("click", async () => {
+    await trainAndPredict();
+    refreshRecsButton.classList.add("hidden");
+});
+
+showModelsButton.addEventListener("click", () => {
+    modelsPanel.classList.toggle("hidden");
+});
+
+// -----------------------------------------------------------------------------
 // Init
-// ------------------------------------------------------------------
-
+// -----------------------------------------------------------------------------
 (async function initApp() {
     try {
         await initSession();
@@ -344,211 +486,3 @@ modeSelect.addEventListener("change", async (e) => {
         alert("Erreur lors du chargement de l'app : " + e.message);
     }
 })();
-
-const skipButton = document.getElementById("skipButton");
-skipButton.addEventListener("click", handleSkip);
-
-function handleSkip() {
-    // on ne compte pas comme une note donnée
-    currentRating = 0;
-    hoverRating = 0;
-    renderStars();
-    goToNextItem();      // tu as sûrement déjà une fonction qui passe à l’item suivant
-}
-
-const modeTabs = document.getElementById("modeTabs");
-
-async function fetchModes() {
-    const res = await fetch(`${API_BASE}/modes`);
-    availableModes = await res.json(); // {colors: "Couleurs", ...}
-    renderModeTabs();
-    // on peut démarrer une session pour currentMode ici
-    startNewSession();
-}
-
-function renderModeTabs() {
-    modeTabs.innerHTML = "";
-    Object.entries(availableModes).forEach(([value, label]) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "mode-tab" + (value === currentMode ? " mode-tab-active" : "");
-        btn.textContent = label;
-        btn.addEventListener("click", () => {
-            if (value === currentMode) return;
-            currentMode = value;
-            renderModeTabs();
-            startNewSession(); // nouvelle session API pour ce mode
-        });
-        modeTabs.appendChild(btn);
-    });
-}
-
-let ratingsGivenCount = 0;
-let hasRecommendations = false;
-let hasNewRatingsSinceLastRecommend = false;
-async function submitCurrentRating() {
-    if (!currentRating || !currentItem) return;
-
-    await sendRating(currentItem.id, currentRating);
-
-    ratingsGivenCount += 1;
-    currentRating = 0;
-    hoverRating = 0;
-    renderStars();
-
-    // activer le bouton après au moins 3 ratings
-    if (ratingsGivenCount >= 3) {
-        getRecsButton.disabled = false;
-    }
-
-    goToNextItem();
-}
-
-const getRecsButton = document.getElementById("getRecsButton");
-getRecsButton.addEventListener("click", handleGetRecs);
-
-async function handleGetRecs() {
-    showTrainingOverlay();  // animation "les modèles tournent"
-    const res = await fetch(`${API_BASE}/train-and-predict`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            session_id: sessionId,
-            mode: currentMode
-        }),
-    });
-    const data = await res.json();
-    hideTrainingOverlay();
-
-    trainingStats.textContent =
-        `${data.total_ratings} votes au total · ${data.total_users} utilisateurs`;
-
-    algoList.innerHTML = "";
-    data.models.forEach(m => {
-        const li = document.createElement("li");
-        li.textContent = `${m.name} – RMSE ${m.rmse.toFixed(2)} (${m.rank}e)`;
-        algoList.appendChild(li);
-    });
-
-    hideTrainingOverlay();
-    displayRecommendations(data); // ton affichage actuel + petites modifs pour les notes
-    hasRecommendations = true;
-    hasNewRatingsSinceLastRecommend = false;
-    refreshRecsButton.classList.add("hidden");
-}
-
-const trainingOverlay = document.getElementById("trainingOverlay");
-const trainingStats = document.getElementById("trainingStats");
-const algoList = document.getElementById("algoList");
-
-function showTrainingOverlay() {
-    trainingStats.textContent = "Préparation des données…";
-    algoList.innerHTML = "";
-    trainingOverlay.classList.remove("hidden");
-}
-
-function hideTrainingOverlay() {
-    trainingOverlay.classList.add("hidden");
-}
-
-const refreshRecsButton = document.getElementById("refreshRecsButton");
-
-function displayRecommendations(data) {
-    const items = data.predictions;
-    recsGrid.innerHTML = "";
-
-    items.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "rec-card";
-
-        // image
-        const imgUrl = getImageUrl(item);
-        if (imgUrl) {
-            const img = document.createElement("img");
-            img.src = imgUrl;
-            img.alt = item.name;
-            img.className = "item-image";
-            card.appendChild(img);
-        }
-
-        const title = document.createElement("div");
-        title.className = "rec-title";
-        title.textContent = item.subtitle ? `${item.name} · ${item.subtitle}` : item.name;
-        card.appendChild(title);
-
-        // bloc étoiles interactif pour cette carte
-        const starsContainer = document.createElement("div");
-        starsContainer.className = "rec-stars";
-        card.appendChild(starsContainer);
-
-        renderRecStars(starsContainer, item);
-
-        recsGrid.appendChild(card);
-    });
-}
-
-function renderRecStars(container, item) {
-    container.innerHTML = "";
-    const userRating = item.user_rating || 0; // si backend renvoie déjà une note existante pour cet utilisateur
-    let hover = 0;
-
-    for (let value = 1; value <= 5; value++) {
-        const star = document.createElement("button");
-        star.type = "button";
-        star.className = "star";
-        star.innerHTML = "★";
-
-        const effective = hover || userRating || Math.round(item.predicted_rating);
-        if (value <= effective) {
-            star.classList.add("star-active");
-        }
-
-        star.addEventListener("mouseenter", () => {
-            hover = value;
-            renderRecStars(container, item);
-        });
-
-        star.addEventListener("mouseleave", () => {
-            hover = 0;
-            renderRecStars(container, item);
-        });
-
-        star.addEventListener("click", async () => {
-            await sendRating(item.item_id, value);
-            item.user_rating = value;
-            hasNewRatingsSinceLastRecommend = true;
-            refreshRecsButton.classList.remove("hidden");
-            renderRecStars(container, item);
-        });
-
-        container.appendChild(star);
-    }
-}
-
-refreshRecsButton.addEventListener("click", async () => {
-    if (!hasNewRatingsSinceLastRecommend) return;
-    await handleGetRecs(); // on réutilise la même fonction que pour le premier calcul
-    hasNewRatingsSinceLastRecommend = false;
-    refreshRecsButton.classList.add("hidden");
-});
-
-async function sendRating(itemId, rating) {
-    await fetch(`${API_BASE}/rate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            session_id: sessionId,
-            mode: currentMode,
-            item_id: itemId,
-            rating,
-        }),
-    });
-}
-
-const showModelsButton = document.getElementById("showModelsButton");
-const modelsPanel = document.getElementById("modelsPanel");
-const modelsTableBody = document.querySelector("#modelsTable tbody");
-
-showModelsButton.addEventListener("click", () => {
-    modelsPanel.classList.toggle("hidden");
-});
