@@ -388,18 +388,19 @@ body {
     padding: 8px;
 }
 
-.leaderboard {
+
+.data-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 8px;
     margin-bottom: 8px;
+    font-size: 0.9rem;
 }
 
-.leaderboard th,
-.leaderboard td {
+.data-table th,
+.data-table td {
     border: 1px solid #e0e0e0;
     padding: 6px 8px;
-    font-size: 0.9rem;
     text-align: center;
 }
 
@@ -418,18 +419,12 @@ body {
 }
 
 .confusion-table {
-    border-collapse: collapse;
-    width: 100%;
-    margin-top: 8px;
-    margin-bottom: 8px;
     font-size: 0.85rem;
 }
 
 .confusion-table th,
 .confusion-table td {
-    border: 1px solid #ddd;
     padding: 4px 6px;
-    text-align: center;
 }
 
 .confusion-table tbody tr:nth-child(odd) {
