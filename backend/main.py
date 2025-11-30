@@ -1,7 +1,7 @@
 import os
 import random
 import uuid
-from typing import List, Dict, Optional
+from typing import Any, List, Dict, Optional
 from pathlib import Path
 import json
 
@@ -16,8 +16,21 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
 import pandas as pd
-from surprise import Dataset, Reader, SVD, KNNBaseline, NMF
-from surprise.model_selection import train_test_split
+from surprise import (
+    Dataset,
+    Reader,
+    SVD,
+    SVDpp,
+    KNNBasic,
+    KNNWithMeans,
+    KNNBaseline,
+    NMF,
+    SlopeOne,
+    BaselineOnly,
+    CoClustering,
+    NormalPredictor,
+)
+from surprise.model_selection import GridSearchCV, train_test_split
 from surprise import accuracy
 
 # -------------------------------------------------------------------
@@ -114,6 +127,8 @@ class PredictionOut(BaseModel):
 class LeaderboardEntry(BaseModel):
     model_name: str
     rmse: float
+    rmse_user: Optional[float]
+    best_params: Dict[str, Any]
     rank: int
 
 
@@ -122,6 +137,7 @@ class TrainResult(BaseModel):
     leaderboard: List[LeaderboardEntry]
     best_model_name: str
     best_model_rmse: float
+    best_model_params: Dict[str, Any]
     confusion_matrix: List[List[int]]  # 5x5
 
 
@@ -370,6 +386,53 @@ def compute_confusion_matrix(predictions) -> List[List[int]]:
     return matrix
 
 
+def run_grid_search(
+    name: str,
+    algo_cls,
+    param_grid: Dict[str, Any],
+    data,
+):
+    if not param_grid:
+        return {}, None
+
+    print(f"🔍 Grid search for {name}…")
+    gs = GridSearchCV(algo_cls, param_grid, measures=["rmse"], cv=3, joblib_verbose=0)
+    gs.fit(data)
+    best_params = gs.best_params["rmse"]
+    best_score = gs.best_score["rmse"]
+    print(f"✅ Best params {name}: {best_params} (cv RMSE={best_score:.4f})")
+    return best_params, best_score
+
+
+def evaluate_algorithm(
+    name: str,
+    algo_cls,
+    param_grid: Dict[str, Any],
+    data,
+    trainset,
+    testset,
+    user_id: str,
+):
+    best_params, best_cv_rmse = run_grid_search(name, algo_cls, param_grid, data)
+    algo = algo_cls(**best_params) if best_params else algo_cls()
+
+    algo.fit(trainset)
+    preds = algo.test(testset)
+    rmse_global = accuracy.rmse(preds, verbose=False)
+    user_preds = [p for p in preds if p.uid == user_id]
+    rmse_user = accuracy.rmse(user_preds, verbose=False) if user_preds else None
+
+    return {
+        "model_name": name,
+        "rmse": rmse_global,
+        "rmse_user": rmse_user,
+        "preds": preds,
+        "algo": algo,
+        "best_params": best_params if best_params is not None else {},
+        "best_cv_rmse": best_cv_rmse,
+    }
+
+
 # -------------------------------------------------------------------
 # FastAPI app
 # -------------------------------------------------------------------
@@ -453,28 +516,74 @@ def train_and_predict(user_id: str, mode: str):
         data = build_surprise_dataset(mode)
         trainset, testset = train_test_split(data, test_size=0.2, random_state=42)
 
-        algorithms = [
-            ("SVD", SVD()),
-            ("KNNBaseline", KNNBaseline()),
-            ("NMF", NMF()),
-        ]
+        search_spaces = {
+            "SVD": {"n_epochs": [15, 25], "lr_all": [0.002, 0.005], "reg_all": [0.02, 0.1]},
+            "SVDpp": {"n_epochs": [10, 15], "lr_all": [0.002, 0.004]},
+            "NMF": {"n_factors": [10, 30], "n_epochs": [20, 40], "reg_pu": [0.02, 0.06], "reg_qi": [0.02, 0.06]},
+            "KNNBasic": {"k": [20, 40], "sim_options": {"name": ["cosine", "msd"], "user_based": [True, False]}},
+            "KNNWithMeans": {"k": [20, 40], "sim_options": {"name": ["cosine", "pearson"], "user_based": [True, False]}},
+            "KNNBaseline": {
+                "k": [20, 40],
+                "bsl_options": {"method": ["als", "sgd"], "reg_i": [5, 10], "reg_u": [5, 10]},
+                "sim_options": {"name": ["pearson_baseline", "msd"], "user_based": [True, False]},
+            },
+            "SlopeOne": {},
+            "BaselineOnly": {"bsl_options": {"method": ["als", "sgd"], "reg_i": [5, 10], "reg_u": [5, 10]}},
+            "CoClustering": {"n_cltr_u": [3, 5], "n_cltr_i": [3, 5], "n_epochs": [20, 40]},
+            "NormalPredictor": {},
+        }
 
-        leaderboard: List[Dict] = []
+        algo_classes = {
+            "SVD": SVD,
+            "SVDpp": SVDpp,
+            "NMF": NMF,
+            "KNNBasic": KNNBasic,
+            "KNNWithMeans": KNNWithMeans,
+            "KNNBaseline": KNNBaseline,
+            "SlopeOne": SlopeOne,
+            "BaselineOnly": BaselineOnly,
+            "CoClustering": CoClustering,
+            "NormalPredictor": NormalPredictor,
+        }
+
+        algo_results: List[Dict[str, Any]] = []
+
+        for name, algo_cls in algo_classes.items():
+            result = evaluate_algorithm(
+                name=name,
+                algo_cls=algo_cls,
+                param_grid=search_spaces.get(name, {}),
+                data=data,
+                trainset=trainset,
+                testset=testset,
+                user_id=user_id,
+            )
+            algo_results.append(result)
+
+        algo_results.sort(
+            key=lambda x: (
+                x["rmse"],
+                x["rmse_user"] if x["rmse_user"] is not None else float("inf"),
+            )
+        )
+
+        leaderboard: List[Dict[str, Any]] = []
         algo_predictions = {}
-
-        for name, algo in algorithms:
-            algo.fit(trainset)
-            preds = algo.test(testset)
-            rmse = accuracy.rmse(preds, verbose=False)
-            leaderboard.append({"model_name": name, "rmse": rmse})
-            algo_predictions[name] = {"algo": algo, "preds": preds}
-
-        leaderboard.sort(key=lambda x: x["rmse"])
-        for idx, entry in enumerate(leaderboard, start=1):
-            entry["rank"] = idx
+        for idx, res in enumerate(algo_results, start=1):
+            leaderboard.append(
+                {
+                    "model_name": res["model_name"],
+                    "rmse": res["rmse"],
+                    "rmse_user": res["rmse_user"],
+                    "best_params": res["best_params"],
+                    "rank": idx,
+                }
+            )
+            algo_predictions[res["model_name"]] = {"algo": res["algo"], "preds": res["preds"]}
 
         best_model_name = leaderboard[0]["model_name"]
         best_model_rmse = leaderboard[0]["rmse"]
+        best_model_params = leaderboard[0]["best_params"]
         best_algo = algo_predictions[best_model_name]["algo"]
         best_preds_test = algo_predictions[best_model_name]["preds"]
         confusion_matrix = compute_confusion_matrix(best_preds_test)
@@ -513,6 +622,7 @@ def train_and_predict(user_id: str, mode: str):
             leaderboard=[LeaderboardEntry(**e) for e in leaderboard],
             best_model_name=best_model_name,
             best_model_rmse=best_model_rmse,
+            best_model_params=best_model_params,
             confusion_matrix=confusion_matrix,
         )
     finally:
