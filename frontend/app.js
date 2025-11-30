@@ -5,7 +5,7 @@ const API_BASE = "http://localhost:8000";
 // -----------------------------------------------------------------------------
 let sessionUserId = null;
 let availableModes = [];
-let currentMode = "colors";
+let currentMode = "politicians";
 let sampledItems = [];
 let currentIndex = 0;
 let currentItem = null;
@@ -13,6 +13,7 @@ let currentRating = 0;
 let hoverRating = 0;
 let ratingsGivenCount = 0;
 let predictionsData = [];
+let isModeMenuOpen = false;
 
 // -----------------------------------------------------------------------------
 // DOM elements
@@ -27,8 +28,13 @@ const starContainer = document.getElementById("star-container");
 const ratingHint = document.getElementById("ratingHint");
 const skipButton = document.getElementById("skipButton");
 const getRecsButton = document.getElementById("getRecsButton");
+const getRecsButtonLabel = document.querySelector("#getRecsButton .button-text");
+const getRecsButtonStatus = document.getElementById("ctaStatus");
 
+const modeSelector = document.getElementById("modeSelector");
+const modeToggleButton = document.getElementById("modeToggle");
 const modeTabs = document.getElementById("modeTabs");
+const modeTabsWrapper = document.getElementById("modeTabsWrapper");
 const modeSelect = document.getElementById("modeSelect");
 const sortSelect = document.getElementById("sort-order");
 const predictionsList = document.getElementById("predictions-list");
@@ -47,6 +53,9 @@ const refreshRecsButton = document.getElementById("refreshRecsButton");
 const showModelsButton = document.getElementById("showModelsButton");
 const modelsPanel = document.getElementById("modelsPanel");
 const modelsTableBody = document.querySelector("#modelsTable tbody");
+
+const CTA_LABEL = "Calculer mes affinités";
+const CTA_LOADING_LABEL = "Calcul des affinités…";
 
 // -----------------------------------------------------------------------------
 // Utils
@@ -79,14 +88,83 @@ function getImageUrl(item) {
 }
 
 function setButtonLoading(button, isLoading) {
-    button.disabled = isLoading;
+    setCtaDisabled(isLoading);
     if (isLoading) {
-        button.dataset.originalText = button.textContent;
-        button.textContent = "Chargement…";
-    } else if (button.dataset.originalText) {
-        button.textContent = button.dataset.originalText;
-        delete button.dataset.originalText;
+        button.setAttribute("aria-busy", "true");
+        updateCtaMessaging(CTA_LOADING_LABEL);
+    } else {
+        button.removeAttribute("aria-busy");
+        updateCtaMessaging(CTA_LABEL);
     }
+}
+
+function updateCtaMessaging(text) {
+    if (getRecsButtonLabel) {
+        getRecsButtonLabel.textContent = text;
+    }
+    if (getRecsButtonStatus) {
+        getRecsButtonStatus.textContent = text;
+    }
+    if (getRecsButton) {
+        getRecsButton.setAttribute("aria-label", text);
+    }
+}
+
+function setCtaDisabled(isDisabled) {
+    getRecsButton.disabled = isDisabled;
+    getRecsButton.setAttribute("aria-disabled", isDisabled ? "true" : "false");
+}
+
+function focusActiveModeTab() {
+    if (!modeTabs) return;
+    const active = modeTabs.querySelector(".mode-tab-active") || modeTabs.querySelector(".mode-tab");
+    if (active) {
+        active.focus();
+    }
+}
+
+function setModeMenuState(open) {
+    if (!modeSelector || !modeToggleButton) return;
+    isModeMenuOpen = open;
+    modeSelector.classList.toggle("menu-open", open);
+    modeToggleButton.setAttribute("aria-expanded", String(open));
+    if (open) {
+        requestAnimationFrame(focusActiveModeTab);
+    }
+}
+
+function toggleModeMenu(forcedState) {
+    const nextState = typeof forcedState === "boolean" ? forcedState : !isModeMenuOpen;
+    setModeMenuState(nextState);
+}
+
+function closeModeMenu() {
+    setModeMenuState(false);
+}
+
+function handleModeTabKeydown(event) {
+    if (!modeTabs) return;
+    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
+    if (!keys.includes(event.key)) return;
+
+    const tabs = Array.from(modeTabs.querySelectorAll(".mode-tab"));
+    const currentIndex = tabs.indexOf(event.currentTarget);
+    if (currentIndex === -1) return;
+
+    event.preventDefault();
+
+    if (event.key === "Home") {
+        tabs[0]?.focus();
+        return;
+    }
+    if (event.key === "End") {
+        tabs[tabs.length - 1]?.focus();
+        return;
+    }
+
+    const delta = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
+    const nextIndex = (currentIndex + delta + tabs.length) % tabs.length;
+    tabs[nextIndex]?.focus();
 }
 
 // -----------------------------------------------------------------------------
@@ -106,7 +184,7 @@ async function initSession() {
 async function fetchModes() {
     const res = await fetch(`${API_BASE}/modes`);
     availableModes = await res.json();
-    currentMode = availableModes[0]?.id || "colors";
+    currentMode = availableModes[0]?.id || "politicians";
     renderModeSelector();
 }
 
@@ -118,7 +196,8 @@ async function fetchSampleItems() {
     currentRating = 0;
     hoverRating = 0;
     ratingsGivenCount = 0;
-    getRecsButton.disabled = true;
+    setCtaDisabled(true);
+    updateCtaMessaging(CTA_LABEL);
     renderCurrentItem();
     showSection(ratingSection);
 }
@@ -171,11 +250,16 @@ function renderModeSelector() {
             btn.className = "mode-tab" + (mode.id === currentMode ? " mode-tab-active" : "");
             btn.textContent = mode.label;
             btn.addEventListener("click", async () => {
-                if (mode.id === currentMode) return;
+                if (mode.id === currentMode) {
+                    closeModeMenu();
+                    return;
+                }
                 currentMode = mode.id;
                 renderModeSelector();
                 await fetchSampleItems();
+                closeModeMenu();
             });
+            btn.addEventListener("keydown", handleModeTabKeydown);
             modeTabs.appendChild(btn);
         });
     }
@@ -453,7 +537,7 @@ async function submitCurrentRating() {
     renderStars();
 
     if (ratingsGivenCount >= 3) {
-        getRecsButton.disabled = false;
+        setCtaDisabled(false);
     }
 
     goToNextItem();
@@ -462,6 +546,25 @@ async function submitCurrentRating() {
 // -----------------------------------------------------------------------------
 // Event bindings
 // -----------------------------------------------------------------------------
+if (modeToggleButton) {
+    setModeMenuState(false);
+    modeToggleButton.addEventListener("click", () => toggleModeMenu());
+}
+
+document.addEventListener("click", (event) => {
+    if (!isModeMenuOpen || !modeSelector) return;
+    if (!modeSelector.contains(event.target)) {
+        closeModeMenu();
+    }
+});
+
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && isModeMenuOpen) {
+        closeModeMenu();
+        modeToggleButton?.focus();
+    }
+});
+
 sortSelect.addEventListener("change", (e) => {
     sortPredictions(e.target.value);
 });
