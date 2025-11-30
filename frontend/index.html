@@ -14,16 +14,14 @@
             <h1>Machine Learning Recommendation app</h1>
         </header>
 
-
         <div class="mode-selector">
-            <label for="mode-select">Mode :</label>
+            <span class="mode-label">Mode :</span>
             <div class="mode-tabs" id="modeTabs"></div>
-
         </div>
 
         <!-- STEP 1: rating 3 colors -->
         <section id="rating-section" class="card active">
-            <button id="getRecsButton" class="primary-btn" disabled>
+            <button id="getRecsButton" class="btn-primary" disabled>
                 Obtenir mes recommandations
             </button>
 
@@ -37,7 +35,7 @@
 
             <div class="rating-actions">
                 <div id="ratingHint" class="hint">Clique sur une étoile entre 1 et 5.</div>
-                <button id="skipButton" class="secondary-btn">Passer</button>
+                <button id="skipButton" class="btn-secondary">Passer</button>
             </div>
 
         </section>
@@ -60,12 +58,12 @@
         <!-- STEP 3: predictions -->
         <section id="predictions-section" class="card hidden">
 
-            <button id="showModelsButton" class="secondary-btn">
+            <button id="showModelsButton" class="btn-secondary">
                 Voir les modèles de ML
             </button>
 
 
-            <button id="refreshRecsButton" class="primary-outline-btn hidden">
+            <button id="refreshRecsButton" class="btn-primary-outline hidden">
                 Actualiser les recommandations
             </button>
             <div id="recsGrid" class="recs-grid"></div>
