@@ -4,7 +4,7 @@
 """
 Script pour construire automatiquement les datasets :
 - 50 personnalités politiques françaises (Wikidata)
-- 100 destinations de vacances (Wikipedia: List of cities by international visitors)
+- 1000 destinations de vacances, avec un panel varié (Wikidata)
 - 100 films (TMDb API)
 - 100 musiques (MusicBrainz API)
 
@@ -15,10 +15,9 @@ import os
 import json
 import time
 from pathlib import Path
-from typing import List, Dict
+from typing import Dict, Iterable, List, Optional, Tuple
 
 import requests
-import pandas as pd
 
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
@@ -27,72 +26,6 @@ TMDB_API_KEY = os.getenv("TMDB_API_KEY")  # à définir dans ton env
 MUSICBRAINZ_USER_AGENT = (
     "color-reco-app/1.0 (contact: ton_email@example.com)"
 )  # à personnaliser
-
-FRENCH_DESTINATIONS = [
-    "Paris", "Nice", "Lyon", "Marseille", "Bordeaux",
-    "Toulouse", "Strasbourg", "Lille", "Nantes", "Montpellier",
-    "Rennes", "Reims", "Dijon", "Grenoble", "Annecy",
-    "Aix-en-Provence", "Avignon", "Arles", "Nîmes", "Cannes",
-    "Antibes", "Saint-Tropez", "Menton", "Biarritz", "Bayonne",
-    "Saint-Jean-de-Luz", "La Rochelle", "Île de Ré", "Mont Saint-Michel", "Saint-Malo",
-    "Étretat", "Deauville", "Honfleur", "Chamonix", "Megève",
-    "Courchevel", "Val-d'Isère", "Les Arcs", "Carcassonne", "Colmar",
-    "Riquewihr", "Eguisheim", "Amiens", "Rouen", "Chartres",
-    "Versailles", "Clermont-Ferrand", "Perpignan", "Ajaccio", "Bastia",
-]
-
-INTERNATIONAL_DESTINATIONS = [
-    ("London", "United Kingdom"),
-    ("New York City", "United States"),
-    ("Tokyo", "Japan"),
-    ("Bangkok", "Thailand"),
-    ("Barcelona", "Spain"),
-    ("Rome", "Italy"),
-    ("Florence", "Italy"),
-    ("Venice", "Italy"),
-    ("Amsterdam", "Netherlands"),
-    ("Berlin", "Germany"),
-    ("Prague", "Czech Republic"),
-    ("Vienna", "Austria"),
-    ("Budapest", "Hungary"),
-    ("Lisbon", "Portugal"),
-    ("Madrid", "Spain"),
-    ("Seville", "Spain"),
-    ("Marrakech", "Morocco"),
-    ("Dubai", "United Arab Emirates"),
-    ("Istanbul", "Turkey"),
-    ("Singapore", "Singapore"),
-    ("Hong Kong", "China"),
-    ("Macau", "China"),
-    ("Sydney", "Australia"),
-    ("Melbourne", "Australia"),
-    ("Auckland", "New Zealand"),
-    ("Cape Town", "South Africa"),
-    ("Rio de Janeiro", "Brazil"),
-    ("Buenos Aires", "Argentina"),
-    ("Mexico City", "Mexico"),
-    ("Los Angeles", "United States"),
-    ("San Francisco", "United States"),
-    ("Chicago", "United States"),
-    ("Miami", "United States"),
-    ("Vancouver", "Canada"),
-    ("Toronto", "Canada"),
-    ("Montreal", "Canada"),
-    ("Bali", "Indonesia"),
-    ("Phuket", "Thailand"),
-    ("Chiang Mai", "Thailand"),
-    ("Seoul", "South Korea"),
-    ("Busan", "South Korea"),
-    ("Hanoi", "Vietnam"),
-    ("Ho Chi Minh City", "Vietnam"),
-    ("Siem Reap", "Cambodia"),
-    ("Cairo", "Egypt"),
-    ("Petra", "Jordan"),
-    ("Santorini", "Greece"),
-    ("Mykonos", "Greece"),
-    ("Reykjavik", "Iceland"),
-    ("Cancún", "Mexico"),
-]
 
 def fetch_wikipedia_image(title: str, lang: str = "en", thumb_size: int = 600) -> str | None:
     """
@@ -145,128 +78,314 @@ def fetch_wikipedia_image(title: str, lang: str = "en", thumb_size: int = 600) -
 # --------------------------------------------------------------------
 
 
-def fetch_french_politicians(limit: int = 50) -> List[Dict]:
-    """
-    Politiciens français actuels (vivants, nés après 1950),
-    sans doublons par personne.
-    """
+def _sparql_request(query: str) -> Dict:
+    headers = {
+        "Accept": "application/sparql-results+json",
+        "User-Agent": MUSICBRAINZ_USER_AGENT,
+    }
     endpoint = "https://query.wikidata.org/sparql"
+    r = requests.get(endpoint, params={"query": query}, headers=headers, timeout=60)
+    r.raise_for_status()
+    return r.json()
+
+
+def _extract_id(entity_uri: str) -> str:
+    return entity_uri.rsplit("/", 1)[-1]
+
+
+def _row_value(row: Dict, key: str) -> Optional[str]:
+    return row.get(key, {}).get("value")
+
+
+def fetch_current_french_parties(limit: int = 12) -> List[Tuple[str, str]]:
+    """Retourne les partis politiques français actuels classés par popularité (sitelinks)."""
 
     sparql = f"""
     PREFIX wd: <http://www.wikidata.org/entity/>
     PREFIX wdt: <http://www.wikidata.org/prop/direct/>
-    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
 
-    SELECT ?person ?personLabel ?partyLabel ?image ?dob
-    WHERE {{
-      ?person wdt:P31 wd:Q5 ;          # human
-              wdt:P106 wd:Q82955 ;     # politician
-              wdt:P27 wd:Q142 ;        # French
-              wdt:P569 ?dob .          # date of birth
+    SELECT ?party ?partyLabel ?sitelinks WHERE {{
+      ?party wdt:P31 wd:Q7278 ;      # parti politique
+             wdt:P17 wd:Q142 .      # pays : France
 
-      FILTER(?dob >= "1950-01-01T00:00:00Z"^^xsd:dateTime)
-      FILTER(NOT EXISTS {{ ?person wdt:P570 ?dod . }})  # still alive
-
-      OPTIONAL {{ ?person wdt:P102 ?party . }}    # political party
-      OPTIONAL {{ ?person wdt:P18 ?image . }}     # image
+      FILTER(NOT EXISTS {{ ?party wdt:P576 ?dissolved . }})
+      ?party wikibase:sitelinks ?sitelinks .
 
       SERVICE wikibase:label {{
         bd:serviceParam wikibase:language "fr,en" .
       }}
     }}
+    ORDER BY DESC(?sitelinks)
+    LIMIT {limit}
     """
 
-    headers = {
-        "Accept": "application/sparql-results+json",
-        "User-Agent": MUSICBRAINZ_USER_AGENT,
+    data = _sparql_request(sparql)
+    parties: List[Tuple[str, str]] = []
+    for row in data.get("results", {}).get("bindings", []):
+        uri = _row_value(row, "party")
+        label = _row_value(row, "partyLabel")
+        if not uri or not label:
+            continue
+        parties.append((_extract_id(uri), label))
+    return parties
+
+
+def fetch_party_members(party_id: str, party_label: str, limit: int = 8) -> List[Dict]:
+    """Récupère des personnalités françaises liées à un parti donné."""
+
+    sparql = f"""
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+    SELECT ?person ?personLabel ?image ?dob ?sitelinks WHERE {{
+      VALUES ?party {{ wd:{party_id} }}
+
+      ?person wdt:P31 wd:Q5 ;
+              wdt:P106 wd:Q82955 ;
+              wdt:P27 wd:Q142 ;
+              wdt:P102 ?party ;
+              wdt:P569 ?dob .
+
+      FILTER(?dob >= "1950-01-01T00:00:00Z"^^xsd:dateTime)
+      FILTER(NOT EXISTS {{ ?person wdt:P570 ?dod . }})
+
+      OPTIONAL {{ ?person wdt:P18 ?image . }}
+      ?person wikibase:sitelinks ?sitelinks .
+
+      SERVICE wikibase:label {{
+        bd:serviceParam wikibase:language "fr,en" .
+      }}
+    }}
+    ORDER BY DESC(?sitelinks)
+    LIMIT {limit}
+    """
+
+    data = _sparql_request(sparql)
+    members: List[Dict] = []
+    for row in data.get("results", {}).get("bindings", []):
+        name = _row_value(row, "personLabel")
+        image_url = _row_value(row, "image")
+        if not name:
+            continue
+        members.append(
+            {
+                "name": name,
+                "subtitle": party_label,
+                "image_url": image_url,
+                "image_keyword": name + " portrait",
+            }
+        )
+    return members
+
+
+def fetch_french_politicians(limit: int = 50) -> List[Dict]:
+    """
+    Politiciens français actuels, issus des principaux partis politiques français,
+    avec un focus sur les personnalités les plus médiatisées (sitelinks).
+    """
+
+    parties = fetch_current_french_parties()
+    aggregated: Dict[str, Dict] = {}  # name -> entry
+
+    for party_id, party_label in parties:
+        for member in fetch_party_members(party_id, party_label, limit=8):
+            name = member["name"]
+            if name in aggregated:
+                # privilégier une entrée avec image ou sous-titre renseigné
+                if not aggregated[name].get("image_url") and member.get("image_url"):
+                    aggregated[name] = member
+                continue
+            aggregated[name] = member
+        if len(aggregated) >= limit:
+            break
+
+    # S'assurer qu'on a au plus `limit` entrées
+    return list(aggregated.values())[:limit]
+
+
+
+
+# --------------------------------------------------------------------
+# 2. Destinations de vacances (Wikidata)
+# --------------------------------------------------------------------
+
+
+def _normalize_destination(
+    name: str,
+    country: str,
+    subtitle: Optional[str],
+    image_url: Optional[str],
+    is_french: bool,
+) -> Dict:
+    return {
+        "name": name,
+        "subtitle": subtitle or country,
+        "country": country,
+        "image_url": image_url,
+        "image_keyword": f"{name} {country} travel",
+        "is_french": is_french,
     }
 
-    r = requests.get(endpoint, params={"query": sparql}, headers=headers, timeout=30)
-    r.raise_for_status()
-    data = r.json()
 
-    # On dédoublonne côté Python : 1 entrée par name
-    by_name = {}  # name -> dict
-
-    for row in data["results"]["bindings"]:
-        name = row["personLabel"]["value"]
-        party = row.get("partyLabel", {}).get("value")
-        image_url = row.get("image", {}).get("value")
-
-        # si on a déjà ce nom, on ne remplace pas (ou on pourrait fusionner)
-        if name in by_name:
-            # option : si on n'avait pas de parti avant et qu'on en a un maintenant
-            if not by_name[name]["subtitle"] and party:
-                by_name[name]["subtitle"] = party
+def _collect_destinations_from_rows(
+    rows: Iterable[Dict],
+    default_country: str,
+    subtitle_key: str = "regionLabel",
+    country_key: str = "countryLabel",
+) -> List[Dict]:
+    destinations: List[Dict] = []
+    for row in rows:
+        name = _row_value(row, "placeLabel") or _row_value(row, "cityLabel") or _row_value(row, "destinationLabel")
+        if not name:
             continue
-
-        by_name[name] = {
-            "name": name,
-            "subtitle": party or "",
-            "image_url": image_url,
-            "image_keyword": name + " portrait",
-        }
-
-    results = list(by_name.values())
-    # au cas où on aurait plus de 50, on tronque
-    return results[:limit]
-
-
-
-
-# --------------------------------------------------------------------
-# 2. Destinations de vacances (Wikipedia top 100 cities by visitors)
-# --------------------------------------------------------------------
-
-
-def fetch_top_destinations(limit: int = 100) -> List[Dict]:
-    """
-    Construit un dataset de 100 destinations de vacances :
-    - 50 destinations françaises (toujours le cas)
-    - 50 destinations internationales
-    avec une image Wikipédia quand elle est disponible.
-
-    Le `limit` est gardé pour compatibilité mais on cible 100 entrées :
-    50 FR + 50 non-FR.
-    """
-    results: List[Dict] = []
-
-    # 1) Destinations françaises (fr.wikipedia.org)
-    for city in FRENCH_DESTINATIONS:
-        image_url = fetch_wikipedia_image(city, lang="fr")
-        results.append(
-            {
-                "name": city,
-                "subtitle": "France",
-                "country": "France",
-                "image_url": image_url,
-                # utile si ton front veut faire des requêtes Unsplash/Autre
-                "image_keyword": f"{city} France travel",
-                "is_french": True,
-            }
+        image_url = _row_value(row, "image")
+        country = _row_value(row, country_key) or default_country
+        subtitle = _row_value(row, subtitle_key)
+        destinations.append(
+            _normalize_destination(
+                name=name,
+                country=country,
+                subtitle=subtitle,
+                image_url=image_url,
+                is_french=country.lower() == "france",
+            )
         )
-        time.sleep(0.1)  # on évite de spammer l'API
+    return destinations
 
-    # 2) Destinations internationales (en.wikipedia.org)
-    for city, country in INTERNATIONAL_DESTINATIONS:
-        image_url = fetch_wikipedia_image(city, lang="en")
-        results.append(
-            {
-                "name": city,
-                "subtitle": country,
-                "country": country,
-                "image_url": image_url,
-                "image_keyword": f"{city} {country} travel",
-                "is_french": False,
-            }
-        )
-        time.sleep(0.1)
 
-    # On tronque au cas où, mais normalement on a 100 pile.
-    results = results[:limit]
+def _query_destinations(query: str) -> List[Dict]:
+    data = _sparql_request(query)
+    return data.get("results", {}).get("bindings", [])
 
-    print(f"Construit {len(results)} destinations (dont {sum(1 for r in results if r['is_french'])} françaises).")
-    return results
+
+def fetch_diverse_destinations(target_count: int = 1000) -> List[Dict]:
+    """
+    Construit un large panel (~1000) de destinations :
+    - Plus beaux villages de France (association officielle)
+    - Grandes villes touristiques françaises
+    - Destinations dans les pays limitrophes
+    - Destinations internationales populaires
+    """
+
+    destinations: List[Dict] = []
+    seen: set[Tuple[str, str]] = set()
+
+    # 1) Plus Beaux Villages de France
+    villages_query = """
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+
+    SELECT ?place ?placeLabel ?image ?regionLabel WHERE {
+      ?place wdt:P463 wd:Q1513319 ;      # membre de l'association
+             wdt:P17 wd:Q142 .           # France
+      OPTIONAL { ?place wdt:P131 ?region . }
+      OPTIONAL { ?place wdt:P18 ?image . }
+      SERVICE wikibase:label {
+        bd:serviceParam wikibase:language "fr,en" .
+      }
+    }
+    """
+    villages_rows = _query_destinations(villages_query)
+    for item in _collect_destinations_from_rows(villages_rows, default_country="France"):
+        key = (item["name"], item["country"])
+        if key in seen:
+            continue
+        seen.add(key)
+        destinations.append(item)
+
+    # 2) Grandes villes françaises (population > 50k)
+    french_cities_query = """
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+
+    SELECT ?city ?cityLabel ?image ?regionLabel WHERE {
+      ?city wdt:P31/wdt:P279* wd:Q484170 ;  # lieu habité
+            wdt:P17 wd:Q142 ;               # France
+            wdt:P1082 ?population .
+      FILTER(?population >= 50000)
+      OPTIONAL { ?city wdt:P131 ?region . }
+      OPTIONAL { ?city wdt:P18 ?image . }
+      SERVICE wikibase:label {
+        bd:serviceParam wikibase:language "fr,en" .
+      }
+    }
+    ORDER BY DESC(?population)
+    LIMIT 300
+    """
+    french_rows = _query_destinations(french_cities_query)
+    for item in _collect_destinations_from_rows(french_rows, default_country="France", subtitle_key="regionLabel", country_key="countryLabel"):
+        key = (item["name"], item["country"])
+        if key in seen:
+            continue
+        seen.add(key)
+        destinations.append(item)
+
+    # 3) Pays limitrophes (villes > 100k)
+    neighboring_query = """
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+
+    SELECT ?city ?cityLabel ?image ?countryLabel WHERE {
+      VALUES ?country { wd:Q31 wd:Q40 wd:Q39 wd:Q38 wd:Q142 wd:Q183 wd:Q145 wd:Q29 wd:Q228 wd:Q23666 }
+      ?city wdt:P31/wdt:P279* wd:Q515 ;
+            wdt:P17 ?country ;
+            wdt:P1082 ?population .
+      FILTER(?population >= 100000)
+      OPTIONAL { ?city wdt:P18 ?image . }
+      SERVICE wikibase:label {
+        bd:serviceParam wikibase:language "fr,en" .
+      }
+    }
+    ORDER BY DESC(?population)
+    LIMIT 300
+    """
+    neighboring_rows = _query_destinations(neighboring_query)
+    for item in _collect_destinations_from_rows(neighboring_rows, default_country="", subtitle_key="countryLabel", country_key="countryLabel"):
+        key = (item["name"], item["country"])
+        if key in seen:
+            continue
+        seen.add(key)
+        destinations.append(item)
+
+    # 4) Destinations internationales populaires (par nombre de sitelinks)
+    global_query = """
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+
+    SELECT ?destination ?destinationLabel ?countryLabel ?image ?sitelinks WHERE {
+      ?destination wdt:P31/wdt:P279* wd:Q515 ;
+                   wdt:P17 ?country ;
+                   wikibase:sitelinks ?sitelinks .
+      FILTER(?sitelinks > 30)
+      OPTIONAL { ?destination wdt:P18 ?image . }
+      SERVICE wikibase:label {
+        bd:serviceParam wikibase:language "fr,en" .
+      }
+    }
+    ORDER BY DESC(?sitelinks)
+    LIMIT 500
+    """
+    global_rows = _query_destinations(global_query)
+    for item in _collect_destinations_from_rows(global_rows, default_country=""):
+        key = (item["name"], item["country"])
+        if key in seen:
+            continue
+        seen.add(key)
+        destinations.append(item)
+        if len(destinations) >= target_count:
+            break
+
+    print(
+        f"Construit {len(destinations)} destinations (dont {sum(1 for r in destinations if r['is_french'])} françaises)."
+    )
+    return destinations[:target_count]
 
 
 
@@ -427,8 +546,8 @@ def main():
     generate_if_missing(
         "Destinations de vacances",
         "destinations.json",
-        fetch_top_destinations,
-        limit=100,
+        fetch_diverse_destinations,
+        target_count=1000,
     )
 
     generate_if_missing(
