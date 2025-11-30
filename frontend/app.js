@@ -11,7 +11,7 @@ let currentIndex = 0;
 let currentItem = null;
 let currentRating = 0;
 let hoverRating = 0;
-let ratingsGivenCount = 0;
+let ratingCountsByMode = {};
 let predictionsData = [];
 
 // -----------------------------------------------------------------------------
@@ -71,6 +71,39 @@ function setStoredUserId(id) {
     localStorage.setItem("color_recommender_user_id", id);
 }
 
+function getStoredRatingCounts() {
+    try {
+        return JSON.parse(localStorage.getItem("color_recommender_rating_counts") || "{}");
+    } catch (e) {
+        console.warn("Failed to parse rating counts", e);
+        return {};
+    }
+}
+
+function loadRatingCountsForUser(userId) {
+    const store = getStoredRatingCounts();
+    return store[userId] || {};
+}
+
+function persistRatingCounts() {
+    if (!sessionUserId) return;
+    const store = getStoredRatingCounts();
+    store[sessionUserId] = ratingCountsByMode;
+    localStorage.setItem("color_recommender_rating_counts", JSON.stringify(store));
+}
+
+function getModeRatingCount(mode = currentMode) {
+    return ratingCountsByMode[mode] || 0;
+}
+
+function updateRatingHint() {
+    ratingHint.textContent = `Notes données : ${getModeRatingCount()} / 3`;
+}
+
+function updateGetRecsState() {
+    getRecsButton.disabled = getModeRatingCount() < 3;
+}
+
 function getImageUrl(item) {
     if (currentMode === "colors") return null;
     if (item.image_url) return item.image_url;
@@ -96,11 +129,13 @@ async function initSession() {
     const existing = getStoredUserId();
     if (existing) {
         sessionUserId = existing;
+        ratingCountsByMode = loadRatingCountsForUser(sessionUserId);
         return;
     }
     const res = await fetch(`${API_BASE}/new-session`);
     sessionUserId = await res.json();
     setStoredUserId(sessionUserId);
+    ratingCountsByMode = {};
 }
 
 async function fetchModes() {
@@ -110,15 +145,30 @@ async function fetchModes() {
     renderModeSelector();
 }
 
+async function fetchRatingCounts() {
+    if (!sessionUserId) return;
+    try {
+        const res = await fetch(`${API_BASE}/rating-counts?user_id=${sessionUserId}`);
+        if (res.ok) {
+            const serverCounts = await res.json();
+            ratingCountsByMode = { ...ratingCountsByMode, ...serverCounts };
+            persistRatingCounts();
+        }
+    } catch (e) {
+        console.warn("Failed to fetch rating counts", e);
+    }
+}
+
 async function fetchSampleItems() {
+    await fetchRatingCounts();
     const res = await fetch(`${API_BASE}/sample-items?mode=${currentMode}`);
     sampledItems = await res.json();
     currentIndex = 0;
     currentItem = sampledItems[0];
     currentRating = 0;
     hoverRating = 0;
-    ratingsGivenCount = 0;
-    getRecsButton.disabled = true;
+    updateRatingHint();
+    updateGetRecsState();
     renderCurrentItem();
     showSection(ratingSection);
 }
@@ -446,15 +496,14 @@ function handleStarClick(value) {
 async function submitCurrentRating() {
     if (!currentRating || !currentItem) return;
     await sendRating(currentItem.id, currentRating);
-    ratingsGivenCount += 1;
-    ratingHint.textContent = `Notes données : ${ratingsGivenCount} / 3`;
+    ratingCountsByMode[currentMode] = getModeRatingCount() + 1;
+    persistRatingCounts();
+    updateRatingHint();
     currentRating = 0;
     hoverRating = 0;
     renderStars();
 
-    if (ratingsGivenCount >= 3) {
-        getRecsButton.disabled = false;
-    }
+    updateGetRecsState();
 
     goToNextItem();
 }
