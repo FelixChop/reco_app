@@ -29,6 +29,7 @@ const skipButton = document.getElementById("skipButton");
 const getRecsButton = document.getElementById("getRecsButton");
 
 const modeTabs = document.getElementById("modeTabs");
+const modeSelect = document.getElementById("modeSelect");
 const sortSelect = document.getElementById("sort-order");
 const predictionsList = document.getElementById("predictions-list");
 const toDiagnosticsBtn = document.getElementById("to-diagnostics");
@@ -106,7 +107,7 @@ async function fetchModes() {
     const res = await fetch(`${API_BASE}/modes`);
     availableModes = await res.json();
     currentMode = availableModes[0]?.id || "colors";
-    renderModeTabs();
+    renderModeSelector();
 }
 
 async function fetchSampleItems() {
@@ -161,21 +162,42 @@ async function trainAndPredict() {
 // -----------------------------------------------------------------------------
 // Rendering helpers
 // -----------------------------------------------------------------------------
-function renderModeTabs() {
-    modeTabs.innerHTML = "";
-    availableModes.forEach((mode) => {
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "mode-tab" + (mode.id === currentMode ? " mode-tab-active" : "");
-        btn.textContent = mode.label;
-        btn.addEventListener("click", async () => {
-            if (mode.id === currentMode) return;
-            currentMode = mode.id;
-            renderModeTabs();
-            await fetchSampleItems();
+function renderModeSelector() {
+    if (modeTabs) {
+        modeTabs.innerHTML = "";
+        availableModes.forEach((mode) => {
+            const btn = document.createElement("button");
+            btn.type = "button";
+            btn.className = "mode-tab" + (mode.id === currentMode ? " mode-tab-active" : "");
+            btn.textContent = mode.label;
+            btn.addEventListener("click", async () => {
+                if (mode.id === currentMode) return;
+                currentMode = mode.id;
+                renderModeSelector();
+                await fetchSampleItems();
+            });
+            modeTabs.appendChild(btn);
         });
-        modeTabs.appendChild(btn);
-    });
+    }
+
+    if (modeSelect) {
+        modeSelect.innerHTML = "";
+        availableModes.forEach((mode) => {
+            const option = document.createElement("option");
+            option.value = mode.id;
+            option.textContent = mode.label;
+            modeSelect.appendChild(option);
+        });
+
+        modeSelect.value = currentMode;
+        modeSelect.onchange = async (event) => {
+            const newMode = event.target.value;
+            if (newMode === currentMode) return;
+            currentMode = newMode;
+            renderModeSelector();
+            await fetchSampleItems();
+        };
+    }
 }
 
 function renderStars() {
