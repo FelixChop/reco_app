@@ -44,9 +44,6 @@ const trainingStats = document.getElementById("trainingStats");
 const algoList = document.getElementById("algoList");
 const recsGrid = document.getElementById("recsGrid");
 const refreshRecsButton = document.getElementById("refreshRecsButton");
-const showModelsButton = document.getElementById("showModelsButton");
-const modelsPanel = document.getElementById("modelsPanel");
-const modelsTableBody = document.querySelector("#modelsTable tbody");
 
 // -----------------------------------------------------------------------------
 // Utils
@@ -89,6 +86,16 @@ function setButtonLoading(button, isLoading) {
     }
 }
 
+function updateRatingHint() {
+    if (!ratingHint) return;
+
+    if (ratingsGivenCount > 0) {
+        ratingHint.textContent = `Notes données : ${ratingsGivenCount} / 3`;
+    } else {
+        ratingHint.textContent = "Clique sur une étoile entre 1 et 5.";
+    }
+}
+
 // -----------------------------------------------------------------------------
 // API calls
 // -----------------------------------------------------------------------------
@@ -119,6 +126,7 @@ async function fetchSampleItems() {
     hoverRating = 0;
     ratingsGivenCount = 0;
     getRecsButton.disabled = true;
+    updateRatingHint();
     renderCurrentItem();
     showSection(ratingSection);
 }
@@ -152,7 +160,6 @@ async function trainAndPredict() {
     predictionsData = data.predictions;
     renderPredictions();
     renderDiagnostics(data);
-    renderModelsTable(data.leaderboard);
 
     trainingOverlay.classList.add("hidden");
     showSection(predictionsSection);
@@ -411,20 +418,6 @@ function renderDiagnostics(data) {
     });
 }
 
-function renderModelsTable(leaderboard) {
-    modelsTableBody.innerHTML = "";
-    leaderboard.forEach((entry) => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${entry.model_name}</td>
-            <td>${entry.rmse.toFixed(3)}</td>
-            <td>${entry.rmse.toFixed(3)}</td>
-            <td>${entry.rank}</td>
-        `;
-        modelsTableBody.appendChild(tr);
-    });
-}
-
 // -----------------------------------------------------------------------------
 // Navigation helpers
 // -----------------------------------------------------------------------------
@@ -447,7 +440,7 @@ async function submitCurrentRating() {
     if (!currentRating || !currentItem) return;
     await sendRating(currentItem.id, currentRating);
     ratingsGivenCount += 1;
-    ratingHint.textContent = `Notes données : ${ratingsGivenCount} / 3`;
+    updateRatingHint();
     currentRating = 0;
     hoverRating = 0;
     renderStars();
@@ -488,10 +481,6 @@ getRecsButton.addEventListener("click", async () => {
 refreshRecsButton.addEventListener("click", async () => {
     await trainAndPredict();
     refreshRecsButton.classList.add("hidden");
-});
-
-showModelsButton.addEventListener("click", () => {
-    modelsPanel.classList.toggle("hidden");
 });
 
 // -----------------------------------------------------------------------------
