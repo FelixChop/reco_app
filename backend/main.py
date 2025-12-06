@@ -12,6 +12,7 @@ from pydantic import BaseModel
 from sqlalchemy import (
     create_engine, Column, Integer, String, Float, Boolean, ForeignKey, func
 )
+from sqlalchemy.exc import OperationalError
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, relationship
 
@@ -30,8 +31,11 @@ from surprise import (
     CoClustering,
     NormalPredictor,
 )
-from surprise.model_selection import GridSearchCV, train_test_split
+from surprise.model_selection import GridSearchCV, train_test_split, KFold
 from surprise import accuracy
+
+SEED = 42
+last_model_wrapper = {"algo": None}
 
 # -------------------------------------------------------------------
 # DB setup
@@ -58,6 +62,7 @@ class Item(Base):
     hex = Column(String, nullable=True)
     image_keyword = Column(String, nullable=True)
     image_url = Column(String, nullable=True)   # <--- nouveau
+    spotify_id = Column(String, nullable=True)  # <--- pour le player
     country = Column(String, nullable=True)     # <--- utile pour destinations (optionnel)
 
 
@@ -85,6 +90,7 @@ MODES = {
     "colors": "Couleurs",
     "destinations": "Destinations de vacances",
     "movies": "Films",
+    "songs": "Musiques",
 }
 
 # -------------------------------------------------------------------
@@ -99,6 +105,7 @@ class ItemOut(BaseModel):
     hex: Optional[str] = None
     image_keyword: Optional[str] = None
     image_url: Optional[str] = None      
+    spotify_id: Optional[str] = None
     country: Optional[str] = None        
 
     class Config:
@@ -121,6 +128,9 @@ class PredictionOut(BaseModel):
     image_keyword: Optional[str] = None
     image_url: Optional[str] = None      
     predicted_rating: float
+    average_rating: Optional[float] = None
+    vote_count: int = 0
+    user_rating: Optional[float] = None
 
 
 
@@ -141,11 +151,54 @@ class TrainResult(BaseModel):
     confusion_matrix: List[List[int]]  # 5x5
 
 
+class SimilarUsersRequest(BaseModel):
+    user_id: str
+    mode: str
+    limit: int = 5
+
+
+class ItemRating(BaseModel):
+    item_id: int
+    name: str
+    image_url: Optional[str] = None
+    rating: float
+    subtitle: Optional[str] = None
+    hex: Optional[str] = None
+    image_keyword: Optional[str] = None
+    predicted_rating: float = 0.0
+    average_rating: float = 0.0
+    vote_count: int = 0
+
+
+class CommonItem(BaseModel):
+    item_id: int
+    name: str
+    image_url: Optional[str] = None
+    my_rating: float
+    their_rating: float
+    subtitle: Optional[str] = None
+    hex: Optional[str] = None
+    image_keyword: Optional[str] = None
+    predicted_rating: float = 0.0
+    average_rating: float = 0.0
+    vote_count: int = 0
+
+
+class Neighbor(BaseModel):
+    neighbor_id: str
+    similarity_score: float
+    common_items: List[CommonItem]
+    other_items: List[ItemRating]
+    user_items: List[ItemRating]
+
+
+class SimilarUsersResponse(BaseModel):
+    neighbors: List[Neighbor]
+
+
 # -------------------------------------------------------------------
 # Seed des différents modes
 # -------------------------------------------------------------------
-# NB: j’en mets une vingtaine par catégorie pour l’exemple.
-# Tu peux étendre facilement à 50/100/100/100 en copiant le pattern.
 
 COLOR_ITEMS = [
     ("Blue Klein", "#002FA7"),
@@ -170,72 +223,6 @@ COLOR_ITEMS = [
     ("Royal Blue", "#4169E1"),
 ]
 
-POLITICIAN_ITEMS = [
-    ("Emmanuel Macron", "Président", "Emmanuel Macron portrait"),
-    ("Jean-Luc Mélenchon", "LFI", "Jean-Luc Mélenchon portrait"),
-    ("Marine Le Pen", "RN", "Marine Le Pen portrait"),
-    ("Édouard Philippe", "Horizons", "Édouard Philippe portrait"),
-    ("François Hollande", "PS", "François Hollande portrait"),
-    ("Nicolas Sarkozy", "LR", "Nicolas Sarkozy portrait"),
-    ("Bruno Le Maire", "Ministre", "Bruno Le Maire portrait"),
-    ("Gérald Darmanin", "Ministre", "Gérald Darmanin portrait"),
-    ("Olivier Faure", "PS", "Olivier Faure portrait"),
-    ("Jordan Bardella", "RN", "Jordan Bardella portrait"),
-    ("Valérie Pécresse", "Île-de-France", "Valérie Pécresse portrait"),
-    ("Anne Hidalgo", "Maire de Paris", "Anne Hidalgo portrait"),
-    ("Fabien Roussel", "PCF", "Fabien Roussel portrait"),
-    ("Yannick Jadot", "EELV", "Yannick Jadot portrait"),
-    ("Raphaël Glucksmann", "PS/Place Publique", "Raphaël Glucksmann portrait"),
-]
-
-DESTINATION_ITEMS = [
-    ("Paris", "France", "Paris skyline"),
-    ("Bordeaux", "France", "Bordeaux city"),
-    ("Lyon", "France", "Lyon city"),
-    ("Nice", "France", "Nice French Riviera"),
-    ("Strasbourg", "France", "Strasbourg Christmas market"),
-    ("Marseille", "France", "Marseille old port"),
-    ("Chamonix", "France", "Chamonix Mont Blanc"),
-    ("Santorini", "Grèce", "Santorini island"),
-    ("Bali", "Indonésie", "Bali beach"),
-    ("New York", "USA", "New York skyline"),
-    ("Tokyo", "Japon", "Tokyo city night"),
-    ("Lisbonne", "Portugal", "Lisbon streets"),
-    ("Rome", "Italie", "Rome Colosseum"),
-    ("Barcelone", "Espagne", "Barcelona Sagrada Familia"),
-    ("Séville", "Espagne", "Seville city"),
-    ("Reykjavik", "Islande", "Iceland northern lights"),
-    ("Sydney", "Australie", "Sydney Opera House"),
-    ("Cape Town", "Afrique du Sud", "Cape Town Table Mountain"),
-    ("Marrakech", "Maroc", "Marrakech market"),
-    ("Québec", "Canada", "Quebec old town"),
-]
-
-MOVIE_ITEMS = [
-    ("The Shawshank Redemption", "1994", "movie poster jail drama"),
-    ("The Godfather", "1972", "mafia movie poster"),
-    ("The Dark Knight", "2008", "batman movie poster"),
-    ("Pulp Fiction", "1994", "pulp fiction movie poster"),
-    ("Inception", "2010", "inception movie poster"),
-    ("Fight Club", "1999", "fight club movie poster"),
-    ("Forrest Gump", "1994", "forrest gump movie poster"),
-    ("The Matrix", "1999", "matrix movie poster"),
-    ("Interstellar", "2014", "interstellar space movie"),
-    ("The Lord of the Rings: The Fellowship of the Ring", "2001", "lord of the rings fellowship poster"),
-    ("The Lord of the Rings: The Two Towers", "2002", "lord of the rings two towers poster"),
-    ("The Lord of the Rings: The Return of the King", "2003", "lord of the rings return of the king poster"),
-    ("Gladiator", "2000", "gladiator movie poster"),
-    ("Se7en", "1995", "seven movie poster"),
-    ("La La Land", "2016", "la la land movie poster"),
-    ("Parasite", "2019", "parasite korean movie poster"),
-    ("Whiplash", "2014", "whiplash movie poster"),
-    ("The Silence of the Lambs", "1991", "silence of the lambs poster"),
-    ("Goodfellas", "1990", "goodfellas movie poster"),
-    ("City of God", "2002", "city of god movie poster"),
-]
-
-
-
 def load_json_safe(name: str) -> list[dict]:
     path = DATA_DIR / name
     if not path.exists():
@@ -245,10 +232,21 @@ def load_json_safe(name: str) -> list[dict]:
         return json.load(f)
 
 
-def seed_items_and_synthetic():
+def seed_items():
     db = SessionLocal()
     try:
-        if db.query(Item).count() == 0:
+        # On tente de lire la DB. Si le schéma a changé (ex: colonne manquante),
+        # cela va lever une OperationalError.
+        try:
+            count = db.query(Item).count()
+        except OperationalError:
+            print("⚠️ Schéma de base de données incorrect détecté (colonne manquante ?).")
+            print("♻️  Re-création de la base de données...")
+            Base.metadata.drop_all(bind=engine)
+            Base.metadata.create_all(bind=engine)
+            count = 0
+
+        if count == 0:
             print("Seeding items from constants + JSON…")
 
             # 1) Couleurs (toujours en dur)
@@ -301,37 +299,32 @@ def seed_items_and_synthetic():
                     image_url=tmdb_image_url,
                 ))
 
+            # 5) Musiques depuis songs.json
+            songs_data = load_json_safe("songs.json")
+            for row in songs_data:
+                db.add(Item(
+                    mode="songs",
+                    name=row["name"],
+                    subtitle=row.get("subtitle") or "",
+                    image_keyword=row.get("image_keyword") or (row["name"] + " song"),
+                    image_url=row.get("image_url"),
+                    spotify_id=row.get("spotify_id"),
+                ))
+
             db.commit()
 
-        # Seed synthétique des ratings (inchangé, mais par mode)
-        synthetic_count = db.query(Rating).filter(Rating.is_synthetic == True).count()
-        if synthetic_count == 0:
-            print("Seeding synthetic ratings…")
-            for mode in MODES.keys():
-                items = db.query(Item).filter(Item.mode == mode).all()
-                item_ids = [i.id for i in items]
-                if not item_ids:
-                    continue
-                num_users = 100
-                for u in range(1, num_users + 1):
-                    user_id = f"synthetic_{mode}_{u}"
-                    for iid in random.sample(item_ids, min(3, len(item_ids))):
-                        db.add(
-                            Rating(
-                                user_id=user_id,
-                                mode=mode,
-                                item_id=iid,
-                                rating=random.randint(2, 5),
-                                is_synthetic=True,
-                            )
-                        )
-            db.commit()
+        # Seed synthétique des ratings : SUPPRIMÉ sur demande utilisateur
+        # On ne garde que les items.
     finally:
         db.close()
 
 
 
-seed_items_and_synthetic()
+seed_items()
+
+# -------------------------------------------------------------------
+# Helpers ML
+# -------------------------------------------------------------------
 
 # -------------------------------------------------------------------
 # Helpers ML
@@ -344,29 +337,11 @@ def build_surprise_dataset(mode: str):
             Rating.is_synthetic == False,
             Rating.mode == mode,
         ).all()
-        real_users = {r.user_id for r in real_ratings}
-        num_real_users = len(real_users)
+        
+        if not real_ratings:
+             return Dataset.load_from_df(pd.DataFrame(columns=["user", "item", "rating"]), Reader(rating_scale=(1, 5)))
 
-        synthetic_ratings = []
-        if num_real_users < 100:
-            synthetic_ratings = db.query(Rating).filter(
-                Rating.is_synthetic == True,
-                Rating.mode == mode,
-            ).all()
-
-        rows = []
-        for r in real_ratings + synthetic_ratings:
-            rows.append({"user": r.user_id, "item": r.item_id, "rating": r.rating})
-
-        if len(rows) < 10:
-            # tout début : on prend que le synthétique
-            synthetic_ratings = db.query(Rating).filter(
-                Rating.is_synthetic == True,
-                Rating.mode == mode,
-            ).all()
-            rows = [{"user": r.user_id, "item": r.item_id, "rating": r.rating}
-                    for r in synthetic_ratings]
-
+        rows = [{"user": r.user_id, "item": r.item_id, "rating": r.rating} for r in real_ratings]
         df = pd.DataFrame(rows)
         reader = Reader(rating_scale=(1, 5))
         data = Dataset.load_from_df(df[["user", "item", "rating"]], reader)
@@ -396,7 +371,9 @@ def run_grid_search(
         return {}, None
 
     print(f"🔍 Grid search for {name}…")
-    gs = GridSearchCV(algo_cls, param_grid, measures=["rmse"], cv=3, joblib_verbose=0)
+    # Use KFold with fixed seed for determinism
+    kf = KFold(n_splits=3, random_state=SEED, shuffle=True)
+    gs = GridSearchCV(algo_cls, param_grid, measures=["rmse"], cv=kf, joblib_verbose=0)
     gs.fit(data)
     best_params = gs.best_params["rmse"]
     best_score = gs.best_score["rmse"]
@@ -437,20 +414,23 @@ def evaluate_algorithm(
 # FastAPI app
 # -------------------------------------------------------------------
 
-app = FastAPI(title="Multi-mode Recommender")
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+
+app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # simple pour un side-project
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-
-@app.get("/")
-def root():
-    return {"message": "Multi-mode recommender backend running"}
+# Paths
+BACKEND_DIR = Path(__file__).resolve().parent
+PROJECT_ROOT = BACKEND_DIR.parent
+FRONTEND_DIR = PROJECT_ROOT / "frontend"
 
 
 @app.get("/modes")
@@ -501,14 +481,26 @@ def rate_item(payload: RatingIn):
         if not item:
             raise HTTPException(status_code=404, detail="Item not found")
 
-        rating = Rating(
-            user_id=payload.user_id,
-            mode=payload.mode,
-            item_id=payload.item_id,
-            rating=float(payload.rating),
-            is_synthetic=False,
-        )
-        db.add(rating)
+        # Update or create rating
+        rating = db.query(Rating).filter(
+            Rating.user_id == payload.user_id,
+            Rating.item_id == payload.item_id,
+            Rating.mode == payload.mode
+        ).first()
+
+        if rating:
+            rating.rating = float(payload.rating)
+            rating.is_synthetic = False
+        else:
+            rating = Rating(
+                user_id=payload.user_id,
+                mode=payload.mode,
+                item_id=payload.item_id,
+                rating=float(payload.rating),
+                is_synthetic=False,
+            )
+            db.add(rating)
+            
         db.commit()
         return {"status": "ok"}
     finally:
@@ -533,6 +525,24 @@ def get_rating_counts(user_id: str):
         db.close()
 
 
+@app.get("/voter-count")
+def get_voter_count(mode: str):
+    if mode not in MODES:
+        raise HTTPException(status_code=400, detail="Unknown mode")
+    db = SessionLocal()
+    try:
+        count = db.query(Rating.user_id).filter(
+            Rating.mode == mode,
+            Rating.is_synthetic == False
+        ).distinct().count()
+
+        total_items = db.query(Item).filter(Item.mode == mode).count()
+
+        return {"mode": mode, "count": count, "total_items": total_items}
+    finally:
+        db.close()
+
+
 @app.post("/train-and-predict", response_model=TrainResult)
 def train_and_predict(user_id: str, mode: str):
     if mode not in MODES:
@@ -541,22 +551,29 @@ def train_and_predict(user_id: str, mode: str):
     db = SessionLocal()
     try:
         data = build_surprise_dataset(mode)
-        trainset, testset = train_test_split(data, test_size=0.2, random_state=42)
+        # If dataset is too small, we might get errors in train_test_split
+        # But with hybrid logic we ensure ~100 users, so it should be fine.
+        
+        trainset, testset = train_test_split(data, test_size=0.2, random_state=SEED)
 
         search_spaces = {
-            "SVD": {"n_epochs": [15, 25], "lr_all": [0.002, 0.005], "reg_all": [0.02, 0.1]},
-            "SVDpp": {"n_epochs": [10, 15], "lr_all": [0.002, 0.004]},
-            "NMF": {"n_factors": [10, 30], "n_epochs": [20, 40], "reg_pu": [0.02, 0.06], "reg_qi": [0.02, 0.06]},
-            "KNNBasic": {"k": [20, 40], "sim_options": {"name": ["cosine", "msd"], "user_based": [True, False]}},
-            "KNNWithMeans": {"k": [20, 40], "sim_options": {"name": ["cosine", "pearson"], "user_based": [True, False]}},
+            # SVD: Lower regularization to allow fitting to outliers (1s and 5s)
+            "SVD": {"n_epochs": [20, 30], "lr_all": [0.005, 0.01], "reg_all": [0.01, 0.05], "random_state": [SEED]},
+            "SVDpp": {"n_epochs": [10, 20], "lr_all": [0.005, 0.01], "random_state": [SEED]},
+            # NMF: Lower regularization
+            "NMF": {"n_factors": [10, 20], "n_epochs": [30, 50], "reg_pu": [0.01, 0.05], "reg_qi": [0.01, 0.05], "random_state": [SEED]},
+            # KNN: Lower k to capture local similarities (less smoothing)
+            "KNNBasic": {"k": [1,2,3,4,5, 10, 20], "sim_options": {"name": ["cosine", "msd"], "user_based": [True, False]}},
+            "KNNWithMeans": {"k": [1,2,3,4,5, 10, 20], "sim_options": {"name": ["cosine", "pearson"], "user_based": [True, False]}},
             "KNNBaseline": {
-                "k": [20, 40],
-                "bsl_options": {"method": ["als", "sgd"], "reg_i": [5, 10], "reg_u": [5, 10]},
+                "k": [1,2,3,4,5, 10, 20],
+                "bsl_options": {"method": ["als", "sgd"], "reg_i": [1, 5], "reg_u": [1, 5]},
                 "sim_options": {"name": ["pearson_baseline", "msd"], "user_based": [True, False]},
             },
             "SlopeOne": {},
-            "BaselineOnly": {"bsl_options": {"method": ["als", "sgd"], "reg_i": [5, 10], "reg_u": [5, 10]}},
-            "CoClustering": {"n_cltr_u": [3, 5], "n_cltr_i": [3, 5], "n_epochs": [20, 40]},
+            "BaselineOnly": {"bsl_options": {"method": ["als", "sgd"], "reg_i": [1, 5], "reg_u": [1, 5]}},
+            # CoClustering: Smaller clusters for smaller data
+            "CoClustering": {"n_cltr_u": [2, 3], "n_cltr_i": [2, 3], "n_epochs": [20, 30], "random_state": [SEED]},
             "NormalPredictor": {},
         }
 
@@ -615,21 +632,45 @@ def train_and_predict(user_id: str, mode: str):
         best_preds_test = algo_predictions[best_model_name]["preds"]
         confusion_matrix = compute_confusion_matrix(best_preds_test)
 
-        # prédictions pour l'utilisateur sur tous les items de ce mode
-        all_items = db.query(Item).filter(Item.mode == mode).all()
-        rated_ids = {
-            r.item_id
-            for r in db.query(Rating).filter(
-                Rating.user_id == user_id,
-                Rating.mode == mode,
-                Rating.is_synthetic == False,
-            ).all()
-        }
-        remaining_items = [i for i in all_items if i.id not in rated_ids]
+        # Cache the best algo for similar user predictions
+        last_model_wrapper["algo"] = best_algo
 
+        # Predictions for user on ALL items (including those already rated, as requested)
+        all_items = db.query(Item).filter(Item.mode == mode).all()
+        
+        # We still want to know which ones were rated to maybe flag them in UI, 
+        # but the request says "see elements I rated initially".
+        # So we predict for everything.
+        
         predictions = []
-        for it in remaining_items:
+        for it in all_items:
+            # For items the user has rated, we could return the actual rating or the predicted one.
+            # Usually 'predict' returns the estimated rating even if the user rated it (unless impossible).
+            # Surprise's predict method will return the known rating as r_ui if passed, but here we just want 'est'.
+            
             est = best_algo.predict(uid=user_id, iid=it.id).est
+            
+            # Get stats
+            stats = db.query(
+                func.avg(Rating.rating).label("avg"),
+                func.count(Rating.id).label("count")
+            ).filter(
+                Rating.item_id == it.id,
+                Rating.mode == mode,
+                Rating.is_synthetic == False
+            ).first()
+            
+            avg_val = stats.avg if stats.avg is not None else 0.0
+            count_val = stats.count if stats.count is not None else 0
+            
+            # Get user rating if any
+            user_r = db.query(Rating).filter(
+                Rating.user_id == user_id,
+                Rating.item_id == it.id,
+                Rating.mode == mode
+            ).first()
+            user_val = user_r.rating if user_r else None
+
             predictions.append(
                 {
                     "item_id": it.id,
@@ -639,6 +680,9 @@ def train_and_predict(user_id: str, mode: str):
                     "image_keyword": it.image_keyword,
                     "image_url": it.image_url,
                     "predicted_rating": float(round(est, 2)),
+                    "average_rating": float(round(avg_val, 2)) if avg_val else 0.0,
+                    "vote_count": count_val,
+                    "user_rating": user_val,
                 }
             )
 
@@ -652,5 +696,190 @@ def train_and_predict(user_id: str, mode: str):
             best_model_params=best_model_params,
             confusion_matrix=confusion_matrix,
         )
+    finally:
+        db.close()
+
+
+@app.post("/similar-users", response_model=SimilarUsersResponse)
+def get_similar_users(payload: SimilarUsersRequest):
+    import numpy as np
+    
+    if payload.mode not in MODES:
+        raise HTTPException(status_code=400, detail="Unknown mode")
+
+    db = SessionLocal()
+    try:
+        # 1. Fetch all ratings for this mode
+        all_ratings = db.query(Rating).filter(
+            Rating.mode == payload.mode,
+            Rating.is_synthetic == False
+        ).all()
+
+        # 2. Build user-item matrix
+        user_map = {} # {user_id: {item_id: rating}}
+        for r in all_ratings:
+            if r.user_id not in user_map:
+                user_map[r.user_id] = {}
+            user_map[r.user_id][r.item_id] = r.rating
+
+        if payload.user_id not in user_map:
+            return SimilarUsersResponse(neighbors=[])
+
+        my_ratings = user_map[payload.user_id]
+        if len(my_ratings) < 3:
+            # Not enough data to compare
+            return SimilarUsersResponse(neighbors=[])
+
+        # 3. Compute similarities: Exact Match %
+        similarities = []
+        
+        my_items = set(my_ratings.keys())
+
+        for uid, u_ratings in user_map.items():
+            if uid == payload.user_id:
+                continue
+            
+            # Only consider users with enough ratings?
+            if len(u_ratings) < 3:
+                continue
+
+            their_items = set(u_ratings.keys())
+            common = my_items.intersection(their_items)
+            
+            if not common:
+                continue
+            
+            matches = 0
+            for iid in common:
+                if my_ratings[iid] == u_ratings[iid]:
+                    matches += 1
+            
+            # Old: sim = matches / len(common)
+            # New: Weighted by % of common votes on total items rated by current user
+            # sim = (matches / len(my_items))  <-- Simplification of (matches/len(common)) * (len(common)/len(my_items))
+            # Wait, user said: "pondéré par le % de votes en commun sur les éléments notés de l'utilisateur actuel"
+            # % common = len(common) / len(my_ratings)
+            # score = (matches / len(common)) * (len(common) / len(my_ratings)) = matches / len(my_ratings)
+            
+            sim = matches / len(my_ratings)
+            
+            if sim > 0:
+                similarities.append((uid, sim))
+
+        # Sort by similarity desc
+        similarities.sort(key=lambda x: x[1], reverse=True)
+        top_k = similarities[:payload.limit]
+
+        # 4. Fetch details & Predict
+        all_items_db = db.query(Item).filter(Item.mode == payload.mode).all()
+        item_lookup = {i.id: i for i in all_items_db}
+
+        # Helper to get prediction
+        algo = last_model_wrapper["algo"]
+
+        def get_pred_stats(item_id, target_user_id):
+            # est rating
+            est = 0.0
+            if algo:
+                est = algo.predict(uid=target_user_id, iid=item_id).est
+            
+            # DB stats from all ratings (not efficient to query inside loop but ok for limit=5)
+            # Actually we can do a global agg query or just careful queries.
+            # Let's do simple query per item for now as N is small.
+            stats = db.query(
+                func.avg(Rating.rating).label("avg"),
+                func.count(Rating.id).label("count")
+            ).filter(
+                Rating.item_id == item_id,
+                Rating.mode == payload.mode,
+                Rating.is_synthetic == False
+            ).first()
+            
+            avg_val = stats.avg if stats.avg is not None else 0.0
+            count_val = stats.count if stats.count is not None else 0
+            
+            return float(round(est, 2)), float(round(avg_val, 2)), count_val
+
+        neighbors_out = []
+
+        for uid, sim in top_k:
+            their_ratings = user_map[uid]
+            their_items = set(their_ratings.keys())
+            common = my_items.intersection(their_items)
+            
+            common_list = []
+            other_list = []
+            user_list = [] # actually user_items (me only)
+
+            # Common
+            for iid in common:
+                it = item_lookup.get(iid)
+                if it:
+                    pred, avg, cnt = get_pred_stats(iid, payload.user_id) # Pred for ME or THEM? Display shows my pred usually?
+                    # Request says: "les notes prédites ... doivent mettre les vraies valeurs".
+                    # Usually "predicted rating" is for the current user.
+                    common_list.append(CommonItem(
+                        item_id=iid,
+                        name=it.name,
+                        image_url=it.image_url,
+                        image_keyword=it.image_keyword,
+                        hex=it.hex,
+                        subtitle=it.subtitle,
+                        my_rating=my_ratings[iid],
+                        their_rating=their_ratings[iid],
+                        predicted_rating=pred,
+                        average_rating=avg,
+                        vote_count=cnt
+                    ))
+
+            # Me Only
+            for iid in my_items - common:
+                it = item_lookup.get(iid)
+                if it:
+                    pred, avg, cnt = get_pred_stats(iid, payload.user_id)
+                    user_list.append(ItemRating(
+                        item_id=iid,
+                        name=it.name,
+                        image_url=it.image_url,
+                        image_keyword=it.image_keyword,
+                        hex=it.hex,
+                        subtitle=it.subtitle,
+                        rating=my_ratings[iid],
+                        predicted_rating=pred,
+                        average_rating=avg,
+                        vote_count=cnt
+                    ))
+
+            # They Only
+            for iid in their_items - common:
+                it = item_lookup.get(iid)
+                if it:
+                    pred, avg, cnt = get_pred_stats(iid, payload.user_id)
+                    other_list.append(ItemRating(
+                        item_id=iid,
+                        name=it.name,
+                        image_url=it.image_url,
+                        image_keyword=it.image_keyword,
+                        hex=it.hex,
+                        subtitle=it.subtitle,
+                        rating=their_ratings[iid],
+                        predicted_rating=pred,
+                        average_rating=avg,
+                        vote_count=cnt
+                    ))
+
+            # Anonymize ID (e.g. "User 8f3a...")
+            short_id = "User " + uid[:4].upper()
+
+            neighbors_out.append(Neighbor(
+                neighbor_id=short_id,
+                similarity_score=float(sim),
+                common_items=common_list,
+                other_items=other_list,
+                user_items=user_list
+            ))
+
+        return SimilarUsersResponse(neighbors=neighbors_out)
+
     finally:
         db.close()

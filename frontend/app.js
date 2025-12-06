@@ -1,4 +1,7 @@
-const API_BASE = "http://localhost:8000";
+// If we are on localhost, use port 8000. Otherwise (production), use relative path (same origin)
+const API_BASE = window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000"
+    : "";
 
 // -----------------------------------------------------------------------------
 // State
@@ -15,42 +18,53 @@ let ratingCountsByMode = {};
 let predictionsData = [];
 let seenItemIdsByMode = {};
 let isModeMenuOpen = false;
+let isComparisonMode = false;
+let originalPredictionsData = [];
+let neighborNavContainer = null;
+
+let viewMode = "grid"; // 'grid' | 'list'
+let sortOrder = "desc"; // 'desc' | 'asc'
 
 // -----------------------------------------------------------------------------
 // DOM elements
 // -----------------------------------------------------------------------------
 const ratingSection = document.getElementById("rating-section");
 const predictionsSection = document.getElementById("predictions-section");
-const diagnosticsSection = document.getElementById("diagnostics-section");
+const diagnosticsModal = document.getElementById("diagnostics-modal");
 
 const colorSwatch = document.getElementById("color-swatch");
-const colorName = document.getElementById("color-name");
+const itemName = document.getElementById("itemName");
+const itemSubtitle = document.getElementById("itemSubtitle");
 const starContainer = document.getElementById("star-container");
-const ratingHint = document.getElementById("ratingHint");
 const skipButton = document.getElementById("skipButton");
 const getRecsButton = document.getElementById("getRecsButton");
 const getRecsButtonLabel = document.querySelector("#getRecsButton .button-text");
 const getRecsButtonStatus = document.getElementById("ctaStatus");
 
-const modeSelector = document.getElementById("modeSelector");
-const modeToggleButton = document.getElementById("modeToggle");
-const modeTabs = document.getElementById("modeTabs");
-const modeTabsWrapper = document.getElementById("modeTabsWrapper");
-const modeSelect = document.getElementById("modeSelect");
-const sortSelect = document.getElementById("sort-order");
-const predictionsList = document.getElementById("predictions-list");
-const toDiagnosticsBtn = document.getElementById("to-diagnostics");
-const restartBtn = document.getElementById("restart");
+const modeSelector = document.getElementById("modeSelector"); // Obsolete?
+// const modeToggleButton = document.getElementById("modeToggle"); // Obsolete
+// const modeTabs = document.getElementById("modeTabs"); // Obsolete
+const voterCountEl = document.getElementById("voterCount");
+
+const sortBtn = document.getElementById("sortBtn");
+const viewToggleBtn = document.getElementById("viewToggleBtn");
+const mlInfoBtn = document.getElementById("mlInfoBtn");
+const closeDiagnosticsBtn = document.getElementById("closeDiagnostics");
 
 const leaderboardBody = document.getElementById("leaderboard-body");
 const bestModelSummary = document.getElementById("best-model-summary");
+const bestModelParams = document.getElementById("best-model-params");
 const confusionBody = document.getElementById("confusion-body");
 
 const trainingOverlay = document.getElementById("trainingOverlay");
-const trainingStats = document.getElementById("trainingStats");
-const algoList = document.getElementById("algoList");
+const trainingSteps = document.getElementById("trainingSteps");
 const recsGrid = document.getElementById("recsGrid");
 const refreshRecsButton = document.getElementById("refreshRecsButton");
+
+const similarUsersBtn = document.getElementById("similarUsersBtn");
+
+let similarUsersData = [];
+let currentNeighborIndex = 0;
 
 const CTA_LABEL = "Calculer mes affinités";
 const CTA_LOADING_LABEL = "Calcul des affinités…";
@@ -58,8 +72,10 @@ const CTA_LOADING_LABEL = "Calcul des affinités…";
 // -----------------------------------------------------------------------------
 // Utils
 // -----------------------------------------------------------------------------
+const predictionControls = document.getElementById("predictionControls");
+
 function showSection(section) {
-    [ratingSection, predictionsSection, diagnosticsSection].forEach((sec) => {
+    [ratingSection, predictionsSection].forEach((sec) => {
         if (sec === section) {
             sec.classList.add("active");
             sec.classList.remove("hidden");
@@ -68,47 +84,74 @@ function showSection(section) {
             sec.classList.add("hidden");
         }
     });
-}
 
-function getStoredUserId() {
-    return localStorage.getItem("color_recommender_user_id");
-}
-
-function setStoredUserId(id) {
-    localStorage.setItem("color_recommender_user_id", id);
-}
-
-function getStoredRatingCounts() {
-    try {
-        return JSON.parse(localStorage.getItem("color_recommender_rating_counts") || "{}");
-    } catch (e) {
-        console.warn("Failed to parse rating counts", e);
-        return {};
+    if (predictionControls) {
+        if (section === predictionsSection) {
+            predictionControls.classList.remove("hidden");
+            if (voterCountEl) voterCountEl.classList.add("hidden"); // Hide stats in predictions
+        } else {
+            predictionControls.classList.add("hidden");
+            if (voterCountEl) voterCountEl.classList.remove("hidden"); // Show stats in rating
+        }
     }
 }
 
+// Removed localStorage persistence for User ID to ensure new session on refresh
+function getStoredUserId() {
+    return null; // Always return null to force new session
+}
+
+function setStoredUserId(id) {
+    // We can still store it if we want to persist within the session, 
+    // but the requirement is "refresh = new voter". 
+    // So we might not even need to store it in localStorage if we don't want it to survive refresh.
+    // But keeping it in memory (sessionUserId variable) is enough for the page life.
+    // Let's just not write to localStorage for user_id.
+}
+
+function getStoredRatingCounts() {
+    // We also shouldn't load previous rating counts if we are a new user.
+    return {};
+}
+
 function loadRatingCountsForUser(userId) {
-    const store = getStoredRatingCounts();
-    return store[userId] || {};
+    return {};
 }
 
 function persistRatingCounts() {
-    if (!sessionUserId) return;
-    const store = getStoredRatingCounts();
-    store[sessionUserId] = ratingCountsByMode;
-    localStorage.setItem("color_recommender_rating_counts", JSON.stringify(store));
+    // No persistence needed if we want fresh start
 }
 
 function getModeRatingCount(mode = currentMode) {
     return ratingCountsByMode[mode] || 0;
 }
 
-function updateRatingHint() {
-    ratingHint.textContent = `Notes données : ${getModeRatingCount()} / 3`;
+function updateGetRecsState() {
+    const count = getModeRatingCount();
+    const isVisible = count >= 3;
+
+    if (isVisible) {
+        getRecsButton.classList.remove("hidden-magic");
+        getRecsButton.classList.add("visible-magic");
+        getRecsButton.disabled = false;
+    } else {
+        getRecsButton.classList.add("hidden-magic");
+        getRecsButton.classList.remove("visible-magic");
+        getRecsButton.disabled = true;
+    }
+
+    // Similar Users button state
+    if (similarUsersBtn) {
+        if (count >= 3) {
+            similarUsersBtn.classList.remove("btn-disabled-visual");
+            similarUsersBtn.setAttribute("aria-disabled", "false");
+        } else {
+            similarUsersBtn.classList.add("btn-disabled-visual");
+            similarUsersBtn.setAttribute("aria-disabled", "true");
+        }
+    }
 }
 
-function updateGetRecsState() {
-    getRecsButton.disabled = getModeRatingCount() < 3;
 function getSeenIdsForMode(mode = currentMode) {
     if (!seenItemIdsByMode[mode]) {
         seenItemIdsByMode[mode] = new Set();
@@ -123,12 +166,11 @@ function resetSeenIdsForMode(mode = currentMode) {
 function getImageUrl(item) {
     if (currentMode === "colors") return null;
     if (item.image_url) return item.image_url;
-    const kw = item.image_keyword || item.name;
-    return "https://source.unsplash.com/featured/?" + encodeURIComponent(kw);
+    // Fallback if no image URL
+    return "https://placehold.co/400?text=" + encodeURIComponent(item.name);
 }
 
 function setButtonLoading(button, isLoading) {
-    setCtaDisabled(isLoading);
     if (isLoading) {
         button.setAttribute("aria-busy", "true");
         updateCtaMessaging(CTA_LOADING_LABEL);
@@ -163,91 +205,64 @@ function focusActiveModeTab() {
     }
 }
 
-function setModeMenuState(open) {
-    if (!modeSelector || !modeToggleButton) return;
-    isModeMenuOpen = open;
-    modeSelector.classList.toggle("menu-open", open);
-    modeToggleButton.setAttribute("aria-expanded", String(open));
-    if (open) {
-        requestAnimationFrame(focusActiveModeTab);
-    }
-}
-
-function toggleModeMenu(forcedState) {
-    const nextState = typeof forcedState === "boolean" ? forcedState : !isModeMenuOpen;
-    setModeMenuState(nextState);
-}
-
-function closeModeMenu() {
-    setModeMenuState(false);
-}
-
-function handleModeTabKeydown(event) {
-    if (!modeTabs) return;
-    const keys = ["ArrowRight", "ArrowDown", "ArrowLeft", "ArrowUp", "Home", "End"];
-    if (!keys.includes(event.key)) return;
-
-    const tabs = Array.from(modeTabs.querySelectorAll(".mode-tab"));
-    const currentIndex = tabs.indexOf(event.currentTarget);
-    if (currentIndex === -1) return;
-
-    event.preventDefault();
-
-    if (event.key === "Home") {
-        tabs[0]?.focus();
-        return;
-    }
-    if (event.key === "End") {
-        tabs[tabs.length - 1]?.focus();
-        return;
-    }
-
-    const delta = event.key === "ArrowRight" || event.key === "ArrowDown" ? 1 : -1;
-    const nextIndex = (currentIndex + delta + tabs.length) % tabs.length;
-    tabs[nextIndex]?.focus();
-}
-
-function updateRatingHint() {
-    if (!ratingHint) return;
-
-    if (ratingsGivenCount > 0) {
-        ratingHint.textContent = `Notes données : ${ratingsGivenCount} / 3`;
-    } else {
-        ratingHint.textContent = "Clique sur une étoile entre 1 et 5.";
-    }
-}
+// Obsolete mode menu functions removed
 
 // -----------------------------------------------------------------------------
 // API calls
 // -----------------------------------------------------------------------------
 async function initSession() {
-    const existing = getStoredUserId();
-    if (existing) {
-        sessionUserId = existing;
-        ratingCountsByMode = loadRatingCountsForUser(sessionUserId);
-        return;
-    }
+    // Always create a new session
     const res = await fetch(`${API_BASE}/new-session`);
     sessionUserId = await res.json();
-    setStoredUserId(sessionUserId);
     ratingCountsByMode = {};
+    voteBuffer = []; // Reset buffer on new session
+    console.log("New session started:", sessionUserId);
 }
 
 async function fetchModes() {
     const res = await fetch(`${API_BASE}/modes`);
     availableModes = await res.json();
+    // Add icons
+    const icons = {
+        "politicians": "🏛️",
+        "colors": "🎨",
+        "destinations": "✈️",
+        "movies": "🎬",
+        "songs": "🎵"
+    };
+    availableModes.forEach(m => {
+        if (icons[m.id]) m.label = `${icons[m.id]} ${m.label}`;
+    });
     currentMode = availableModes[0]?.id || "politicians";
+    document.body.className = "mode-" + currentMode;
     renderModeSelector();
+    fetchVoterCount();
+}
+
+async function fetchVoterCount() {
+    try {
+        const res = await fetch(`${API_BASE}/voter-count?mode=${currentMode}`);
+        if (res.ok) {
+            const data = await res.json();
+            if (voterCountEl) {
+                const myVotes = getModeRatingCount(currentMode);
+                voterCountEl.textContent = `Nombre votants : ${data.count} · Total items : ${data.total_items} · Mes votes : ${myVotes}`;
+            }
+        }
+    } catch (e) {
+        console.warn("Failed to fetch voter count", e);
+    }
 }
 
 async function fetchRatingCounts() {
+    // Since we start fresh, we assume 0 counts from server initially or just track locally.
+    // But if we want to be sure, we can ask the server.
     if (!sessionUserId) return;
     try {
         const res = await fetch(`${API_BASE}/rating-counts?user_id=${sessionUserId}`);
         if (res.ok) {
             const serverCounts = await res.json();
             ratingCountsByMode = { ...ratingCountsByMode, ...serverCounts };
-            persistRatingCounts();
         }
     } catch (e) {
         console.warn("Failed to fetch rating counts", e);
@@ -256,8 +271,7 @@ async function fetchRatingCounts() {
 
 async function fetchSampleItems() {
     await fetchRatingCounts();
-    const res = await fetch(`${API_BASE}/sample-items?mode=${currentMode}`);
-    sampledItems = await res.json();
+    fetchVoterCount(); // Update header with loaded counts
     const seenIds = Array.from(getSeenIdsForMode());
     const params = new URLSearchParams({ mode: currentMode });
     seenIds.forEach((id) => params.append("exclude_ids", id));
@@ -269,7 +283,6 @@ async function fetchSampleItems() {
         items = await res.json();
     }
 
-    // Si tous les items ont été vus, on réinitialise le suivi et on réessaie
     if (items.length === 0 && seenIds.length > 0) {
         resetSeenIdsForMode();
         return fetchSampleItems();
@@ -286,14 +299,12 @@ async function fetchSampleItems() {
 
     currentIndex = 0;
     currentItem = sampledItems[0];
+
+    // Reset stars for the new batch/item
     currentRating = 0;
     hoverRating = 0;
-    updateRatingHint();
+
     updateGetRecsState();
-    ratingsGivenCount = 0;
-    getRecsButton.disabled = true;
-    updateRatingHint();
-    setCtaDisabled(true);
     updateCtaMessaging(CTA_LABEL);
     renderCurrentItem();
     showSection(ratingSection);
@@ -313,20 +324,50 @@ async function sendRating(itemId, ratingValue) {
     });
 }
 
+async function runTrainingAnimation() {
+    const steps = [
+        "Chargement des données...",
+        "Entraînement kNN...",
+        "Entraînement SVD...",
+        "Entraînement CoClustering...",
+        "Comparaison des modèles...",
+        "Finalisation..."
+    ];
+
+    trainingSteps.innerHTML = "";
+
+    for (const step of steps) {
+        const div = document.createElement("div");
+        div.className = "step-item";
+        div.innerHTML = `<span>⏳</span> ${step}`;
+        trainingSteps.appendChild(div);
+
+        // Trigger reflow
+        div.offsetHeight;
+        div.classList.add("visible");
+
+        // Simulate delay
+        await new Promise(r => setTimeout(r, 600));
+        div.innerHTML = `<span>✅</span> ${step}`;
+    }
+}
+
 async function trainAndPredict() {
     setButtonLoading(getRecsButton, true);
     trainingOverlay.classList.remove("hidden");
-    trainingStats.textContent = "Préparation des données…";
-    algoList.innerHTML = "";
 
-    const res = await fetch(
+    // Start animation and fetch in parallel
+    const animationPromise = runTrainingAnimation();
+
+    const fetchPromise = fetch(
         `${API_BASE}/train-and-predict?user_id=${sessionUserId}&mode=${currentMode}`,
         { method: "POST" }
-    );
-    const data = await res.json();
+    ).then(res => res.json());
+
+    const [_, data] = await Promise.all([animationPromise, fetchPromise]);
 
     predictionsData = data.predictions;
-    renderPredictions();
+    sortPredictions(sortOrder); // Initial sort
     renderDiagnostics(data);
 
     trainingOverlay.classList.add("hidden");
@@ -337,46 +378,94 @@ async function trainAndPredict() {
 // -----------------------------------------------------------------------------
 // Rendering helpers
 // -----------------------------------------------------------------------------
+const mobileModeTrigger = document.getElementById("mobileModeTrigger");
+const mobileModeLabel = document.getElementById("mobileModeLabel");
+const mobileModeOverlay = document.getElementById("mobileModeOverlay");
+const closeMobileOverlay = document.getElementById("closeMobileOverlay");
+const mobileModeList = document.getElementById("mobileModeList");
+const desktopModeTabs = document.getElementById("desktopModeTabs");
+
+// ... (existing constants)
+
+async function fetchModes() {
+    // We define hardcoded structure ensuring the order and specific labels
+    // We can verify against availableModes from backend if needed, but let's prioritize exact UI requirements
+    // Backend returns list of IDs and Labels, we overlay our custom UI on top.
+
+    // Custom Config
+    const MODE_CONFIG = [
+        { id: "politicians", label: "Politiques", icon: "🏛" },
+        { id: "colors", label: "Couleurs", icon: "🎨" },
+        { id: "destinations", label: "Vacances", icon: "✈️" },
+        { id: "movies", label: "Films", icon: "🎬" },
+        { id: "songs", label: "Musiques", icon: "🎵" }
+    ];
+
+    availableModes = MODE_CONFIG;
+
+    // Set initial
+    currentMode = availableModes[0].id;
+    document.body.className = "mode-" + currentMode;
+
+    renderModeSelector();
+    fetchVoterCount();
+}
+
 function renderModeSelector() {
-    if (modeTabs) {
-        modeTabs.innerHTML = "";
-        availableModes.forEach((mode) => {
+    // 1. Desktop Tabs
+    if (desktopModeTabs) {
+        desktopModeTabs.innerHTML = "";
+        availableModes.forEach(mode => {
             const btn = document.createElement("button");
-            btn.type = "button";
-            btn.className = "mode-tab" + (mode.id === currentMode ? " mode-tab-active" : "");
-            btn.textContent = mode.label;
-            btn.addEventListener("click", async () => {
-                if (mode.id === currentMode) {
-                    closeModeMenu();
-                    return;
-                }
-                currentMode = mode.id;
-                renderModeSelector();
-                await fetchSampleItems();
-                closeModeMenu();
-            });
-            btn.addEventListener("keydown", handleModeTabKeydown);
-            modeTabs.appendChild(btn);
+            btn.className = `mode-pill ${mode.id === currentMode ? "active" : ""}`;
+            btn.innerHTML = `${mode.icon} ${mode.label}`;
+            btn.onclick = () => switchMode(mode.id);
+            desktopModeTabs.appendChild(btn);
         });
     }
 
-    if (modeSelect) {
-        modeSelect.innerHTML = "";
-        availableModes.forEach((mode) => {
-            const option = document.createElement("option");
-            option.value = mode.id;
-            option.textContent = mode.label;
-            modeSelect.appendChild(option);
-        });
+    // 2. Mobile Trigger & List
+    const activeModeObj = availableModes.find(m => m.id === currentMode);
+    if (mobileModeLabel && activeModeObj) {
+        mobileModeLabel.textContent = `${activeModeObj.icon} ${activeModeObj.label}`;
+    }
 
-        modeSelect.value = currentMode;
-        modeSelect.onchange = async (event) => {
-            const newMode = event.target.value;
-            if (newMode === currentMode) return;
-            currentMode = newMode;
-            renderModeSelector();
-            await fetchSampleItems();
-        };
+    if (mobileModeList) {
+        mobileModeList.innerHTML = "";
+        availableModes.forEach(mode => {
+            const card = document.createElement("div");
+            card.className = `mobile-mode-card ${mode.id === currentMode ? "active" : ""}`;
+            card.innerHTML = `
+                <span class="mobile-mode-icon">${mode.icon}</span>
+                <span class="mobile-mode-label">${mode.label}</span>
+            `;
+            card.onclick = () => {
+                switchMode(mode.id);
+                setMobileOverlay(false);
+            };
+            mobileModeList.appendChild(card);
+        });
+    }
+}
+
+async function switchMode(newModeId) {
+    if (newModeId === currentMode) return;
+    currentMode = newModeId;
+    document.body.className = "mode-" + currentMode;
+    voteBuffer = [];
+
+    renderModeSelector();
+    fetchVoterCount();
+    await fetchSampleItems();
+}
+
+function setMobileOverlay(open) {
+    if (mobileModeOverlay) {
+        if (open) {
+            mobileModeOverlay.classList.remove("hidden");
+        } else {
+            mobileModeOverlay.classList.add("hidden");
+        }
     }
 }
 
@@ -391,12 +480,13 @@ function renderStars() {
         star.dataset.value = value;
         star.textContent = "★";
 
-        star.addEventListener("click", () => handleStarClick(value));
+        // Use mousedown for instant response
+        star.addEventListener("mousedown", () => handleStarClick(value));
         star.addEventListener("mouseenter", () => {
             hoverRating = value;
             renderStars();
         });
-    
+
         starContainer.appendChild(star);
     }
 
@@ -410,10 +500,16 @@ function renderCurrentItem() {
     currentItem = sampledItems[currentIndex];
     if (!currentItem) return;
 
+    // 1) Image / Color
     if (currentMode === "colors") {
         colorSwatch.style.backgroundColor = currentItem.hex || "#ffffff";
         colorSwatch.innerHTML = "";
+        colorSwatch.classList.remove("hidden");
+    } else if (currentMode === "songs") {
+        // Pour les musiques, on cache l'image (le player prend la place)
+        colorSwatch.classList.add("hidden");
     } else {
+        colorSwatch.classList.remove("hidden");
         colorSwatch.style.backgroundColor = "#ffffff";
         colorSwatch.innerHTML = "";
         const url = getImageUrl(currentItem);
@@ -431,87 +527,219 @@ function renderCurrentItem() {
         }
     }
 
-    let title = currentItem.name;
-    if (currentItem.subtitle) {
-        title += " · " + currentItem.subtitle;
+    // 2) Textes
+    if (currentMode === "songs") {
+        itemName.classList.add("hidden");
+        itemSubtitle.classList.add("hidden");
+    } else {
+        itemName.classList.remove("hidden");
+        itemSubtitle.classList.remove("hidden");
+        itemName.textContent = currentItem.name;
+        itemSubtitle.textContent = currentItem.subtitle || "";
     }
-    colorName.textContent = title;
+
+    // 3) Spotify Player
+    const spotifyPlayer = document.getElementById("spotifyPlayer");
+    if (spotifyPlayer) {
+        if (currentItem.spotify_id && currentMode === "songs") {
+            spotifyPlayer.classList.remove("hidden");
+            // Autoplay : allow="autoplay" + src="...?autoplay=1"
+            spotifyPlayer.innerHTML = `
+                <iframe style="border-radius:12px" 
+                    src="https://open.spotify.com/embed/track/${currentItem.spotify_id}?utm_source=generator&autoplay=1" 
+                    width="100%" 
+                    height="352" 
+                    frameBorder="0" 
+                    allowfullscreen="" 
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                    loading="eager">
+                </iframe>
+            `;
+        } else {
+            spotifyPlayer.classList.add("hidden");
+            spotifyPlayer.innerHTML = "";
+        }
+    }
 
     renderStars();
 }
 
+const BATCH_SIZE = 20;
+let renderedCount = 0;
+let observer = null;
+
+function setupIntersectionObserver() {
+    if (observer) observer.disconnect();
+
+    const options = {
+        root: null,
+        rootMargin: '100px',
+        threshold: 0.1
+    };
+
+    observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                renderNextBatch();
+            }
+        });
+    }, options);
+}
+
 function renderPredictions() {
     recsGrid.innerHTML = "";
-    predictionsList.innerHTML = "";
+    recsGrid.className = `recs-grid ${viewMode === 'list' ? 'list-view' : ''} ${isComparisonMode ? 'comparison-mode' : ''}`;
+    renderedCount = 0;
 
-    predictionsData.forEach((item) => {
-        // Grid cards with inline rating
-        const card = document.createElement("div");
-        card.className = "rec-card";
+    if (isComparisonMode) {
+        renderNeighborControls();
+    }
 
-        const imgUrl = getImageUrl(item);
-        if (imgUrl) {
-            const img = document.createElement("img");
-            img.src = imgUrl;
-            img.alt = item.name;
-            img.className = "item-image";
-            card.appendChild(img);
-        } else if (currentMode === "colors") {
-            const swatch = document.createElement("div");
-            swatch.className = "prediction-thumb";
-            swatch.style.backgroundColor = item.hex || "#ffffff";
-            card.appendChild(swatch);
-        }
+    setupIntersectionObserver();
+    renderNextBatch();
+}
 
-        const title = document.createElement("div");
-        title.className = "rec-title";
-        title.textContent = item.subtitle ? `${item.name} · ${item.subtitle}` : item.name;
-        card.appendChild(title);
+function renderNextBatch() {
+    const nextBatch = predictionsData.slice(renderedCount, renderedCount + BATCH_SIZE);
 
-        const score = document.createElement("div");
-        score.className = "prediction-score";
-        score.textContent = item.predicted_rating.toFixed(2);
-        card.appendChild(score);
+    if (nextBatch.length === 0) return;
 
-        const starsContainer = document.createElement("div");
-        starsContainer.className = "rec-stars";
-        card.appendChild(starsContainer);
-        renderRecStars(starsContainer, item);
+    // Remove sentinel if it exists
+    const sentinel = document.getElementById('scroll-sentinel');
+    if (sentinel) sentinel.remove();
 
+    nextBatch.forEach((item) => {
+        const card = createPredictionCard(item);
         recsGrid.appendChild(card);
-
-        // List view
-        const row = document.createElement("div");
-        row.className = "prediction-item";
-
-        const thumb = document.createElement(currentMode === "colors" ? "div" : "img");
-        thumb.className = "prediction-thumb";
-        if (currentMode === "colors") {
-            thumb.style.backgroundColor = item.hex || "#ffffff";
-        } else {
-            thumb.src = imgUrl;
-            thumb.alt = item.name;
-        }
-        row.appendChild(thumb);
-
-        const nameDiv = document.createElement("div");
-        nameDiv.className = "prediction-name";
-        nameDiv.textContent = item.subtitle ? `${item.name} · ${item.subtitle}` : item.name;
-        row.appendChild(nameDiv);
-
-        const scoreDiv = document.createElement("div");
-        scoreDiv.className = "prediction-score";
-        scoreDiv.textContent = item.predicted_rating.toFixed(2);
-        row.appendChild(scoreDiv);
-
-        predictionsList.appendChild(row);
     });
+
+    renderedCount += nextBatch.length;
+
+    // Add sentinel if there are more items
+    if (renderedCount < predictionsData.length) {
+        const newSentinel = document.createElement('div');
+        newSentinel.id = 'scroll-sentinel';
+        newSentinel.style.height = '20px';
+        newSentinel.style.width = '100%';
+        recsGrid.appendChild(newSentinel);
+        observer.observe(newSentinel);
+    }
+}
+
+function createPredictionCard(item) {
+    const card = document.createElement("div");
+    card.className = "rec-card";
+
+    const imgUrl = getImageUrl(item);
+    if (imgUrl) {
+        const img = document.createElement("img");
+        img.src = imgUrl;
+        img.alt = item.name;
+        img.className = "item-image";
+        // Lazy load images
+        img.loading = "lazy";
+        card.appendChild(img);
+    } else if (currentMode === "colors") {
+        const swatch = document.createElement("div");
+        swatch.className = "prediction-thumb";
+        swatch.style.backgroundColor = item.hex || "#ffffff";
+        card.appendChild(swatch);
+    }
+
+    const content = document.createElement("div");
+    content.className = "rec-content";
+
+    const title = document.createElement("div");
+    title.className = "rec-title";
+    title.textContent = item.subtitle ? `${item.name} · ${item.subtitle}` : item.name;
+    content.appendChild(title);
+
+    const score = document.createElement("div");
+    score.className = "prediction-score";
+    score.textContent = item.predicted_rating.toFixed(2);
+    content.appendChild(score);
+
+    const stats = document.createElement("div");
+    stats.className = "prediction-stats";
+    stats.style.fontSize = "0.8em";
+    stats.style.color = "#666";
+    stats.style.marginTop = "4px";
+
+    const avgText = item.average_rating ? `Moy: ${item.average_rating}/5` : "Moy: -";
+    const countText = item.vote_count ? `(${item.vote_count} votes)` : "(0 votes)";
+    stats.textContent = `${avgText} ${countText}`;
+    content.appendChild(stats);
+
+    // --- Star Container for USER (Me) ---
+    const userStarsLabel = document.createElement("div");
+    userStarsLabel.className = "stars-label";
+    userStarsLabel.textContent = isComparisonMode ? "Moi" : "";
+    userStarsLabel.style.fontSize = "0.75em";
+    userStarsLabel.style.color = "#888";
+    userStarsLabel.style.marginBottom = "2px";
+    if (isComparisonMode) content.appendChild(userStarsLabel);
+
+    const starsContainer = document.createElement("div");
+    starsContainer.className = "rec-stars";
+    content.appendChild(starsContainer);
+    renderRecStars(starsContainer, item);
+
+    // --- Star Container for NEIGHBOR (Them) ---
+    if (isComparisonMode && item.their_rating !== undefined) {
+        const theirStarsLabel = document.createElement("div");
+        theirStarsLabel.className = "stars-label";
+        theirStarsLabel.textContent = "Similaire";
+        theirStarsLabel.style.fontSize = "0.75em";
+        theirStarsLabel.style.color = "#888";
+        theirStarsLabel.style.marginTop = "8px";
+        theirStarsLabel.style.marginBottom = "2px";
+        content.appendChild(theirStarsLabel);
+
+        const theirStarsContainer = document.createElement("div");
+        theirStarsContainer.className = "rec-stars rec-stars-their";
+        content.appendChild(theirStarsContainer);
+        renderRecStarsStatic(theirStarsContainer, item.their_rating);
+    }
+
+    // Visual distinction for rated items
+    if (item.user_rating) {
+        card.classList.add("rated-item");
+        card.style.border = "2px solid #ffd700"; // Gold border for ME
+    } else if (item.their_rating) {
+        card.classList.add("rated-item-neighbor"); // Blue border for THEM
+        // style handled by CSS class or inline
+        card.style.border = "2px solid #3b82f6";
+    }
+
+    card.appendChild(content);
+    return card;
+}
+
+function renderRecStarsStatic(container, rating) {
+    container.innerHTML = "";
+    for (let value = 1; value <= 5; value++) {
+        const star = document.createElement("span"); // span so not clickable
+        star.className = "star-mini"; // Use mini style or similar
+        star.textContent = "★";
+        if (value <= rating) {
+            star.classList.add("star-active-blue"); // Different color for neighbor
+        }
+        container.appendChild(star);
+    }
 }
 
 function renderRecStars(container, item) {
     container.innerHTML = "";
-    let hover = 0;
-    const effectiveBase = Math.round(item.predicted_rating);
+    // We use a closure to keep track of hover state for this specific item
+    // But since we re-render the whole grid often, we might need a better way if perf is bad.
+    // For now, simple re-render of the star container is fine.
+
+    // We need to store hover state on the item object or a separate map if we want it to persist across full re-renders
+    // But here we just re-render the stars container on hover.
+
+    // If user has rated it, use that. Otherwise 0 (empty stars) for prediction list
+    // The user wants to see "notes que j'ai mises moi-même"
+    const currentVal = item.user_rating || 0;
 
     for (let value = 1; value <= 5; value++) {
         const star = document.createElement("button");
@@ -519,26 +747,21 @@ function renderRecStars(container, item) {
         star.className = "star";
         star.textContent = "★";
 
-        const effective = hover || item.user_rating || effectiveBase;
-        if (value <= effective) {
+        if (value <= currentVal) {
             star.classList.add("star-active");
         }
 
-        star.addEventListener("mouseenter", () => {
-            hover = value;
-            renderRecStars(container, item);
-        });
-
-        star.addEventListener("mouseleave", () => {
-            hover = 0;
-            renderRecStars(container, item);
-        });
-
         star.addEventListener("click", async () => {
-            await sendRating(item.item_id, value);
+            // Instant update UI
             item.user_rating = value;
-            refreshRecsButton.classList.remove("hidden");
             renderRecStars(container, item);
+
+            // Send rating
+            await sendRating(item.item_id, value);
+
+            // Trigger re-training immediately as requested
+            // We use a lighter loading state if possible, or just the standard one
+            await trainAndPredict();
         });
 
         container.appendChild(star);
@@ -574,17 +797,69 @@ function renderDiagnostics(data) {
         leaderboardBody.appendChild(tr);
     });
 
-    bestModelSummary.textContent = `Le meilleur modèle est ${data.best_model_name} avec un RMSE de ${data.best_model_rmse.toFixed(3)} pour le mode ${currentMode}.`;
+    // Summary with docs and baseline comparison
+    const algoDocs = {
+        "SVD": "https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVD",
+        "SVDpp": "https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.SVDpp",
+        "NMF": "https://surprise.readthedocs.io/en/stable/matrix_factorization.html#surprise.prediction_algorithms.matrix_factorization.NMF",
+        "KNNBasic": "https://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNBasic",
+        "KNNWithMeans": "https://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNWithMeans",
+        "KNNBaseline": "https://surprise.readthedocs.io/en/stable/knn_inspired.html#surprise.prediction_algorithms.knns.KNNBaseline",
+        "CoClustering": "https://surprise.readthedocs.io/en/stable/co_clustering.html#surprise.prediction_algorithms.co_clustering.CoClustering",
+        "SlopeOne": "https://surprise.readthedocs.io/en/stable/slope_one.html#surprise.prediction_algorithms.slope_one.SlopeOne",
+        "BaselineOnly": "https://surprise.readthedocs.io/en/stable/basic_algorithms.html#surprise.prediction_algorithms.baseline_only.BaselineOnly",
+        "NormalPredictor": "https://surprise.readthedocs.io/en/stable/basic_algorithms.html#surprise.prediction_algorithms.random_pred.NormalPredictor"
+    };
+
+    const bestAlgoUrl = algoDocs[data.best_model_name] || "https://surprise.readthedocs.io/en/stable/prediction_algorithms_package.html";
+
+    // Find baseline for comparison
+    const baselineEntry = data.leaderboard.find(e => e.model_name === "BaselineOnly") || data.leaderboard.find(e => e.model_name === "NormalPredictor");
+    let comparisonText = "";
+    if (baselineEntry) {
+        const diff = baselineEntry.rmse - data.best_model_rmse;
+        const percent = (diff / baselineEntry.rmse) * 100;
+        comparisonText = `<br>Comparé à la baseline (${baselineEntry.model_name}, RMSE=${baselineEntry.rmse.toFixed(3)}), ce modèle améliore la précision de <strong>${percent.toFixed(1)}%</strong>.`;
+    }
+
+    bestModelSummary.innerHTML = `
+        Le meilleur modèle est <strong><a href="${bestAlgoUrl}" target="_blank">${data.best_model_name}</a></strong> avec un RMSE de <strong>${data.best_model_rmse.toFixed(3)}</strong>.
+        <br><small>Le RMSE (Root Mean Squared Error) mesure l'erreur moyenne de prédiction. Plus il est bas, plus le modèle est précis.</small>
+        ${comparisonText}
+    `;
+
+    // Show params as bullet points
+    if (data.best_model_params) {
+        let html = "<strong>Paramètres :</strong><ul>";
+        for (const [key, val] of Object.entries(data.best_model_params)) {
+            html += `<li>${key}: ${val}</li>`;
+        }
+        html += "</ul>";
+        bestModelParams.innerHTML = html;
+    }
 
     confusionBody.innerHTML = "";
     data.confusion_matrix.forEach((row, i) => {
         const tr = document.createElement("tr");
         const labelCell = document.createElement("td");
         labelCell.textContent = i + 1;
+        labelCell.style.fontWeight = "bold";
         tr.appendChild(labelCell);
-        row.forEach((val) => {
+
+        row.forEach((val, j) => {
             const td = document.createElement("td");
             td.textContent = val;
+
+            // Color coding
+            // i is actual index (0-4 for ratings 1-5)
+            // j is predicted index (0-4 for ratings 1-5)
+            const actual = i + 1;
+            const predicted = j + 1;
+            const diff = Math.abs(actual - predicted);
+
+            // Classes defined in CSS: conf-0 (perfect), conf-1 (good), conf-2 (ok), conf-3 (bad), conf-4 (worst)
+            td.className = `conf-${diff}`;
+
             tr.appendChild(td);
         });
         confusionBody.appendChild(tr);
@@ -605,7 +880,6 @@ async function goToNextItem() {
         return;
     }
 
-    // On a consommé le lot courant, récupérer de nouveaux items
     await fetchSampleItems();
 }
 
@@ -616,27 +890,81 @@ function handleStarClick(value) {
     submitCurrentRating();
 }
 
+// Buffer for votes to ensure we only save when user has >= 3 votes
+let voteBuffer = [];
+
 async function submitCurrentRating() {
     if (!currentRating || !currentItem) return;
-    await sendRating(currentItem.id, currentRating);
-    ratingCountsByMode[currentMode] = getModeRatingCount() + 1;
+
+    // Add to buffer
+    const vote = {
+        itemId: currentItem.id,
+        rating: currentRating
+    };
+    voteBuffer.push(vote);
+
+    // Update local count
+    const currentCount = (ratingCountsByMode[currentMode] || 0) + 1;
+    ratingCountsByMode[currentMode] = currentCount;
+
+    // Logic:
+    // If count < 3: just keep in buffer (don't send to backend yet)
+    // If count == 3: send the 2 buffered votes + the current one (which is in buffer)
+    // If count > 3: send the current one immediately
+
+    if (currentCount === 3) {
+        // Flush buffer
+        console.log("Threshold reached, flushing buffer...", voteBuffer);
+        for (const v of voteBuffer) {
+            await sendRating(v.itemId, v.rating);
+        }
+        voteBuffer = []; // Clear buffer
+    } else if (currentCount > 3) {
+        // Send immediately
+        await sendRating(vote.itemId, vote.rating);
+        voteBuffer = []; // Ensure buffer is empty
+    } else {
+        console.log("Vote buffered. Count:", currentCount);
+    }
+
     persistRatingCounts();
-    updateRatingHint();
     currentRating = 0;
     hoverRating = 0;
     renderStars();
 
     updateGetRecsState();
 
+    const myVotes = getModeRatingCount(currentMode);
+
+    // Update header
+    if (voterCountEl) {
+        // "Nombre votants : X · Total items : Y · Mes votes : Z"
+        // Note: fetchVoterCount is async and updates voterCountEl
+        // We will do it inside fetchVoterCount to keep it centralized
+        fetchVoterCount();
+    }
+
     await goToNextItem();
 }
 
 // -----------------------------------------------------------------------------
+// API calls
+// -----------------------------------------------------------------------------
+// ... (existing code)
+
+// We need to override fetchVoterCount to incorporate local "myVotes" state
+// Or we just update fetchVoterCount definition earlier in file.
+// Let's go to fetchVoterCount definition and update it there.
+
+// -----------------------------------------------------------------------------
 // Event bindings
 // -----------------------------------------------------------------------------
-if (modeToggleButton) {
-    setModeMenuState(false);
-    modeToggleButton.addEventListener("click", () => toggleModeMenu());
+if (mobileModeTrigger) {
+    mobileModeTrigger.addEventListener("click", () => setMobileOverlay(true));
+}
+
+if (closeMobileOverlay) {
+    closeMobileOverlay.addEventListener("click", () => setMobileOverlay(false));
 }
 
 document.addEventListener("click", (event) => {
@@ -646,29 +974,48 @@ document.addEventListener("click", (event) => {
     }
 });
 
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && isModeMenuOpen) {
-        closeModeMenu();
-        modeToggleButton?.focus();
-    }
-});
+if (sortBtn) {
+    sortBtn.addEventListener("click", () => {
+        sortOrder = sortOrder === "desc" ? "asc" : "desc";
+        // Rotate icon for ascending order
+        const img = sortBtn.querySelector("img");
+        if (img) {
+            img.style.transform = sortOrder === "asc" ? "rotate(180deg)" : "rotate(0deg)";
+            img.style.transition = "transform 0.2s ease";
+        }
+        sortPredictions(sortOrder);
+    });
+}
 
-sortSelect.addEventListener("change", (e) => {
-    sortPredictions(e.target.value);
-});
+if (viewToggleBtn) {
+    viewToggleBtn.addEventListener("click", () => {
+        viewMode = viewMode === "grid" ? "list" : "grid";
+        // Optional: Change opacity or style to indicate state if needed
+        // For now just toggle the view
+        renderPredictions();
+    });
+}
 
-toDiagnosticsBtn.addEventListener("click", () => {
-    showSection(diagnosticsSection);
-});
+if (mlInfoBtn) {
+    mlInfoBtn.addEventListener("click", () => {
+        diagnosticsModal.classList.remove("hidden");
+    });
+}
 
-restartBtn.addEventListener("click", async () => {
-    await fetchSampleItems();
-});
+if (closeDiagnosticsBtn) {
+    closeDiagnosticsBtn.addEventListener("click", () => {
+        diagnosticsModal.classList.add("hidden");
+    });
+}
 
 skipButton.addEventListener("click", async () => {
     currentRating = 0;
     hoverRating = 0;
-    renderStars();
+    updateGetRecsState();
+
+    // Refresh header stats
+    fetchVoterCount();
+
     await goToNextItem();
 });
 
@@ -676,13 +1023,174 @@ getRecsButton.addEventListener("click", async () => {
     await trainAndPredict();
 });
 
-refreshRecsButton.addEventListener("click", async () => {
-    await trainAndPredict();
-    refreshRecsButton.classList.add("hidden");
-});
+if (refreshRecsButton) {
+    refreshRecsButton.addEventListener("click", async () => {
+        await trainAndPredict();
+        refreshRecsButton.classList.add("hidden");
+    });
+}
+
+if (similarUsersBtn) {
+    // Toggle Comparison Mode
+    similarUsersBtn.addEventListener("click", () => {
+        const myVotes = getModeRatingCount(currentMode);
+        if (myVotes < 3) {
+            alert("Vous devez avoir plus de 3 votes pour découvrir des utilisateurs similaires et explorer ce que les autres ont pensé de vos choix.");
+            return;
+        }
+        toggleComparisonMode();
+    });
+}
+
+// if (closeSimilarUsersBtn) {
+//     closeSimilarUsersBtn.addEventListener("click", () => {
+//         similarUsersModal.classList.add("hidden");
+//     });
+// }
+
+
+async function toggleComparisonMode() {
+    if (isComparisonMode) {
+        // Turn OFF
+        isComparisonMode = false;
+        predictionsData = [...originalPredictionsData];
+        similarUsersBtn.classList.remove("btn-active"); // Add active style class
+
+        // Remove nav controls if any
+        if (neighborNavContainer) neighborNavContainer.remove();
+
+        renderPredictions();
+    } else {
+        // Turn ON
+        if (!sessionUserId) return;
+
+        // Save current predictions to restore later
+        if (originalPredictionsData.length === 0 && predictionsData.length > 0) {
+            originalPredictionsData = [...predictionsData];
+        }
+
+        setButtonLoading(similarUsersBtn, true);
+
+        try {
+            const res = await fetch(`${API_BASE}/similar-users`, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    user_id: sessionUserId,
+                    mode: currentMode,
+                    limit: 5
+                })
+            });
+            const data = await res.json();
+            similarUsersData = data.neighbors;
+            currentNeighborIndex = 0;
+
+            if (similarUsersData.length === 0) {
+                alert("Aucun utilisateur similaire trouvé.");
+                setButtonLoading(similarUsersBtn, false);
+                return;
+            }
+
+            isComparisonMode = true;
+            similarUsersBtn.classList.add("btn-active");
+
+            showSection(predictionsSection); // Ensure we are on predictions view
+            updateComparisonData();
+
+        } catch (e) {
+            console.error(e);
+            alert("Erreur lors de la récupération des voisins.");
+        } finally {
+            setButtonLoading(similarUsersBtn, false);
+        }
+    }
+}
+
+function updateComparisonData() {
+    if (!similarUsersData || similarUsersData.length === 0) return;
+
+    const neighbor = similarUsersData[currentNeighborIndex];
+
+    // Combine items: common, user_items (me only), other_items (them only)
+    // We map them to the structure of prediction items, adding 'their_rating' and 'user_rating'
+
+    // Helper to normalize
+    const normalize = (items, type) => items.map(i => ({
+        ...i,
+        // Now using real values from backend
+        // user_rating might be in i.my_rating (common) or i.rating (me_only)
+        user_rating: type === 'common' ? i.my_rating : (type === 'me_only' ? i.rating : 0),
+        their_rating: type === 'common' ? i.their_rating : (type === 'they_only' ? i.rating : 0),
+        // other fields matched by spread ...i
+    }));
+
+    const common = normalize(neighbor.common_items, 'common');
+    const meOnly = normalize(neighbor.user_items, 'me_only');
+    const theyOnly = normalize(neighbor.other_items, 'they_only');
+
+    predictionsData = [...common, ...meOnly, ...theyOnly];
+
+    // Sort? Maybe common first, then by meaningfulness?
+    // Let's sort by presence of double ratings, then my rating?
+    // User asked: "afficher les étoiles de l'utilisateur similaire en dessous"
+    // implies comparison is key.
+
+    renderPredictions();
+}
+
+function renderNeighborControls() {
+    // Inject controls at top of recsGrid or distinct container
+    // Let's put it as the first element of recsGrid or before it?
+    // renderPredictions clears recsGrid, so we can append it first.
+
+    const neighbor = similarUsersData[currentNeighborIndex];
+    const similarityPercent = Math.round(neighbor.similarity_score * 100);
+
+    const div = document.createElement("div");
+    div.className = "neighbor-controls";
+    div.style.gridColumn = "1 / -1";
+    div.style.display = "flex";
+    div.style.alignItems = "center";
+    div.style.justifyContent = "center";
+    div.style.background = "#f0f9ff";
+    div.style.padding = "12px";
+    div.style.borderRadius = "12px";
+    div.style.marginBottom = "16px";
+    div.style.border = "1px solid #bae6fd";
+
+    div.innerHTML = `
+        <div style="display:flex; align-items:center; gap:12px;">
+            ${currentNeighborIndex > 0 ? `<button class="btn-secondary btn-sm" onclick="changeNeighborProxy(-1)">←</button>` : ''}
+            <div style="text-align:center">
+                <strong>Utilisateur similaire #${currentNeighborIndex + 1}</strong>
+                <div style="font-size:0.85em; color:#0284c7;">${similarityPercent}% de similarité</div>
+            </div>
+            ${currentNeighborIndex < similarUsersData.length - 1 ? `<button class="btn-secondary btn-sm" onclick="changeNeighborProxy(1)">→</button>` : ''}
+        </div>
+    `;
+
+    recsGrid.prepend(div);
+}
+
+window.changeNeighborProxy = (delta) => {
+    currentNeighborIndex += delta;
+    updateComparisonData();
+};
+
+window.exitComparisonProxy = () => {
+    toggleComparisonMode();
+};
 
 // -----------------------------------------------------------------------------
 // Init
+// -----------------------------------------------------------------------------
+// Add lightning icons to title
+const titleEl = document.querySelector(".app-header h1");
+if (titleEl) {
+    titleEl.innerHTML = "⚡ " + titleEl.textContent + " ⚡";
+}
+
+
 // -----------------------------------------------------------------------------
 (async function initApp() {
     try {
