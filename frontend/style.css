@@ -519,27 +519,29 @@ body {
 }
 
 .btn-similar {
-    background: #8b5cf6;
-    /* Violet */
-    border-color: #8b5cf6;
+    background: linear-gradient(135deg, #0d9488, #115e59);
+    /* Teal/Metallic Green */
+    border-color: #0f766e;
     color: white;
+    box-shadow: 0 4px 6px rgba(13, 148, 136, 0.25);
 }
 
 .btn-similar:hover {
-    background: #7c3aed;
-    border-color: #7c3aed;
+    background: linear-gradient(135deg, #115e59, #134e4a);
+    border-color: #115e59;
+    transform: translateY(-1px);
 }
 
 .btn-algo {
-    background: #10b981;
-    /* Emerald/Teal */
-    border-color: #10b981;
+    background: #4f46e5;
+    /* Indigo */
+    border-color: #4f46e5;
     color: white;
 }
 
 .btn-algo:hover {
-    background: #059669;
-    border-color: #059669;
+    background: #4338ca;
+    border-color: #4338ca;
 }
 
 .sr-only {

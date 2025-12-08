@@ -42,8 +42,6 @@ const getRecsButtonLabel = document.querySelector("#getRecsButton .button-text")
 const getRecsButtonStatus = document.getElementById("ctaStatus");
 
 const modeSelector = document.getElementById("modeSelector"); // Obsolete?
-// const modeToggleButton = document.getElementById("modeToggle"); // Obsolete
-// const modeTabs = document.getElementById("modeTabs"); // Obsolete
 const voterCountEl = document.getElementById("voterCount");
 
 const sortBtn = document.getElementById("sortBtn");
@@ -165,7 +163,12 @@ function resetSeenIdsForMode(mode = currentMode) {
 
 function getImageUrl(item) {
     if (currentMode === "colors") return null;
-    if (item.image_url) return item.image_url;
+    if (item.image_url) {
+        if (item.image_url.startsWith("http")) return item.image_url;
+        // If relative, prepend API_BASE (which handles localhost:8000 vs prod)
+        // If API_BASE is empty (prod same origin), it just returns the relative path, which is correct.
+        return API_BASE + item.image_url;
+    }
     // Fallback if no image URL
     return "https://placehold.co/400?text=" + encodeURIComponent(item.name);
 }
@@ -219,25 +222,7 @@ async function initSession() {
     console.log("New session started:", sessionUserId);
 }
 
-async function fetchModes() {
-    const res = await fetch(`${API_BASE}/modes`);
-    availableModes = await res.json();
-    // Add icons
-    const icons = {
-        "politicians": "🏛️",
-        "colors": "🎨",
-        "destinations": "✈️",
-        "movies": "🎬",
-        "songs": "🎵"
-    };
-    availableModes.forEach(m => {
-        if (icons[m.id]) m.label = `${icons[m.id]} ${m.label}`;
-    });
-    currentMode = availableModes[0]?.id || "politicians";
-    document.body.className = "mode-" + currentMode;
-    renderModeSelector();
-    fetchVoterCount();
-}
+
 
 async function fetchVoterCount() {
     try {
@@ -373,6 +358,42 @@ async function trainAndPredict() {
     trainingOverlay.classList.add("hidden");
     showSection(predictionsSection);
     setButtonLoading(getRecsButton, false);
+
+    // Check if similar users are available and disable button if not
+    checkSimilarUsersAvailability();
+}
+
+async function checkSimilarUsersAvailability() {
+    if (!sessionUserId) {
+        similarUsersBtn.disabled = true;
+        similarUsersBtn.title = "Vous devez d'abord voter pour des items";
+        return;
+    }
+
+    try {
+        const res = await fetch(`${API_BASE}/similar-users`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                user_id: sessionUserId,
+                mode: currentMode,
+                limit: 1 // Just check if at least one exists
+            })
+        });
+        const data = await res.json();
+
+        if (data.neighbors && data.neighbors.length > 0) {
+            similarUsersBtn.disabled = false;
+            similarUsersBtn.title = "Voir les utilisateurs similaires";
+        } else {
+            similarUsersBtn.disabled = true;
+            similarUsersBtn.title = "Aucun utilisateur similaire trouvé (besoin de plus de votes en commun)";
+        }
+    } catch (e) {
+        console.error("Error checking similar users:", e);
+        similarUsersBtn.disabled = true;
+        similarUsersBtn.title = "Erreur lors de la vérification";
+    }
 }
 
 // -----------------------------------------------------------------------------
@@ -398,7 +419,9 @@ async function fetchModes() {
         { id: "colors", label: "Couleurs", icon: "🎨" },
         { id: "destinations", label: "Vacances", icon: "✈️" },
         { id: "movies", label: "Films", icon: "🎬" },
-        { id: "songs", label: "Musiques", icon: "🎵" }
+        { id: "songs", label: "Musiques", icon: "🎵" },
+        { id: "dishes", label: "Plats", icon: "🥘" },
+        { id: "books", label: "Livres", icon: "📚" }
     ];
 
     availableModes = MODE_CONFIG;
@@ -780,20 +803,40 @@ function sortPredictions(order) {
 
 function renderDiagnostics(data) {
     leaderboardBody.innerHTML = "";
-    data.leaderboard.forEach((entry) => {
+    data.leaderboard.forEach((entry, index) => {
         const tr = document.createElement("tr");
         if (entry.model_name === data.best_model_name) {
             tr.classList.add("best-row");
         }
-        const tdName = document.createElement("td");
-        const tdRmse = document.createElement("td");
+
+        // Medal icons for top 3
+        const medals = ["🥇", "🥈", "🥉"];
+        const medal = index < 3 ? medals[index] : "";
+
         const tdRank = document.createElement("td");
-        tdName.textContent = entry.model_name;
-        tdRmse.textContent = entry.rmse.toFixed(3);
         tdRank.textContent = entry.rank;
+
+        const tdName = document.createElement("td");
+        tdName.innerHTML = medal ? `${medal} <strong>${entry.model_name}</strong>` : entry.model_name;
+
+        const tdRmse = document.createElement("td");
+        tdRmse.textContent = entry.rmse.toFixed(3);
+
+        const tdMse = document.createElement("td");
+        tdMse.textContent = entry.mse ? entry.mse.toFixed(3) : "N/A";
+
+        const tdMae = document.createElement("td");
+        tdMae.textContent = entry.mae ? entry.mae.toFixed(3) : "N/A";
+
+        const tdFcp = document.createElement("td");
+        tdFcp.textContent = entry.fcp !== null && entry.fcp !== undefined ? entry.fcp.toFixed(3) : "N/A";
+
+        tr.appendChild(tdRank);
         tr.appendChild(tdName);
         tr.appendChild(tdRmse);
-        tr.appendChild(tdRank);
+        tr.appendChild(tdMse);
+        tr.appendChild(tdMae);
+        tr.appendChild(tdFcp);
         leaderboardBody.appendChild(tr);
     });
 
@@ -822,9 +865,22 @@ function renderDiagnostics(data) {
         comparisonText = `<br>Comparé à la baseline (${baselineEntry.model_name}, RMSE=${baselineEntry.rmse.toFixed(3)}), ce modèle améliore la précision de <strong>${percent.toFixed(1)}%</strong>.`;
     }
 
+    // Get best model metrics
+    const bestModel = data.leaderboard[0];
+    const metricsText = `
+        <br><strong>Métriques :</strong>
+        <ul style="margin: 8px 0; padding-left: 20px;">
+            <li><strong>RMSE</strong>: ${data.best_model_rmse.toFixed(3)} - Erreur quadratique moyenne</li>
+            <li><strong>MSE</strong>: ${bestModel.mse ? bestModel.mse.toFixed(3) : 'N/A'} - Erreur au carré moyenne</li>
+            <li><strong>MAE</strong>: ${bestModel.mae ? bestModel.mae.toFixed(3) : 'N/A'} - Erreur absolue moyenne</li>
+            <li><strong>FCP</strong>: ${bestModel.fcp !== null && bestModel.fcp !== undefined ? bestModel.fcp.toFixed(3) : 'N/A'} - Fraction de paires concordantes</li>
+        </ul>
+    `;
+
     bestModelSummary.innerHTML = `
-        Le meilleur modèle est <strong><a href="${bestAlgoUrl}" target="_blank">${data.best_model_name}</a></strong> avec un RMSE de <strong>${data.best_model_rmse.toFixed(3)}</strong>.
-        <br><small>Le RMSE (Root Mean Squared Error) mesure l'erreur moyenne de prédiction. Plus il est bas, plus le modèle est précis.</small>
+        🥇 Le meilleur modèle est <strong><a href="${bestAlgoUrl}" target="_blank">${data.best_model_name}</a></strong>.
+        <br><small>Plus les métriques sont basses (sauf FCP), plus le modèle est précis.</small>
+        ${metricsText}
         ${comparisonText}
     `;
 

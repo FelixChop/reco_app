@@ -1,0 +1,36 @@
+→ Plats Culinaires: dishes.json existe déjà.
+🖼️  Vérification/Téléchargement des images pour Plats Culinaires (dishes)...
+✓ Écrit 261 éléments dans /Users/felix/Desktop/Projects/reco_app/scraping/data/dishes.json
+=== Livres ===
+  📚 Fetching Nobel Prize winners...
+    -> Found 170 Nobel books from 43 laureates.
+  📚 Fetching Prix Goncourt (last 30 years)...
+    -> Found 30 Goncourt books.
+  📚 Fetching popular books per year (France)...
+    -> Found 110 yearly popular books.
+  📚 Fetching International Classics...
+    -> Found 6 classics.
+🖼️  Vérification/Téléchargement des images pour Livres (books)...
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10a75f240>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10a7e40e0>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10a7e4590>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10a771b70>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10adf2e80>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10adf3c90>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10a794090>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10a75f240>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10adf3010>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10adf3c90>
+  ❌ Error downloading http://commons.wikimedia.org/wiki/Special:FilePath/Asterix.svg: cannot identify image file <_io.BytesIO object at 0x10a75fc40>
+  Mise à jour de 15 URLs d'images.
+✓ Écrit 228 éléments dans /Users/felix/Desktop/Projects/reco_app/scraping/data/books.json
+→ Politiciens français: politicians.json existe déjà.
+🖼️  Vérification/Téléchargement des images pour Politiciens français (politicians)...
+✓ Écrit 100 éléments dans /Users/felix/Desktop/Projects/reco_app/scraping/data/politicians.json
+→ Destinations de vacances: destinations.json existe déjà.
+🖼️  Vérification/Téléchargement des images pour Destinations de vacances (destinations)...
+✓ Écrit 298 éléments dans /Users/felix/Desktop/Projects/reco_app/scraping/data/destinations.json
+⚠️ TMDB_API_KEY manquant : on saute films.
+⚠️ SPOTIFY_CLIENT_ID manquant : on saute musiques.
+
+✅ Scraping terminé !

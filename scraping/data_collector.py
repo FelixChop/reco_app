@@ -6,7 +6,9 @@ Script pour construire automatiquement les datasets :
 - 100 personnalités politiques françaises (Wikidata)
 - 1000 destinations de vacances, avec un panel varié (Wikidata)
 - 1000 films (TMDb API)
-- 1000 musiques (MusicBrainz API)
+- 1000 musiques (Spotify API)
+- 1000 plats (Wikidata)
+- 1000 livres (Wikidata)
 
 Résultats : fichiers JSON dans le dossier ./data
 """
@@ -18,6 +20,10 @@ from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Tuple
 
 import requests
+import unicodedata
+import re
+from io import BytesIO
+from PIL import Image
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
@@ -29,6 +35,55 @@ SPOTIFY_CLIENT_SECRET = os.getenv("SPOTIFY_CLIENT_SECRET")
 MUSICBRAINZ_USER_AGENT = (
     "ColorRecoApp/1.0 ( https://github.com/felix/reco_app; contact: felixrevert@gmail.com )"
 )
+
+
+# --------------------------------------------------------------------
+# 0. Utilitaires Images
+# --------------------------------------------------------------------
+
+def sanitize_filename(name: str) -> str:
+    # Normalize to ASCII
+    s = unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore').decode('utf-8')
+    # Keep only alphanumeric and some separators
+    s = re.sub(r'[^a-zA-Z0-9_\-\.]', '', s)
+    return s
+
+def download_image(url: str, folder: str, name_prefix: str) -> str | None:
+    if not url:
+        return None
+        
+    # Check if we have a relative URL already (from previous run)
+    if "localhost" in url or url.startswith("/static"):
+        return url
+
+    STATIC_IMAGES_DIR = Path(__file__).resolve().parent.parent / "backend" / "static" / "images"
+    target_dir = STATIC_IMAGES_DIR / folder
+    target_dir.mkdir(parents=True, exist_ok=True)
+    
+    filename = f"{name_prefix}.jpg"
+    file_path = target_dir / filename
+    
+    # RELATIVE PATH for DB
+    relative_path = f"/static/images/{folder}/{filename}"
+    
+    if file_path.exists():
+        # print(f"  ⏭️  Image exists for {name_prefix}, skipping.")
+        return relative_path
+        
+    try:
+        # print(f"  ⬇️  Downloading image for {name_prefix}...")
+        r = requests.get(url, timeout=10, headers={"User-Agent": "Mozilla/5.0"})
+        if r.status_code == 200:
+            img = Image.open(BytesIO(r.content))
+            if img.mode != "RGB":
+                img = img.convert("RGB")
+            img.thumbnail((400, 400))
+            img.save(file_path, "JPEG", quality=80)
+            return relative_path
+    except Exception as e:
+        print(f"  ❌ Error downloading {url}: {e}")
+        
+    return None
 
 def fetch_wikipedia_image(title: str, lang: str = "en", thumb_size: int = 600) -> str | None:
     """
@@ -87,7 +142,8 @@ def _sparql_request(query: str) -> Dict:
         "User-Agent": MUSICBRAINZ_USER_AGENT,
     }
     endpoint = "https://query.wikidata.org/sparql"
-    r = requests.get(endpoint, params={"query": query}, headers=headers, timeout=60)
+    # Reduced timeout to avoid hanging forever
+    r = requests.get(endpoint, params={"query": query}, headers=headers, timeout=30)
     r.raise_for_status()
     return r.json()
 
@@ -676,9 +732,334 @@ def fetch_spotify_songs(limit: int = 1000, query: str = "") -> List[Dict]:
     return songs[:limit]
 
 
+
 # --------------------------------------------------------------------
-# Utilitaires d'écriture
+# 5. Plats (Wikidata)
 # --------------------------------------------------------------------
+
+def fetch_best_dishes(target_count: int = 1000) -> List[Dict]:
+    # Top 10 dishes per country
+    countries_query = """
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+
+    SELECT ?country ?countryLabel WHERE {
+      ?country wdt:P31 wd:Q6256 .
+      ?country wdt:P1082 ?pop .
+      FILTER(?pop > 10000000) # Only big countries
+      SERVICE wikibase:label { bd:serviceParam wikibase:language "fr,en". }
+    }
+    ORDER BY DESC(?pop)
+    LIMIT 50
+    """
+    
+    countries_data = _sparql_request(countries_query)
+    countries = []
+    for r in countries_data.get("results", {}).get("bindings", []):
+        countries.append((_extract_id(_row_value(r, "country")), _row_value(r, "countryLabel")))
+        
+    dishes = []
+    seen = set()
+    
+    print(f"  -> Found {len(countries)} countries to scan.")
+    
+    for i, (country_id, country_label) in enumerate(countries):
+        if len(dishes) >= target_count:
+            break
+            
+        print(f"  [{i+1}/{len(countries)}] Fetching dishes for {country_label}...")
+        
+        sparql = f"""
+        PREFIX wd: <http://www.wikidata.org/entity/>
+        PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+        PREFIX wikibase: <http://wikiba.se/ontology#>
+        
+        SELECT ?dish ?dishLabel ?image ?sitelinks WHERE {{
+          ?dish wdt:P279* wd:Q746549 ; # subclass of dish
+                wdt:P495 wd:{country_id} . 
+          OPTIONAL {{ ?dish wdt:P18 ?image . }}
+          ?dish wikibase:sitelinks ?sitelinks .
+          SERVICE wikibase:label {{ bd:serviceParam wikibase:language "fr,en". }}
+        }}
+        ORDER BY DESC(?sitelinks)
+        LIMIT 10
+        """
+        try:
+            data = _sparql_request(sparql)
+            for row in data.get("results", {}).get("bindings", []):
+                name = _row_value(row, "dishLabel")
+                if not name or name in seen:
+                    continue
+                seen.add(name)
+                
+                image_url = _row_value(row, "image")
+                
+                dishes.append({
+                    "name": name,
+                    "subtitle": country_label,
+                    "image_keyword": f"{name} {country_label} food",
+                    "image_url": image_url,
+                    "country": country_label
+                })
+        except Exception as e:
+            print(f"Error fetching dishes for {country_label}: {e}")
+            
+    return dishes[:target_count]
+
+
+# --------------------------------------------------------------------
+# 6. Livres (Wikidata)
+# --------------------------------------------------------------------
+
+# --------------------------------------------------------------------
+# 6. Livres (Advanced)
+# --------------------------------------------------------------------
+
+def fetch_nobel_books(limit_per_author: int = 10) -> List[Dict]:
+    print("  📚 Fetching Nobel Prize winners...")
+    # Nobel Prize in Literature (Q37922)
+    sparql = f"""
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+    
+    SELECT ?author ?authorLabel ?book ?bookLabel ?image ?sitelinks WHERE {{
+      ?author wdt:P166 wd:Q37922 . 
+      ?book wdt:P50 ?author ;
+            wdt:P31/wdt:P279* wd:Q571 .
+      OPTIONAL {{ ?book wdt:P18 ?image . }}
+      ?book wikibase:sitelinks ?sitelinks .
+      SERVICE wikibase:label {{ bd:serviceParam wikibase:language "fr,en". }}
+    }}
+    ORDER BY DESC(?sitelinks)
+    LIMIT 1000
+    """
+    try:
+        data = _sparql_request(sparql)
+        books = []
+        author_counts = {}
+        
+        for row in data.get("results", {}).get("bindings", []):
+            name = _row_value(row, "bookLabel")
+            author = _row_value(row, "authorLabel")
+            if not name or not author:
+                continue
+            
+            # Limit per author
+            if author_counts.get(author, 0) >= limit_per_author:
+                continue
+                
+            author_counts[author] = author_counts.get(author, 0) + 1
+            
+            books.append({
+                "name": name,
+                "subtitle": f"{author} (Nobel)",
+                "image_keyword": f"{name} book cover",
+                "image_url": _row_value(row, "image"),
+                "source": "Nobel"
+            })
+        print(f"    -> Found {len(books)} Nobel books from {len(author_counts)} laureates.")
+        return books
+    except Exception as e:
+        print(f"❌ Error fetching Nobel books: {e}")
+        return []
+
+def fetch_goncourt_books() -> List[Dict]:
+    print("  📚 Fetching Prix Goncourt (last 30 years)...")
+    # Prix Goncourt (Q187300)
+    sparql = """
+    PREFIX wd: <http://www.wikidata.org/entity/>
+    PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+    PREFIX wikibase: <http://wikiba.se/ontology#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    
+    SELECT ?book ?bookLabel ?authorLabel ?date ?image WHERE {
+      ?book wdt:P166 wd:Q187300 ;
+            wdt:P577 ?date .
+      FILTER(?date >= "1994-01-01"^^xsd:dateTime)
+      OPTIONAL { ?book wdt:P50 ?author . }
+      OPTIONAL { ?book wdt:P18 ?image . }
+      SERVICE wikibase:label { bd:serviceParam wikibase:language "fr,en". }
+    }
+    ORDER BY DESC(?date)
+    """
+    try:
+        data = _sparql_request(sparql)
+        books = []
+        for row in data.get("results", {}).get("bindings", []):
+            name = _row_value(row, "bookLabel")
+            author = _row_value(row, "authorLabel")
+            date = _row_value(row, "date")
+            year = date[:4] if date else "?"
+            
+            if not name:
+                continue
+                
+            books.append({
+                "name": name,
+                "subtitle": f"{author} (Goncourt {year})",
+                "image_keyword": f"{name} book cover",
+                "image_url": _row_value(row, "image"),
+                "source": "Goncourt"
+            })
+        print(f"    -> Found {len(books)} Goncourt books.")
+        return books
+    except Exception as e:
+        print(f"❌ Error fetching Goncourt books: {e}")
+        return []
+
+def fetch_yearly_popular(start_year: int = 1994, end_year: int = 2024, limit_per_year: int = 5) -> List[Dict]:
+    print("  📚 Fetching popular books per year (France)...")
+    books = []
+    
+    # We query 5 years at a time to reduce request count
+    for year in range(end_year, start_year - 1, -1):
+        sparql = f"""
+        PREFIX wd: <http://www.wikidata.org/entity/>
+        PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+        PREFIX wikibase: <http://wikiba.se/ontology#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+        
+        SELECT ?book ?bookLabel ?authorLabel ?image ?sitelinks WHERE {{
+          ?book wdt:P31/wdt:P279* wd:Q571 ;
+                wdt:P577 ?date ;
+                wdt:P495 wd:Q142 . # Country of origin: France
+          FILTER(YEAR(?date) = {year})
+          OPTIONAL {{ ?book wdt:P50 ?author . }}
+          OPTIONAL {{ ?book wdt:P18 ?image . }}
+          ?book wikibase:sitelinks ?sitelinks .
+          SERVICE wikibase:label {{ bd:serviceParam wikibase:language "fr,en". }}
+        }}
+        ORDER BY DESC(?sitelinks)
+        LIMIT {limit_per_year}
+        """
+        try:
+            data = _sparql_request(sparql)
+            count = 0
+            for row in data.get("results", {}).get("bindings", []):
+                name = _row_value(row, "bookLabel")
+                author = _row_value(row, "authorLabel")
+                if not name: continue
+                
+                books.append({
+                    "name": name,
+                    "subtitle": f"{author} ({year})",
+                    "image_keyword": f"{name} book cover",
+                    "image_url": _row_value(row, "image"),
+                    "source": "Yearly"
+                })
+                count += 1
+            # print(f"    -> {year}: {count} books")
+            time.sleep(0.5) # Gentle rate limit
+        except Exception as e:
+            print(f"Error for {year}: {e}")
+            
+    print(f"    -> Found {len(books)} yearly popular books.")
+    return books
+
+def fetch_classics(limit: int = 200) -> List[Dict]:
+    print("  📚 Fetching International Classics...")
+    # Top books by sitelinks for major literatures
+    # Using stricter criteria: recognized authors, exclude comics/nursery rhymes
+    
+    targets = [
+        ("Q150", "Classique FR"),      # French
+        ("Q1860", "Classique EN"),     # English
+        ("Q1321", "Classique ES"),     # Spanish
+        ("Q188", "Classique DE"),      # German
+        ("Q652", "Classique IT"),      # Italian
+        ("Q7737", "Classique RU"),     # Russian
+    ]
+    
+    books = []
+    per_cat = limit // len(targets)
+    
+    for lang_id, label in targets:
+        sparql = f"""
+        PREFIX wd: <http://www.wikidata.org/entity/>
+        PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+        PREFIX wikibase: <http://wikiba.se/ontology#>
+        
+        SELECT ?book ?bookLabel ?authorLabel ?image ?sitelinks WHERE {{
+          ?book wdt:P31/wdt:P279* wd:Q571 ;
+                wdt:P50 ?author ;
+                wdt:P407 wd:{lang_id} .
+          
+          # Author must be a recognized writer (not comic artist)
+          ?author wdt:P106 ?occupation .
+          FILTER(?occupation IN (wd:Q36180, wd:Q49757, wd:Q214917, wd:Q6625963))  # novelist, poet, playwright, writer
+          
+          # Exclude comics, graphic novels, and nursery rhymes
+          FILTER NOT EXISTS {{ ?book wdt:P31/wdt:P279* wd:Q1004 }}  # not comic book
+          FILTER NOT EXISTS {{ ?book wdt:P31/wdt:P279* wd:Q725377 }}  # not graphic novel
+          FILTER NOT EXISTS {{ ?book wdt:P136 wd:Q2135465 }}  # not nursery rhyme
+          FILTER NOT EXISTS {{ ?book wdt:P136 wd:Q1114461 }}  # not bande dessinée
+          
+          OPTIONAL {{ ?book wdt:P18 ?image . }}
+          ?book wikibase:sitelinks ?sitelinks .
+          FILTER(?sitelinks > 30)
+          
+          SERVICE wikibase:label {{ bd:serviceParam wikibase:language "fr,en". }}
+        }}
+        ORDER BY DESC(?sitelinks)
+        LIMIT {per_cat}
+        """
+        try:
+            data = _sparql_request(sparql)
+            for row in data.get("results", {}).get("bindings", []):
+                name = _row_value(row, "bookLabel")
+                author = _row_value(row, "authorLabel")
+                if not name or not author: 
+                    continue
+                
+                # Additional filter: skip if name looks like a comic series
+                skip_keywords = ["astérix", "tintin", "lucky luke", "spirou", "gaston"]
+                if any(kw in name.lower() for kw in skip_keywords):
+                    continue
+                
+                books.append({
+                    "name": name,
+                    "subtitle": f"{author} ({label.split(' ')[1]})",
+                    "image_keyword": f"{name} book cover",
+                    "image_url": _row_value(row, "image"),
+                    "source": label
+                })
+            time.sleep(0.5)
+        except Exception as e:
+            print(f"    ⚠️ Error classics {label}: {e}")
+            
+    print(f"    -> Found {len(books)} classics.")
+    return books
+
+
+def fetch_best_books(target_count: int = 1000) -> List[Dict]:
+    all_books = []
+    
+    # 1. Nobel
+    all_books.extend(fetch_nobel_books())
+    
+    # 2. Goncourt
+    all_books.extend(fetch_goncourt_books())
+    
+    # 3. Yearly Popular (France)
+    all_books.extend(fetch_yearly_popular())
+    
+    # 4. Classics
+    # Fill remaining slots with classics
+    remaining = target_count - len(all_books)
+    if remaining > 0:
+        all_books.extend(fetch_classics(limit=remaining + 50)) # +50 buffer
+        
+    # Deduplicate by name
+    seen = set()
+    unique_books = []
+    for b in all_books:
+        if b["name"] not in seen:
+            seen.add(b["name"])
+            unique_books.append(b)
+            
+    return unique_books[:target_count]
 
 
 def save_json(path: Path, data: List[Dict]):
@@ -686,34 +1067,86 @@ def save_json(path: Path, data: List[Dict]):
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"✓ Écrit {len(data)} éléments dans {path}")
 
-def generate_dataset(label: str, filename: str, fetch_fn, force: bool = False, *args, **kwargs):
+def generate_dataset(label: str, filename: str, fetch_fn, force: bool = False, process_images_mode: str = None, *args, **kwargs):
     """
     Génère le JSON. Si force=True, écrase l'existant.
+    Si process_images_mode est fourni (nom du dossier), télécharge les images.
     """
     path = DATA_DIR / filename
+    
+    # Check consistency of args or force download if file exists but images might be missing?
+    # User asked: "Faut il que je relance le script de scraping ?" -> implies re-running should fix images.
+    # So even if file exists, we should probably check images if requested.
+    
+    data = []
     if path.exists() and not force:
-        print(f"→ {label}: {filename} existe déjà, je ne le regénère pas.")
+        print(f"→ {label}: {filename} existe déjà.")
+        # Load existing data to process images if needed
+        with path.open("r", encoding="utf-8") as f:
+            data = json.load(f)
+    else:
+        print(f"=== {label} ===")
+        try:
+            data = fetch_fn(*args, **kwargs)
+        except Exception as e:
+            print(f"❌ Erreur pour {label}: {e}")
+            return
+
+    if not data:
+        print(f"⚠️ Aucune donnée pour {label}")
         return
 
-    print(f"=== {label} ===")
-    try:
-        data = fetch_fn(*args, **kwargs)
-        if data:
-            save_json(path, data)
-        else:
-            print(f"⚠️ Aucune donnée récupérée pour {label}")
-    except Exception as e:
-        print(f"❌ Erreur pour {label}: {e}")
+    # Process images if requested
+    if process_images_mode:
+        print(f"🖼️  Vérification/Téléchargement des images pour {label} ({process_images_mode})...")
+        updated_count = 0
+        for idx, item in enumerate(data):
+            if item.get("image_url"):
+                clean_name = sanitize_filename(item["name"])
+                # Prefix with index to ensure uniqueness
+                fname = f"{idx}_{clean_name}"
+                
+                local_url = download_image(item["image_url"], process_images_mode, fname)
+                if local_url and local_url != item.get("image_url"):
+                    item["image_url"] = local_url
+                    updated_count += 1
+        
+        if updated_count > 0:
+            print(f"  Mise à jour de {updated_count} URLs d'images.")
+
+    save_json(path, data)
 
 
 def main():
-    # Force regeneration for politicians to fix "Opposition" labels
+    # Dishes
+    generate_dataset(
+        "Plats Culinaires",
+        "dishes.json",
+        fetch_best_dishes,
+        target_count=1000,
+        force=False, # Only scrape if file doesn't exist
+        process_images_mode="dishes"
+    )
+
+    # Books
+    generate_dataset(
+        "Livres",
+        "books.json",
+        fetch_best_books,
+        target_count=1000,
+        force=False, # Only scrape if file doesn't exist
+        process_images_mode="books"
+    )
+
+    # Update existing modes to include image processing
+    # Politicians - Reload existing to check images
     generate_dataset(
         "Politiciens français",
         "politicians.json",
-        fetch_french_politicians,
+        fetch_french_politicians, # Won't be called if file exists and force=False
         limit=100,
-        force=False
+        force=False,
+        process_images_mode="politicians"
     )
 
     generate_dataset(
@@ -721,42 +1154,40 @@ def main():
         "destinations.json",
         fetch_diverse_destinations,
         target_count=1000,
-        force=False 
+        force=False,
+        process_images_mode="destinations"
     )
 
-    # Movies require API Key
+    # Movies (TMDb) - URLs are external, no download needed? 
+    # Actually user wanted 'download' but for movies we usually used external.
+    # But consistent logic is better. Let's see if we want to download posters.
+    # Previous script optimized movies too. So yes, download.
     if TMDB_API_KEY:
         generate_dataset(
             "Films (TMDb)",
             "movies.json",
             fetch_popular_movies,
             limit=1000,
-            force=False
+            force=False,
+            process_images_mode="movies"
         )
     else:
-        print("⚠️ TMDB_API_KEY manquant : on saute la génération des films (on garde l'existant si présent).")
+        print("⚠️ TMDB_API_KEY manquant : on saute films.")
 
-    # Songs (Spotify)
+    # Songs (Spotify) - No images downloading for songs as per previous instruction
     if SPOTIFY_CLIENT_ID:
         generate_dataset(
             "Musiques (Spotify)",
             "songs.json",
             fetch_spotify_songs,
             limit=1000,
-            force=False
+            force=False,
+            process_images_mode=None # Explicitly no download
         )
     else:
-        print("⚠️ SPOTIFY_CLIENT_ID manquant : on saute la génération des musiques (on garde l'existant si présent).")
+        print("⚠️ SPOTIFY_CLIENT_ID manquant : on saute musiques.")
     
-    # Optimisation des images
-    print("\n=== Optimisation des images ===")
-    try:
-        import subprocess
-        # optimize_images.py est dans le même dossier que ce script (scraping/)
-        script_path = Path(__file__).parent / "optimize_images.py"
-        subprocess.run(["python3", str(script_path)], check=True)
-    except Exception as e:
-        print(f"⚠️ Impossible de lancer l'optimisation des images : {e}")
+    print("\n✅ Scraping terminé !")
 
 if __name__ == "__main__":
     main()

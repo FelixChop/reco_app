@@ -91,6 +91,8 @@ MODES = {
     "destinations": "Destinations de vacances",
     "movies": "Films",
     "songs": "Musiques",
+    "dishes": "Plats Culinaires",
+    "books": "Livres",
 }
 
 # -------------------------------------------------------------------
@@ -137,6 +139,9 @@ class PredictionOut(BaseModel):
 class LeaderboardEntry(BaseModel):
     model_name: str
     rmse: float
+    mse: float
+    mae: float
+    fcp: Optional[float]
     rmse_user: Optional[float]
     best_params: Dict[str, Any]
     rank: int
@@ -246,18 +251,27 @@ def seed_items():
             Base.metadata.create_all(bind=engine)
             count = 0
 
-        if count == 0:
-            print("Seeding items from constants + JSON…")
 
-            # 1) Couleurs (toujours en dur)
+        existing_modes = set()
+        if count > 0:
+            # Check which modes are present
+            rows = db.query(Item.mode).distinct().all()
+            existing_modes = {r[0] for r in rows}
+            print(f"Modes already in DB: {existing_modes}")
+
+        # 1) Couleurs
+        if "colors" not in existing_modes:
+            print("Seeding colors...")
             for name, hex_code in COLOR_ITEMS:
                 db.add(Item(
                     mode="colors",
                     name=name,
                     hex=hex_code,
                 ))
-
-            # 2) Politiciens depuis politicians.json
+        
+        # 2) Politiciens
+        if "politicians" not in existing_modes:
+            print("Seeding politicians...")
             pol_data = load_json_safe("politicians.json")
             for row in pol_data:
                 db.add(Item(
@@ -268,7 +282,9 @@ def seed_items():
                     image_url=row.get("image_url"),
                 ))
 
-            # 3) Destinations depuis destinations.json (50 FR + 50 monde)
+        # 3) Destinations
+        if "destinations" not in existing_modes:
+            print("Seeding destinations...")
             dest_data = load_json_safe("destinations.json")
             for row in dest_data:
                 db.add(Item(
@@ -280,11 +296,11 @@ def seed_items():
                     image_url=row.get("image_url"),
                 ))
 
-            # 4) Films depuis movies.json
+        # 4) Films
+        if "movies" not in existing_modes:
+            print("Seeding movies...")
             movies_data = load_json_safe("movies.json")
             for row in movies_data:
-                # On peut construire une vraie URL d’affiche TMDb à partir de poster_path
-                # base recommandée : https://image.tmdb.org/t/p/w500 + poster_path
                 poster_path = row.get("poster_path")
                 if poster_path:
                     tmdb_image_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
@@ -294,12 +310,14 @@ def seed_items():
                 db.add(Item(
                     mode="movies",
                     name=row["name"],
-                    subtitle=row.get("subtitle") or "",  # ici l’année
+                    subtitle=row.get("subtitle") or "",
                     image_keyword=row.get("image_keyword") or (row["name"] + " movie poster"),
                     image_url=tmdb_image_url,
                 ))
 
-            # 5) Musiques depuis songs.json
+        # 5) Musiques
+        if "songs" not in existing_modes:
+            print("Seeding songs...")
             songs_data = load_json_safe("songs.json")
             for row in songs_data:
                 db.add(Item(
@@ -310,8 +328,36 @@ def seed_items():
                     image_url=row.get("image_url"),
                     spotify_id=row.get("spotify_id"),
                 ))
+        
+        # 6) Plats
+        if "dishes" not in existing_modes:
+            print("Seeding dishes...")
+            dishes_data = load_json_safe("dishes.json")
+            for row in dishes_data:
+                db.add(Item(
+                    mode="dishes",
+                    name=row["name"],
+                    subtitle=row.get("subtitle") or "",
+                    country=row.get("country"),
+                    image_keyword=row.get("image_keyword") or (row["name"] + " dish"),
+                    image_url=row.get("image_url"),
+                ))
 
-            db.commit()
+        # 7) Livres
+        if "books" not in existing_modes:
+            print("Seeding books...")
+            books_data = load_json_safe("books.json")
+            for row in books_data:
+                db.add(Item(
+                    mode="books",
+                    name=row["name"],
+                    subtitle=row.get("subtitle") or "",
+                    image_keyword=row.get("image_keyword") or (row["name"] + " book"),
+                    image_url=row.get("image_url"),
+                ))
+
+        db.commit()
+
 
         # Seed synthétique des ratings : SUPPRIMÉ sur demande utilisateur
         # On ne garde que les items.
@@ -321,10 +367,6 @@ def seed_items():
 
 
 seed_items()
-
-# -------------------------------------------------------------------
-# Helpers ML
-# -------------------------------------------------------------------
 
 # -------------------------------------------------------------------
 # Helpers ML
@@ -393,21 +435,50 @@ def evaluate_algorithm(
     best_params, best_cv_rmse = run_grid_search(name, algo_cls, param_grid, data)
     algo = algo_cls(**best_params) if best_params else algo_cls()
 
-    algo.fit(trainset)
-    preds = algo.test(testset)
-    rmse_global = accuracy.rmse(preds, verbose=False)
-    user_preds = [p for p in preds if p.uid == user_id]
-    rmse_user = accuracy.rmse(user_preds, verbose=False) if user_preds else None
+    try:
+        algo.fit(trainset)
+        preds = algo.test(testset)
+        
+        # Calculate all metrics
+        rmse_global = accuracy.rmse(preds, verbose=False)
+        mse_global = accuracy.mse(preds, verbose=False)
+        mae_global = accuracy.mae(preds, verbose=False)
+        try:
+            fcp_global = accuracy.fcp(preds, verbose=False)
+        except ValueError:
+            fcp_global = None
 
-    return {
-        "model_name": name,
-        "rmse": rmse_global,
-        "rmse_user": rmse_user,
-        "preds": preds,
-        "algo": algo,
-        "best_params": best_params if best_params is not None else {},
-        "best_cv_rmse": best_cv_rmse,
-    }
+        user_preds = [p for p in preds if p.uid == user_id]
+        rmse_user = accuracy.rmse(user_preds, verbose=False) if user_preds else None
+
+        return {
+            "model_name": name,
+            "rmse": rmse_global,
+            "mse": mse_global,
+            "mae": mae_global,
+            "fcp": fcp_global,
+            "rmse_user": rmse_user,
+            "preds": preds,
+            "algo": algo,
+            "best_params": best_params if best_params is not None else {},
+            "best_cv_rmse": best_cv_rmse,
+            "failed": False,
+        }
+    except Exception as e:
+        print(f"⚠️ Algorithm {name} failed during fit/test: {e}")
+        return {
+            "model_name": name,
+            "rmse": float('inf'), # Set RMSE to infinity for sorting purposes
+            "mse": None,
+            "mae": None,
+            "fcp": None,
+            "rmse_user": None,
+            "preds": [],
+            "algo": None,
+            "best_params": best_params if best_params is not None else {},
+            "best_cv_rmse": best_cv_rmse,
+            "failed": True,
+        }
 
 
 # -------------------------------------------------------------------
@@ -431,6 +502,9 @@ app.add_middleware(
 BACKEND_DIR = Path(__file__).resolve().parent
 PROJECT_ROOT = BACKEND_DIR.parent
 FRONTEND_DIR = PROJECT_ROOT / "frontend"
+
+app.mount("/static", StaticFiles(directory=BACKEND_DIR / "static"), name="static")
+
 
 
 @app.get("/modes")
@@ -568,7 +642,7 @@ def train_and_predict(user_id: str, mode: str):
             "KNNBaseline": {
                 "k": [1,2,3,4,5, 10, 20],
                 "bsl_options": {"method": ["als", "sgd"], "reg_i": [1, 5], "reg_u": [1, 5]},
-                "sim_options": {"name": ["pearson_baseline", "msd"], "user_based": [True, False]},
+                "sim_options": {"name": ["cosine"], "user_based": [True, False], "min_support": [1, 2]},
             },
             "SlopeOne": {},
             "BaselineOnly": {"bsl_options": {"method": ["als", "sgd"], "reg_i": [1, 5], "reg_u": [1, 5]}},
@@ -604,9 +678,17 @@ def train_and_predict(user_id: str, mode: str):
             )
             algo_results.append(result)
 
+        # Custom sorting:
+        # 1. RMSE (asc)
+        # 2. Complexity (Baselines first): NormalPredictor/BaselineOnly = 0, others = 1
+        # 3. User RMSE (asc)
+        
+        baselines = {"NormalPredictor", "BaselineOnly"}
+        
         algo_results.sort(
             key=lambda x: (
                 x["rmse"],
+                0 if x["model_name"] in baselines else 1,
                 x["rmse_user"] if x["rmse_user"] is not None else float("inf"),
             )
         )
@@ -618,6 +700,9 @@ def train_and_predict(user_id: str, mode: str):
                 {
                     "model_name": res["model_name"],
                     "rmse": res["rmse"],
+                    "mse": res["mse"],
+                    "mae": res["mae"],
+                    "fcp": res["fcp"],
                     "rmse_user": res["rmse_user"],
                     "best_params": res["best_params"],
                     "rank": idx,
@@ -703,6 +788,7 @@ def train_and_predict(user_id: str, mode: str):
 @app.post("/similar-users", response_model=SimilarUsersResponse)
 def get_similar_users(payload: SimilarUsersRequest):
     import numpy as np
+    from scipy.stats import pearsonr
     
     if payload.mode not in MODES:
         raise HTTPException(status_code=400, detail="Unknown mode")
@@ -716,7 +802,7 @@ def get_similar_users(payload: SimilarUsersRequest):
         ).all()
 
         # 2. Build user-item matrix
-        user_map = {} # {user_id: {item_id: rating}}
+        user_map = {}  # {user_id: {item_id: rating}}
         for r in all_ratings:
             if r.user_id not in user_map:
                 user_map[r.user_id] = {}
@@ -727,65 +813,56 @@ def get_similar_users(payload: SimilarUsersRequest):
 
         my_ratings = user_map[payload.user_id]
         if len(my_ratings) < 3:
-            # Not enough data to compare
             return SimilarUsersResponse(neighbors=[])
 
-        # 3. Compute similarities: Exact Match %
+        # 3. Compute Pearson correlation with other users
         similarities = []
-        
         my_items = set(my_ratings.keys())
 
         for uid, u_ratings in user_map.items():
             if uid == payload.user_id:
                 continue
             
-            # Only consider users with enough ratings?
             if len(u_ratings) < 3:
                 continue
 
             their_items = set(u_ratings.keys())
             common = my_items.intersection(their_items)
             
-            if not common:
+            if len(common) < 3:  # Need at least 3 common items for meaningful correlation
                 continue
             
-            matches = 0
-            for iid in common:
-                if my_ratings[iid] == u_ratings[iid]:
-                    matches += 1
+            # Get ratings for common items
+            my_common_ratings = [my_ratings[iid] for iid in common]
+            their_common_ratings = [u_ratings[iid] for iid in common]
             
-            # Old: sim = matches / len(common)
-            # New: Weighted by % of common votes on total items rated by current user
-            # sim = (matches / len(my_items))  <-- Simplification of (matches/len(common)) * (len(common)/len(my_items))
-            # Wait, user said: "pondéré par le % de votes en commun sur les éléments notés de l'utilisateur actuel"
-            # % common = len(common) / len(my_ratings)
-            # score = (matches / len(common)) * (len(common) / len(my_ratings)) = matches / len(my_ratings)
-            
-            sim = matches / len(my_ratings)
-            
-            if sim > 0:
-                similarities.append((uid, sim))
+            # Calculate Pearson correlation
+            try:
+                corr, _ = pearsonr(my_common_ratings, their_common_ratings)
+                # Pearson returns -1 to 1, convert to 0 to 1 for display
+                # We only want positive correlations (similar users)
+                if corr > 0:
+                    similarities.append((uid, corr, len(common)))
+            except:
+                # If correlation fails (e.g., constant ratings), skip
+                continue
 
-        # Sort by similarity desc
-        similarities.sort(key=lambda x: x[1], reverse=True)
+        # Sort by correlation (descending), then by number of common items
+        similarities.sort(key=lambda x: (x[1], x[2]), reverse=True)
         top_k = similarities[:payload.limit]
 
-        # 4. Fetch details & Predict
+        # 4. Fetch details & build response
         all_items_db = db.query(Item).filter(Item.mode == payload.mode).all()
         item_lookup = {i.id: i for i in all_items_db}
 
-        # Helper to get prediction
-        algo = last_model_wrapper["algo"]
+        # Helper model
+        best_algo = last_model_wrapper["algo"]
 
         def get_pred_stats(item_id, target_user_id):
-            # est rating
             est = 0.0
-            if algo:
-                est = algo.predict(uid=target_user_id, iid=item_id).est
+            if best_algo:
+                est = best_algo.predict(uid=target_user_id, iid=item_id).est
             
-            # DB stats from all ratings (not efficient to query inside loop but ok for limit=5)
-            # Actually we can do a global agg query or just careful queries.
-            # Let's do simple query per item for now as N is small.
             stats = db.query(
                 func.avg(Rating.rating).label("avg"),
                 func.count(Rating.id).label("count")
@@ -797,61 +874,43 @@ def get_similar_users(payload: SimilarUsersRequest):
             
             avg_val = stats.avg if stats.avg is not None else 0.0
             count_val = stats.count if stats.count is not None else 0
-            
             return float(round(est, 2)), float(round(avg_val, 2)), count_val
 
-        neighbors_out = []
+        # Collect neighbors data
+        my_ratings_map = {r.item_id: r.rating for r in db.query(Rating).filter(Rating.user_id == payload.user_id, Rating.mode == payload.mode).all()}
+        my_items_ids = set(my_ratings_map.keys())
 
-        for uid, sim in top_k:
-            their_ratings = user_map[uid]
-            their_items = set(their_ratings.keys())
-            common = my_items.intersection(their_items)
+        neighbors_out = []
+        for uid, sim, num_common in top_k:
+            their_ratings = db.query(Rating).filter(Rating.user_id == uid, Rating.mode == payload.mode, Rating.is_synthetic == False).all()
+            their_ratings_map = {r.item_id: r.rating for r in their_ratings}
+            their_items_ids = set(their_ratings_map.keys())
             
+            common = my_items_ids.intersection(their_items_ids)
+            
+            # Build ItemRating lists
             common_list = []
             other_list = []
-            user_list = [] # actually user_items (me only)
+            user_list = []
 
-            # Common
+            # Common items
             for iid in common:
                 it = item_lookup.get(iid)
                 if it:
-                    pred, avg, cnt = get_pred_stats(iid, payload.user_id) # Pred for ME or THEM? Display shows my pred usually?
-                    # Request says: "les notes prédites ... doivent mettre les vraies valeurs".
-                    # Usually "predicted rating" is for the current user.
+                    pred, avg, cnt = get_pred_stats(iid, payload.user_id)
                     common_list.append(CommonItem(
                         item_id=iid,
                         name=it.name,
                         image_url=it.image_url,
-                        image_keyword=it.image_keyword,
-                        hex=it.hex,
-                        subtitle=it.subtitle,
-                        my_rating=my_ratings[iid],
-                        their_rating=their_ratings[iid],
+                        my_rating=my_ratings_map[iid],
+                        their_rating=their_ratings_map[iid],
                         predicted_rating=pred,
                         average_rating=avg,
                         vote_count=cnt
                     ))
 
-            # Me Only
-            for iid in my_items - common:
-                it = item_lookup.get(iid)
-                if it:
-                    pred, avg, cnt = get_pred_stats(iid, payload.user_id)
-                    user_list.append(ItemRating(
-                        item_id=iid,
-                        name=it.name,
-                        image_url=it.image_url,
-                        image_keyword=it.image_keyword,
-                        hex=it.hex,
-                        subtitle=it.subtitle,
-                        rating=my_ratings[iid],
-                        predicted_rating=pred,
-                        average_rating=avg,
-                        vote_count=cnt
-                    ))
-
-            # They Only
-            for iid in their_items - common:
+            # They Only (Items I haven't seen)
+            for iid in their_items_ids - common:
                 it = item_lookup.get(iid)
                 if it:
                     pred, avg, cnt = get_pred_stats(iid, payload.user_id)
@@ -859,21 +918,33 @@ def get_similar_users(payload: SimilarUsersRequest):
                         item_id=iid,
                         name=it.name,
                         image_url=it.image_url,
-                        image_keyword=it.image_keyword,
-                        hex=it.hex,
-                        subtitle=it.subtitle,
-                        rating=their_ratings[iid],
+                        rating=their_ratings_map[iid],
                         predicted_rating=pred,
                         average_rating=avg,
                         vote_count=cnt
                     ))
-
-            # Anonymize ID (e.g. "User 8f3a...")
-            short_id = "User " + uid[:4].upper()
-
+            
+            # Me Only (Items they haven't seen)
+            for iid in my_items_ids - common:
+                it = item_lookup.get(iid)
+                if it:
+                    pred, avg, cnt = get_pred_stats(iid, payload.user_id)
+                    user_list.append(ItemRating(
+                        item_id=iid,
+                        name=it.name,
+                        image_url=it.image_url,
+                        rating=my_ratings_map[iid],
+                        predicted_rating=pred,
+                        average_rating=avg,
+                        vote_count=cnt
+                    ))
+            
+            # Anonymize ID
+            short_id = f"User {uid[:4].upper()}..."
+            
             neighbors_out.append(Neighbor(
                 neighbor_id=short_id,
-                similarity_score=float(sim),
+                similarity_score=float(sim),  # Pearson correlation (0 to 1)
                 common_items=common_list,
                 other_items=other_list,
                 user_items=user_list
@@ -883,3 +954,4 @@ def get_similar_users(payload: SimilarUsersRequest):
 
     finally:
         db.close()
+

@@ -2,439 +2,439 @@
   {
     "name": "Marine Le Pen",
     "subtitle": "Député français (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/0_MarineLePen.jpg",
+    "image_url": "/static/images/politicians/0_MarineLePen.jpg",
     "image_keyword": "Marine Le Pen portrait"
   },
   {
     "name": "Louis Aliot",
     "subtitle": "Conseiller régional (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/1_LouisAliot.jpg",
+    "image_url": "/static/images/politicians/1_LouisAliot.jpg",
     "image_keyword": "Louis Aliot portrait"
   },
   {
     "name": "Jordan Bardella",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/2_JordanBardella.jpg",
+    "image_url": "/static/images/politicians/2_JordanBardella.jpg",
     "image_keyword": "Jordan Bardella portrait"
   },
   {
     "name": "Bruno Gollnisch",
     "subtitle": "Conseiller régional (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/3_BrunoGollnisch.jpg",
+    "image_url": "/static/images/politicians/3_BrunoGollnisch.jpg",
     "image_keyword": "Bruno Gollnisch portrait"
   },
   {
     "name": "Hélène Laporte",
     "subtitle": "Député français (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/4_HélèneLaporte.jpg",
+    "image_url": "/static/images/politicians/4_HeleneLaporte.jpg",
     "image_keyword": "Hélène Laporte portrait"
   },
   {
     "name": "Thierry Mariani",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/5_ThierryMariani.jpg",
+    "image_url": "/static/images/politicians/5_ThierryMariani.jpg",
     "image_keyword": "Thierry Mariani portrait"
   },
   {
     "name": "Catherine Griset",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/6_CatherineGriset.jpg",
+    "image_url": "/static/images/politicians/6_CatherineGriset.jpg",
     "image_keyword": "Catherine Griset portrait"
   },
   {
     "name": "Philippe Olivier",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/7_PhilippeOlivier.jpg",
+    "image_url": "/static/images/politicians/7_PhilippeOlivier.jpg",
     "image_keyword": "Philippe Olivier portrait"
   },
   {
     "name": "Virginie Joron",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/8_VirginieJoron.jpg",
+    "image_url": "/static/images/politicians/8_VirginieJoron.jpg",
     "image_keyword": "Virginie Joron portrait"
   },
   {
     "name": "Ludovic Pajot",
     "subtitle": "Conseiller régional des hauts-de-france (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/9_LudovicPajot.jpg",
+    "image_url": "/static/images/politicians/9_LudovicPajot.jpg",
     "image_keyword": "Ludovic Pajot portrait"
   },
   {
     "name": "Joëlle Mélin",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/10_JoëlleMélin.jpg",
+    "image_url": "/static/images/politicians/10_JoelleMelin.jpg",
     "image_keyword": "Joëlle Mélin portrait"
   },
   {
     "name": "Steeve Briois",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/11_SteeveBriois.jpg",
+    "image_url": "/static/images/politicians/11_SteeveBriois.jpg",
     "image_keyword": "Steeve Briois portrait"
   },
   {
     "name": "Julien Sanchez",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/12_JulienSanchez.jpg",
+    "image_url": "/static/images/politicians/12_JulienSanchez.jpg",
     "image_keyword": "Julien Sanchez portrait"
   },
   {
     "name": "Edwige Diaz",
     "subtitle": "Député français (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/13_EdwigeDiaz.jpg",
+    "image_url": "/static/images/politicians/13_EdwigeDiaz.jpg",
     "image_keyword": "Edwige Diaz portrait"
   },
   {
     "name": "Jean-François Jalkh",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/14_Jean-FrançoisJalkh.jpg",
+    "image_url": "/static/images/politicians/14_Jean-FrancoisJalkh.jpg",
     "image_keyword": "Jean-François Jalkh portrait"
   },
   {
     "name": "Malika Sorel",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/15_MalikaSorel.jpg",
+    "image_url": "/static/images/politicians/15_MalikaSorel.jpg",
     "image_keyword": "Malika Sorel portrait"
   },
   {
     "name": "Fabrice Leggeri",
     "subtitle": "Député européen (Rassemblement National)",
-    "image_url": "http://localhost:8000/static/images/politicians/16_FabriceLeggeri.jpg",
+    "image_url": "/static/images/politicians/16_FabriceLeggeri.jpg",
     "image_keyword": "Fabrice Leggeri portrait"
   },
   {
     "name": "Jean-Luc Mélenchon",
     "subtitle": "La France Insoumise",
-    "image_url": "http://localhost:8000/static/images/politicians/17_Jean-LucMélenchon.jpg",
+    "image_url": "/static/images/politicians/17_Jean-LucMelenchon.jpg",
     "image_keyword": "Jean-Luc Mélenchon portrait"
   },
   {
     "name": "Rima Hassan",
     "subtitle": "Député européen (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/18_RimaHassan.jpg",
+    "image_url": "/static/images/politicians/18_RimaHassan.jpg",
     "image_keyword": "Rima Hassan portrait"
   },
   {
     "name": "Manon Aubry",
     "subtitle": "Député européen (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/19_ManonAubry.jpg",
+    "image_url": "/static/images/politicians/19_ManonAubry.jpg",
     "image_keyword": "Manon Aubry portrait"
   },
   {
     "name": "Clémentine Autain",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/20_ClémentineAutain.jpg",
+    "image_url": "/static/images/politicians/20_ClementineAutain.jpg",
     "image_keyword": "Clémentine Autain portrait"
   },
   {
     "name": "Q30343128",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/21_Q30343128.jpg",
+    "image_url": "/static/images/politicians/21_Q30343128.jpg",
     "image_keyword": "Q30343128 portrait"
   },
   {
     "name": "Manuel Bompard",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/22_ManuelBompard.jpg",
+    "image_url": "/static/images/politicians/22_ManuelBompard.jpg",
     "image_keyword": "Manuel Bompard portrait"
   },
   {
     "name": "Danièle Obono",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/23_DanièleObono.jpg",
+    "image_url": "/static/images/politicians/23_DanieleObono.jpg",
     "image_keyword": "Danièle Obono portrait"
   },
   {
     "name": "Younous Omarjee",
     "subtitle": "Député européen (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/24_YounousOmarjee.jpg",
+    "image_url": "/static/images/politicians/24_YounousOmarjee.jpg",
     "image_keyword": "Younous Omarjee portrait"
   },
   {
     "name": "Leïla Chaibi",
     "subtitle": "Député européen (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/25_LeïlaChaibi.jpg",
+    "image_url": "/static/images/politicians/25_LeilaChaibi.jpg",
     "image_keyword": "Leïla Chaibi portrait"
   },
   {
     "name": "Emma Fourreau",
     "subtitle": "Député européen (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/26_EmmaFourreau.jpg",
+    "image_url": "/static/images/politicians/26_EmmaFourreau.jpg",
     "image_keyword": "Emma Fourreau portrait"
   },
   {
     "name": "Adrien Quatennens",
     "subtitle": "La France Insoumise",
-    "image_url": "http://localhost:8000/static/images/politicians/27_AdrienQuatennens.jpg",
+    "image_url": "/static/images/politicians/27_AdrienQuatennens.jpg",
     "image_keyword": "Adrien Quatennens portrait"
   },
   {
     "name": "Clémence Guetté",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/28_ClémenceGuetté.jpg",
+    "image_url": "/static/images/politicians/28_ClemenceGuette.jpg",
     "image_keyword": "Clémence Guetté portrait"
   },
   {
     "name": "Alma Dufour",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/29_AlmaDufour.jpg",
+    "image_url": "/static/images/politicians/29_AlmaDufour.jpg",
     "image_keyword": "Alma Dufour portrait"
   },
   {
     "name": "Alexis Corbière",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/30_AlexisCorbière.jpg",
+    "image_url": "/static/images/politicians/30_AlexisCorbiere.jpg",
     "image_keyword": "Alexis Corbière portrait"
   },
   {
     "name": "Bastien Lachaud",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/31_BastienLachaud.jpg",
+    "image_url": "/static/images/politicians/31_BastienLachaud.jpg",
     "image_keyword": "Bastien Lachaud portrait"
   },
   {
     "name": "Martine Billard",
     "subtitle": "La France Insoumise",
-    "image_url": "http://localhost:8000/static/images/politicians/32_MartineBillard.jpg",
+    "image_url": "/static/images/politicians/32_MartineBillard.jpg",
     "image_keyword": "Martine Billard portrait"
   },
   {
     "name": "Carlos Martens Bilongo",
     "subtitle": "Député français (La France Insoumise)",
-    "image_url": "http://localhost:8000/static/images/politicians/33_CarlosMartensBilongo.jpg",
+    "image_url": "/static/images/politicians/33_CarlosMartensBilongo.jpg",
     "image_keyword": "Carlos Martens Bilongo portrait"
   },
   {
     "name": "Nicolas Sarkozy",
     "subtitle": "Conseiller général (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/34_NicolasSarkozy.jpg",
+    "image_url": "/static/images/politicians/34_NicolasSarkozy.jpg",
     "image_keyword": "Nicolas Sarkozy portrait"
   },
   {
     "name": "François Fillon",
     "subtitle": "Conseiller (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/35_FrançoisFillon.jpg",
+    "image_url": "/static/images/politicians/35_FrancoisFillon.jpg",
     "image_keyword": "François Fillon portrait"
   },
   {
     "name": "Michel Barnier",
     "subtitle": "Député français (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/36_MichelBarnier.jpg",
+    "image_url": "/static/images/politicians/36_MichelBarnier.jpg",
     "image_keyword": "Michel Barnier portrait"
   },
   {
     "name": "Rachida Dati",
     "subtitle": "Ministre de la culture (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/37_RachidaDati.jpg",
+    "image_url": "/static/images/politicians/37_RachidaDati.jpg",
     "image_keyword": "Rachida Dati portrait"
   },
   {
     "name": "Valérie Pécresse",
     "subtitle": "Conseiller régional d'île-de-france (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/38_ValériePécresse.jpg",
+    "image_url": "/static/images/politicians/38_ValeriePecresse.jpg",
     "image_keyword": "Valérie Pécresse portrait"
   },
   {
     "name": "Gérald Darmanin",
     "subtitle": "Garde des sceaux (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/39_GéraldDarmanin.jpg",
+    "image_url": "/static/images/politicians/39_GeraldDarmanin.jpg",
     "image_keyword": "Gérald Darmanin portrait"
   },
   {
     "name": "François Baroin",
     "subtitle": "Sénateur ou sénatrice de la cinquième république (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/40_FrançoisBaroin.jpg",
+    "image_url": "/static/images/politicians/40_FrancoisBaroin.jpg",
     "image_keyword": "François Baroin portrait"
   },
   {
     "name": "Guy Drut",
     "subtitle": "Conseiller régional d'île-de-france (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/41_GuyDrut.jpg",
+    "image_url": "/static/images/politicians/41_GuyDrut.jpg",
     "image_keyword": "Guy Drut portrait"
   },
   {
     "name": "Jean-François Copé",
     "subtitle": "Maire de meaux (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/42_Jean-FrançoisCopé.jpg",
+    "image_url": "/static/images/politicians/42_Jean-FrancoisCope.jpg",
     "image_keyword": "Jean-François Copé portrait"
   },
   {
     "name": "Nathalie Kosciusko-Morizet",
     "subtitle": "Conseiller régional d'île-de-france (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/43_NathalieKosciusko-Morizet.jpg",
+    "image_url": "/static/images/politicians/43_NathalieKosciusko-Morizet.jpg",
     "image_keyword": "Nathalie Kosciusko-Morizet portrait"
   },
   {
     "name": "Bruno Retailleau",
     "subtitle": "Président ou présidente (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/44_BrunoRetailleau.jpg",
+    "image_url": "/static/images/politicians/44_BrunoRetailleau.jpg",
     "image_keyword": "Bruno Retailleau portrait"
   },
   {
     "name": "Brice Hortefeux",
     "subtitle": "Député européen (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/45_BriceHortefeux.jpg",
+    "image_url": "/static/images/politicians/45_BriceHortefeux.jpg",
     "image_keyword": "Brice Hortefeux portrait"
   },
   {
     "name": "Laurent Wauquiez",
     "subtitle": "Député français (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/46_LaurentWauquiez.jpg",
+    "image_url": "/static/images/politicians/46_LaurentWauquiez.jpg",
     "image_keyword": "Laurent Wauquiez portrait"
   },
   {
     "name": "Q707984",
     "subtitle": "Membre du conseil économique (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/47_Q707984.jpg",
+    "image_url": "/static/images/politicians/47_Q707984.jpg",
     "image_keyword": "Q707984 portrait"
   },
   {
     "name": "Nadine Morano",
     "subtitle": "Député européen (Les Républicains)",
-    "image_url": "http://localhost:8000/static/images/politicians/48_NadineMorano.jpg",
+    "image_url": "/static/images/politicians/48_NadineMorano.jpg",
     "image_keyword": "Nadine Morano portrait"
   },
   {
     "name": "François Hollande",
     "subtitle": "Député français (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/49_FrançoisHollande.jpg",
+    "image_url": "/static/images/politicians/49_FrancoisHollande.jpg",
     "image_keyword": "François Hollande portrait"
   },
   {
     "name": "Ségolène Royal",
     "subtitle": "Conseiller régional (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/50_SégolèneRoyal.jpg",
+    "image_url": "/static/images/politicians/50_SegoleneRoyal.jpg",
     "image_keyword": "Ségolène Royal portrait"
   },
   {
     "name": "Jean-Marc Ayrault",
     "subtitle": "Maire de saint-herblain (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/51_Jean-MarcAyrault.jpg",
+    "image_url": "/static/images/politicians/51_Jean-MarcAyrault.jpg",
     "image_keyword": "Jean-Marc Ayrault portrait"
   },
   {
     "name": "Anne Hidalgo",
     "subtitle": "Maire de paris (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/52_AnneHidalgo.jpg",
+    "image_url": "/static/images/politicians/52_AnneHidalgo.jpg",
     "image_keyword": "Anne Hidalgo portrait"
   },
   {
     "name": "Bernard Cazeneuve",
     "subtitle": "Porte-parole (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/53_BernardCazeneuve.jpg",
+    "image_url": "/static/images/politicians/53_BernardCazeneuve.jpg",
     "image_keyword": "Bernard Cazeneuve portrait"
   },
   {
     "name": "Audrey Azoulay",
     "subtitle": "Parti Socialiste",
-    "image_url": "http://localhost:8000/static/images/politicians/54_AudreyAzoulay.jpg",
+    "image_url": "/static/images/politicians/54_AudreyAzoulay.jpg",
     "image_keyword": "Audrey Azoulay portrait"
   },
   {
     "name": "Najat Vallaud-Belkacem",
     "subtitle": "Parti Socialiste",
-    "image_url": "http://localhost:8000/static/images/politicians/55_NajatVallaud-Belkacem.jpg",
+    "image_url": "/static/images/politicians/55_NajatVallaud-Belkacem.jpg",
     "image_keyword": "Najat Vallaud-Belkacem portrait"
   },
   {
     "name": "Martine Aubry",
     "subtitle": "Conseiller de la métropole européenne de lille (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/56_MartineAubry.jpg",
+    "image_url": "/static/images/politicians/56_MartineAubry.jpg",
     "image_keyword": "Martine Aubry portrait"
   },
   {
     "name": "Bertrand Delanoë",
     "subtitle": "Parti Socialiste",
-    "image_url": "http://localhost:8000/static/images/politicians/57_BertrandDelanoë.jpg",
+    "image_url": "/static/images/politicians/57_BertrandDelanoe.jpg",
     "image_keyword": "Bertrand Delanoë portrait"
   },
   {
     "name": "Pierre Moscovici",
     "subtitle": "Conseiller général (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/58_PierreMoscovici.jpg",
+    "image_url": "/static/images/politicians/58_PierreMoscovici.jpg",
     "image_keyword": "Pierre Moscovici portrait"
   },
   {
     "name": "Florence Parly",
     "subtitle": "Parti Socialiste",
-    "image_url": "http://localhost:8000/static/images/politicians/59_FlorenceParly.jpg",
+    "image_url": "/static/images/politicians/59_FlorenceParly.jpg",
     "image_keyword": "Florence Parly portrait"
   },
   {
     "name": "Arnaud Montebourg",
     "subtitle": "Conseiller général (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/60_ArnaudMontebourg.jpg",
+    "image_url": "/static/images/politicians/60_ArnaudMontebourg.jpg",
     "image_keyword": "Arnaud Montebourg portrait"
   },
   {
     "name": "Aurélie Filippetti",
     "subtitle": "Conseiller ou conseillère municipale (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/61_AurélieFilippetti.jpg",
+    "image_url": "/static/images/politicians/61_AurelieFilippetti.jpg",
     "image_keyword": "Aurélie Filippetti portrait"
   },
   {
     "name": "Michel Sapin",
     "subtitle": "Conseiller régional d'île-de-france (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/62_MichelSapin.jpg",
+    "image_url": "/static/images/politicians/62_MichelSapin.jpg",
     "image_keyword": "Michel Sapin portrait"
   },
   {
     "name": "Gwendal Peizerat",
     "subtitle": "Conseiller régional d'auvergne-rhône-alpes (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/63_GwendalPeizerat.jpg",
+    "image_url": "/static/images/politicians/63_GwendalPeizerat.jpg",
     "image_keyword": "Gwendal Peizerat portrait"
   },
   {
     "name": "Fleur Pellerin",
     "subtitle": "Parti Socialiste",
-    "image_url": "http://localhost:8000/static/images/politicians/64_FleurPellerin.jpg",
+    "image_url": "/static/images/politicians/64_FleurPellerin.jpg",
     "image_keyword": "Fleur Pellerin portrait"
   },
   {
     "name": "Harlem Désir",
     "subtitle": "Représentant de l'osce pour la liberté des médias (Parti Socialiste)",
-    "image_url": "http://localhost:8000/static/images/politicians/65_HarlemDésir.jpg",
+    "image_url": "/static/images/politicians/65_HarlemDesir.jpg",
     "image_keyword": "Harlem Désir portrait"
   },
   {
     "name": "Édouard Philippe",
     "subtitle": "Membre du conseil d'administration (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/66_ÉdouardPhilippe.jpg",
+    "image_url": "/static/images/politicians/66_EdouardPhilippe.jpg",
     "image_keyword": "Édouard Philippe portrait"
   },
   {
     "name": "Christian Estrosi",
     "subtitle": "Maire de nice (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/67_ChristianEstrosi.jpg",
+    "image_url": "/static/images/politicians/67_ChristianEstrosi.jpg",
     "image_keyword": "Christian Estrosi portrait"
   },
   {
     "name": "Catherine Vautrin",
     "subtitle": "Président du grand reims (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/68_CatherineVautrin.jpg",
+    "image_url": "/static/images/politicians/68_CatherineVautrin.jpg",
     "image_keyword": "Catherine Vautrin portrait"
   },
   {
     "name": "Agnès Firmin-Le Bodo",
     "subtitle": "Député français (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/69_AgnèsFirmin-LeBodo.jpg",
+    "image_url": "/static/images/politicians/69_AgnesFirmin-LeBodo.jpg",
     "image_keyword": "Agnès Firmin-Le Bodo portrait"
   },
   {
     "name": "Frédéric Valletoux",
     "subtitle": "Président ou présidente (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/70_FrédéricValletoux.jpg",
+    "image_url": "/static/images/politicians/70_FredericValletoux.jpg",
     "image_keyword": "Frédéric Valletoux portrait"
   },
   {
     "name": "Naïma Moutchou",
     "subtitle": "Vice-président de l'assemblée nationale (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/71_NaïmaMoutchou.jpg",
+    "image_url": "/static/images/politicians/71_NaimaMoutchou.jpg",
     "image_keyword": "Naïma Moutchou portrait"
   },
   {
     "name": "Isabelle Rauch",
     "subtitle": "Député français (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/72_IsabelleRauch.jpg",
+    "image_url": "/static/images/politicians/72_IsabelleRauch.jpg",
     "image_keyword": "Isabelle Rauch portrait"
   },
   {
@@ -446,7 +446,7 @@
   {
     "name": "Loïc Dombreval",
     "subtitle": "Conseiller municipal de vence (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/74_LoïcDombreval.jpg",
+    "image_url": "/static/images/politicians/74_LoicDombreval.jpg",
     "image_keyword": "Loïc Dombreval portrait"
   },
   {
@@ -464,7 +464,7 @@
   {
     "name": "Guillaume Boudy",
     "subtitle": "Secrétaire général (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/77_GuillaumeBoudy.jpg",
+    "image_url": "/static/images/politicians/77_GuillaumeBoudy.jpg",
     "image_keyword": "Guillaume Boudy portrait"
   },
   {
@@ -476,7 +476,7 @@
   {
     "name": "Olivier Bitz",
     "subtitle": "Sénateur de l'orne (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/79_OlivierBitz.jpg",
+    "image_url": "/static/images/politicians/79_OlivierBitz.jpg",
     "image_keyword": "Olivier Bitz portrait"
   },
   {
@@ -488,85 +488,85 @@
   {
     "name": "Caroline Terrier",
     "subtitle": "Conseiller communautaire de miribel et du plateau (Horizons)",
-    "image_url": "http://localhost:8000/static/images/politicians/81_CarolineTerrier.jpg",
+    "image_url": "/static/images/politicians/81_CarolineTerrier.jpg",
     "image_keyword": "Caroline Terrier portrait"
   },
   {
     "name": "Fabien Roussel",
     "subtitle": "Maire de saint-amand-les-eaux (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/82_FabienRoussel.jpg",
+    "image_url": "/static/images/politicians/82_FabienRoussel.jpg",
     "image_keyword": "Fabien Roussel portrait"
   },
   {
     "name": "Pierre Laurent",
     "subtitle": "Sénateur ou sénatrice de la cinquième république (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/83_PierreLaurent.jpg",
+    "image_url": "/static/images/politicians/83_PierreLaurent.jpg",
     "image_keyword": "Pierre Laurent portrait"
   },
   {
     "name": "François Ruffin",
     "subtitle": "Député français (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/84_FrançoisRuffin.jpg",
+    "image_url": "/static/images/politicians/84_FrancoisRuffin.jpg",
     "image_keyword": "François Ruffin portrait"
   },
   {
     "name": "André Chassaigne",
     "subtitle": "Parti Communiste Français",
-    "image_url": "http://localhost:8000/static/images/politicians/85_AndréChassaigne.jpg",
+    "image_url": "/static/images/politicians/85_AndreChassaigne.jpg",
     "image_keyword": "André Chassaigne portrait"
   },
   {
     "name": "Maurice Leroy",
     "subtitle": "Parti Communiste Français",
-    "image_url": "http://localhost:8000/static/images/politicians/86_MauriceLeroy.jpg",
+    "image_url": "/static/images/politicians/86_MauriceLeroy.jpg",
     "image_keyword": "Maurice Leroy portrait"
   },
   {
     "name": "Patrick Le Hyaric",
     "subtitle": "Député européen (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/87_PatrickLeHyaric.jpg",
+    "image_url": "/static/images/politicians/87_PatrickLeHyaric.jpg",
     "image_keyword": "Patrick Le Hyaric portrait"
   },
   {
     "name": "Ian Brossat",
     "subtitle": "Conseiller de paris (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/88_IanBrossat.jpg",
+    "image_url": "/static/images/politicians/88_IanBrossat.jpg",
     "image_keyword": "Ian Brossat portrait"
   },
   {
     "name": "Jacky Hénin",
     "subtitle": "Conseiller municipal de calais (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/89_JackyHénin.jpg",
+    "image_url": "/static/images/politicians/89_JackyHenin.jpg",
     "image_keyword": "Jacky Hénin portrait"
   },
   {
     "name": "Cécile Cukierman",
     "subtitle": "Sénateur ou sénatrice de la cinquième république (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/90_CécileCukierman.jpg",
+    "image_url": "/static/images/politicians/90_CecileCukierman.jpg",
     "image_keyword": "Cécile Cukierman portrait"
   },
   {
     "name": "Jean-Paul Lecoq",
     "subtitle": "Député français (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/91_Jean-PaulLecoq.jpg",
+    "image_url": "/static/images/politicians/91_Jean-PaulLecoq.jpg",
     "image_keyword": "Jean-Paul Lecoq portrait"
   },
   {
     "name": "Hubert Wulfranc",
     "subtitle": "Maire de saint-étienne-du-rouvray (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/92_HubertWulfranc.jpg",
+    "image_url": "/static/images/politicians/92_HubertWulfranc.jpg",
     "image_keyword": "Hubert Wulfranc portrait"
   },
   {
     "name": "Éliane Assassi",
     "subtitle": "Parti Communiste Français",
-    "image_url": "http://localhost:8000/static/images/politicians/93_ÉlianeAssassi.jpg",
+    "image_url": "/static/images/politicians/93_ElianeAssassi.jpg",
     "image_keyword": "Éliane Assassi portrait"
   },
   {
     "name": "Léon Deffontaines",
     "subtitle": "Porte-parole (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/94_LéonDeffontaines.jpg",
+    "image_url": "/static/images/politicians/94_LeonDeffontaines.jpg",
     "image_keyword": "Léon Deffontaines portrait"
   },
   {
@@ -578,25 +578,25 @@
   {
     "name": "Marie-Pierre Vieu",
     "subtitle": "Député européen (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/96_Marie-PierreVieu.jpg",
+    "image_url": "/static/images/politicians/96_Marie-PierreVieu.jpg",
     "image_keyword": "Marie-Pierre Vieu portrait"
   },
   {
     "name": "Nicolas Sansu",
     "subtitle": "Conseiller général (Parti Communiste Français)",
-    "image_url": "http://localhost:8000/static/images/politicians/97_NicolasSansu.jpg",
+    "image_url": "/static/images/politicians/97_NicolasSansu.jpg",
     "image_keyword": "Nicolas Sansu portrait"
   },
   {
     "name": "Emmanuel Macron",
     "subtitle": "Président de la république française (Renaissance)",
-    "image_url": "http://localhost:8000/static/images/politicians/98_EmmanuelMacron.jpg",
+    "image_url": "/static/images/politicians/98_EmmanuelMacron.jpg",
     "image_keyword": "Emmanuel Macron portrait"
   },
   {
     "name": "Jean Castex",
     "subtitle": "Président ou présidente (Renaissance)",
-    "image_url": "http://localhost:8000/static/images/politicians/99_JeanCastex.jpg",
+    "image_url": "/static/images/politicians/99_JeanCastex.jpg",
     "image_keyword": "Jean Castex portrait"
   }
 ]

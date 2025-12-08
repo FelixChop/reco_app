@@ -3,7 +3,7 @@
     "name": "Marseille",
     "subtitle": "Bouches-du-Rhône",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/0_Marseille.jpg",
+    "image_url": "/static/images/destinations/0_Marseille.jpg",
     "image_keyword": "Marseille France travel",
     "is_french": true
   },
@@ -11,7 +11,7 @@
     "name": "Lyon",
     "subtitle": "Métropole de Lyon",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/1_Lyon.jpg",
+    "image_url": "/static/images/destinations/1_Lyon.jpg",
     "image_keyword": "Lyon France travel",
     "is_french": true
   },
@@ -19,7 +19,7 @@
     "name": "Toulouse",
     "subtitle": "Haute-Garonne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/2_Toulouse.jpg",
+    "image_url": "/static/images/destinations/2_Toulouse.jpg",
     "image_keyword": "Toulouse France travel",
     "is_french": true
   },
@@ -27,7 +27,7 @@
     "name": "Nice",
     "subtitle": "Alpes-Maritimes",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/3_Nice.jpg",
+    "image_url": "/static/images/destinations/3_Nice.jpg",
     "image_keyword": "Nice France travel",
     "is_french": true
   },
@@ -35,7 +35,7 @@
     "name": "Nantes",
     "subtitle": "Loire-Atlantique",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/4_Nantes.jpg",
+    "image_url": "/static/images/destinations/4_Nantes.jpg",
     "image_keyword": "Nantes France travel",
     "is_french": true
   },
@@ -43,7 +43,7 @@
     "name": "Montpellier",
     "subtitle": "Hérault",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/5_Montpellier.jpg",
+    "image_url": "/static/images/destinations/5_Montpellier.jpg",
     "image_keyword": "Montpellier France travel",
     "is_french": true
   },
@@ -51,7 +51,7 @@
     "name": "Strasbourg",
     "subtitle": "Bas-Rhin",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/6_Strasbourg.jpg",
+    "image_url": "/static/images/destinations/6_Strasbourg.jpg",
     "image_keyword": "Strasbourg France travel",
     "is_french": true
   },
@@ -59,7 +59,7 @@
     "name": "Bordeaux",
     "subtitle": "Gironde",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/7_Bordeaux.jpg",
+    "image_url": "/static/images/destinations/7_Bordeaux.jpg",
     "image_keyword": "Bordeaux France travel",
     "is_french": true
   },
@@ -67,7 +67,7 @@
     "name": "Lille",
     "subtitle": "Nord",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/8_Lille.jpg",
+    "image_url": "/static/images/destinations/8_Lille.jpg",
     "image_keyword": "Lille France travel",
     "is_french": true
   },
@@ -75,7 +75,7 @@
     "name": "Rennes",
     "subtitle": "Ille-et-Vilaine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/9_Rennes.jpg",
+    "image_url": "/static/images/destinations/9_Rennes.jpg",
     "image_keyword": "Rennes France travel",
     "is_french": true
   },
@@ -83,7 +83,7 @@
     "name": "Toulon",
     "subtitle": "Var",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/10_Toulon.jpg",
+    "image_url": "/static/images/destinations/10_Toulon.jpg",
     "image_keyword": "Toulon France travel",
     "is_french": true
   },
@@ -91,7 +91,7 @@
     "name": "Reims",
     "subtitle": "Marne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/11_Reims.jpg",
+    "image_url": "/static/images/destinations/11_Reims.jpg",
     "image_keyword": "Reims France travel",
     "is_french": true
   },
@@ -99,7 +99,7 @@
     "name": "Saint-Étienne",
     "subtitle": "Loire",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/12_Saint-Étienne.jpg",
+    "image_url": "/static/images/destinations/12_Saint-Étienne.jpg",
     "image_keyword": "Saint-Étienne France travel",
     "is_french": true
   },
@@ -107,7 +107,7 @@
     "name": "Le Havre",
     "subtitle": "Seine-Maritime",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/13_LeHavre.jpg",
+    "image_url": "/static/images/destinations/13_LeHavre.jpg",
     "image_keyword": "Le Havre France travel",
     "is_french": true
   },
@@ -115,7 +115,7 @@
     "name": "Villeurbanne",
     "subtitle": "communauté urbaine de Lyon",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/14_Villeurbanne.jpg",
+    "image_url": "/static/images/destinations/14_Villeurbanne.jpg",
     "image_keyword": "Villeurbanne France travel",
     "is_french": true
   },
@@ -123,7 +123,7 @@
     "name": "Dijon",
     "subtitle": "Côte-d'Or",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/15_Dijon.jpg",
+    "image_url": "/static/images/destinations/15_Dijon.jpg",
     "image_keyword": "Dijon France travel",
     "is_french": true
   },
@@ -131,7 +131,7 @@
     "name": "Angers",
     "subtitle": "Maine-et-Loire",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/16_Angers.jpg",
+    "image_url": "/static/images/destinations/16_Angers.jpg",
     "image_keyword": "Angers France travel",
     "is_french": true
   },
@@ -139,7 +139,7 @@
     "name": "Grenoble",
     "subtitle": "Isère",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/17_Grenoble.jpg",
+    "image_url": "/static/images/destinations/17_Grenoble.jpg",
     "image_keyword": "Grenoble France travel",
     "is_french": true
   },
@@ -147,7 +147,7 @@
     "name": "Saint-Denis",
     "subtitle": "La Réunion",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/18_Saint-Denis.jpg",
+    "image_url": "/static/images/destinations/18_Saint-Denis.jpg",
     "image_keyword": "Saint-Denis France travel",
     "is_french": true
   },
@@ -155,7 +155,7 @@
     "name": "Nîmes",
     "subtitle": "Nîmes Métropole",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/19_Nîmes.jpg",
+    "image_url": "/static/images/destinations/19_Nîmes.jpg",
     "image_keyword": "Nîmes France travel",
     "is_french": true
   },
@@ -163,7 +163,7 @@
     "name": "Aix-en-Provence",
     "subtitle": "Bouches-du-Rhône",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/20_Aix-en-Provence.jpg",
+    "image_url": "/static/images/destinations/20_Aix-en-Provence.jpg",
     "image_keyword": "Aix-en-Provence France travel",
     "is_french": true
   },
@@ -171,7 +171,7 @@
     "name": "Clermont-Ferrand",
     "subtitle": "Puy-de-Dôme",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/21_Clermont-Ferrand.jpg",
+    "image_url": "/static/images/destinations/21_Clermont-Ferrand.jpg",
     "image_keyword": "Clermont-Ferrand France travel",
     "is_french": true
   },
@@ -179,7 +179,7 @@
     "name": "Le Mans",
     "subtitle": "Sarthe",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/22_LeMans.jpg",
+    "image_url": "/static/images/destinations/22_LeMans.jpg",
     "image_keyword": "Le Mans France travel",
     "is_french": true
   },
@@ -187,7 +187,7 @@
     "name": "Brest",
     "subtitle": "Finistère",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/23_Brest.jpg",
+    "image_url": "/static/images/destinations/23_Brest.jpg",
     "image_keyword": "Brest France travel",
     "is_french": true
   },
@@ -195,7 +195,7 @@
     "name": "Tours",
     "subtitle": "Indre-et-Loire",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/24_Tours.jpg",
+    "image_url": "/static/images/destinations/24_Tours.jpg",
     "image_keyword": "Tours France travel",
     "is_french": true
   },
@@ -203,7 +203,7 @@
     "name": "Amiens",
     "subtitle": "Somme",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/25_Amiens.jpg",
+    "image_url": "/static/images/destinations/25_Amiens.jpg",
     "image_keyword": "Amiens France travel",
     "is_french": true
   },
@@ -211,7 +211,7 @@
     "name": "Annecy",
     "subtitle": "Haute-Savoie",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/26_Annecy.jpg",
+    "image_url": "/static/images/destinations/26_Annecy.jpg",
     "image_keyword": "Annecy France travel",
     "is_french": true
   },
@@ -219,7 +219,7 @@
     "name": "Limoges",
     "subtitle": "Haute-Vienne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/27_Limoges.jpg",
+    "image_url": "/static/images/destinations/27_Limoges.jpg",
     "image_keyword": "Limoges France travel",
     "is_french": true
   },
@@ -227,7 +227,7 @@
     "name": "Metz",
     "subtitle": "Moselle",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/28_Metz.jpg",
+    "image_url": "/static/images/destinations/28_Metz.jpg",
     "image_keyword": "Metz France travel",
     "is_french": true
   },
@@ -235,7 +235,7 @@
     "name": "Perpignan",
     "subtitle": "Pyrénées-Orientales",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/29_Perpignan.jpg",
+    "image_url": "/static/images/destinations/29_Perpignan.jpg",
     "image_keyword": "Perpignan France travel",
     "is_french": true
   },
@@ -243,7 +243,7 @@
     "name": "Boulogne-Billancourt",
     "subtitle": "arrondissement de Boulogne-Billancourt",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/30_Boulogne-Billancourt.jpg",
+    "image_url": "/static/images/destinations/30_Boulogne-Billancourt.jpg",
     "image_keyword": "Boulogne-Billancourt France travel",
     "is_french": true
   },
@@ -251,7 +251,7 @@
     "name": "Besançon",
     "subtitle": "Doubs",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/31_Besançon.jpg",
+    "image_url": "/static/images/destinations/31_Besançon.jpg",
     "image_keyword": "Besançon France travel",
     "is_french": true
   },
@@ -259,7 +259,7 @@
     "name": "Orléans",
     "subtitle": "Loiret",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/32_Orléans.jpg",
+    "image_url": "/static/images/destinations/32_Orléans.jpg",
     "image_keyword": "Orléans France travel",
     "is_french": true
   },
@@ -267,7 +267,7 @@
     "name": "Rouen",
     "subtitle": "Seine-Maritime",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/33_Rouen.jpg",
+    "image_url": "/static/images/destinations/33_Rouen.jpg",
     "image_keyword": "Rouen France travel",
     "is_french": true
   },
@@ -275,7 +275,7 @@
     "name": "Montreuil",
     "subtitle": "Seine-Saint-Denis",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/34_Montreuil.jpg",
+    "image_url": "/static/images/destinations/34_Montreuil.jpg",
     "image_keyword": "Montreuil France travel",
     "is_french": true
   },
@@ -283,7 +283,7 @@
     "name": "Caen",
     "subtitle": "Calvados",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/35_Caen.jpg",
+    "image_url": "/static/images/destinations/35_Caen.jpg",
     "image_keyword": "Caen France travel",
     "is_french": true
   },
@@ -291,7 +291,7 @@
     "name": "Argenteuil",
     "subtitle": "Val-d'Oise",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/36_Argenteuil.jpg",
+    "image_url": "/static/images/destinations/36_Argenteuil.jpg",
     "image_keyword": "Argenteuil France travel",
     "is_french": true
   },
@@ -299,7 +299,7 @@
     "name": "Saint-Paul",
     "subtitle": "La Réunion",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/37_Saint-Paul.jpg",
+    "image_url": "/static/images/destinations/37_Saint-Paul.jpg",
     "image_keyword": "Saint-Paul France travel",
     "is_french": true
   },
@@ -307,7 +307,7 @@
     "name": "Mulhouse",
     "subtitle": "Haut-Rhin",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/38_Mulhouse.jpg",
+    "image_url": "/static/images/destinations/38_Mulhouse.jpg",
     "image_keyword": "Mulhouse France travel",
     "is_french": true
   },
@@ -315,7 +315,7 @@
     "name": "Nancy",
     "subtitle": "Meurthe-et-Moselle",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/39_Nancy.jpg",
+    "image_url": "/static/images/destinations/39_Nancy.jpg",
     "image_keyword": "Nancy France travel",
     "is_french": true
   },
@@ -323,7 +323,7 @@
     "name": "Roubaix",
     "subtitle": "arrondissement de Lille",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/40_Roubaix.jpg",
+    "image_url": "/static/images/destinations/40_Roubaix.jpg",
     "image_keyword": "Roubaix France travel",
     "is_french": true
   },
@@ -331,7 +331,7 @@
     "name": "Tourcoing",
     "subtitle": "Nord",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/41_Tourcoing.jpg",
+    "image_url": "/static/images/destinations/41_Tourcoing.jpg",
     "image_keyword": "Tourcoing France travel",
     "is_french": true
   },
@@ -339,7 +339,7 @@
     "name": "Nanterre",
     "subtitle": "arrondissement de Nanterre",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/42_Nanterre.jpg",
+    "image_url": "/static/images/destinations/42_Nanterre.jpg",
     "image_keyword": "Nanterre France travel",
     "is_french": true
   },
@@ -347,7 +347,7 @@
     "name": "Nouméa",
     "subtitle": "Province Sud",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/43_Nouméa.jpg",
+    "image_url": "/static/images/destinations/43_Nouméa.jpg",
     "image_keyword": "Nouméa France travel",
     "is_french": true
   },
@@ -355,7 +355,7 @@
     "name": "Vitry-sur-Seine",
     "subtitle": "Val-de-Marne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/44_Vitry-sur-Seine.jpg",
+    "image_url": "/static/images/destinations/44_Vitry-sur-Seine.jpg",
     "image_keyword": "Vitry-sur-Seine France travel",
     "is_french": true
   },
@@ -363,7 +363,7 @@
     "name": "Créteil",
     "subtitle": "Val-de-Marne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/45_Créteil.jpg",
+    "image_url": "/static/images/destinations/45_Créteil.jpg",
     "image_keyword": "Créteil France travel",
     "is_french": true
   },
@@ -371,7 +371,7 @@
     "name": "Avignon",
     "subtitle": "Vaucluse",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/46_Avignon.jpg",
+    "image_url": "/static/images/destinations/46_Avignon.jpg",
     "image_keyword": "Avignon France travel",
     "is_french": true
   },
@@ -379,7 +379,7 @@
     "name": "Asnières-sur-Seine",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/47_Asnières-sur-Seine.jpg",
+    "image_url": "/static/images/destinations/47_Asnières-sur-Seine.jpg",
     "image_keyword": "Asnières-sur-Seine France travel",
     "is_french": true
   },
@@ -387,7 +387,7 @@
     "name": "Colombes",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/48_Colombes.jpg",
+    "image_url": "/static/images/destinations/48_Colombes.jpg",
     "image_keyword": "Colombes France travel",
     "is_french": true
   },
@@ -395,7 +395,7 @@
     "name": "Aubervilliers",
     "subtitle": "Seine-Saint-Denis",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/49_Aubervilliers.jpg",
+    "image_url": "/static/images/destinations/49_Aubervilliers.jpg",
     "image_keyword": "Aubervilliers France travel",
     "is_french": true
   },
@@ -403,7 +403,7 @@
     "name": "Poitiers",
     "subtitle": "Vienne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/50_Poitiers.jpg",
+    "image_url": "/static/images/destinations/50_Poitiers.jpg",
     "image_keyword": "Poitiers France travel",
     "is_french": true
   },
@@ -411,7 +411,7 @@
     "name": "Dunkerque",
     "subtitle": "arrondissement de Dunkerque",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/51_Dunkerque.jpg",
+    "image_url": "/static/images/destinations/51_Dunkerque.jpg",
     "image_keyword": "Dunkerque France travel",
     "is_french": true
   },
@@ -419,7 +419,7 @@
     "name": "Aulnay-sous-Bois",
     "subtitle": "Seine-Saint-Denis",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/52_Aulnay-sous-Bois.jpg",
+    "image_url": "/static/images/destinations/52_Aulnay-sous-Bois.jpg",
     "image_keyword": "Aulnay-sous-Bois France travel",
     "is_french": true
   },
@@ -427,7 +427,7 @@
     "name": "Saint-Pierre",
     "subtitle": "La Réunion",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/53_Saint-Pierre.jpg",
+    "image_url": "/static/images/destinations/53_Saint-Pierre.jpg",
     "image_keyword": "Saint-Pierre France travel",
     "is_french": true
   },
@@ -435,7 +435,7 @@
     "name": "Versailles",
     "subtitle": "Yvelines",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/54_Versailles.jpg",
+    "image_url": "/static/images/destinations/54_Versailles.jpg",
     "image_keyword": "Versailles France travel",
     "is_french": true
   },
@@ -443,7 +443,7 @@
     "name": "Le Tampon",
     "subtitle": "La Réunion",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/55_LeTampon.jpg",
+    "image_url": "/static/images/destinations/55_LeTampon.jpg",
     "image_keyword": "Le Tampon France travel",
     "is_french": true
   },
@@ -451,7 +451,7 @@
     "name": "Courbevoie",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/56_Courbevoie.jpg",
+    "image_url": "/static/images/destinations/56_Courbevoie.jpg",
     "image_keyword": "Courbevoie France travel",
     "is_french": true
   },
@@ -459,7 +459,7 @@
     "name": "Rueil-Malmaison",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/57_Rueil-Malmaison.jpg",
+    "image_url": "/static/images/destinations/57_Rueil-Malmaison.jpg",
     "image_keyword": "Rueil-Malmaison France travel",
     "is_french": true
   },
@@ -467,7 +467,7 @@
     "name": "Béziers",
     "subtitle": "Hérault",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/58_Béziers.jpg",
+    "image_url": "/static/images/destinations/58_Béziers.jpg",
     "image_keyword": "Béziers France travel",
     "is_french": true
   },
@@ -475,7 +475,7 @@
     "name": "La Rochelle",
     "subtitle": "Charente-Maritime",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/59_LaRochelle.jpg",
+    "image_url": "/static/images/destinations/59_LaRochelle.jpg",
     "image_keyword": "La Rochelle France travel",
     "is_french": true
   },
@@ -483,7 +483,7 @@
     "name": "Pau",
     "subtitle": "arrondissement de Pau",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/60_Pau.jpg",
+    "image_url": "/static/images/destinations/60_Pau.jpg",
     "image_keyword": "Pau France travel",
     "is_french": true
   },
@@ -491,7 +491,7 @@
     "name": "Champigny-sur-Marne",
     "subtitle": "Val-de-Marne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/61_Champigny-sur-Marne.jpg",
+    "image_url": "/static/images/destinations/61_Champigny-sur-Marne.jpg",
     "image_keyword": "Champigny-sur-Marne France travel",
     "is_french": true
   },
@@ -499,7 +499,7 @@
     "name": "Cherbourg-en-Cotentin",
     "subtitle": "Manche",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/62_Cherbourg-en-Cotentin.jpg",
+    "image_url": "/static/images/destinations/62_Cherbourg-en-Cotentin.jpg",
     "image_keyword": "Cherbourg-en-Cotentin France travel",
     "is_french": true
   },
@@ -507,7 +507,7 @@
     "name": "Mérignac",
     "subtitle": "Gironde",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/63_Mérignac.jpg",
+    "image_url": "/static/images/destinations/63_Mérignac.jpg",
     "image_keyword": "Mérignac France travel",
     "is_french": true
   },
@@ -515,7 +515,7 @@
     "name": "Antibes",
     "subtitle": "Alpes-Maritimes",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/64_Antibes.jpg",
+    "image_url": "/static/images/destinations/64_Antibes.jpg",
     "image_keyword": "Antibes France travel",
     "is_french": true
   },
@@ -523,7 +523,7 @@
     "name": "Saint-Maur-des-Fossés",
     "subtitle": "Val-de-Marne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/65_Saint-Maur-des-Fossés.jpg",
+    "image_url": "/static/images/destinations/65_Saint-Maur-des-Fossés.jpg",
     "image_keyword": "Saint-Maur-des-Fossés France travel",
     "is_french": true
   },
@@ -531,7 +531,7 @@
     "name": "Ajaccio",
     "subtitle": "Corse-du-Sud",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/66_Ajaccio.jpg",
+    "image_url": "/static/images/destinations/66_Ajaccio.jpg",
     "image_keyword": "Ajaccio France travel",
     "is_french": true
   },
@@ -539,7 +539,7 @@
     "name": "Fort-de-France",
     "subtitle": "Martinique",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/67_Fort-de-France.jpg",
+    "image_url": "/static/images/destinations/67_Fort-de-France.jpg",
     "image_keyword": "Fort-de-France France travel",
     "is_french": true
   },
@@ -547,7 +547,7 @@
     "name": "Cannes",
     "subtitle": "Alpes-Maritimes",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/68_Cannes.jpg",
+    "image_url": "/static/images/destinations/68_Cannes.jpg",
     "image_keyword": "Cannes France travel",
     "is_french": true
   },
@@ -555,7 +555,7 @@
     "name": "Saint-Nazaire",
     "subtitle": "Loire-Atlantique",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/69_Saint-Nazaire.jpg",
+    "image_url": "/static/images/destinations/69_Saint-Nazaire.jpg",
     "image_keyword": "Saint-Nazaire France travel",
     "is_french": true
   },
@@ -563,7 +563,7 @@
     "name": "Noisy-le-Grand",
     "subtitle": "Seine-Saint-Denis",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/70_Noisy-le-Grand.jpg",
+    "image_url": "/static/images/destinations/70_Noisy-le-Grand.jpg",
     "image_keyword": "Noisy-le-Grand France travel",
     "is_french": true
   },
@@ -571,7 +571,7 @@
     "name": "Mamoudzou",
     "subtitle": "Mayotte",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/71_Mamoudzou.jpg",
+    "image_url": "/static/images/destinations/71_Mamoudzou.jpg",
     "image_keyword": "Mamoudzou France travel",
     "is_french": true
   },
@@ -579,7 +579,7 @@
     "name": "Drancy",
     "subtitle": "Seine-Saint-Denis",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/72_Drancy.jpg",
+    "image_url": "/static/images/destinations/72_Drancy.jpg",
     "image_keyword": "Drancy France travel",
     "is_french": true
   },
@@ -587,7 +587,7 @@
     "name": "Cergy",
     "subtitle": "Val-d'Oise",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/73_Cergy.jpg",
+    "image_url": "/static/images/destinations/73_Cergy.jpg",
     "image_keyword": "Cergy France travel",
     "is_french": true
   },
@@ -595,7 +595,7 @@
     "name": "Levallois-Perret",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/74_Levallois-Perret.jpg",
+    "image_url": "/static/images/destinations/74_Levallois-Perret.jpg",
     "image_keyword": "Levallois-Perret France travel",
     "is_french": true
   },
@@ -603,7 +603,7 @@
     "name": "Issy-les-Moulineaux",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/75_Issy-les-Moulineaux.jpg",
+    "image_url": "/static/images/destinations/75_Issy-les-Moulineaux.jpg",
     "image_keyword": "Issy-les-Moulineaux France travel",
     "is_french": true
   },
@@ -611,7 +611,7 @@
     "name": "Calais",
     "subtitle": "Pas-de-Calais",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/76_Calais.jpg",
+    "image_url": "/static/images/destinations/76_Calais.jpg",
     "image_keyword": "Calais France travel",
     "is_french": true
   },
@@ -619,7 +619,7 @@
     "name": "Colmar",
     "subtitle": "Haut-Rhin",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/77_Colmar.jpg",
+    "image_url": "/static/images/destinations/77_Colmar.jpg",
     "image_keyword": "Colmar France travel",
     "is_french": true
   },
@@ -627,7 +627,7 @@
     "name": "Pessac",
     "subtitle": "Gironde",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/78_Pessac.jpg",
+    "image_url": "/static/images/destinations/78_Pessac.jpg",
     "image_keyword": "Pessac France travel",
     "is_french": true
   },
@@ -635,7 +635,7 @@
     "name": "Vénissieux",
     "subtitle": "Métropole de Lyon",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/79_Vénissieux.jpg",
+    "image_url": "/static/images/destinations/79_Vénissieux.jpg",
     "image_keyword": "Vénissieux France travel",
     "is_french": true
   },
@@ -643,7 +643,7 @@
     "name": "Évry-Courcouronnes",
     "subtitle": "Essonne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/80_Évry-Courcouronnes.jpg",
+    "image_url": "/static/images/destinations/80_Évry-Courcouronnes.jpg",
     "image_keyword": "Évry-Courcouronnes France travel",
     "is_french": true
   },
@@ -651,7 +651,7 @@
     "name": "Clichy",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/81_Clichy.jpg",
+    "image_url": "/static/images/destinations/81_Clichy.jpg",
     "image_keyword": "Clichy France travel",
     "is_french": true
   },
@@ -659,7 +659,7 @@
     "name": "Quimper",
     "subtitle": "arrondissement de Quimper",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/82_Quimper.jpg",
+    "image_url": "/static/images/destinations/82_Quimper.jpg",
     "image_keyword": "Quimper France travel",
     "is_french": true
   },
@@ -667,7 +667,7 @@
     "name": "Ivry-sur-Seine",
     "subtitle": "Val-de-Marne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/83_Ivry-sur-Seine.jpg",
+    "image_url": "/static/images/destinations/83_Ivry-sur-Seine.jpg",
     "image_keyword": "Ivry-sur-Seine France travel",
     "is_french": true
   },
@@ -675,7 +675,7 @@
     "name": "Valence",
     "subtitle": "Drôme",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/84_Valence.jpg",
+    "image_url": "/static/images/destinations/84_Valence.jpg",
     "image_keyword": "Valence France travel",
     "is_french": true
   },
@@ -683,7 +683,7 @@
     "name": "Bourges",
     "subtitle": "Cher",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/85_Bourges.jpg",
+    "image_url": "/static/images/destinations/85_Bourges.jpg",
     "image_keyword": "Bourges France travel",
     "is_french": true
   },
@@ -691,7 +691,7 @@
     "name": "Antony",
     "subtitle": "Hauts-de-Seine",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/86_Antony.jpg",
+    "image_url": "/static/images/destinations/86_Antony.jpg",
     "image_keyword": "Antony France travel",
     "is_french": true
   },
@@ -699,7 +699,7 @@
     "name": "Cayenne",
     "subtitle": "Guyane",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/87_Cayenne.jpg",
+    "image_url": "/static/images/destinations/87_Cayenne.jpg",
     "image_keyword": "Cayenne France travel",
     "is_french": true
   },
@@ -707,7 +707,7 @@
     "name": "La Seyne-sur-Mer",
     "subtitle": "Var",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/88_LaSeyne-sur-Mer.jpg",
+    "image_url": "/static/images/destinations/88_LaSeyne-sur-Mer.jpg",
     "image_keyword": "La Seyne-sur-Mer France travel",
     "is_french": true
   },
@@ -715,7 +715,7 @@
     "name": "Montauban",
     "subtitle": "Tarn-et-Garonne",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/89_Montauban.jpg",
+    "image_url": "/static/images/destinations/89_Montauban.jpg",
     "image_keyword": "Montauban France travel",
     "is_french": true
   },
@@ -723,7 +723,7 @@
     "name": "Troyes",
     "subtitle": "Aube",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/90_Troyes.jpg",
+    "image_url": "/static/images/destinations/90_Troyes.jpg",
     "image_keyword": "Troyes France travel",
     "is_french": true
   },
@@ -731,7 +731,7 @@
     "name": "Villeneuve-d'Ascq",
     "subtitle": "Nord",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/91_Villeneuve-dAscq.jpg",
+    "image_url": "/static/images/destinations/91_Villeneuve-dAscq.jpg",
     "image_keyword": "Villeneuve-d'Ascq France travel",
     "is_french": true
   },
@@ -739,7 +739,7 @@
     "name": "Pantin",
     "subtitle": "Seine-Saint-Denis",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/92_Pantin.jpg",
+    "image_url": "/static/images/destinations/92_Pantin.jpg",
     "image_keyword": "Pantin France travel",
     "is_french": true
   },
@@ -747,7 +747,7 @@
     "name": "Chambéry",
     "subtitle": "Savoie",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/93_Chambéry.jpg",
+    "image_url": "/static/images/destinations/93_Chambéry.jpg",
     "image_keyword": "Chambéry France travel",
     "is_french": true
   },
@@ -755,7 +755,7 @@
     "name": "Londres",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/94_Londres.jpg",
+    "image_url": "/static/images/destinations/94_Londres.jpg",
     "image_keyword": "Londres Royaume-Uni travel",
     "is_french": false
   },
@@ -763,7 +763,7 @@
     "name": "Berlin",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/95_Berlin.jpg",
+    "image_url": "/static/images/destinations/95_Berlin.jpg",
     "image_keyword": "Berlin Allemagne travel",
     "is_french": false
   },
@@ -771,7 +771,7 @@
     "name": "Madrid",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/96_Madrid.jpg",
+    "image_url": "/static/images/destinations/96_Madrid.jpg",
     "image_keyword": "Madrid Espagne travel",
     "is_french": false
   },
@@ -787,7 +787,7 @@
     "name": "Rome",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/98_Rome.jpg",
+    "image_url": "/static/images/destinations/98_Rome.jpg",
     "image_keyword": "Rome Italie travel",
     "is_french": false
   },
@@ -795,7 +795,7 @@
     "name": "Paris",
     "subtitle": "France",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/99_Paris.jpg",
+    "image_url": "/static/images/destinations/99_Paris.jpg",
     "image_keyword": "Paris France travel",
     "is_french": true
   },
@@ -803,7 +803,7 @@
     "name": "Vienne",
     "subtitle": "Autriche",
     "country": "Autriche",
-    "image_url": "http://localhost:8000/static/images/destinations/100_Vienne.jpg",
+    "image_url": "/static/images/destinations/100_Vienne.jpg",
     "image_keyword": "Vienne Autriche travel",
     "is_french": false
   },
@@ -811,7 +811,7 @@
     "name": "Hambourg",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/101_Hambourg.jpg",
+    "image_url": "/static/images/destinations/101_Hambourg.jpg",
     "image_keyword": "Hambourg Allemagne travel",
     "is_french": false
   },
@@ -819,7 +819,7 @@
     "name": "Barcelone",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/102_Barcelone.jpg",
+    "image_url": "/static/images/destinations/102_Barcelone.jpg",
     "image_keyword": "Barcelone Espagne travel",
     "is_french": false
   },
@@ -827,7 +827,7 @@
     "name": "Munich",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/103_Munich.jpg",
+    "image_url": "/static/images/destinations/103_Munich.jpg",
     "image_keyword": "Munich Allemagne travel",
     "is_french": false
   },
@@ -835,7 +835,7 @@
     "name": "Métropole de Lyon",
     "subtitle": "France",
     "country": "France",
-    "image_url": "http://localhost:8000/static/images/destinations/104_MétropoledeLyon.jpg",
+    "image_url": "/static/images/destinations/104_MétropoledeLyon.jpg",
     "image_keyword": "Métropole de Lyon France travel",
     "is_french": true
   },
@@ -843,7 +843,7 @@
     "name": "Milan",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/105_Milan.jpg",
+    "image_url": "/static/images/destinations/105_Milan.jpg",
     "image_keyword": "Milan Italie travel",
     "is_french": false
   },
@@ -851,7 +851,7 @@
     "name": "Région de Bruxelles-Capitale",
     "subtitle": "Belgique",
     "country": "Belgique",
-    "image_url": "http://localhost:8000/static/images/destinations/106_RégiondeBruxelles-Capitale.jpg",
+    "image_url": "/static/images/destinations/106_RégiondeBruxelles-Capitale.jpg",
     "image_keyword": "Région de Bruxelles-Capitale Belgique travel",
     "is_french": false
   },
@@ -859,7 +859,7 @@
     "name": "Birmingham",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/107_Birmingham.jpg",
+    "image_url": "/static/images/destinations/107_Birmingham.jpg",
     "image_keyword": "Birmingham Royaume-Uni travel",
     "is_french": false
   },
@@ -867,7 +867,7 @@
     "name": "Cologne",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/108_Cologne.jpg",
+    "image_url": "/static/images/destinations/108_Cologne.jpg",
     "image_keyword": "Cologne Allemagne travel",
     "is_french": false
   },
@@ -875,7 +875,7 @@
     "name": "Naples",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/109_Naples.jpg",
+    "image_url": "/static/images/destinations/109_Naples.jpg",
     "image_keyword": "Naples Italie travel",
     "is_french": false
   },
@@ -883,7 +883,7 @@
     "name": "Turin",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/110_Turin.jpg",
+    "image_url": "/static/images/destinations/110_Turin.jpg",
     "image_keyword": "Turin Italie travel",
     "is_french": false
   },
@@ -891,7 +891,7 @@
     "name": "Francfort-sur-le-Main",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/111_Francfort-sur-le-Main.jpg",
+    "image_url": "/static/images/destinations/111_Francfort-sur-le-Main.jpg",
     "image_keyword": "Francfort-sur-le-Main Allemagne travel",
     "is_french": false
   },
@@ -899,7 +899,7 @@
     "name": "ville de Valence",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/112_villedeValence.jpg",
+    "image_url": "/static/images/destinations/112_villedeValence.jpg",
     "image_keyword": "ville de Valence Espagne travel",
     "is_french": false
   },
@@ -907,7 +907,7 @@
     "name": "land de Brême",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/113_landdeBrême.jpg",
+    "image_url": "/static/images/destinations/113_landdeBrême.jpg",
     "image_keyword": "land de Brême Allemagne travel",
     "is_french": false
   },
@@ -915,7 +915,7 @@
     "name": "Sevilla",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/114_Sevilla.jpg",
+    "image_url": "/static/images/destinations/114_Sevilla.jpg",
     "image_keyword": "Sevilla Espagne travel",
     "is_french": false
   },
@@ -923,7 +923,7 @@
     "name": "Ville de Saragosse",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/115_VilledeSaragosse.jpg",
+    "image_url": "/static/images/destinations/115_VilledeSaragosse.jpg",
     "image_keyword": "Ville de Saragosse Espagne travel",
     "is_french": false
   },
@@ -931,7 +931,7 @@
     "name": "Stuttgart",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/116_Stuttgart.jpg",
+    "image_url": "/static/images/destinations/116_Stuttgart.jpg",
     "image_keyword": "Stuttgart Allemagne travel",
     "is_french": false
   },
@@ -939,7 +939,7 @@
     "name": "Düsseldorf",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/117_Düsseldorf.jpg",
+    "image_url": "/static/images/destinations/117_Düsseldorf.jpg",
     "image_keyword": "Düsseldorf Allemagne travel",
     "is_french": false
   },
@@ -947,7 +947,7 @@
     "name": "Palerme",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/118_Palerme.jpg",
+    "image_url": "/static/images/destinations/118_Palerme.jpg",
     "image_keyword": "Palerme Italie travel",
     "is_french": false
   },
@@ -955,7 +955,7 @@
     "name": "Glasgow",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/119_Glasgow.jpg",
+    "image_url": "/static/images/destinations/119_Glasgow.jpg",
     "image_keyword": "Glasgow Royaume-Uni travel",
     "is_french": false
   },
@@ -963,7 +963,7 @@
     "name": "Leipzig",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/120_Leipzig.jpg",
+    "image_url": "/static/images/destinations/120_Leipzig.jpg",
     "image_keyword": "Leipzig Allemagne travel",
     "is_french": false
   },
@@ -971,7 +971,7 @@
     "name": "Dortmund",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/121_Dortmund.jpg",
+    "image_url": "/static/images/destinations/121_Dortmund.jpg",
     "image_keyword": "Dortmund Allemagne travel",
     "is_french": false
   },
@@ -979,7 +979,7 @@
     "name": "Essen",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/122_Essen.jpg",
+    "image_url": "/static/images/destinations/122_Essen.jpg",
     "image_keyword": "Essen Allemagne travel",
     "is_french": false
   },
@@ -987,7 +987,7 @@
     "name": "Brême",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/123_Brême.jpg",
+    "image_url": "/static/images/destinations/123_Brême.jpg",
     "image_keyword": "Brême Allemagne travel",
     "is_french": false
   },
@@ -995,7 +995,7 @@
     "name": "Dresde",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/124_Dresde.jpg",
+    "image_url": "/static/images/destinations/124_Dresde.jpg",
     "image_keyword": "Dresde Allemagne travel",
     "is_french": false
   },
@@ -1003,7 +1003,7 @@
     "name": "Gênes",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/125_Gênes.jpg",
+    "image_url": "/static/images/destinations/125_Gênes.jpg",
     "image_keyword": "Gênes Italie travel",
     "is_french": false
   },
@@ -1011,7 +1011,7 @@
     "name": "Hanovre",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/126_Hanovre.jpg",
+    "image_url": "/static/images/destinations/126_Hanovre.jpg",
     "image_keyword": "Hanovre Allemagne travel",
     "is_french": false
   },
@@ -1019,7 +1019,7 @@
     "name": "Manchester",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/127_Manchester.jpg",
+    "image_url": "/static/images/destinations/127_Manchester.jpg",
     "image_keyword": "Manchester Royaume-Uni travel",
     "is_french": false
   },
@@ -1035,7 +1035,7 @@
     "name": "Leeds",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/129_Leeds.jpg",
+    "image_url": "/static/images/destinations/129_Leeds.jpg",
     "image_keyword": "Leeds Royaume-Uni travel",
     "is_french": false
   },
@@ -1043,7 +1043,7 @@
     "name": "Anvers",
     "subtitle": "Belgique",
     "country": "Belgique",
-    "image_url": "http://localhost:8000/static/images/destinations/130_Anvers.jpg",
+    "image_url": "/static/images/destinations/130_Anvers.jpg",
     "image_keyword": "Anvers Belgique travel",
     "is_french": false
   },
@@ -1051,7 +1051,7 @@
     "name": "Nuremberg",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/131_Nuremberg.jpg",
+    "image_url": "/static/images/destinations/131_Nuremberg.jpg",
     "image_keyword": "Nuremberg Allemagne travel",
     "is_french": false
   },
@@ -1059,7 +1059,7 @@
     "name": "Sheffield",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/132_Sheffield.jpg",
+    "image_url": "/static/images/destinations/132_Sheffield.jpg",
     "image_keyword": "Sheffield Royaume-Uni travel",
     "is_french": false
   },
@@ -1067,7 +1067,7 @@
     "name": "Liverpool",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/133_Liverpool.jpg",
+    "image_url": "/static/images/destinations/133_Liverpool.jpg",
     "image_keyword": "Liverpool Royaume-Uni travel",
     "is_french": false
   },
@@ -1075,7 +1075,7 @@
     "name": "Duisbourg",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/134_Duisbourg.jpg",
+    "image_url": "/static/images/destinations/134_Duisbourg.jpg",
     "image_keyword": "Duisbourg Allemagne travel",
     "is_french": false
   },
@@ -1083,7 +1083,7 @@
     "name": "Édimbourg",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/135_Édimbourg.jpg",
+    "image_url": "/static/images/destinations/135_Édimbourg.jpg",
     "image_keyword": "Édimbourg Royaume-Uni travel",
     "is_french": false
   },
@@ -1091,7 +1091,7 @@
     "name": "Bristol",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/136_Bristol.jpg",
+    "image_url": "/static/images/destinations/136_Bristol.jpg",
     "image_keyword": "Bristol Royaume-Uni travel",
     "is_french": false
   },
@@ -1099,7 +1099,7 @@
     "name": "Leicester",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/137_Leicester.jpg",
+    "image_url": "/static/images/destinations/137_Leicester.jpg",
     "image_keyword": "Leicester Royaume-Uni travel",
     "is_french": false
   },
@@ -1107,7 +1107,7 @@
     "name": "Zurich",
     "subtitle": "Suisse",
     "country": "Suisse",
-    "image_url": "http://localhost:8000/static/images/destinations/138_Zurich.jpg",
+    "image_url": "/static/images/destinations/138_Zurich.jpg",
     "image_keyword": "Zurich Suisse travel",
     "is_french": false
   },
@@ -1115,7 +1115,7 @@
     "name": "Palma",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/139_Palma.jpg",
+    "image_url": "/static/images/destinations/139_Palma.jpg",
     "image_keyword": "Palma Espagne travel",
     "is_french": false
   },
@@ -1123,7 +1123,7 @@
     "name": "Bologne",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/140_Bologne.jpg",
+    "image_url": "/static/images/destinations/140_Bologne.jpg",
     "image_keyword": "Bologne Italie travel",
     "is_french": false
   },
@@ -1131,7 +1131,7 @@
     "name": "Cardiff",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/141_Cardiff.jpg",
+    "image_url": "/static/images/destinations/141_Cardiff.jpg",
     "image_keyword": "Cardiff Royaume-Uni travel",
     "is_french": false
   },
@@ -1139,7 +1139,7 @@
     "name": "Bochum",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/142_Bochum.jpg",
+    "image_url": "/static/images/destinations/142_Bochum.jpg",
     "image_keyword": "Bochum Allemagne travel",
     "is_french": false
   },
@@ -1147,7 +1147,7 @@
     "name": "Coventry",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/143_Coventry.jpg",
+    "image_url": "/static/images/destinations/143_Coventry.jpg",
     "image_keyword": "Coventry Royaume-Uni travel",
     "is_french": false
   },
@@ -1155,7 +1155,7 @@
     "name": "Florence",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/144_Florence.jpg",
+    "image_url": "/static/images/destinations/144_Florence.jpg",
     "image_keyword": "Florence Italie travel",
     "is_french": false
   },
@@ -1163,7 +1163,7 @@
     "name": "Wuppertal",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/145_Wuppertal.jpg",
+    "image_url": "/static/images/destinations/145_Wuppertal.jpg",
     "image_keyword": "Wuppertal Allemagne travel",
     "is_french": false
   },
@@ -1171,7 +1171,7 @@
     "name": "Alicante",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/146_Alicante.jpg",
+    "image_url": "/static/images/destinations/146_Alicante.jpg",
     "image_keyword": "Alicante Espagne travel",
     "is_french": false
   },
@@ -1179,7 +1179,7 @@
     "name": "Belfast",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/147_Belfast.jpg",
+    "image_url": "/static/images/destinations/147_Belfast.jpg",
     "image_keyword": "Belfast Royaume-Uni travel",
     "is_french": false
   },
@@ -1187,7 +1187,7 @@
     "name": "Bielefeld",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/148_Bielefeld.jpg",
+    "image_url": "/static/images/destinations/148_Bielefeld.jpg",
     "image_keyword": "Bielefeld Allemagne travel",
     "is_french": false
   },
@@ -1195,7 +1195,7 @@
     "name": "Bonn",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/149_Bonn.jpg",
+    "image_url": "/static/images/destinations/149_Bonn.jpg",
     "image_keyword": "Bonn Allemagne travel",
     "is_french": false
   },
@@ -1211,7 +1211,7 @@
     "name": "Münster",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/151_Münster.jpg",
+    "image_url": "/static/images/destinations/151_Münster.jpg",
     "image_keyword": "Münster Allemagne travel",
     "is_french": false
   },
@@ -1219,7 +1219,7 @@
     "name": "Mannheim",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/152_Mannheim.jpg",
+    "image_url": "/static/images/destinations/152_Mannheim.jpg",
     "image_keyword": "Mannheim Allemagne travel",
     "is_french": false
   },
@@ -1227,7 +1227,7 @@
     "name": "Bari",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/153_Bari.jpg",
+    "image_url": "/static/images/destinations/153_Bari.jpg",
     "image_keyword": "Bari Italie travel",
     "is_french": false
   },
@@ -1235,7 +1235,7 @@
     "name": "Catane",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/154_Catane.jpg",
+    "image_url": "/static/images/destinations/154_Catane.jpg",
     "image_keyword": "Catane Italie travel",
     "is_french": false
   },
@@ -1243,7 +1243,7 @@
     "name": "Karlsruhe",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/155_Karlsruhe.jpg",
+    "image_url": "/static/images/destinations/155_Karlsruhe.jpg",
     "image_keyword": "Karlsruhe Allemagne travel",
     "is_french": false
   },
@@ -1251,7 +1251,7 @@
     "name": "Augsbourg",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/156_Augsbourg.jpg",
+    "image_url": "/static/images/destinations/156_Augsbourg.jpg",
     "image_keyword": "Augsbourg Allemagne travel",
     "is_french": false
   },
@@ -1259,7 +1259,7 @@
     "name": "Newcastle upon Tyne",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/157_NewcastleuponTyne.jpg",
+    "image_url": "/static/images/destinations/157_NewcastleuponTyne.jpg",
     "image_keyword": "Newcastle upon Tyne Royaume-Uni travel",
     "is_french": false
   },
@@ -1267,7 +1267,7 @@
     "name": "Las Palmas de Gran Canaria",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/158_LasPalmasdeGranCanaria.jpg",
+    "image_url": "/static/images/destinations/158_LasPalmasdeGranCanaria.jpg",
     "image_keyword": "Las Palmas de Gran Canaria Espagne travel",
     "is_french": false
   },
@@ -1275,7 +1275,7 @@
     "name": "Bradford",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/159_Bradford.jpg",
+    "image_url": "/static/images/destinations/159_Bradford.jpg",
     "image_keyword": "Bradford Royaume-Uni travel",
     "is_french": false
   },
@@ -1283,7 +1283,7 @@
     "name": "Graz",
     "subtitle": "Autriche",
     "country": "Autriche",
-    "image_url": "http://localhost:8000/static/images/destinations/160_Graz.jpg",
+    "image_url": "/static/images/destinations/160_Graz.jpg",
     "image_keyword": "Graz Autriche travel",
     "is_french": false
   },
@@ -1307,7 +1307,7 @@
     "name": "Nottingham",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/163_Nottingham.jpg",
+    "image_url": "/static/images/destinations/163_Nottingham.jpg",
     "image_keyword": "Nottingham Royaume-Uni travel",
     "is_french": false
   },
@@ -1315,7 +1315,7 @@
     "name": "Wiesbaden",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/164_Wiesbaden.jpg",
+    "image_url": "/static/images/destinations/164_Wiesbaden.jpg",
     "image_keyword": "Wiesbaden Allemagne travel",
     "is_french": false
   },
@@ -1323,7 +1323,7 @@
     "name": "Bolton",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/165_Bolton.jpg",
+    "image_url": "/static/images/destinations/165_Bolton.jpg",
     "image_keyword": "Bolton Royaume-Uni travel",
     "is_french": false
   },
@@ -1331,7 +1331,7 @@
     "name": "L'Hospitalet de Llobregat",
     "subtitle": "Espagne",
     "country": "Espagne",
-    "image_url": "http://localhost:8000/static/images/destinations/166_LHospitaletdeLlobregat.jpg",
+    "image_url": "/static/images/destinations/166_LHospitaletdeLlobregat.jpg",
     "image_keyword": "L'Hospitalet de Llobregat Espagne travel",
     "is_french": false
   },
@@ -1339,7 +1339,7 @@
     "name": "Sunderland",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/167_Sunderland.jpg",
+    "image_url": "/static/images/destinations/167_Sunderland.jpg",
     "image_keyword": "Sunderland Royaume-Uni travel",
     "is_french": false
   },
@@ -1347,7 +1347,7 @@
     "name": "Brighton et Hove",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/168_BrightonetHove.jpg",
+    "image_url": "/static/images/destinations/168_BrightonetHove.jpg",
     "image_keyword": "Brighton et Hove Royaume-Uni travel",
     "is_french": false
   },
@@ -1355,7 +1355,7 @@
     "name": "Gand",
     "subtitle": "Belgique",
     "country": "Belgique",
-    "image_url": "http://localhost:8000/static/images/destinations/169_Gand.jpg",
+    "image_url": "/static/images/destinations/169_Gand.jpg",
     "image_keyword": "Gand Belgique travel",
     "is_french": false
   },
@@ -1363,7 +1363,7 @@
     "name": "Southampton",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/170_Southampton.jpg",
+    "image_url": "/static/images/destinations/170_Southampton.jpg",
     "image_keyword": "Southampton Royaume-Uni travel",
     "is_french": false
   },
@@ -1371,7 +1371,7 @@
     "name": "Mönchengladbach",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/171_Mönchengladbach.jpg",
+    "image_url": "/static/images/destinations/171_Mönchengladbach.jpg",
     "image_keyword": "Mönchengladbach Allemagne travel",
     "is_french": false
   },
@@ -1379,7 +1379,7 @@
     "name": "Plymouth",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/172_Plymouth.jpg",
+    "image_url": "/static/images/destinations/172_Plymouth.jpg",
     "image_keyword": "Plymouth Royaume-Uni travel",
     "is_french": false
   },
@@ -1387,7 +1387,7 @@
     "name": "Gelsenkirchen",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/173_Gelsenkirchen.jpg",
+    "image_url": "/static/images/destinations/173_Gelsenkirchen.jpg",
     "image_keyword": "Gelsenkirchen Allemagne travel",
     "is_french": false
   },
@@ -1395,7 +1395,7 @@
     "name": "Milton Keynes",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/174_MiltonKeynes.jpg",
+    "image_url": "/static/images/destinations/174_MiltonKeynes.jpg",
     "image_keyword": "Milton Keynes Royaume-Uni travel",
     "is_french": false
   },
@@ -1403,7 +1403,7 @@
     "name": "Kingston-upon-Hull",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/175_Kingston-upon-Hull.jpg",
+    "image_url": "/static/images/destinations/175_Kingston-upon-Hull.jpg",
     "image_keyword": "Kingston-upon-Hull Royaume-Uni travel",
     "is_french": false
   },
@@ -1411,7 +1411,7 @@
     "name": "Stoke-on-Trent",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/176_Stoke-on-Trent.jpg",
+    "image_url": "/static/images/destinations/176_Stoke-on-Trent.jpg",
     "image_keyword": "Stoke-on-Trent Royaume-Uni travel",
     "is_french": false
   },
@@ -1419,7 +1419,7 @@
     "name": "Vérone",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/177_Vérone.jpg",
+    "image_url": "/static/images/destinations/177_Vérone.jpg",
     "image_keyword": "Vérone Italie travel",
     "is_french": false
   },
@@ -1427,7 +1427,7 @@
     "name": "Vatican",
     "subtitle": "Vatican",
     "country": "Vatican",
-    "image_url": "http://localhost:8000/static/images/destinations/178_Vatican.jpg",
+    "image_url": "/static/images/destinations/178_Vatican.jpg",
     "image_keyword": "Vatican Vatican travel",
     "is_french": false
   },
@@ -1435,7 +1435,7 @@
     "name": "Moscou",
     "subtitle": "Russie",
     "country": "Russie",
-    "image_url": "http://localhost:8000/static/images/destinations/179_Moscou.jpg",
+    "image_url": "/static/images/destinations/179_Moscou.jpg",
     "image_keyword": "Moscou Russie travel",
     "is_french": false
   },
@@ -1443,7 +1443,7 @@
     "name": "Singapour",
     "subtitle": "Singapour",
     "country": "Singapour",
-    "image_url": "http://localhost:8000/static/images/destinations/180_Singapour.jpg",
+    "image_url": "/static/images/destinations/180_Singapour.jpg",
     "image_keyword": "Singapour Singapour travel",
     "is_french": false
   },
@@ -1451,7 +1451,7 @@
     "name": "New York",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/181_NewYork.jpg",
+    "image_url": "/static/images/destinations/181_NewYork.jpg",
     "image_keyword": "New York États-Unis travel",
     "is_french": false
   },
@@ -1459,7 +1459,7 @@
     "name": "Monaco",
     "subtitle": "Monaco",
     "country": "Monaco",
-    "image_url": "http://localhost:8000/static/images/destinations/182_Monaco.jpg",
+    "image_url": "/static/images/destinations/182_Monaco.jpg",
     "image_keyword": "Monaco Monaco travel",
     "is_french": false
   },
@@ -1467,7 +1467,7 @@
     "name": "Tokyo",
     "subtitle": "Japon",
     "country": "Japon",
-    "image_url": "http://localhost:8000/static/images/destinations/183_Tokyo.jpg",
+    "image_url": "/static/images/destinations/183_Tokyo.jpg",
     "image_keyword": "Tokyo Japon travel",
     "is_french": false
   },
@@ -1475,7 +1475,7 @@
     "name": "Pékin",
     "subtitle": "République populaire de Chine",
     "country": "République populaire de Chine",
-    "image_url": "http://localhost:8000/static/images/destinations/184_Pékin.jpg",
+    "image_url": "/static/images/destinations/184_Pékin.jpg",
     "image_keyword": "Pékin République populaire de Chine travel",
     "is_french": false
   },
@@ -1483,7 +1483,7 @@
     "name": "Rio de Janeiro",
     "subtitle": "Brésil",
     "country": "Brésil",
-    "image_url": "http://localhost:8000/static/images/destinations/185_RiodeJaneiro.jpg",
+    "image_url": "/static/images/destinations/185_RiodeJaneiro.jpg",
     "image_keyword": "Rio de Janeiro Brésil travel",
     "is_french": false
   },
@@ -1491,7 +1491,7 @@
     "name": "Hong Kong",
     "subtitle": "République populaire de Chine",
     "country": "République populaire de Chine",
-    "image_url": "http://localhost:8000/static/images/destinations/186_HongKong.jpg",
+    "image_url": "/static/images/destinations/186_HongKong.jpg",
     "image_keyword": "Hong Kong République populaire de Chine travel",
     "is_french": false
   },
@@ -1499,7 +1499,7 @@
     "name": "Washington",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/187_Washington.jpg",
+    "image_url": "/static/images/destinations/187_Washington.jpg",
     "image_keyword": "Washington États-Unis travel",
     "is_french": false
   },
@@ -1507,7 +1507,7 @@
     "name": "Jérusalem",
     "subtitle": "Israël",
     "country": "Israël",
-    "image_url": "http://localhost:8000/static/images/destinations/188_Jérusalem.jpg",
+    "image_url": "/static/images/destinations/188_Jérusalem.jpg",
     "image_keyword": "Jérusalem Israël travel",
     "is_french": false
   },
@@ -1515,7 +1515,7 @@
     "name": "Jérusalem",
     "subtitle": "État de Palestine",
     "country": "État de Palestine",
-    "image_url": "http://localhost:8000/static/images/destinations/189_Jérusalem.jpg",
+    "image_url": "/static/images/destinations/189_Jérusalem.jpg",
     "image_keyword": "Jérusalem État de Palestine travel",
     "is_french": false
   },
@@ -1523,7 +1523,7 @@
     "name": "Helsinki",
     "subtitle": "Finlande",
     "country": "Finlande",
-    "image_url": "http://localhost:8000/static/images/destinations/190_Helsinki.jpg",
+    "image_url": "/static/images/destinations/190_Helsinki.jpg",
     "image_keyword": "Helsinki Finlande travel",
     "is_french": false
   },
@@ -1531,7 +1531,7 @@
     "name": "Varsovie",
     "subtitle": "Pologne",
     "country": "Pologne",
-    "image_url": "http://localhost:8000/static/images/destinations/191_Varsovie.jpg",
+    "image_url": "/static/images/destinations/191_Varsovie.jpg",
     "image_keyword": "Varsovie Pologne travel",
     "is_french": false
   },
@@ -1539,7 +1539,7 @@
     "name": "Istanbul",
     "subtitle": "Turquie",
     "country": "Turquie",
-    "image_url": "http://localhost:8000/static/images/destinations/192_Istanbul.jpg",
+    "image_url": "/static/images/destinations/192_Istanbul.jpg",
     "image_keyword": "Istanbul Turquie travel",
     "is_french": false
   },
@@ -1547,7 +1547,7 @@
     "name": "Athènes",
     "subtitle": "Grèce",
     "country": "Grèce",
-    "image_url": "http://localhost:8000/static/images/destinations/193_Athènes.jpg",
+    "image_url": "/static/images/destinations/193_Athènes.jpg",
     "image_keyword": "Athènes Grèce travel",
     "is_french": false
   },
@@ -1555,7 +1555,7 @@
     "name": "Edirne",
     "subtitle": "Turquie",
     "country": "Turquie",
-    "image_url": "http://localhost:8000/static/images/destinations/194_Edirne.jpg",
+    "image_url": "/static/images/destinations/194_Edirne.jpg",
     "image_keyword": "Edirne Turquie travel",
     "is_french": false
   },
@@ -1563,7 +1563,7 @@
     "name": "Tirana",
     "subtitle": "Albanie",
     "country": "Albanie",
-    "image_url": "http://localhost:8000/static/images/destinations/195_Tirana.jpg",
+    "image_url": "/static/images/destinations/195_Tirana.jpg",
     "image_keyword": "Tirana Albanie travel",
     "is_french": false
   },
@@ -1571,7 +1571,7 @@
     "name": "Amsterdam",
     "subtitle": "Pays-Bas",
     "country": "Pays-Bas",
-    "image_url": "http://localhost:8000/static/images/destinations/196_Amsterdam.jpg",
+    "image_url": "/static/images/destinations/196_Amsterdam.jpg",
     "image_keyword": "Amsterdam Pays-Bas travel",
     "is_french": false
   },
@@ -1579,7 +1579,7 @@
     "name": "Los Angeles",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/197_LosAngeles.jpg",
+    "image_url": "/static/images/destinations/197_LosAngeles.jpg",
     "image_keyword": "Los Angeles États-Unis travel",
     "is_french": false
   },
@@ -1587,7 +1587,7 @@
     "name": "Bogota",
     "subtitle": "Colombie",
     "country": "Colombie",
-    "image_url": "http://localhost:8000/static/images/destinations/198_Bogota.jpg",
+    "image_url": "/static/images/destinations/198_Bogota.jpg",
     "image_keyword": "Bogota Colombie travel",
     "is_french": false
   },
@@ -1595,7 +1595,7 @@
     "name": "Stockholm",
     "subtitle": "Suède",
     "country": "Suède",
-    "image_url": "http://localhost:8000/static/images/destinations/199_Stockholm.jpg",
+    "image_url": "/static/images/destinations/199_Stockholm.jpg",
     "image_keyword": "Stockholm Suède travel",
     "is_french": false
   },
@@ -1603,7 +1603,7 @@
     "name": "Chicago",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/200_Chicago.jpg",
+    "image_url": "/static/images/destinations/200_Chicago.jpg",
     "image_keyword": "Chicago États-Unis travel",
     "is_french": false
   },
@@ -1611,7 +1611,7 @@
     "name": "Buenos Aires",
     "subtitle": "Argentine",
     "country": "Argentine",
-    "image_url": "http://localhost:8000/static/images/destinations/201_BuenosAires.jpg",
+    "image_url": "/static/images/destinations/201_BuenosAires.jpg",
     "image_keyword": "Buenos Aires Argentine travel",
     "is_french": false
   },
@@ -1619,7 +1619,7 @@
     "name": "Santiago",
     "subtitle": "Chili",
     "country": "Chili",
-    "image_url": "http://localhost:8000/static/images/destinations/202_Santiago.jpg",
+    "image_url": "/static/images/destinations/202_Santiago.jpg",
     "image_keyword": "Santiago Chili travel",
     "is_french": false
   },
@@ -1627,7 +1627,7 @@
     "name": "Kiev",
     "subtitle": "Ukraine",
     "country": "Ukraine",
-    "image_url": "http://localhost:8000/static/images/destinations/203_Kiev.jpg",
+    "image_url": "/static/images/destinations/203_Kiev.jpg",
     "image_keyword": "Kiev Ukraine travel",
     "is_french": false
   },
@@ -1635,7 +1635,7 @@
     "name": "Saint-Pétersbourg",
     "subtitle": "Russie",
     "country": "Russie",
-    "image_url": "http://localhost:8000/static/images/destinations/204_Saint-Pétersbourg.jpg",
+    "image_url": "/static/images/destinations/204_Saint-Pétersbourg.jpg",
     "image_keyword": "Saint-Pétersbourg Russie travel",
     "is_french": false
   },
@@ -1643,7 +1643,7 @@
     "name": "Prague",
     "subtitle": "Tchéquie",
     "country": "Tchéquie",
-    "image_url": "http://localhost:8000/static/images/destinations/205_Prague.jpg",
+    "image_url": "/static/images/destinations/205_Prague.jpg",
     "image_keyword": "Prague Tchéquie travel",
     "is_french": false
   },
@@ -1651,7 +1651,7 @@
     "name": "Lisbonne",
     "subtitle": "Portugal",
     "country": "Portugal",
-    "image_url": "http://localhost:8000/static/images/destinations/206_Lisbonne.jpg",
+    "image_url": "/static/images/destinations/206_Lisbonne.jpg",
     "image_keyword": "Lisbonne Portugal travel",
     "is_french": false
   },
@@ -1659,7 +1659,7 @@
     "name": "Curitiba",
     "subtitle": "Brésil",
     "country": "Brésil",
-    "image_url": "http://localhost:8000/static/images/destinations/207_Curitiba.jpg",
+    "image_url": "/static/images/destinations/207_Curitiba.jpg",
     "image_keyword": "Curitiba Brésil travel",
     "is_french": false
   },
@@ -1667,7 +1667,7 @@
     "name": "Kyoto",
     "subtitle": "Japon",
     "country": "Japon",
-    "image_url": "http://localhost:8000/static/images/destinations/208_Kyoto.jpg",
+    "image_url": "/static/images/destinations/208_Kyoto.jpg",
     "image_keyword": "Kyoto Japon travel",
     "is_french": false
   },
@@ -1675,7 +1675,7 @@
     "name": "Sydney",
     "subtitle": "Australie",
     "country": "Australie",
-    "image_url": "http://localhost:8000/static/images/destinations/209_Sydney.jpg",
+    "image_url": "/static/images/destinations/209_Sydney.jpg",
     "image_keyword": "Sydney Australie travel",
     "is_french": false
   },
@@ -1683,7 +1683,7 @@
     "name": "Hô Chi Minh-Ville",
     "subtitle": "Vietnam",
     "country": "Vietnam",
-    "image_url": "http://localhost:8000/static/images/destinations/210_HôChiMinh-Ville.jpg",
+    "image_url": "/static/images/destinations/210_HôChiMinh-Ville.jpg",
     "image_keyword": "Hô Chi Minh-Ville Vietnam travel",
     "is_french": false
   },
@@ -1691,7 +1691,7 @@
     "name": "Bangkok",
     "subtitle": "Thaïlande",
     "country": "Thaïlande",
-    "image_url": "http://localhost:8000/static/images/destinations/211_Bangkok.jpg",
+    "image_url": "/static/images/destinations/211_Bangkok.jpg",
     "image_keyword": "Bangkok Thaïlande travel",
     "is_french": false
   },
@@ -1699,7 +1699,7 @@
     "name": "Bangkok",
     "subtitle": "Royaume d'Ayutthaya",
     "country": "Royaume d'Ayutthaya",
-    "image_url": "http://localhost:8000/static/images/destinations/212_Bangkok.jpg",
+    "image_url": "/static/images/destinations/212_Bangkok.jpg",
     "image_keyword": "Bangkok Royaume d'Ayutthaya travel",
     "is_french": false
   },
@@ -1707,7 +1707,7 @@
     "name": "Bangkok",
     "subtitle": "dynastie Konbaung",
     "country": "dynastie Konbaung",
-    "image_url": "http://localhost:8000/static/images/destinations/213_Bangkok.jpg",
+    "image_url": "/static/images/destinations/213_Bangkok.jpg",
     "image_keyword": "Bangkok dynastie Konbaung travel",
     "is_french": false
   },
@@ -1715,7 +1715,7 @@
     "name": "Bangkok",
     "subtitle": "Royaume de Thonburi",
     "country": "Royaume de Thonburi",
-    "image_url": "http://localhost:8000/static/images/destinations/214_Bangkok.jpg",
+    "image_url": "/static/images/destinations/214_Bangkok.jpg",
     "image_keyword": "Bangkok Royaume de Thonburi travel",
     "is_french": false
   },
@@ -1723,7 +1723,7 @@
     "name": "Bangkok",
     "subtitle": "Royaume de Rattanakosin",
     "country": "Royaume de Rattanakosin",
-    "image_url": "http://localhost:8000/static/images/destinations/215_Bangkok.jpg",
+    "image_url": "/static/images/destinations/215_Bangkok.jpg",
     "image_keyword": "Bangkok Royaume de Rattanakosin travel",
     "is_french": false
   },
@@ -1731,7 +1731,7 @@
     "name": "Budapest",
     "subtitle": "Hongrie",
     "country": "Hongrie",
-    "image_url": "http://localhost:8000/static/images/destinations/216_Budapest.jpg",
+    "image_url": "/static/images/destinations/216_Budapest.jpg",
     "image_keyword": "Budapest Hongrie travel",
     "is_french": false
   },
@@ -1739,7 +1739,7 @@
     "name": "Le Caire",
     "subtitle": "Égypte",
     "country": "Égypte",
-    "image_url": "http://localhost:8000/static/images/destinations/217_LeCaire.jpg",
+    "image_url": "/static/images/destinations/217_LeCaire.jpg",
     "image_keyword": "Le Caire Égypte travel",
     "is_french": false
   },
@@ -1747,7 +1747,7 @@
     "name": "São Paulo",
     "subtitle": "Brésil",
     "country": "Brésil",
-    "image_url": "http://localhost:8000/static/images/destinations/218_SãoPaulo.jpg",
+    "image_url": "/static/images/destinations/218_SãoPaulo.jpg",
     "image_keyword": "São Paulo Brésil travel",
     "is_french": false
   },
@@ -1755,7 +1755,7 @@
     "name": "Mexico",
     "subtitle": "Mexique",
     "country": "Mexique",
-    "image_url": "http://localhost:8000/static/images/destinations/219_Mexico.jpg",
+    "image_url": "/static/images/destinations/219_Mexico.jpg",
     "image_keyword": "Mexico Mexique travel",
     "is_french": false
   },
@@ -1763,7 +1763,7 @@
     "name": "Séoul",
     "subtitle": "Corée du Sud",
     "country": "Corée du Sud",
-    "image_url": "http://localhost:8000/static/images/destinations/220_Séoul.jpg",
+    "image_url": "/static/images/destinations/220_Séoul.jpg",
     "image_keyword": "Séoul Corée du Sud travel",
     "is_french": false
   },
@@ -1771,7 +1771,7 @@
     "name": "Jakarta",
     "subtitle": "Indonésie",
     "country": "Indonésie",
-    "image_url": "http://localhost:8000/static/images/destinations/221_Jakarta.jpg",
+    "image_url": "/static/images/destinations/221_Jakarta.jpg",
     "image_keyword": "Jakarta Indonésie travel",
     "is_french": false
   },
@@ -1779,7 +1779,7 @@
     "name": "Bagdad",
     "subtitle": "Irak",
     "country": "Irak",
-    "image_url": "http://localhost:8000/static/images/destinations/222_Bagdad.jpg",
+    "image_url": "/static/images/destinations/222_Bagdad.jpg",
     "image_keyword": "Bagdad Irak travel",
     "is_french": false
   },
@@ -1787,7 +1787,7 @@
     "name": "Shanghai",
     "subtitle": "République populaire de Chine",
     "country": "République populaire de Chine",
-    "image_url": "http://localhost:8000/static/images/destinations/223_Shanghai.jpg",
+    "image_url": "/static/images/destinations/223_Shanghai.jpg",
     "image_keyword": "Shanghai République populaire de Chine travel",
     "is_french": false
   },
@@ -1795,7 +1795,7 @@
     "name": "Copenhague",
     "subtitle": "Danemark",
     "country": "Danemark",
-    "image_url": "http://localhost:8000/static/images/destinations/224_Copenhague.jpg",
+    "image_url": "/static/images/destinations/224_Copenhague.jpg",
     "image_keyword": "Copenhague Danemark travel",
     "is_french": false
   },
@@ -1803,7 +1803,7 @@
     "name": "Bakou",
     "subtitle": "Azerbaïdjan",
     "country": "Azerbaïdjan",
-    "image_url": "http://localhost:8000/static/images/destinations/225_Bakou.jpg",
+    "image_url": "/static/images/destinations/225_Bakou.jpg",
     "image_keyword": "Bakou Azerbaïdjan travel",
     "is_french": false
   },
@@ -1811,7 +1811,7 @@
     "name": "Valparaíso",
     "subtitle": "Chili",
     "country": "Chili",
-    "image_url": "http://localhost:8000/static/images/destinations/226_Valparaíso.jpg",
+    "image_url": "/static/images/destinations/226_Valparaíso.jpg",
     "image_keyword": "Valparaíso Chili travel",
     "is_french": false
   },
@@ -1819,7 +1819,7 @@
     "name": "Oslo",
     "subtitle": "Norvège",
     "country": "Norvège",
-    "image_url": "http://localhost:8000/static/images/destinations/227_Oslo.jpg",
+    "image_url": "/static/images/destinations/227_Oslo.jpg",
     "image_keyword": "Oslo Norvège travel",
     "is_french": false
   },
@@ -1827,7 +1827,7 @@
     "name": "Ankara",
     "subtitle": "Turquie",
     "country": "Turquie",
-    "image_url": "http://localhost:8000/static/images/destinations/228_Ankara.jpg",
+    "image_url": "/static/images/destinations/228_Ankara.jpg",
     "image_keyword": "Ankara Turquie travel",
     "is_french": false
   },
@@ -1835,7 +1835,7 @@
     "name": "Damas",
     "subtitle": "Syrie",
     "country": "Syrie",
-    "image_url": "http://localhost:8000/static/images/destinations/229_Damas.jpg",
+    "image_url": "/static/images/destinations/229_Damas.jpg",
     "image_keyword": "Damas Syrie travel",
     "is_french": false
   },
@@ -1843,7 +1843,7 @@
     "name": "Bucarest",
     "subtitle": "Roumanie",
     "country": "Roumanie",
-    "image_url": "http://localhost:8000/static/images/destinations/230_Bucarest.jpg",
+    "image_url": "/static/images/destinations/230_Bucarest.jpg",
     "image_keyword": "Bucarest Roumanie travel",
     "is_french": false
   },
@@ -1851,7 +1851,7 @@
     "name": "Bruxelles",
     "subtitle": "Belgique",
     "country": "Belgique",
-    "image_url": "http://localhost:8000/static/images/destinations/231_Bruxelles.jpg",
+    "image_url": "/static/images/destinations/231_Bruxelles.jpg",
     "image_keyword": "Bruxelles Belgique travel",
     "is_french": false
   },
@@ -1859,7 +1859,7 @@
     "name": "Dublin",
     "subtitle": "Irlande",
     "country": "Irlande",
-    "image_url": "http://localhost:8000/static/images/destinations/232_Dublin.jpg",
+    "image_url": "/static/images/destinations/232_Dublin.jpg",
     "image_keyword": "Dublin Irlande travel",
     "is_french": false
   },
@@ -1867,7 +1867,7 @@
     "name": "Téhéran",
     "subtitle": "Iran",
     "country": "Iran",
-    "image_url": "http://localhost:8000/static/images/destinations/233_Téhéran.jpg",
+    "image_url": "/static/images/destinations/233_Téhéran.jpg",
     "image_keyword": "Téhéran Iran travel",
     "is_french": false
   },
@@ -1875,7 +1875,7 @@
     "name": "Nairobi",
     "subtitle": "Kenya",
     "country": "Kenya",
-    "image_url": "http://localhost:8000/static/images/destinations/234_Nairobi.jpg",
+    "image_url": "/static/images/destinations/234_Nairobi.jpg",
     "image_keyword": "Nairobi Kenya travel",
     "is_french": false
   },
@@ -1883,7 +1883,7 @@
     "name": "San Francisco",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/235_SanFrancisco.jpg",
+    "image_url": "/static/images/destinations/235_SanFrancisco.jpg",
     "image_keyword": "San Francisco États-Unis travel",
     "is_french": false
   },
@@ -1891,7 +1891,7 @@
     "name": "Đồng Hới",
     "subtitle": "Vietnam",
     "country": "Vietnam",
-    "image_url": "http://localhost:8000/static/images/destinations/236_ĐồngHới.jpg",
+    "image_url": "/static/images/destinations/236_ĐồngHới.jpg",
     "image_keyword": "Đồng Hới Vietnam travel",
     "is_french": false
   },
@@ -1899,7 +1899,7 @@
     "name": "Vilnius",
     "subtitle": "Lituanie",
     "country": "Lituanie",
-    "image_url": "http://localhost:8000/static/images/destinations/237_Vilnius.jpg",
+    "image_url": "/static/images/destinations/237_Vilnius.jpg",
     "image_keyword": "Vilnius Lituanie travel",
     "is_french": false
   },
@@ -1907,7 +1907,7 @@
     "name": "Concepción",
     "subtitle": "Chili",
     "country": "Chili",
-    "image_url": "http://localhost:8000/static/images/destinations/238_Concepción.jpg",
+    "image_url": "/static/images/destinations/238_Concepción.jpg",
     "image_keyword": "Concepción Chili travel",
     "is_french": false
   },
@@ -1915,7 +1915,7 @@
     "name": "Tallinn",
     "subtitle": "Estonie",
     "country": "Estonie",
-    "image_url": "http://localhost:8000/static/images/destinations/239_Tallinn.jpg",
+    "image_url": "/static/images/destinations/239_Tallinn.jpg",
     "image_keyword": "Tallinn Estonie travel",
     "is_french": false
   },
@@ -1923,7 +1923,7 @@
     "name": "Belgrade",
     "subtitle": "Serbie",
     "country": "Serbie",
-    "image_url": "http://localhost:8000/static/images/destinations/240_Belgrade.jpg",
+    "image_url": "/static/images/destinations/240_Belgrade.jpg",
     "image_keyword": "Belgrade Serbie travel",
     "is_french": false
   },
@@ -1931,7 +1931,7 @@
     "name": "Minsk",
     "subtitle": "Biélorussie",
     "country": "Biélorussie",
-    "image_url": "http://localhost:8000/static/images/destinations/241_Minsk.jpg",
+    "image_url": "/static/images/destinations/241_Minsk.jpg",
     "image_keyword": "Minsk Biélorussie travel",
     "is_french": false
   },
@@ -1939,7 +1939,7 @@
     "name": "Ottawa",
     "subtitle": "Canada",
     "country": "Canada",
-    "image_url": "http://localhost:8000/static/images/destinations/242_Ottawa.jpg",
+    "image_url": "/static/images/destinations/242_Ottawa.jpg",
     "image_keyword": "Ottawa Canada travel",
     "is_french": false
   },
@@ -1947,7 +1947,7 @@
     "name": "Uetersen",
     "subtitle": "Allemagne",
     "country": "Allemagne",
-    "image_url": "http://localhost:8000/static/images/destinations/243_Uetersen.jpg",
+    "image_url": "/static/images/destinations/243_Uetersen.jpg",
     "image_keyword": "Uetersen Allemagne travel",
     "is_french": false
   },
@@ -1955,7 +1955,7 @@
     "name": "Brasilia",
     "subtitle": "Brésil",
     "country": "Brésil",
-    "image_url": "http://localhost:8000/static/images/destinations/244_Brasilia.jpg",
+    "image_url": "/static/images/destinations/244_Brasilia.jpg",
     "image_keyword": "Brasilia Brésil travel",
     "is_french": false
   },
@@ -1963,7 +1963,7 @@
     "name": "Tbilissi",
     "subtitle": "Géorgie",
     "country": "Géorgie",
-    "image_url": "http://localhost:8000/static/images/destinations/245_Tbilissi.jpg",
+    "image_url": "/static/images/destinations/245_Tbilissi.jpg",
     "image_keyword": "Tbilissi Géorgie travel",
     "is_french": false
   },
@@ -1971,7 +1971,7 @@
     "name": "Venise",
     "subtitle": "Italie",
     "country": "Italie",
-    "image_url": "http://localhost:8000/static/images/destinations/246_Venise.jpg",
+    "image_url": "/static/images/destinations/246_Venise.jpg",
     "image_keyword": "Venise Italie travel",
     "is_french": false
   },
@@ -1979,7 +1979,7 @@
     "name": "Sofia",
     "subtitle": "Bulgarie",
     "country": "Bulgarie",
-    "image_url": "http://localhost:8000/static/images/destinations/247_Sofia.jpg",
+    "image_url": "/static/images/destinations/247_Sofia.jpg",
     "image_keyword": "Sofia Bulgarie travel",
     "is_french": false
   },
@@ -1987,7 +1987,7 @@
     "name": "Riga",
     "subtitle": "Lettonie",
     "country": "Lettonie",
-    "image_url": "http://localhost:8000/static/images/destinations/248_Riga.jpg",
+    "image_url": "/static/images/destinations/248_Riga.jpg",
     "image_keyword": "Riga Lettonie travel",
     "is_french": false
   },
@@ -1995,7 +1995,7 @@
     "name": "Bombay",
     "subtitle": "Inde",
     "country": "Inde",
-    "image_url": "http://localhost:8000/static/images/destinations/249_Bombay.jpg",
+    "image_url": "/static/images/destinations/249_Bombay.jpg",
     "image_keyword": "Bombay Inde travel",
     "is_french": false
   },
@@ -2003,7 +2003,7 @@
     "name": "Gibraltar",
     "subtitle": "Royaume-Uni",
     "country": "Royaume-Uni",
-    "image_url": "http://localhost:8000/static/images/destinations/250_Gibraltar.jpg",
+    "image_url": "/static/images/destinations/250_Gibraltar.jpg",
     "image_keyword": "Gibraltar Royaume-Uni travel",
     "is_french": false
   },
@@ -2011,7 +2011,7 @@
     "name": "Bratislava",
     "subtitle": "Slovaquie",
     "country": "Slovaquie",
-    "image_url": "http://localhost:8000/static/images/destinations/251_Bratislava.jpg",
+    "image_url": "/static/images/destinations/251_Bratislava.jpg",
     "image_keyword": "Bratislava Slovaquie travel",
     "is_french": false
   },
@@ -2019,7 +2019,7 @@
     "name": "Macao",
     "subtitle": "République populaire de Chine",
     "country": "République populaire de Chine",
-    "image_url": "http://localhost:8000/static/images/destinations/252_Macao.jpg",
+    "image_url": "/static/images/destinations/252_Macao.jpg",
     "image_keyword": "Macao République populaire de Chine travel",
     "is_french": false
   },
@@ -2027,7 +2027,7 @@
     "name": "Lima",
     "subtitle": "Pérou",
     "country": "Pérou",
-    "image_url": "http://localhost:8000/static/images/destinations/253_Lima.jpg",
+    "image_url": "/static/images/destinations/253_Lima.jpg",
     "image_keyword": "Lima Pérou travel",
     "is_french": false
   },
@@ -2035,7 +2035,7 @@
     "name": "Kaboul",
     "subtitle": "Afghanistan",
     "country": "Afghanistan",
-    "image_url": "http://localhost:8000/static/images/destinations/254_Kaboul.jpg",
+    "image_url": "/static/images/destinations/254_Kaboul.jpg",
     "image_keyword": "Kaboul Afghanistan travel",
     "is_french": false
   },
@@ -2043,7 +2043,7 @@
     "name": "New Delhi",
     "subtitle": "Inde",
     "country": "Inde",
-    "image_url": "http://localhost:8000/static/images/destinations/255_NewDelhi.jpg",
+    "image_url": "/static/images/destinations/255_NewDelhi.jpg",
     "image_keyword": "New Delhi Inde travel",
     "is_french": false
   },
@@ -2051,7 +2051,7 @@
     "name": "Dubaï",
     "subtitle": "Émirats arabes unis",
     "country": "Émirats arabes unis",
-    "image_url": "http://localhost:8000/static/images/destinations/256_Dubaï.jpg",
+    "image_url": "/static/images/destinations/256_Dubaï.jpg",
     "image_keyword": "Dubaï Émirats arabes unis travel",
     "is_french": false
   },
@@ -2059,7 +2059,7 @@
     "name": "Dacca",
     "subtitle": "Bangladesh",
     "country": "Bangladesh",
-    "image_url": "http://localhost:8000/static/images/destinations/257_Dacca.jpg",
+    "image_url": "/static/images/destinations/257_Dacca.jpg",
     "image_keyword": "Dacca Bangladesh travel",
     "is_french": false
   },
@@ -2067,7 +2067,7 @@
     "name": "Osasco",
     "subtitle": "Brésil",
     "country": "Brésil",
-    "image_url": "http://localhost:8000/static/images/destinations/258_Osasco.jpg",
+    "image_url": "/static/images/destinations/258_Osasco.jpg",
     "image_keyword": "Osasco Brésil travel",
     "is_french": false
   },
@@ -2075,7 +2075,7 @@
     "name": "Toronto",
     "subtitle": "Canada",
     "country": "Canada",
-    "image_url": "http://localhost:8000/static/images/destinations/259_Toronto.jpg",
+    "image_url": "/static/images/destinations/259_Toronto.jpg",
     "image_keyword": "Toronto Canada travel",
     "is_french": false
   },
@@ -2083,7 +2083,7 @@
     "name": "Reykjavik",
     "subtitle": "Islande",
     "country": "Islande",
-    "image_url": "http://localhost:8000/static/images/destinations/260_Reykjavik.jpg",
+    "image_url": "/static/images/destinations/260_Reykjavik.jpg",
     "image_keyword": "Reykjavik Islande travel",
     "is_french": false
   },
@@ -2091,7 +2091,7 @@
     "name": "Kuala Lumpur",
     "subtitle": "Malaisie",
     "country": "Malaisie",
-    "image_url": "http://localhost:8000/static/images/destinations/261_KualaLumpur.jpg",
+    "image_url": "/static/images/destinations/261_KualaLumpur.jpg",
     "image_keyword": "Kuala Lumpur Malaisie travel",
     "is_french": false
   },
@@ -2099,7 +2099,7 @@
     "name": "Zagreb",
     "subtitle": "Croatie",
     "country": "Croatie",
-    "image_url": "http://localhost:8000/static/images/destinations/262_Zagreb.jpg",
+    "image_url": "/static/images/destinations/262_Zagreb.jpg",
     "image_keyword": "Zagreb Croatie travel",
     "is_french": false
   },
@@ -2107,7 +2107,7 @@
     "name": "Le Cap",
     "subtitle": "Afrique du Sud",
     "country": "Afrique du Sud",
-    "image_url": "http://localhost:8000/static/images/destinations/263_LeCap.jpg",
+    "image_url": "/static/images/destinations/263_LeCap.jpg",
     "image_keyword": "Le Cap Afrique du Sud travel",
     "is_french": false
   },
@@ -2115,7 +2115,7 @@
     "name": "Sarajevo",
     "subtitle": "Bosnie-Herzégovine",
     "country": "Bosnie-Herzégovine",
-    "image_url": "http://localhost:8000/static/images/destinations/264_Sarajevo.jpg",
+    "image_url": "/static/images/destinations/264_Sarajevo.jpg",
     "image_keyword": "Sarajevo Bosnie-Herzégovine travel",
     "is_french": false
   },
@@ -2123,7 +2123,7 @@
     "name": "Boston",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/265_Boston.jpg",
+    "image_url": "/static/images/destinations/265_Boston.jpg",
     "image_keyword": "Boston États-Unis travel",
     "is_french": false
   },
@@ -2131,7 +2131,7 @@
     "name": "Beyrouth",
     "subtitle": "Liban",
     "country": "Liban",
-    "image_url": "http://localhost:8000/static/images/destinations/266_Beyrouth.jpg",
+    "image_url": "/static/images/destinations/266_Beyrouth.jpg",
     "image_keyword": "Beyrouth Liban travel",
     "is_french": false
   },
@@ -2139,7 +2139,7 @@
     "name": "Caracas",
     "subtitle": "Venezuela",
     "country": "Venezuela",
-    "image_url": "http://localhost:8000/static/images/destinations/267_Caracas.jpg",
+    "image_url": "/static/images/destinations/267_Caracas.jpg",
     "image_keyword": "Caracas Venezuela travel",
     "is_french": false
   },
@@ -2155,7 +2155,7 @@
     "name": "Erevan",
     "subtitle": "Arménie",
     "country": "Arménie",
-    "image_url": "http://localhost:8000/static/images/destinations/269_Erevan.jpg",
+    "image_url": "/static/images/destinations/269_Erevan.jpg",
     "image_keyword": "Erevan Arménie travel",
     "is_french": false
   },
@@ -2163,7 +2163,7 @@
     "name": "Canberra",
     "subtitle": "Australie",
     "country": "Australie",
-    "image_url": "http://localhost:8000/static/images/destinations/270_Canberra.jpg",
+    "image_url": "/static/images/destinations/270_Canberra.jpg",
     "image_keyword": "Canberra Australie travel",
     "is_french": false
   },
@@ -2171,7 +2171,7 @@
     "name": "Manille",
     "subtitle": "Philippines",
     "country": "Philippines",
-    "image_url": "http://localhost:8000/static/images/destinations/271_Manille.jpg",
+    "image_url": "/static/images/destinations/271_Manille.jpg",
     "image_keyword": "Manille Philippines travel",
     "is_french": false
   },
@@ -2179,7 +2179,7 @@
     "name": "Monte Águila",
     "subtitle": "Chili",
     "country": "Chili",
-    "image_url": "http://localhost:8000/static/images/destinations/272_MonteÁguila.jpg",
+    "image_url": "/static/images/destinations/272_MonteÁguila.jpg",
     "image_keyword": "Monte Águila Chili travel",
     "is_french": false
   },
@@ -2187,7 +2187,7 @@
     "name": "Atlanta",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/273_Atlanta.jpg",
+    "image_url": "/static/images/destinations/273_Atlanta.jpg",
     "image_keyword": "Atlanta États-Unis travel",
     "is_french": false
   },
@@ -2195,7 +2195,7 @@
     "name": "Berne",
     "subtitle": "Suisse",
     "country": "Suisse",
-    "image_url": "http://localhost:8000/static/images/destinations/274_Berne.jpg",
+    "image_url": "/static/images/destinations/274_Berne.jpg",
     "image_keyword": "Berne Suisse travel",
     "is_french": false
   },
@@ -2203,7 +2203,7 @@
     "name": "Alger",
     "subtitle": "Algérie",
     "country": "Algérie",
-    "image_url": "http://localhost:8000/static/images/destinations/275_Alger.jpg",
+    "image_url": "/static/images/destinations/275_Alger.jpg",
     "image_keyword": "Alger Algérie travel",
     "is_french": false
   },
@@ -2211,7 +2211,7 @@
     "name": "Kinshasa",
     "subtitle": "République démocratique du Congo",
     "country": "République démocratique du Congo",
-    "image_url": "http://localhost:8000/static/images/destinations/276_Kinshasa.jpg",
+    "image_url": "/static/images/destinations/276_Kinshasa.jpg",
     "image_keyword": "Kinshasa République démocratique du Congo travel",
     "is_french": false
   },
@@ -2219,7 +2219,7 @@
     "name": "Karachi",
     "subtitle": "Pakistan",
     "country": "Pakistan",
-    "image_url": "http://localhost:8000/static/images/destinations/277_Karachi.jpg",
+    "image_url": "/static/images/destinations/277_Karachi.jpg",
     "image_keyword": "Karachi Pakistan travel",
     "is_french": false
   },
@@ -2227,7 +2227,7 @@
     "name": "Montevideo",
     "subtitle": "Uruguay",
     "country": "Uruguay",
-    "image_url": "http://localhost:8000/static/images/destinations/278_Montevideo.jpg",
+    "image_url": "/static/images/destinations/278_Montevideo.jpg",
     "image_keyword": "Montevideo Uruguay travel",
     "is_french": false
   },
@@ -2235,7 +2235,7 @@
     "name": "Melbourne",
     "subtitle": "Australie",
     "country": "Australie",
-    "image_url": "http://localhost:8000/static/images/destinations/279_Melbourne.jpg",
+    "image_url": "/static/images/destinations/279_Melbourne.jpg",
     "image_keyword": "Melbourne Australie travel",
     "is_french": false
   },
@@ -2243,7 +2243,7 @@
     "name": "Ljubljana",
     "subtitle": "Slovénie",
     "country": "Slovénie",
-    "image_url": "http://localhost:8000/static/images/destinations/280_Ljubljana.jpg",
+    "image_url": "/static/images/destinations/280_Ljubljana.jpg",
     "image_keyword": "Ljubljana Slovénie travel",
     "is_french": false
   },
@@ -2251,7 +2251,7 @@
     "name": "Philadelphie",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/281_Philadelphie.jpg",
+    "image_url": "/static/images/destinations/281_Philadelphie.jpg",
     "image_keyword": "Philadelphie États-Unis travel",
     "is_french": false
   },
@@ -2259,7 +2259,7 @@
     "name": "Nicosie",
     "subtitle": "Chypre",
     "country": "Chypre",
-    "image_url": "http://localhost:8000/static/images/destinations/282_Nicosie.jpg",
+    "image_url": "/static/images/destinations/282_Nicosie.jpg",
     "image_keyword": "Nicosie Chypre travel",
     "is_french": false
   },
@@ -2267,7 +2267,7 @@
     "name": "Delhi",
     "subtitle": "Inde",
     "country": "Inde",
-    "image_url": "http://localhost:8000/static/images/destinations/283_Delhi.jpg",
+    "image_url": "/static/images/destinations/283_Delhi.jpg",
     "image_keyword": "Delhi Inde travel",
     "is_french": false
   },
@@ -2275,7 +2275,7 @@
     "name": "Miami",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/284_Miami.jpg",
+    "image_url": "/static/images/destinations/284_Miami.jpg",
     "image_keyword": "Miami États-Unis travel",
     "is_french": false
   },
@@ -2283,7 +2283,7 @@
     "name": "Hanoï",
     "subtitle": "Vietnam",
     "country": "Vietnam",
-    "image_url": "http://localhost:8000/static/images/destinations/285_Hanoï.jpg",
+    "image_url": "/static/images/destinations/285_Hanoï.jpg",
     "image_keyword": "Hanoï Vietnam travel",
     "is_french": false
   },
@@ -2291,7 +2291,7 @@
     "name": "Addis-Abeba",
     "subtitle": "Éthiopie",
     "country": "Éthiopie",
-    "image_url": "http://localhost:8000/static/images/destinations/286_Addis-Abeba.jpg",
+    "image_url": "/static/images/destinations/286_Addis-Abeba.jpg",
     "image_keyword": "Addis-Abeba Éthiopie travel",
     "is_french": false
   },
@@ -2299,7 +2299,7 @@
     "name": "Genève",
     "subtitle": "Suisse",
     "country": "Suisse",
-    "image_url": "http://localhost:8000/static/images/destinations/287_Genève.jpg",
+    "image_url": "/static/images/destinations/287_Genève.jpg",
     "image_keyword": "Genève Suisse travel",
     "is_french": false
   },
@@ -2307,7 +2307,7 @@
     "name": "Pyongyang",
     "subtitle": "Corée du Nord",
     "country": "Corée du Nord",
-    "image_url": "http://localhost:8000/static/images/destinations/288_Pyongyang.jpg",
+    "image_url": "/static/images/destinations/288_Pyongyang.jpg",
     "image_keyword": "Pyongyang Corée du Nord travel",
     "is_french": false
   },
@@ -2315,7 +2315,7 @@
     "name": "Accra",
     "subtitle": "Ghana",
     "country": "Ghana",
-    "image_url": "http://localhost:8000/static/images/destinations/289_Accra.jpg",
+    "image_url": "/static/images/destinations/289_Accra.jpg",
     "image_keyword": "Accra Ghana travel",
     "is_french": false
   },
@@ -2323,7 +2323,7 @@
     "name": "La Havane",
     "subtitle": "Cuba",
     "country": "Cuba",
-    "image_url": "http://localhost:8000/static/images/destinations/290_LaHavane.jpg",
+    "image_url": "/static/images/destinations/290_LaHavane.jpg",
     "image_keyword": "La Havane Cuba travel",
     "is_french": false
   },
@@ -2331,7 +2331,7 @@
     "name": "Osaka",
     "subtitle": "Japon",
     "country": "Japon",
-    "image_url": "http://localhost:8000/static/images/destinations/291_Osaka.jpg",
+    "image_url": "/static/images/destinations/291_Osaka.jpg",
     "image_keyword": "Osaka Japon travel",
     "is_french": false
   },
@@ -2339,7 +2339,7 @@
     "name": "Calcutta",
     "subtitle": "Inde",
     "country": "Inde",
-    "image_url": "http://localhost:8000/static/images/destinations/292_Calcutta.jpg",
+    "image_url": "/static/images/destinations/292_Calcutta.jpg",
     "image_keyword": "Calcutta Inde travel",
     "is_french": false
   },
@@ -2347,7 +2347,7 @@
     "name": "Katmandou",
     "subtitle": "Népal",
     "country": "Népal",
-    "image_url": "http://localhost:8000/static/images/destinations/293_Katmandou.jpg",
+    "image_url": "/static/images/destinations/293_Katmandou.jpg",
     "image_keyword": "Katmandou Népal travel",
     "is_french": false
   },
@@ -2355,7 +2355,7 @@
     "name": "Taipei",
     "subtitle": "Taïwan",
     "country": "Taïwan",
-    "image_url": "http://localhost:8000/static/images/destinations/294_Taipei.jpg",
+    "image_url": "/static/images/destinations/294_Taipei.jpg",
     "image_keyword": "Taipei Taïwan travel",
     "is_french": false
   },
@@ -2363,7 +2363,7 @@
     "name": "Chișinău",
     "subtitle": "Moldavie",
     "country": "Moldavie",
-    "image_url": "http://localhost:8000/static/images/destinations/295_Chișinău.jpg",
+    "image_url": "/static/images/destinations/295_Chișinău.jpg",
     "image_keyword": "Chișinău Moldavie travel",
     "is_french": false
   },
@@ -2371,7 +2371,7 @@
     "name": "Las Vegas",
     "subtitle": "États-Unis",
     "country": "États-Unis",
-    "image_url": "http://localhost:8000/static/images/destinations/296_LasVegas.jpg",
+    "image_url": "/static/images/destinations/296_LasVegas.jpg",
     "image_keyword": "Las Vegas États-Unis travel",
     "is_french": false
   },
@@ -2379,7 +2379,7 @@
     "name": "Abuja",
     "subtitle": "Nigeria",
     "country": "Nigeria",
-    "image_url": "http://localhost:8000/static/images/destinations/297_Abuja.jpg",
+    "image_url": "/static/images/destinations/297_Abuja.jpg",
     "image_keyword": "Abuja Nigeria travel",
     "is_french": false
   }
