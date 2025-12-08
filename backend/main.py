@@ -715,7 +715,23 @@ def train_and_predict(user_id: str, mode: str):
         best_model_params = leaderboard[0]["best_params"]
         best_algo = algo_predictions[best_model_name]["algo"]
         best_preds_test = algo_predictions[best_model_name]["preds"]
-        confusion_matrix = compute_confusion_matrix(best_preds_test)
+        
+        # Filter predictions to only include current user's REAL votes (not synthetic)
+        # Get user's real rated items
+        user_real_ratings = db.query(Rating).filter(
+            Rating.user_id == user_id,
+            Rating.mode == mode,
+            Rating.is_synthetic == False
+        ).all()
+        user_real_item_ids = {r.item_id for r in user_real_ratings}
+        
+        # Filter testset predictions to only include user's real votes
+        user_preds_test = [
+            p for p in best_preds_test 
+            if p.uid == user_id and p.iid in user_real_item_ids
+        ]
+        
+        confusion_matrix = compute_confusion_matrix(user_preds_test)
 
         # Cache the best algo for similar user predictions
         last_model_wrapper["algo"] = best_algo

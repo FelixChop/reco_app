@@ -1,0 +1,1388 @@
+[
+  {
+    "name": "L'Œil le plus bleu",
+    "subtitle": "Toni Morrison (Nobel)",
+    "image_keyword": "L'Œil le plus bleu book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Le Trésor du Félibrige",
+    "subtitle": "Frédéric Mistral (Nobel)",
+    "image_keyword": "Le Trésor du Félibrige book cover",
+    "image_url": "/static/images/books/1_LeTresorduFelibrige.jpg",
+    "source": "Nobel"
+  },
+  {
+    "name": "Les Servantes d'auberge",
+    "subtitle": "Yasunari Kawabata (Nobel)",
+    "image_keyword": "Les Servantes d'auberge book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Lost Soul",
+    "subtitle": "Olga Tokarczuk (Nobel)",
+    "image_keyword": "The Lost Soul book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Triumph of Achilles",
+    "subtitle": "Louise Glück (Nobel)",
+    "image_keyword": "The Triumph of Achilles book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Ten Principal Upanishads",
+    "subtitle": "William Butler Yeats (Nobel)",
+    "image_keyword": "The Ten Principal Upanishads book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Pub of the Black Cat",
+    "subtitle": "Naguib Mahfoud (Nobel)",
+    "image_keyword": "The Pub of the Black Cat book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'ultime Décision",
+    "subtitle": "Naguib Mahfoud (Nobel)",
+    "image_keyword": "L'ultime Décision book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Knights of the Cross",
+    "subtitle": "Henryk Sienkiewicz (Nobel)",
+    "image_keyword": "The Knights of the Cross book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Spanisches Liederbuch",
+    "subtitle": "Paul Johann Ludwig von Heyse (Nobel)",
+    "image_keyword": "Spanisches Liederbuch book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q107022544",
+    "subtitle": "Samuel Joseph Agnon (Nobel)",
+    "image_keyword": "Q107022544 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "One More River",
+    "subtitle": "John Galsworthy (Nobel)",
+    "image_keyword": "One More River book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "An Almanac of Twelve Sports",
+    "subtitle": "Rudyard Kipling (Nobel)",
+    "image_keyword": "An Almanac of Twelve Sports book cover",
+    "image_url": "/static/images/books/12_AnAlmanacofTwelveSports.jpg",
+    "source": "Nobel"
+  },
+  {
+    "name": "Q111812045",
+    "subtitle": "Jaroslav Seifert (Nobel)",
+    "image_keyword": "Q111812045 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'Amour au pied des Pyramides",
+    "subtitle": "Naguib Mahfoud (Nobel)",
+    "image_keyword": "L'Amour au pied des Pyramides book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q124659090",
+    "subtitle": "Mo Yan (Nobel)",
+    "image_keyword": "Q124659090 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Le Dernier Loup",
+    "subtitle": "László Krasznahorkai (Nobel)",
+    "image_keyword": "Le Dernier Loup book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q134438453",
+    "subtitle": "Thomas Mann (Nobel)",
+    "image_keyword": "Q134438453 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Amyntas : Mopsus, Feuilles de route, De Biskra a Touggourt, Le renoncement au voyage",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "Amyntas : Mopsus, Feuilles de route, De Biskra a Touggourt, Le renoncement au voyage book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Les anges noirs",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Les anges noirs book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'anneau d'améthyste",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "L'anneau d'améthyste book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Les caves du Vatican",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "Les caves du Vatican book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Les Boulevards de Ceinture",
+    "subtitle": "Patrick Modiano (Nobel)",
+    "image_keyword": "Les Boulevards de Ceinture book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Destins",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Destins book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Les dieux ont soif",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "Les dieux ont soif book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'école des Femmes",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "L'école des Femmes book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'Homme révolté",
+    "subtitle": "Albert Camus (Nobel)",
+    "image_keyword": "L'Homme révolté book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'île des pingouins",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "L'île des pingouins book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'hôte inconnu",
+    "subtitle": "Maurice Maeterlinck (Nobel)",
+    "image_keyword": "L'hôte inconnu book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "En attendant Godot",
+    "subtitle": "Samuel Beckett (Nobel)",
+    "image_keyword": "En attendant Godot book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'Enfant chargé de chaînes",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "L'Enfant chargé de chaînes book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Le jeune homme",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Le jeune homme book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Corydon",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "Corydon book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Journal des faux-monnayeurs",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "Journal des faux-monnayeurs book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Et nunc manet in te, suivi de Journal intime",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "Et nunc manet in te, suivi de Journal intime book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "La fin de la nuit",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "La fin de la nuit book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Joyzelle: pièce en cinq actes",
+    "subtitle": "Maurice Maeterlinck (Nobel)",
+    "image_keyword": "Joyzelle: pièce en cinq actes book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Le Fleuve de feu",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Le Fleuve de feu book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'Étranger",
+    "subtitle": "Albert Camus (Nobel)",
+    "image_keyword": "L'Étranger book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Four quartets",
+    "subtitle": "T. S. Eliot (Nobel)",
+    "image_keyword": "Four quartets book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'Étui de nacre",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "L'Étui de nacre book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Le mannequin d'osier",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "Le mannequin d'osier book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Jérusalem, en terre sainte",
+    "subtitle": "Selma Lagerlöf (Nobel)",
+    "image_keyword": "Jérusalem, en terre sainte book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "La Peste",
+    "subtitle": "Albert Camus (Nobel)",
+    "image_keyword": "La Peste book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Génitrix",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Génitrix book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Plongées",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Plongées book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Province",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Province book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Poesie di Giosuè Carducci : 1850-1900",
+    "subtitle": "Giosuè Carducci (Nobel)",
+    "image_keyword": "Poesie di Giosuè Carducci : 1850-1900 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "La porte étroite",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "La porte étroite book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Goethe et Beethoven",
+    "subtitle": "Romain Rolland (Nobel)",
+    "image_keyword": "Goethe et Beethoven book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Monna Vanna : pièce en trois actes",
+    "subtitle": "Maurice Maeterlinck (Nobel)",
+    "image_keyword": "Monna Vanna : pièce en trois actes book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Journal",
+    "subtitle": "François Mauriac (Nobel)",
+    "image_keyword": "Journal book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Monsieur Bergeret a Paris",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "Monsieur Bergeret a Paris book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "La rôtisserie de la reine Pédauque",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "La rôtisserie de la reine Pédauque book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Le temple Enseveli",
+    "subtitle": "Maurice Maeterlinck (Nobel)",
+    "image_keyword": "Le temple Enseveli book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Les opinions de M. Jérôme Coignard / recueillies par Jacques Tournebroche ; et publiées par Anatole France",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "Les opinions de M. Jérôme Coignard / recueillies par Jacques Tournebroche ; et publiées par Anatole France book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L' orme du mail : Histoire contemporaine / Anatole France",
+    "subtitle": "Anatole France (Nobel)",
+    "image_keyword": "L' orme du mail : Histoire contemporaine / Anatole France book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Morbacka : souvenirs",
+    "subtitle": "Selma Lagerlöf (Nobel)",
+    "image_keyword": "Morbacka : souvenirs book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Si le grain ne meurt",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "Si le grain ne meurt book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Musiciens d'aujourd'hui",
+    "subtitle": "Romain Rolland (Nobel)",
+    "image_keyword": "Musiciens d'aujourd'hui book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "I versi del capitano",
+    "subtitle": "Pablo Neruda (Nobel)",
+    "image_keyword": "I versi del capitano book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "La vie de l'espace",
+    "subtitle": "Maurice Maeterlinck (Nobel)",
+    "image_keyword": "La vie de l'espace book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Vie de Michel-Ange",
+    "subtitle": "Romain Rolland (Nobel)",
+    "image_keyword": "Vie de Michel-Ange book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Vie de Tolstoi",
+    "subtitle": "Romain Rolland (Nobel)",
+    "image_keyword": "Vie de Tolstoi book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q104420171",
+    "subtitle": "Romain Rolland (Nobel)",
+    "image_keyword": "Q104420171 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Le voyage d'Urien",
+    "subtitle": "André Gide (Nobel)",
+    "image_keyword": "Le voyage d'Urien book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Les Armoires vides",
+    "subtitle": "Annie Ernaux (Nobel)",
+    "image_keyword": "Les Armoires vides book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Feast of the Goat",
+    "subtitle": "Mario Vargas Llosa (Nobel)",
+    "image_keyword": "The Feast of the Goat book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Slow Man",
+    "subtitle": "J. M. Coetzee (Nobel)",
+    "image_keyword": "Slow Man book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Tar Baby",
+    "subtitle": "Toni Morrison (Nobel)",
+    "image_keyword": "Tar Baby book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Malone meurt",
+    "subtitle": "Samuel Beckett (Nobel)",
+    "image_keyword": "Malone meurt book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "In Praise of Idleness and Other Essays",
+    "subtitle": "Bertrand Russell (Nobel)",
+    "image_keyword": "In Praise of Idleness and Other Essays book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Unvanquished",
+    "subtitle": "William Faulkner (Nobel)",
+    "image_keyword": "The Unvanquished book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Chronicles: Volume One",
+    "subtitle": "Bob Dylan (Nobel)",
+    "image_keyword": "Chronicles: Volume One book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Marriages Between Zones Three, Four and Five",
+    "subtitle": "Doris Lessing (Nobel)",
+    "image_keyword": "The Marriages Between Zones Three, Four and Five book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "The Story of the Malakand Field Force",
+    "subtitle": "Winston Churchill (Nobel)",
+    "image_keyword": "The Story of the Malakand Field Force book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Human Acts",
+    "subtitle": "Han Kang (Nobel)",
+    "image_keyword": "Human Acts book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Youth: Scenes from Provincial Life II",
+    "subtitle": "J. M. Coetzee (Nobel)",
+    "image_keyword": "Youth: Scenes from Provincial Life II book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q126600103",
+    "subtitle": "Bob Dylan (Nobel)",
+    "image_keyword": "Q126600103 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q126600800",
+    "subtitle": "Jean-Paul Sartre (Nobel)",
+    "image_keyword": "Q126600800 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q126600818",
+    "subtitle": "T. S. Eliot (Nobel)",
+    "image_keyword": "Q126600818 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q126601099",
+    "subtitle": "Jean-Paul Sartre (Nobel)",
+    "image_keyword": "Q126601099 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Who Do You Think You Are?",
+    "subtitle": "Alice Munro (Nobel)",
+    "image_keyword": "Who Do You Think You Are? book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Open Secrets",
+    "subtitle": "Alice Munro (Nobel)",
+    "image_keyword": "Open Secrets book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q126603082",
+    "subtitle": "Olga Tokarczuk (Nobel)",
+    "image_keyword": "Q126603082 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q126652691",
+    "subtitle": "Jean-Paul Sartre (Nobel)",
+    "image_keyword": "Q126652691 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Resistance, Rebellion, and Death",
+    "subtitle": "Albert Camus (Nobel)",
+    "image_keyword": "Resistance, Rebellion, and Death book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Buddenbrooks",
+    "subtitle": "Thomas Mann (Nobel)",
+    "image_keyword": "Buddenbrooks book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "A Choice of Songs",
+    "subtitle": "Rudyard Kipling (Nobel)",
+    "image_keyword": "A Choice of Songs book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "L'échange",
+    "subtitle": "Selma Lagerlöf (Nobel)",
+    "image_keyword": "L'échange book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Isara: a voyage around essay",
+    "subtitle": "Wole Soyinka (Nobel)",
+    "image_keyword": "Isara: a voyage around essay book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Art, dialogue, and outrage: essays on literature and culture",
+    "subtitle": "Wole Soyinka (Nobel)",
+    "image_keyword": "Art, dialogue, and outrage: essays on literature and culture book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Madmen and specialists: a play",
+    "subtitle": "Wole Soyinka (Nobel)",
+    "image_keyword": "Madmen and specialists: a play book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Opera wonyosi",
+    "subtitle": "Wole Soyinka (Nobel)",
+    "image_keyword": "Opera wonyosi book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Open sore of a continent: a personal narative of the Nigerian crisis",
+    "subtitle": "Wole Soyinka (Nobel)",
+    "image_keyword": "Open sore of a continent: a personal narative of the Nigerian crisis book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Bacchae of Euripides: a communion rite.",
+    "subtitle": "Wole Soyinka (Nobel)",
+    "image_keyword": "Bacchae of Euripides: a communion rite. book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Poems",
+    "subtitle": "Pablo Neruda (Nobel)",
+    "image_keyword": "Poems book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q115788476",
+    "subtitle": "Bertrand Russell (Nobel)",
+    "image_keyword": "Q115788476 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q115788643",
+    "subtitle": "Bertrand Russell (Nobel)",
+    "image_keyword": "Q115788643 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "La Russie sous l'avalanche",
+    "subtitle": "Alexandre Soljenitsyne (Nobel)",
+    "image_keyword": "La Russie sous l'avalanche book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Lis isclo d'or Boutière 1970",
+    "subtitle": "Frédéric Mistral (Nobel)",
+    "image_keyword": "Lis isclo d'or Boutière 1970 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Yukiguni",
+    "subtitle": "Yasunari Kawabata (Nobel)",
+    "image_keyword": "Yukiguni book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q124626552",
+    "subtitle": "Yasunari Kawabata (Nobel)",
+    "image_keyword": "Q124626552 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "A Shuttle in the Crypt",
+    "subtitle": "Wole Soyinka (Nobel)",
+    "image_keyword": "A Shuttle in the Crypt book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Radish (Novel)",
+    "subtitle": "Mo Yan (Nobel)",
+    "image_keyword": "Radish (Novel) book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Sa Majesté des mouches",
+    "subtitle": "William Golding (Nobel)",
+    "image_keyword": "Sa Majesté des mouches book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Animalinside",
+    "subtitle": "László Krasznahorkai (Nobel)",
+    "image_keyword": "Animalinside book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Œuvres de Sully Prudhomme",
+    "subtitle": "Sully Prudhomme (Nobel)",
+    "image_keyword": "Œuvres de Sully Prudhomme book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Q110393646",
+    "subtitle": "Alexandre Soljenitsyne (Nobel)",
+    "image_keyword": "Q110393646 book cover",
+    "image_url": null,
+    "source": "Nobel"
+  },
+  {
+    "name": "Houris",
+    "subtitle": "Kamel Daoud (Goncourt 2024)",
+    "image_keyword": "Houris book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Veiller sur elle",
+    "subtitle": "Jean-Baptiste Andrea (Goncourt 2023)",
+    "image_keyword": "Veiller sur elle book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Vivre vite",
+    "subtitle": "Brigitte Giraud (Goncourt 2022)",
+    "image_keyword": "Vivre vite book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "L'anomalie",
+    "subtitle": "Hervé Le Tellier (Goncourt 2022)",
+    "image_keyword": "L'anomalie book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "La Plus Secrète Mémoire des hommes",
+    "subtitle": "Mohamed Mbougar Sarr (Goncourt 2021)",
+    "image_keyword": "La Plus Secrète Mémoire des hommes book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "L'Anomalie",
+    "subtitle": "Hervé Le Tellier (Goncourt 2020)",
+    "image_keyword": "L'Anomalie book cover",
+    "image_url": "/static/images/books/114_LAnomalie.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "Leurs enfants après eux",
+    "subtitle": "Nicolas Mathieu (Goncourt 2018)",
+    "image_keyword": "Leurs enfants après eux book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "L'Ordre du jour",
+    "subtitle": "Éric Vuillard (Goncourt 2017)",
+    "image_keyword": "L'Ordre du jour book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Chanson douce",
+    "subtitle": "Leïla Slimani (Goncourt 2016)",
+    "image_keyword": "Chanson douce book cover",
+    "image_url": "/static/images/books/117_Chansondouce.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "Boussole",
+    "subtitle": "Mathias Énard (Goncourt 2015)",
+    "image_keyword": "Boussole book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Pas pleurer",
+    "subtitle": "Lydie Salvayre (Goncourt 2014)",
+    "image_keyword": "Pas pleurer book cover",
+    "image_url": "/static/images/books/119_Paspleurer.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "Au revoir là-haut",
+    "subtitle": "Pierre Lemaitre (Goncourt 2013)",
+    "image_keyword": "Au revoir là-haut book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Le Sermon sur la chute de Rome",
+    "subtitle": "Jérôme Ferrari (Goncourt 2012)",
+    "image_keyword": "Le Sermon sur la chute de Rome book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "L'Art français de la guerre",
+    "subtitle": "Alexis Jenni (Goncourt 2011)",
+    "image_keyword": "L'Art français de la guerre book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "La Carte et le Territoire",
+    "subtitle": "Michel Houellebecq (Goncourt 2010)",
+    "image_keyword": "La Carte et le Territoire book cover",
+    "image_url": "/static/images/books/123_LaCarteetleTerritoire.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "Trois Femmes puissantes",
+    "subtitle": "Marie NDiaye (Goncourt 2009)",
+    "image_keyword": "Trois Femmes puissantes book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Alabama Song",
+    "subtitle": "Gilles Leroy (Goncourt 2007)",
+    "image_keyword": "Alabama Song book cover",
+    "image_url": "/static/images/books/125_AlabamaSong.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "Les Bienveillantes",
+    "subtitle": "Jonathan Littell (Goncourt 2006)",
+    "image_keyword": "Les Bienveillantes book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Trois jours chez ma mère",
+    "subtitle": "François Weyergans (Goncourt 2005)",
+    "image_keyword": "Trois jours chez ma mère book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Le Soleil des Scorta",
+    "subtitle": "Laurent Gaudé (Goncourt 2004)",
+    "image_keyword": "Le Soleil des Scorta book cover",
+    "image_url": "/static/images/books/128_LeSoleildesScorta.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "La Maîtresse de Brecht",
+    "subtitle": "Jacques-Pierre Amette (Goncourt 2003)",
+    "image_keyword": "La Maîtresse de Brecht book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Les Ombres errantes",
+    "subtitle": "Pascal Quignard (Goncourt 2002)",
+    "image_keyword": "Les Ombres errantes book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Rouge Brésil",
+    "subtitle": "Jean-Christophe Rufin (Goncourt 2001)",
+    "image_keyword": "Rouge Brésil book cover",
+    "image_url": "/static/images/books/131_RougeBresil.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "Ingrid Caven",
+    "subtitle": "Jean-Jacques Schuhl (Goncourt 2000)",
+    "image_keyword": "Ingrid Caven book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Je m'en vais",
+    "subtitle": "Jean Echenoz (Goncourt 1999)",
+    "image_keyword": "Je m'en vais book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Confidence pour confidence",
+    "subtitle": "Paule Constant (Goncourt 1998)",
+    "image_keyword": "Confidence pour confidence book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "La Bataille",
+    "subtitle": "Patrick Rambaud (Goncourt 1997)",
+    "image_keyword": "La Bataille book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Le Chasseur Zéro",
+    "subtitle": "Pascale Roze (Goncourt 1996)",
+    "image_keyword": "Le Chasseur Zéro book cover",
+    "image_url": "/static/images/books/136_LeChasseurZero.jpg",
+    "source": "Goncourt"
+  },
+  {
+    "name": "Le Testament français",
+    "subtitle": "Andreï Makine (Goncourt 1995)",
+    "image_keyword": "Le Testament français book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Un aller simple",
+    "subtitle": "Didier van Cauwelaert (Goncourt 1994)",
+    "image_keyword": "Un aller simple book cover",
+    "image_url": null,
+    "source": "Goncourt"
+  },
+  {
+    "name": "Donjon : Dynastie et magiciens",
+    "subtitle": "Arnaud Moragues (2024)",
+    "image_keyword": "Donjon : Dynastie et magiciens book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Technopolice. la surveillance policière à l’ère de l’intelligence artificielle",
+    "subtitle": "Félix Tréguer (2024)",
+    "image_keyword": "Technopolice. la surveillance policière à l’ère de l’intelligence artificielle book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Circulez ! La ville sous surveillence",
+    "subtitle": "Thomas Jusquiame (2024)",
+    "image_keyword": "Circulez ! La ville sous surveillence book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "En vrai",
+    "subtitle": "Inconnu (2023)",
+    "image_keyword": "En vrai book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Bienvenue en Syntropie !",
+    "subtitle": "Anaëlle Théry (2023)",
+    "image_keyword": "Bienvenue en Syntropie ! book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Les apprentis sorciers",
+    "subtitle": "Alexandra Henrion-Caude (2023)",
+    "image_keyword": "Les apprentis sorciers book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La Flore du Massif armoricain et ses marges",
+    "subtitle": "Vincent Guillemot (2023)",
+    "image_keyword": "La Flore du Massif armoricain et ses marges book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "L'Atlantide : redécouverte d'une civilisation oubliée",
+    "subtitle": "Géraldine Pilleul (2023)",
+    "image_keyword": "L'Atlantide : redécouverte d'une civilisation oubliée book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Vivre sans argent",
+    "subtitle": "Q110915622 (2022)",
+    "image_keyword": "Vivre sans argent book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Le Chêne",
+    "subtitle": "Jacques Tassin (2022)",
+    "image_keyword": "Le Chêne book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Arbres et arbustes exotiques pour les jardins du Midi méditerranéen",
+    "subtitle": "Claude Leray (2022)",
+    "image_keyword": "Arbres et arbustes exotiques pour les jardins du Midi méditerranéen book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Le retour : un pèlerinage intérieur",
+    "subtitle": "Laurent Fendt (2022)",
+    "image_keyword": "Le retour : un pèlerinage intérieur book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Attendre la venue du Christ",
+    "subtitle": "Alain-Marie de Lassus (2022)",
+    "image_keyword": "Attendre la venue du Christ book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "28 000 km pour une orchidée",
+    "subtitle": "Georges Jougla (2021)",
+    "image_keyword": "28 000 km pour une orchidée book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Le Prieuré Notre-Dame-du-Val-Paradis: mille ans d’histoire à Espagnac-Sainte-Eulalie",
+    "subtitle": "Christian Thiry (2021)",
+    "image_keyword": "Le Prieuré Notre-Dame-du-Val-Paradis: mille ans d’histoire à Espagnac-Sainte-Eulalie book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Nichoirs, mangeoires et Cie",
+    "subtitle": "Thierry Laversin (2021)",
+    "image_keyword": "Nichoirs, mangeoires et Cie book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "PUNK.T",
+    "subtitle": "François Betz (2021)",
+    "image_keyword": "PUNK.T book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Dictionnaire des pratiques de la médecine complémentaire",
+    "subtitle": "Hélène Assali (2021)",
+    "image_keyword": "Dictionnaire des pratiques de la médecine complémentaire book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La Loi du rêveur",
+    "subtitle": "Daniel Pennac (2020)",
+    "image_keyword": "La Loi du rêveur book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Sortie 56, chroniques d'un pays chevelu",
+    "subtitle": "Jean Pauly (2020)",
+    "image_keyword": "Sortie 56, chroniques d'un pays chevelu book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La Rose du Quercy",
+    "subtitle": "Geneviève Besse-Houdent (2020)",
+    "image_keyword": "La Rose du Quercy book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "The Jolly Writer",
+    "subtitle": "Joris van der Hoeven (2020)",
+    "image_keyword": "The Jolly Writer book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Un département de l'arrière : les Alpes-Maritimes durant la Grande guerre 1914-1918",
+    "subtitle": "Ralph Schor (2018)",
+    "image_keyword": "Un département de l'arrière : les Alpes-Maritimes durant la Grande guerre 1914-1918 book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Happycratie",
+    "subtitle": "Eva Illouz (2018)",
+    "image_keyword": "Happycratie book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Plantes et savoirs, témoignages des 5 continents",
+    "subtitle": "Nathalie Frossard (2017)",
+    "image_keyword": "Plantes et savoirs, témoignages des 5 continents book cover",
+    "image_url": "/static/images/books/163_Plantesetsavoirstemoignagesdes5continents.jpg",
+    "source": "Yearly"
+  },
+  {
+    "name": "Diccionari scientific francés-occitan",
+    "subtitle": "Josiane Ubaud (2014)",
+    "image_keyword": "Diccionari scientific francés-occitan book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La Méditerranée des Arméniens. XIIe-XVe siècles",
+    "subtitle": "Claude Mutafian (2014)",
+    "image_keyword": "La Méditerranée des Arméniens. XIIe-XVe siècles book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Ce que disent les étoiles",
+    "subtitle": "Noël Robichon (2013)",
+    "image_keyword": "Ce que disent les étoiles book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Linux embarqué : comprendre, développer, réussir",
+    "subtitle": "Gilles Blanc (2011)",
+    "image_keyword": "Linux embarqué : comprendre, développer, réussir book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La Chine pour les nuls",
+    "subtitle": "Inconnu (2010)",
+    "image_keyword": "La Chine pour les nuls book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Combattant des deux guerres",
+    "subtitle": "Paul Marque (2010)",
+    "image_keyword": "Combattant des deux guerres book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Fractures françaises",
+    "subtitle": "Christophe Guilluy (2010)",
+    "image_keyword": "Fractures françaises book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "L'Afrique est mon combat",
+    "subtitle": "Inconnu (2009)",
+    "image_keyword": "L'Afrique est mon combat book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "costumes niçois : des vêtements populaires du XIXe siècle aux costumes folkloriques actuels",
+    "subtitle": "Inconnu (2007)",
+    "image_keyword": "costumes niçois : des vêtements populaires du XIXe siècle aux costumes folkloriques actuels book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Suzanne Valadon, Jacqueline Marval, Émilie Charmy, Georgette Agutte: les femmes peintres et l'avant-garde, 1900-1930",
+    "subtitle": "Sylvie Carlier (2006)",
+    "image_keyword": "Suzanne Valadon, Jacqueline Marval, Émilie Charmy, Georgette Agutte: les femmes peintres et l'avant-garde, 1900-1930 book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Le monde, mes rêves",
+    "subtitle": "Nathalie Frossard (2005)",
+    "image_keyword": "Le monde, mes rêves book cover",
+    "image_url": "/static/images/books/174_Lemondemesreves.jpg",
+    "source": "Yearly"
+  },
+  {
+    "name": "Lire un pays",
+    "subtitle": "Association des éditeurs et diffuseurs de la Nouvelle-Calédonie (2005)",
+    "image_keyword": "Lire un pays book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Pour une nouvelle geographie du politique : Territoire, démocratie, élections.",
+    "subtitle": "Michel Bussi (2004)",
+    "image_keyword": "Pour une nouvelle geographie du politique : Territoire, démocratie, élections. book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La Victoire endeuillée : la Sortie de guerre des soldats français (1918-1920)",
+    "subtitle": "Bruno Cabanes (2004)",
+    "image_keyword": "La Victoire endeuillée : la Sortie de guerre des soldats français (1918-1920) book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La France et l'Algérie en guerre : 1830-1870, 1954-1962",
+    "subtitle": "Jacques Frémeaux (2002)",
+    "image_keyword": "La France et l'Algérie en guerre : 1830-1870, 1954-1962 book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Donjon : Clefs en main",
+    "subtitle": "Arnaud Moragues (2001)",
+    "image_keyword": "Donjon : Clefs en main book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Dictionnaire occitan-français",
+    "subtitle": "Christian Laux (2001)",
+    "image_keyword": "Dictionnaire occitan-français book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Dictionnaire français-niçois 2001",
+    "subtitle": "Georges Castellana (2001)",
+    "image_keyword": "Dictionnaire français-niçois 2001 book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Internet et multimédia : dictionnaire bilingue, anglais-français, français-anglais",
+    "subtitle": "Brigitte Juanals (2000)",
+    "image_keyword": "Internet et multimédia : dictionnaire bilingue, anglais-français, français-anglais book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Littérature, informatique, lecture : de la lecture assistée par ordinateur à la lecture interactive",
+    "subtitle": "Inconnu (1999)",
+    "image_keyword": "Littérature, informatique, lecture : de la lecture assistée par ordinateur à la lecture interactive book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Éléments de géographie électorale à travers l’exemple de la France de l’Ouest",
+    "subtitle": "Michel Bussi (1998)",
+    "image_keyword": "Éléments de géographie électorale à travers l’exemple de la France de l’Ouest book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Le Monde des Ténèbres: France",
+    "subtitle": "Inconnu (1997)",
+    "image_keyword": "Le Monde des Ténèbres: France book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Dictionnaire français-occitan",
+    "subtitle": "Christian Laux (1997)",
+    "image_keyword": "Dictionnaire français-occitan book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "La Danse 1/ Du ballet de cour au ballet blanc",
+    "subtitle": "Jean-Pierre Pastori (1996)",
+    "image_keyword": "La Danse 1/ Du ballet de cour au ballet blanc book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Seul avec Dieu : L'aventure mystique",
+    "subtitle": "Jean-Pierre Jossua (1996)",
+    "image_keyword": "Seul avec Dieu : L'aventure mystique book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Littérature et informatique : la littérature générée par ordinateur",
+    "subtitle": "Michel Lenoble (1995)",
+    "image_keyword": "Littérature et informatique : la littérature générée par ordinateur book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "Vers Tombouctou : L'Afrique des explorateurs II",
+    "subtitle": "Anne Hugon (1994)",
+    "image_keyword": "Vers Tombouctou : L'Afrique des explorateurs II book cover",
+    "image_url": null,
+    "source": "Yearly"
+  },
+  {
+    "name": "protocole de paix Boxer",
+    "subtitle": "Inconnu (FR)",
+    "image_keyword": "protocole de paix Boxer book cover",
+    "image_url": "/static/images/books/191_protocoledepaixBoxer.jpg",
+    "source": "Classique FR"
+  },
+  {
+    "name": "La Servante écarlate",
+    "subtitle": "Margaret Atwood (EN)",
+    "image_keyword": "La Servante écarlate book cover",
+    "image_url": null,
+    "source": "Classique EN"
+  },
+  {
+    "name": "Livre de la prière commune",
+    "subtitle": "Thomas Cranmer (EN)",
+    "image_keyword": "Livre de la prière commune book cover",
+    "image_url": "/static/images/books/193_Livredelaprierecommune.jpg",
+    "source": "Classique EN"
+  },
+  {
+    "name": "L'Orientalisme",
+    "subtitle": "Edward Saïd (EN)",
+    "image_keyword": "L'Orientalisme book cover",
+    "image_url": null,
+    "source": "Classique EN"
+  },
+  {
+    "name": "La Société ouverte et ses ennemis",
+    "subtitle": "Karl Popper (EN)",
+    "image_keyword": "La Société ouverte et ses ennemis book cover",
+    "image_url": "/static/images/books/195_LaSocieteouverteetsesennemis.jpg",
+    "source": "Classique EN"
+  },
+  {
+    "name": "L'Éthique protestante et l'esprit du capitalisme",
+    "subtitle": "Max Weber (DE)",
+    "image_keyword": "L'Éthique protestante et l'esprit du capitalisme book cover",
+    "image_url": "/static/images/books/196_LEthiqueprotestanteetlespritducapitalisme.jpg",
+    "source": "Classique DE"
+  },
+  {
+    "name": "Der Struwwelpeter",
+    "subtitle": "Heinrich Hoffmann (DE)",
+    "image_keyword": "Der Struwwelpeter book cover",
+    "image_url": "/static/images/books/197_DerStruwwelpeter.jpg",
+    "source": "Classique DE"
+  }
+]

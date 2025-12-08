@@ -926,6 +926,12 @@ def fetch_yearly_popular(start_year: int = 1994, end_year: int = 2024, limit_per
                 wdt:P577 ?date ;
                 wdt:P495 wd:Q142 . # Country of origin: France
           FILTER(YEAR(?date) = {year})
+          
+          # Exclude comics and BD
+          FILTER NOT EXISTS {{ ?book wdt:P31/wdt:P279* wd:Q1004 }}  # not comic book
+          FILTER NOT EXISTS {{ ?book wdt:P31/wdt:P279* wd:Q725377 }}  # not graphic novel
+          FILTER NOT EXISTS {{ ?book wdt:P136 wd:Q1114461 }}  # not bande dessinée
+          
           OPTIONAL {{ ?book wdt:P50 ?author . }}
           OPTIONAL {{ ?book wdt:P18 ?image . }}
           ?book wikibase:sitelinks ?sitelinks .
@@ -942,9 +948,14 @@ def fetch_yearly_popular(start_year: int = 1994, end_year: int = 2024, limit_per
                 author = _row_value(row, "authorLabel")
                 if not name: continue
                 
+                # Additional keyword filter
+                skip_keywords = ["astérix", "tintin", "lucky luke", "spirou"]
+                if any(kw in name.lower() for kw in skip_keywords):
+                    continue
+                
                 books.append({
                     "name": name,
-                    "subtitle": f"{author} ({year})",
+                    "subtitle": f"{author or 'Inconnu'} ({year})",
                     "image_keyword": f"{name} book cover",
                     "image_url": _row_value(row, "image"),
                     "source": "Yearly"
@@ -953,7 +964,7 @@ def fetch_yearly_popular(start_year: int = 1994, end_year: int = 2024, limit_per
             # print(f"    -> {year}: {count} books")
             time.sleep(0.5) # Gentle rate limit
         except Exception as e:
-            print(f"Error for {year}: {e}")
+            print(f"    ⚠️ Error for {year}: {e}")
             
     print(f"    -> Found {len(books)} yearly popular books.")
     return books
@@ -961,7 +972,7 @@ def fetch_yearly_popular(start_year: int = 1994, end_year: int = 2024, limit_per
 def fetch_classics(limit: int = 200) -> List[Dict]:
     print("  📚 Fetching International Classics...")
     # Top books by sitelinks for major literatures
-    # Using stricter criteria: recognized authors, exclude comics/nursery rhymes
+    # Exclude comics/BD but don't require author occupation (too restrictive)
     
     targets = [
         ("Q150", "Classique FR"),      # French
@@ -983,22 +994,19 @@ def fetch_classics(limit: int = 200) -> List[Dict]:
         
         SELECT ?book ?bookLabel ?authorLabel ?image ?sitelinks WHERE {{
           ?book wdt:P31/wdt:P279* wd:Q571 ;
-                wdt:P50 ?author ;
                 wdt:P407 wd:{lang_id} .
+          OPTIONAL {{ ?book wdt:P50 ?author . }}
           
-          # Author must be a recognized writer (not comic artist)
-          ?author wdt:P106 ?occupation .
-          FILTER(?occupation IN (wd:Q36180, wd:Q49757, wd:Q214917, wd:Q6625963))  # novelist, poet, playwright, writer
-          
-          # Exclude comics, graphic novels, and nursery rhymes
+          # Exclude comics, graphic novels, nursery rhymes, and BD
           FILTER NOT EXISTS {{ ?book wdt:P31/wdt:P279* wd:Q1004 }}  # not comic book
-          FILTER NOT EXISTS {{ ?book wdt:P31/wdt:P279* wd:Q725377 }}  # not graphic novel
+          FILTER NOT EXISTS {{ ?book wdt:P31/wdt:P279* wd:Q725377 }}  # not graphic novel  
           FILTER NOT EXISTS {{ ?book wdt:P136 wd:Q2135465 }}  # not nursery rhyme
           FILTER NOT EXISTS {{ ?book wdt:P136 wd:Q1114461 }}  # not bande dessinée
+          FILTER NOT EXISTS {{ ?book wdt:P136 wd:Q725377 }}  # not graphic novel genre
           
           OPTIONAL {{ ?book wdt:P18 ?image . }}
           ?book wikibase:sitelinks ?sitelinks .
-          FILTER(?sitelinks > 30)
+          FILTER(?sitelinks > 25)
           
           SERVICE wikibase:label {{ bd:serviceParam wikibase:language "fr,en". }}
         }}
@@ -1010,17 +1018,17 @@ def fetch_classics(limit: int = 200) -> List[Dict]:
             for row in data.get("results", {}).get("bindings", []):
                 name = _row_value(row, "bookLabel")
                 author = _row_value(row, "authorLabel")
-                if not name or not author: 
+                if not name: 
                     continue
                 
-                # Additional filter: skip if name looks like a comic series
-                skip_keywords = ["astérix", "tintin", "lucky luke", "spirou", "gaston"]
+                # Additional filter: skip if name looks like a comic series or self-help
+                skip_keywords = ["astérix", "tintin", "lucky luke", "spirou", "gaston", "habits", "habitudes"]
                 if any(kw in name.lower() for kw in skip_keywords):
                     continue
                 
                 books.append({
                     "name": name,
-                    "subtitle": f"{author} ({label.split(' ')[1]})",
+                    "subtitle": f"{author or 'Inconnu'} ({label.split(' ')[1]})",
                     "image_keyword": f"{name} book cover",
                     "image_url": _row_value(row, "image"),
                     "source": label

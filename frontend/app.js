@@ -477,6 +477,16 @@ async function switchMode(newModeId) {
     document.body.className = "mode-" + currentMode;
     voteBuffer = [];
 
+    // Exit comparison mode when switching themes
+    if (isComparisonMode) {
+        isComparisonMode = false;
+        similarUsersData = [];
+        originalPredictionsData = [];
+        if (similarUsersBtn) {
+            similarUsersBtn.classList.remove("btn-active");
+        }
+    }
+
     renderModeSelector();
     fetchVoterCount();
     await fetchSampleItems();
@@ -782,9 +792,30 @@ function renderRecStars(container, item) {
             // Send rating
             await sendRating(item.item_id, value);
 
-            // Trigger re-training immediately as requested
-            // We use a lighter loading state if possible, or just the standard one
-            await trainAndPredict();
+            // If in comparison mode, refresh similarity scores
+            if (isComparisonMode && similarUsersData && similarUsersData.length > 0) {
+                try {
+                    // Re-fetch similar users with updated ratings
+                    const res = await fetch(`${API_BASE}/similar-users`, {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({
+                            user_id: sessionUserId,
+                            mode: currentMode,
+                            limit: 5
+                        })
+                    });
+                    const data = await res.json();
+                    similarUsersData = data.neighbors;
+                    // Update the display with new similarity scores
+                    updateComparisonData();
+                } catch (e) {
+                    console.error("Error refreshing similarity:", e);
+                }
+            } else {
+                // Trigger re-training immediately as requested (normal mode)
+                await trainAndPredict();
+            }
         });
 
         container.appendChild(star);
