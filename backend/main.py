@@ -139,7 +139,6 @@ class PredictionOut(BaseModel):
 class LeaderboardEntry(BaseModel):
     model_name: str
     rmse: float
-    mse: float
     mae: float
     fcp: Optional[float]
     rmse_user: Optional[float]
@@ -252,109 +251,105 @@ def seed_items():
             count = 0
 
 
-        existing_modes = set()
-        if count > 0:
-            # Check which modes are present
-            rows = db.query(Item.mode).distinct().all()
-            existing_modes = {r[0] for r in rows}
-            print(f"Modes already in DB: {existing_modes}")
+        # On reseed TOUTES les thématiques : pour chaque mode, on supprime les
+        # entrées existantes puis on réinsère depuis les données sources.
 
-        # 1) Couleurs
-        if "colors" not in existing_modes:
-            print("Seeding colors...")
-            for name, hex_code in COLOR_ITEMS:
-                db.add(Item(
-                    mode="colors",
-                    name=name,
-                    hex=hex_code,
-                ))
+        # 1) Couleurs (données embarquées)
+        print("Reseeding colors...")
+        db.query(Item).filter(Item.mode == "colors").delete()
+        for name, hex_code in COLOR_ITEMS:
+            db.add(Item(
+                mode="colors",
+                name=name,
+                hex=hex_code,
+            ))
         
         # 2) Politiciens
-        if "politicians" not in existing_modes:
-            print("Seeding politicians...")
-            pol_data = load_json_safe("politicians.json")
-            for row in pol_data:
-                db.add(Item(
-                    mode="politicians",
-                    name=row["name"],
-                    subtitle=row.get("subtitle") or "",
-                    image_keyword=row.get("image_keyword") or row["name"] + " portrait",
-                    image_url=row.get("image_url"),
-                ))
+        print("Reseeding politicians...")
+        db.query(Item).filter(Item.mode == "politicians").delete()
+        pol_data = load_json_safe("politicians.json")
+        for row in pol_data:
+            db.add(Item(
+                mode="politicians",
+                name=row["name"],
+                subtitle=row.get("subtitle") or "",
+                image_keyword=row.get("image_keyword") or row["name"] + " portrait",
+                image_url=row.get("image_url"),
+            ))
 
         # 3) Destinations
-        if "destinations" not in existing_modes:
-            print("Seeding destinations...")
-            dest_data = load_json_safe("destinations.json")
-            for row in dest_data:
-                db.add(Item(
-                    mode="destinations",
-                    name=row["name"],
-                    subtitle=row.get("subtitle") or row.get("country") or "",
-                    country=row.get("country"),
-                    image_keyword=row.get("image_keyword") or (row["name"] + " travel"),
-                    image_url=row.get("image_url"),
-                ))
+        print("Reseeding destinations...")
+        db.query(Item).filter(Item.mode == "destinations").delete()
+        dest_data = load_json_safe("destinations.json")
+        for row in dest_data:
+            db.add(Item(
+                mode="destinations",
+                name=row["name"],
+                subtitle=row.get("subtitle") or row.get("country") or "",
+                country=row.get("country"),
+                image_keyword=row.get("image_keyword") or (row["name"] + " travel"),
+                image_url=row.get("image_url"),
+            ))
 
         # 4) Films
-        if "movies" not in existing_modes:
-            print("Seeding movies...")
-            movies_data = load_json_safe("movies.json")
-            for row in movies_data:
-                poster_path = row.get("poster_path")
-                if poster_path:
-                    tmdb_image_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
-                else:
-                    tmdb_image_url = None
+        print("Reseeding movies...")
+        db.query(Item).filter(Item.mode == "movies").delete()
+        movies_data = load_json_safe("movies.json")
+        for row in movies_data:
+            poster_path = row.get("poster_path")
+            if poster_path:
+                tmdb_image_url = f"https://image.tmdb.org/t/p/w500{poster_path}"
+            else:
+                tmdb_image_url = None
 
-                db.add(Item(
-                    mode="movies",
-                    name=row["name"],
-                    subtitle=row.get("subtitle") or "",
-                    image_keyword=row.get("image_keyword") or (row["name"] + " movie poster"),
-                    image_url=tmdb_image_url,
-                ))
+            db.add(Item(
+                mode="movies",
+                name=row["name"],
+                subtitle=row.get("subtitle") or "",
+                image_keyword=row.get("image_keyword") or (row["name"] + " movie poster"),
+                image_url=tmdb_image_url,
+            ))
 
         # 5) Musiques
-        if "songs" not in existing_modes:
-            print("Seeding songs...")
-            songs_data = load_json_safe("songs.json")
-            for row in songs_data:
-                db.add(Item(
-                    mode="songs",
-                    name=row["name"],
-                    subtitle=row.get("subtitle") or "",
-                    image_keyword=row.get("image_keyword") or (row["name"] + " song"),
-                    image_url=row.get("image_url"),
-                    spotify_id=row.get("spotify_id"),
-                ))
+        print("Reseeding songs...")
+        db.query(Item).filter(Item.mode == "songs").delete()
+        songs_data = load_json_safe("songs.json")
+        for row in songs_data:
+            db.add(Item(
+                mode="songs",
+                name=row["name"],
+                subtitle=row.get("subtitle") or "",
+                image_keyword=row.get("image_keyword") or (row["name"] + " song"),
+                image_url=row.get("image_url"),
+                spotify_id=row.get("spotify_id"),
+            ))
         
         # 6) Plats
-        if "dishes" not in existing_modes:
-            print("Seeding dishes...")
-            dishes_data = load_json_safe("dishes.json")
-            for row in dishes_data:
-                db.add(Item(
-                    mode="dishes",
-                    name=row["name"],
-                    subtitle=row.get("subtitle") or "",
-                    country=row.get("country"),
-                    image_keyword=row.get("image_keyword") or (row["name"] + " dish"),
-                    image_url=row.get("image_url"),
-                ))
+        print("Reseeding dishes...")
+        db.query(Item).filter(Item.mode == "dishes").delete()
+        dishes_data = load_json_safe("dishes.json")
+        for row in dishes_data:
+            db.add(Item(
+                mode="dishes",
+                name=row["name"],
+                subtitle=row.get("subtitle") or "",
+                country=row.get("country"),
+                image_keyword=row.get("image_keyword") or (row["name"] + " dish"),
+                image_url=row.get("image_url"),
+            ))
 
         # 7) Livres
-        if "books" not in existing_modes:
-            print("Seeding books...")
-            books_data = load_json_safe("books.json")
-            for row in books_data:
-                db.add(Item(
-                    mode="books",
-                    name=row["name"],
-                    subtitle=row.get("subtitle") or "",
-                    image_keyword=row.get("image_keyword") or (row["name"] + " book"),
-                    image_url=row.get("image_url"),
-                ))
+        print("Reseeding books from books.json...")
+        db.query(Item).filter(Item.mode == "books").delete()
+        books_data = load_json_safe("books.json")
+        for row in books_data:
+            db.add(Item(
+                mode="books",
+                name=row["name"],
+                subtitle=row.get("subtitle") or "",
+                image_keyword=row.get("image_keyword") or (row["name"] + " book"),
+                image_url=row.get("image_url"),
+            ))
 
         db.commit()
 
@@ -439,9 +434,8 @@ def evaluate_algorithm(
         algo.fit(trainset)
         preds = algo.test(testset)
         
-        # Calculate all metrics
+        # Calculate all metrics (sans MSE)
         rmse_global = accuracy.rmse(preds, verbose=False)
-        mse_global = accuracy.mse(preds, verbose=False)
         mae_global = accuracy.mae(preds, verbose=False)
         try:
             fcp_global = accuracy.fcp(preds, verbose=False)
@@ -454,7 +448,6 @@ def evaluate_algorithm(
         return {
             "model_name": name,
             "rmse": rmse_global,
-            "mse": mse_global,
             "mae": mae_global,
             "fcp": fcp_global,
             "rmse_user": rmse_user,
@@ -469,7 +462,6 @@ def evaluate_algorithm(
         return {
             "model_name": name,
             "rmse": float('inf'), # Set RMSE to infinity for sorting purposes
-            "mse": None,
             "mae": None,
             "fcp": None,
             "rmse_user": None,
@@ -700,7 +692,6 @@ def train_and_predict(user_id: str, mode: str):
                 {
                     "model_name": res["model_name"],
                     "rmse": res["rmse"],
-                    "mse": res["mse"],
                     "mae": res["mae"],
                     "fcp": res["fcp"],
                     "rmse_user": res["rmse_user"],

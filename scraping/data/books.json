@@ -973,416 +973,3685 @@
     "source": "Goncourt"
   },
   {
-    "name": "Donjon : Dynastie et magiciens",
-    "subtitle": "Arnaud Moragues (2024)",
-    "image_keyword": "Donjon : Dynastie et magiciens book cover",
+    "name": "Premier Sang",
+    "subtitle": "Amélie Nothomb (Renaudot 2021)",
+    "image_keyword": "Premier Sang book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Renaudot"
   },
   {
-    "name": "Technopolice. la surveillance policière à l’ère de l’intelligence artificielle",
-    "subtitle": "Félix Tréguer (2024)",
-    "image_keyword": "Technopolice. la surveillance policière à l’ère de l’intelligence artificielle book cover",
+    "name": "Histoire du fils",
+    "subtitle": "Marie-Hélène Lafon (Renaudot 2020)",
+    "image_keyword": "Histoire du fils book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Renaudot"
   },
   {
-    "name": "Circulez ! La ville sous surveillence",
-    "subtitle": "Thomas Jusquiame (2024)",
-    "image_keyword": "Circulez ! La ville sous surveillence book cover",
+    "name": "La Panthère des neiges",
+    "subtitle": "Sylvain Tesson (Renaudot 2019)",
+    "image_keyword": "La Panthère des neiges book cover",
+    "image_url": "/static/images/books/141_LaPantheredesneiges.jpg",
+    "source": "Renaudot"
+  },
+  {
+    "name": "Le Sillon",
+    "subtitle": "Valérie Manteau (Renaudot 2018)",
+    "image_keyword": "Le Sillon book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Renaudot"
   },
   {
-    "name": "En vrai",
-    "subtitle": "Inconnu (2023)",
-    "image_keyword": "En vrai book cover",
+    "name": "La Disparition de Josef Mengele",
+    "subtitle": "Olivier Guez (Renaudot 2017)",
+    "image_keyword": "La Disparition de Josef Mengele book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Renaudot"
   },
   {
-    "name": "Bienvenue en Syntropie !",
-    "subtitle": "Anaëlle Théry (2023)",
-    "image_keyword": "Bienvenue en Syntropie ! book cover",
+    "name": "Naissance",
+    "subtitle": "Yann Moix (Renaudot 2013)",
+    "image_keyword": "Naissance book cover",
+    "image_url": "/static/images/books/144_Naissance.jpg",
+    "source": "Renaudot"
+  },
+  {
+    "name": "À l'enfant que je n'aurai pas",
+    "subtitle": "Linda Lê (Renaudot 2011)",
+    "image_keyword": "À l'enfant que je n'aurai pas book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Renaudot"
   },
   {
-    "name": "Les apprentis sorciers",
-    "subtitle": "Alexandra Henrion-Caude (2023)",
-    "image_keyword": "Les apprentis sorciers book cover",
+    "name": "Le Rêve du jaguar",
+    "subtitle": "Miguel Bonnefoy (Femina 2024)",
+    "image_keyword": "Le Rêve du jaguar book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "La Flore du Massif armoricain et ses marges",
-    "subtitle": "Vincent Guillemot (2023)",
-    "image_keyword": "La Flore du Massif armoricain et ses marges book cover",
+    "name": "Un chien à ma table",
+    "subtitle": "Claudie Hunzinger (Femina 2022)",
+    "image_keyword": "Un chien à ma table book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "L'Atlantide : redécouverte d'une civilisation oubliée",
-    "subtitle": "Géraldine Pilleul (2023)",
-    "image_keyword": "L'Atlantide : redécouverte d'une civilisation oubliée book cover",
+    "name": "S'adapter",
+    "subtitle": "Clara Dupont-Monod (Femina 2021)",
+    "image_keyword": "S'adapter book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Vivre sans argent",
-    "subtitle": "Q110915622 (2022)",
-    "image_keyword": "Vivre sans argent book cover",
+    "name": "Nature humaine",
+    "subtitle": "Serge Joncour (Femina 2020)",
+    "image_keyword": "Nature humaine book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Le Chêne",
-    "subtitle": "Jacques Tassin (2022)",
-    "image_keyword": "Le Chêne book cover",
+    "name": "Par les routes",
+    "subtitle": "Sylvain Prudhomme (Femina 2019)",
+    "image_keyword": "Par les routes book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Arbres et arbustes exotiques pour les jardins du Midi méditerranéen",
-    "subtitle": "Claude Leray (2022)",
-    "image_keyword": "Arbres et arbustes exotiques pour les jardins du Midi méditerranéen book cover",
+    "name": "La Saison de l'ombre",
+    "subtitle": "Léonora Miano (Femina 2013)",
+    "image_keyword": "La Saison de l'ombre book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Le retour : un pèlerinage intérieur",
-    "subtitle": "Laurent Fendt (2022)",
-    "image_keyword": "Le retour : un pèlerinage intérieur book cover",
+    "name": "Peste et Choléra",
+    "subtitle": "Patrick Deville (Femina 2012)",
+    "image_keyword": "Peste et Choléra book cover",
+    "image_url": "/static/images/books/152_PesteetCholera.jpg",
+    "source": "Femina"
+  },
+  {
+    "name": "Jayne Mansfield 1967",
+    "subtitle": "Simon Liberati (Femina 2011)",
+    "image_keyword": "Jayne Mansfield 1967 book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Attendre la venue du Christ",
-    "subtitle": "Alain-Marie de Lassus (2022)",
-    "image_keyword": "Attendre la venue du Christ book cover",
+    "name": "La vie est brève et le désir sans fin",
+    "subtitle": "Patrick Lapeyre (Femina 2010)",
+    "image_keyword": "La vie est brève et le désir sans fin book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "28 000 km pour une orchidée",
-    "subtitle": "Georges Jougla (2021)",
-    "image_keyword": "28 000 km pour une orchidée book cover",
+    "name": "Personne",
+    "subtitle": "Gwenaëlle Aubry (Femina 2009)",
+    "image_keyword": "Personne book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Le Prieuré Notre-Dame-du-Val-Paradis: mille ans d’histoire à Espagnac-Sainte-Eulalie",
-    "subtitle": "Christian Thiry (2021)",
-    "image_keyword": "Le Prieuré Notre-Dame-du-Val-Paradis: mille ans d’histoire à Espagnac-Sainte-Eulalie book cover",
+    "name": "Où on va, papa ?",
+    "subtitle": "Jean-Louis Fournier (Femina 2008)",
+    "image_keyword": "Où on va, papa ? book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Nichoirs, mangeoires et Cie",
-    "subtitle": "Thierry Laversin (2021)",
-    "image_keyword": "Nichoirs, mangeoires et Cie book cover",
+    "name": "Baisers de cinéma",
+    "subtitle": "Éric Fottorino (Femina 2007)",
+    "image_keyword": "Baisers de cinéma book cover",
+    "image_url": "/static/images/books/157_Baisersdecinema.jpg",
+    "source": "Femina"
+  },
+  {
+    "name": "Lignes de faille",
+    "subtitle": "Nancy Huston (Femina 2006)",
+    "image_keyword": "Lignes de faille book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "PUNK.T",
-    "subtitle": "François Betz (2021)",
-    "image_keyword": "PUNK.T book cover",
+    "name": "Asiles de fous",
+    "subtitle": "Régis Jauffret (Femina 2005)",
+    "image_keyword": "Asiles de fous book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Femina"
   },
   {
-    "name": "Dictionnaire des pratiques de la médecine complémentaire",
-    "subtitle": "Hélène Assali (2021)",
-    "image_keyword": "Dictionnaire des pratiques de la médecine complémentaire book cover",
+    "name": "Le Cœur synthétique",
+    "subtitle": "Chloé Delaume (Medicis 2020)",
+    "image_keyword": "Le Cœur synthétique book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Medicis"
   },
   {
-    "name": "La Loi du rêveur",
-    "subtitle": "Daniel Pennac (2020)",
-    "image_keyword": "La Loi du rêveur book cover",
+    "name": "La Tentation",
+    "subtitle": "Luc Lang (Medicis 2019)",
+    "image_keyword": "La Tentation book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Medicis"
   },
   {
-    "name": "Sortie 56, chroniques d'un pays chevelu",
-    "subtitle": "Jean Pauly (2020)",
-    "image_keyword": "Sortie 56, chroniques d'un pays chevelu book cover",
+    "name": "Tiens ferme ta couronne",
+    "subtitle": "Yannick Haenel (Medicis 2017)",
+    "image_keyword": "Tiens ferme ta couronne book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Medicis"
   },
   {
-    "name": "La Rose du Quercy",
-    "subtitle": "Geneviève Besse-Houdent (2020)",
-    "image_keyword": "La Rose du Quercy book cover",
+    "name": "Il faut beaucoup aimer les hommes",
+    "subtitle": "Marie Darrieussecq (Medicis 2013)",
+    "image_keyword": "Il faut beaucoup aimer les hommes book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Medicis"
   },
   {
-    "name": "The Jolly Writer",
-    "subtitle": "Joris van der Hoeven (2020)",
-    "image_keyword": "The Jolly Writer book cover",
+    "name": "Naissance d'un pont",
+    "subtitle": "Maylis de Kerangal (Medicis 2010)",
+    "image_keyword": "Naissance d'un pont book cover",
+    "image_url": "/static/images/books/164_Naissancedunpont.jpg",
+    "source": "Medicis"
+  },
+  {
+    "name": "L'Énigme du retour",
+    "subtitle": "Dany Laferrière (Medicis 2009)",
+    "image_keyword": "L'Énigme du retour book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "Medicis"
   },
   {
-    "name": "Un département de l'arrière : les Alpes-Maritimes durant la Grande guerre 1914-1918",
-    "subtitle": "Ralph Schor (2018)",
-    "image_keyword": "Un département de l'arrière : les Alpes-Maritimes durant la Grande guerre 1914-1918 book cover",
+    "name": "One Hundred Years of Solitude",
+    "subtitle": "Gabriel Garcia Marquez - 1967",
+    "image_keyword": "One Hundred Years of Solitude Gabriel Garcia Marquez book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Happycratie",
-    "subtitle": "Eva Illouz (2018)",
-    "image_keyword": "Happycratie book cover",
+    "name": "The Great Gatsby",
+    "subtitle": "F. Scott Fitzgerald - 1925",
+    "image_keyword": "The Great Gatsby F. Scott Fitzgerald book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Plantes et savoirs, témoignages des 5 continents",
-    "subtitle": "Nathalie Frossard (2017)",
-    "image_keyword": "Plantes et savoirs, témoignages des 5 continents book cover",
-    "image_url": "/static/images/books/163_Plantesetsavoirstemoignagesdes5continents.jpg",
-    "source": "Yearly"
-  },
-  {
-    "name": "Diccionari scientific francés-occitan",
-    "subtitle": "Josiane Ubaud (2014)",
-    "image_keyword": "Diccionari scientific francés-occitan book cover",
+    "name": "Ulysses",
+    "subtitle": "James Joyce - 1922",
+    "image_keyword": "Ulysses James Joyce book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "La Méditerranée des Arméniens. XIIe-XVe siècles",
-    "subtitle": "Claude Mutafian (2014)",
-    "image_keyword": "La Méditerranée des Arméniens. XIIe-XVe siècles book cover",
+    "name": "In Search of Lost Time",
+    "subtitle": "Marcel Proust - 1913",
+    "image_keyword": "In Search of Lost Time Marcel Proust book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Ce que disent les étoiles",
-    "subtitle": "Noël Robichon (2013)",
-    "image_keyword": "Ce que disent les étoiles book cover",
+    "name": "The Catcher in the Rye",
+    "subtitle": "J. D. Salinger - 1945",
+    "image_keyword": "The Catcher in the Rye J. D. Salinger book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Linux embarqué : comprendre, développer, réussir",
-    "subtitle": "Gilles Blanc (2011)",
-    "image_keyword": "Linux embarqué : comprendre, développer, réussir book cover",
+    "name": "Nineteen Eighty Four",
+    "subtitle": "George Orwell - 1949",
+    "image_keyword": "Nineteen Eighty Four George Orwell book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "La Chine pour les nuls",
-    "subtitle": "Inconnu (2010)",
-    "image_keyword": "La Chine pour les nuls book cover",
+    "name": "Lolita",
+    "subtitle": "Vladimir Nabokov - 1955",
+    "image_keyword": "Lolita Vladimir Nabokov book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Combattant des deux guerres",
-    "subtitle": "Paul Marque (2010)",
-    "image_keyword": "Combattant des deux guerres book cover",
+    "name": "Moby Dick",
+    "subtitle": "Herman Melville - 1851",
+    "image_keyword": "Moby Dick Herman Melville book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Fractures françaises",
-    "subtitle": "Christophe Guilluy (2010)",
-    "image_keyword": "Fractures françaises book cover",
+    "name": "Don Quixote",
+    "subtitle": "Miguel de Cervantes - 1605",
+    "image_keyword": "Don Quixote Miguel de Cervantes book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "L'Afrique est mon combat",
-    "subtitle": "Inconnu (2009)",
-    "image_keyword": "L'Afrique est mon combat book cover",
+    "name": "Pride and Prejudice",
+    "subtitle": "Jane Austen - 1813",
+    "image_keyword": "Pride and Prejudice Jane Austen book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "costumes niçois : des vêtements populaires du XIXe siècle aux costumes folkloriques actuels",
-    "subtitle": "Inconnu (2007)",
-    "image_keyword": "costumes niçois : des vêtements populaires du XIXe siècle aux costumes folkloriques actuels book cover",
+    "name": "To Kill a Mockingbird",
+    "subtitle": "Harper Lee - 1960",
+    "image_keyword": "To Kill a Mockingbird Harper Lee book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Suzanne Valadon, Jacqueline Marval, Émilie Charmy, Georgette Agutte: les femmes peintres et l'avant-garde, 1900-1930",
-    "subtitle": "Sylvie Carlier (2006)",
-    "image_keyword": "Suzanne Valadon, Jacqueline Marval, Émilie Charmy, Georgette Agutte: les femmes peintres et l'avant-garde, 1900-1930 book cover",
+    "name": "Crime and Punishment",
+    "subtitle": "Fyodor Dostoevsky - 1866",
+    "image_keyword": "Crime and Punishment Fyodor Dostoevsky book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Le monde, mes rêves",
-    "subtitle": "Nathalie Frossard (2005)",
-    "image_keyword": "Le monde, mes rêves book cover",
-    "image_url": "/static/images/books/174_Lemondemesreves.jpg",
-    "source": "Yearly"
-  },
-  {
-    "name": "Lire un pays",
-    "subtitle": "Association des éditeurs et diffuseurs de la Nouvelle-Calédonie (2005)",
-    "image_keyword": "Lire un pays book cover",
+    "name": "Wuthering Heights",
+    "subtitle": "Emily Brontë - 1847",
+    "image_keyword": "Wuthering Heights Emily Brontë book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Pour une nouvelle geographie du politique : Territoire, démocratie, élections.",
-    "subtitle": "Michel Bussi (2004)",
-    "image_keyword": "Pour une nouvelle geographie du politique : Territoire, démocratie, élections. book cover",
+    "name": "Anna Karenina",
+    "subtitle": "Leo Tolstoy - 1877",
+    "image_keyword": "Anna Karenina Leo Tolstoy book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "La Victoire endeuillée : la Sortie de guerre des soldats français (1918-1920)",
-    "subtitle": "Bruno Cabanes (2004)",
-    "image_keyword": "La Victoire endeuillée : la Sortie de guerre des soldats français (1918-1920) book cover",
+    "name": "War and Peace",
+    "subtitle": "Leo Tolstoy - 1869",
+    "image_keyword": "War and Peace Leo Tolstoy book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "La France et l'Algérie en guerre : 1830-1870, 1954-1962",
-    "subtitle": "Jacques Frémeaux (2002)",
-    "image_keyword": "La France et l'Algérie en guerre : 1830-1870, 1954-1962 book cover",
+    "name": "The Grapes of Wrath",
+    "subtitle": "John Steinbeck - 1939",
+    "image_keyword": "The Grapes of Wrath John Steinbeck book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Donjon : Clefs en main",
-    "subtitle": "Arnaud Moragues (2001)",
-    "image_keyword": "Donjon : Clefs en main book cover",
+    "name": "Beloved",
+    "subtitle": "Toni Morrison - 1987",
+    "image_keyword": "Beloved Toni Morrison book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Dictionnaire occitan-français",
-    "subtitle": "Christian Laux (2001)",
-    "image_keyword": "Dictionnaire occitan-français book cover",
+    "name": "The Sound and the Fury",
+    "subtitle": "William Faulkner - 1929",
+    "image_keyword": "The Sound and the Fury William Faulkner book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Dictionnaire français-niçois 2001",
-    "subtitle": "Georges Castellana (2001)",
-    "image_keyword": "Dictionnaire français-niçois 2001 book cover",
+    "name": "Catch-22",
+    "subtitle": "Joseph Heller - 1961",
+    "image_keyword": "Catch-22 Joseph Heller book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Internet et multimédia : dictionnaire bilingue, anglais-français, français-anglais",
-    "subtitle": "Brigitte Juanals (2000)",
-    "image_keyword": "Internet et multimédia : dictionnaire bilingue, anglais-français, français-anglais book cover",
+    "name": "Alice's Adventures in Wonderland",
+    "subtitle": "Lewis Carroll - 1865",
+    "image_keyword": "Alice's Adventures in Wonderland Lewis Carroll book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Littérature, informatique, lecture : de la lecture assistée par ordinateur à la lecture interactive",
-    "subtitle": "Inconnu (1999)",
-    "image_keyword": "Littérature, informatique, lecture : de la lecture assistée par ordinateur à la lecture interactive book cover",
+    "name": "Heart of Darkness",
+    "subtitle": "Joseph Conrad - 1899",
+    "image_keyword": "Heart of Darkness Joseph Conrad book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Éléments de géographie électorale à travers l’exemple de la France de l’Ouest",
-    "subtitle": "Michel Bussi (1998)",
-    "image_keyword": "Éléments de géographie électorale à travers l’exemple de la France de l’Ouest book cover",
+    "name": "Madame Bovary",
+    "subtitle": "Gustave Flaubert - 1857",
+    "image_keyword": "Madame Bovary Gustave Flaubert book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Le Monde des Ténèbres: France",
-    "subtitle": "Inconnu (1997)",
-    "image_keyword": "Le Monde des Ténèbres: France book cover",
+    "name": "The Lord of the Rings",
+    "subtitle": "J. R. R. Tolkien - 1954",
+    "image_keyword": "The Lord of the Rings J. R. R. Tolkien book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Dictionnaire français-occitan",
-    "subtitle": "Christian Laux (1997)",
-    "image_keyword": "Dictionnaire français-occitan book cover",
+    "name": "The Odyssey",
+    "subtitle": "Homer - -700",
+    "image_keyword": "The Odyssey Homer book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "La Danse 1/ Du ballet de cour au ballet blanc",
-    "subtitle": "Jean-Pierre Pastori (1996)",
-    "image_keyword": "La Danse 1/ Du ballet de cour au ballet blanc book cover",
+    "name": "The Divine Comedy",
+    "subtitle": "Dante Alighieri - 1301",
+    "image_keyword": "The Divine Comedy Dante Alighieri book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Seul avec Dieu : L'aventure mystique",
-    "subtitle": "Jean-Pierre Jossua (1996)",
-    "image_keyword": "Seul avec Dieu : L'aventure mystique book cover",
+    "name": "The Adventures of Huckleberry Finn",
+    "subtitle": "Mark Twain - 1884",
+    "image_keyword": "The Adventures of Huckleberry Finn Mark Twain book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Littérature et informatique : la littérature générée par ordinateur",
-    "subtitle": "Michel Lenoble (1995)",
-    "image_keyword": "Littérature et informatique : la littérature générée par ordinateur book cover",
+    "name": "The Bible",
+    "subtitle": "Christian Church - 101",
+    "image_keyword": "The Bible Christian Church book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "Vers Tombouctou : L'Afrique des explorateurs II",
-    "subtitle": "Anne Hugon (1994)",
-    "image_keyword": "Vers Tombouctou : L'Afrique des explorateurs II book cover",
+    "name": "The Stranger",
+    "subtitle": "Albert Camus - 1946",
+    "image_keyword": "The Stranger Albert Camus book cover",
     "image_url": null,
-    "source": "Yearly"
+    "source": "BestNovels"
   },
   {
-    "name": "protocole de paix Boxer",
-    "subtitle": "Inconnu (FR)",
-    "image_keyword": "protocole de paix Boxer book cover",
-    "image_url": "/static/images/books/191_protocoledepaixBoxer.jpg",
-    "source": "Classique FR"
-  },
-  {
-    "name": "La Servante écarlate",
-    "subtitle": "Margaret Atwood (EN)",
-    "image_keyword": "La Servante écarlate book cover",
+    "name": "The Brothers Karamazov",
+    "subtitle": "Fyodor Dostoevsky - 1880",
+    "image_keyword": "The Brothers Karamazov Fyodor Dostoevsky book cover",
     "image_url": null,
-    "source": "Classique EN"
+    "source": "BestNovels"
   },
   {
-    "name": "Livre de la prière commune",
-    "subtitle": "Thomas Cranmer (EN)",
-    "image_keyword": "Livre de la prière commune book cover",
-    "image_url": "/static/images/books/193_Livredelaprierecommune.jpg",
-    "source": "Classique EN"
-  },
-  {
-    "name": "L'Orientalisme",
-    "subtitle": "Edward Saïd (EN)",
-    "image_keyword": "L'Orientalisme book cover",
+    "name": "Middlemarch",
+    "subtitle": "George Eliot - 1871",
+    "image_keyword": "Middlemarch George Eliot book cover",
     "image_url": null,
-    "source": "Classique EN"
+    "source": "BestNovels"
   },
   {
-    "name": "La Société ouverte et ses ennemis",
-    "subtitle": "Karl Popper (EN)",
-    "image_keyword": "La Société ouverte et ses ennemis book cover",
-    "image_url": "/static/images/books/195_LaSocieteouverteetsesennemis.jpg",
-    "source": "Classique EN"
+    "name": "Invisible Man",
+    "subtitle": "Ralph Ellison - 1952",
+    "image_keyword": "Invisible Man Ralph Ellison book cover",
+    "image_url": null,
+    "source": "BestNovels"
   },
   {
-    "name": "L'Éthique protestante et l'esprit du capitalisme",
-    "subtitle": "Max Weber (DE)",
-    "image_keyword": "L'Éthique protestante et l'esprit du capitalisme book cover",
-    "image_url": "/static/images/books/196_LEthiqueprotestanteetlespritducapitalisme.jpg",
-    "source": "Classique DE"
+    "name": "Jane Eyre",
+    "subtitle": "Charlotte Bronte - 1847",
+    "image_keyword": "Jane Eyre Charlotte Bronte book cover",
+    "image_url": null,
+    "source": "BestNovels"
   },
   {
-    "name": "Der Struwwelpeter",
-    "subtitle": "Heinrich Hoffmann (DE)",
-    "image_keyword": "Der Struwwelpeter book cover",
-    "image_url": "/static/images/books/197_DerStruwwelpeter.jpg",
-    "source": "Classique DE"
+    "name": "The Iliad",
+    "subtitle": "Homer - -750",
+    "image_keyword": "The Iliad Homer book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Great Expectations",
+    "subtitle": "Charles Dickens - 1861",
+    "image_keyword": "Great Expectations Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Midnight's Children",
+    "subtitle": "Salman Rushdie - 1981",
+    "image_keyword": "Midnight's Children Salman Rushdie book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Frankenstein",
+    "subtitle": "Mary Shelley - 1831",
+    "image_keyword": "Frankenstein Mary Shelley book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "To the Lighthouse",
+    "subtitle": "Virginia Woolf - 1927",
+    "image_keyword": "To the Lighthouse Virginia Woolf book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Trial",
+    "subtitle": "Franz Kafka - 1925",
+    "image_keyword": "The Trial Franz Kafka book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "On the Road",
+    "subtitle": "Jack Kerouac - 1957",
+    "image_keyword": "On the Road Jack Kerouac book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Mrs. Dalloway",
+    "subtitle": "Virginia Woolf - 1925",
+    "image_keyword": "Mrs. Dalloway Virginia Woolf book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Magic Mountain",
+    "subtitle": "Thomas Mann - 1924",
+    "image_keyword": "The Magic Mountain Thomas Mann book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Master and Margarita",
+    "subtitle": "Mikhail Bulgakov - 1966",
+    "image_keyword": "The Master and Margarita Mikhail Bulgakov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Absalom, Absalom!",
+    "subtitle": "William Faulkner - 1936",
+    "image_keyword": "Absalom, Absalom! William Faulkner book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Sun Also Rises",
+    "subtitle": "Ernest Hemingway - 1926",
+    "image_keyword": "The Sun Also Rises Ernest Hemingway book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "David Copperfield",
+    "subtitle": "Charles Dickens - 1850",
+    "image_keyword": "David Copperfield Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Brave New World",
+    "subtitle": "Aldous Huxley - 1931",
+    "image_keyword": "Brave New World Aldous Huxley book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Color Purple",
+    "subtitle": "Alice Walker - 1982",
+    "image_keyword": "The Color Purple Alice Walker book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Gone With the Wind",
+    "subtitle": "Margaret Mitchell - 1937",
+    "image_keyword": "Gone With the Wind Margaret Mitchell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Gulliver's Travels",
+    "subtitle": "Jonathan Swift - 1726",
+    "image_keyword": "Gulliver's Travels Jonathan Swift book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Passage to India",
+    "subtitle": "E. M. Forster - 1924",
+    "image_keyword": "A Passage to India E. M. Forster book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Les Misérables",
+    "subtitle": "Victor Hugo - 1862",
+    "image_keyword": "Les Misérables Victor Hugo book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Red and the Black",
+    "subtitle": "Stendhal - 1830",
+    "image_keyword": "The Red and the Black Stendhal book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Slaughterhouse-Five",
+    "subtitle": "Kurt Vonnegut - 1969",
+    "image_keyword": "Slaughterhouse-Five Kurt Vonnegut book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Lord of the Flies",
+    "subtitle": "William Golding - 1954",
+    "image_keyword": "Lord of the Flies William Golding book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Their Eyes Were Watching God",
+    "subtitle": "Zora Neale Hurston - 1937",
+    "image_keyword": "Their Eyes Were Watching God Zora Neale Hurston book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Tristram Shandy",
+    "subtitle": "Laurence Sterne - 1759",
+    "image_keyword": "Tristram Shandy Laurence Sterne book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Harry Potter And The Philosopher's Stone",
+    "subtitle": "J. K Rowling - 1997",
+    "image_keyword": "Harry Potter And The Philosopher's Stone J. K Rowling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Things Fall Apart",
+    "subtitle": "Chinua Achebe - 1958",
+    "image_keyword": "Things Fall Apart Chinua Achebe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Rebecca",
+    "subtitle": "Daphne du Maurier - 1938",
+    "image_keyword": "Rebecca Daphne du Maurier book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "One Thousand and One Nights",
+    "subtitle": "1704",
+    "image_keyword": "One Thousand and One Nights  book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Portrait of the Artist as a Young Man",
+    "subtitle": "James Joyce - 1917",
+    "image_keyword": "A Portrait of the Artist as a Young Man James Joyce book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Little Prince",
+    "subtitle": "Antoine de Saint-Exupéry - 1943",
+    "image_keyword": "The Little Prince Antoine de Saint-Exupéry book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Hitchhiker's Guide to the Galaxy",
+    "subtitle": "Douglas Adams - 1979",
+    "image_keyword": "The Hitchhiker's Guide to the Galaxy Douglas Adams book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "As I Lay Dying",
+    "subtitle": "William Faulkner - 1930",
+    "image_keyword": "As I Lay Dying William Faulkner book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Handmaid's Tale",
+    "subtitle": "Margaret Atwood - 1985",
+    "image_keyword": "The Handmaid's Tale Margaret Atwood book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Aeneid",
+    "subtitle": "Virgil - 19",
+    "image_keyword": "The Aeneid Virgil book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Scarlet Letter",
+    "subtitle": "Nathaniel Hawthorne - 1850",
+    "image_keyword": "The Scarlet Letter Nathaniel Hawthorne book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Portrait of a Lady",
+    "subtitle": "Henry James - 1881",
+    "image_keyword": "The Portrait of a Lady Henry James book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Diary of a Young Girl",
+    "subtitle": "Anne Frank - 1944",
+    "image_keyword": "The Diary of a Young Girl Anne Frank book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Animal Farm",
+    "subtitle": "George Orwell - 1946",
+    "image_keyword": "Animal Farm George Orwell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Candide",
+    "subtitle": "Voltaire - 1759",
+    "image_keyword": "Candide Voltaire book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Oedipus the King",
+    "subtitle": "Sophocles - -429",
+    "image_keyword": "Oedipus the King Sophocles book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Fictions",
+    "subtitle": "Jorge Luis Borges - 1935",
+    "image_keyword": "Fictions Jorge Luis Borges book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Native Son",
+    "subtitle": "Richard Wright - 1940",
+    "image_keyword": "Native Son Richard Wright book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Walden",
+    "subtitle": "Henry David Thoreau - 1854",
+    "image_keyword": "Walden Henry David Thoreau book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Pale Fire",
+    "subtitle": "Vladimir Nabokov - 1962",
+    "image_keyword": "Pale Fire Vladimir Nabokov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Hamlet",
+    "subtitle": "William Shakespeare - 1603",
+    "image_keyword": "Hamlet William Shakespeare book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Leaves of Grass",
+    "subtitle": "Walt Whitman - 1855",
+    "image_keyword": "Leaves of Grass Walt Whitman book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Silent Spring",
+    "subtitle": "Rachel Carson - 1962",
+    "image_keyword": "Silent Spring Rachel Carson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Love in the Time of Cholera",
+    "subtitle": "Gabriel Garcia Marquez - 1985",
+    "image_keyword": "Love in the Time of Cholera Gabriel Garcia Marquez book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Tin Drum",
+    "subtitle": "Günter Grass - 1959",
+    "image_keyword": "The Tin Drum Günter Grass book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "For Whom the Bell Tolls",
+    "subtitle": "Ernest Hemingway - 1940",
+    "image_keyword": "For Whom the Bell Tolls Ernest Hemingway book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Faust",
+    "subtitle": "Johann Wolfgang von Goethe - 1808",
+    "image_keyword": "Faust Johann Wolfgang von Goethe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Stories of Anton Chekhov",
+    "subtitle": "Anton Chekhov - 1961",
+    "image_keyword": "The Stories of Anton Chekhov Anton Chekhov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Old Man and the Sea",
+    "subtitle": "Ernest Hemingway - 1952",
+    "image_keyword": "The Old Man and the Sea Ernest Hemingway book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "In Cold Blood",
+    "subtitle": "Truman Capote - 1966",
+    "image_keyword": "In Cold Blood Truman Capote book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Little Women",
+    "subtitle": "Louisa May Alcott - 1868",
+    "image_keyword": "Little Women Louisa May Alcott book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Big Sleep",
+    "subtitle": "Raymond Chandler - 1939",
+    "image_keyword": "The Big Sleep Raymond Chandler book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Clockwork Orange",
+    "subtitle": "Anthony Burgess - 1962",
+    "image_keyword": "A Clockwork Orange Anthony Burgess book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Unbearable Lightness of Being",
+    "subtitle": "Milan Kundera - 1984",
+    "image_keyword": "The Unbearable Lightness of Being Milan Kundera book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Waiting for Godot",
+    "subtitle": "Samuel Beckett - 1953",
+    "image_keyword": "Waiting for Godot Samuel Beckett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Emma",
+    "subtitle": "Jane Austen - 1815",
+    "image_keyword": "Emma Jane Austen book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Leopard",
+    "subtitle": "Giuseppe Tomasi di Lampedusa - 1958",
+    "image_keyword": "The Leopard Giuseppe Tomasi di Lampedusa book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "One Flew Over the Cuckoo's Nest",
+    "subtitle": "Ken Kesey - 1962",
+    "image_keyword": "One Flew Over the Cuckoo's Nest Ken Kesey book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Charlotte's Web",
+    "subtitle": "E. B. White - 1952",
+    "image_keyword": "Charlotte's Web E. B. White book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Canterbury Tales",
+    "subtitle": "Geoffrey Chaucer - 1401",
+    "image_keyword": "The Canterbury Tales Geoffrey Chaucer book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Idiot",
+    "subtitle": "Fyodor Dostoevsky - 1868",
+    "image_keyword": "The Idiot Fyodor Dostoevsky book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Under the Volcano",
+    "subtitle": "Malcolm Lowry - 1947",
+    "image_keyword": "Under the Volcano Malcolm Lowry book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Tess of the d'Urbervilles",
+    "subtitle": "Thomas Hardy - 1891",
+    "image_keyword": "Tess of the d'Urbervilles Thomas Hardy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "All Quiet on the Western Front",
+    "subtitle": "Erich Maria Remarque - 1929",
+    "image_keyword": "All Quiet on the Western Front Erich Maria Remarque book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Good Soldier",
+    "subtitle": "Ford Madox Ford - 1915",
+    "image_keyword": "The Good Soldier Ford Madox Ford book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Age of Innocence",
+    "subtitle": "Edith Wharton - 1920",
+    "image_keyword": "The Age of Innocence Edith Wharton book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Paradise Lost",
+    "subtitle": "John Milton - 1667",
+    "image_keyword": "Paradise Lost John Milton book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Robinson Crusoe",
+    "subtitle": "Daniel Defoe - 1719",
+    "image_keyword": "Robinson Crusoe Daniel Defoe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Dracula",
+    "subtitle": "Bram Stoker - 1897",
+    "image_keyword": "Dracula Bram Stoker book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Journey to the End of The Night",
+    "subtitle": "Louis-Ferdinand Céline - 1932",
+    "image_keyword": "Journey to the End of The Night Louis-Ferdinand Céline book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Vanity Fair",
+    "subtitle": "William Makepeace Thackeray - 1847",
+    "image_keyword": "Vanity Fair William Makepeace Thackeray book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Metamorphosis",
+    "subtitle": "Franz Kafka - 1915",
+    "image_keyword": "The Metamorphosis Franz Kafka book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Corrections",
+    "subtitle": "Jonathan Franzen - 2001",
+    "image_keyword": "The Corrections Jonathan Franzen book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Essays",
+    "subtitle": "Michel de Montaigne - 1580",
+    "image_keyword": "Essays Michel de Montaigne book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Demons",
+    "subtitle": "Fyodor Dostoevsky - 1872",
+    "image_keyword": "Demons Fyodor Dostoevsky book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Hound of the Baskervilles",
+    "subtitle": "Arthur Conan Doyle - 1901",
+    "image_keyword": "The Hound of the Baskervilles Arthur Conan Doyle book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Picture of Dorian Gray",
+    "subtitle": "Oscar Wilde - 1890",
+    "image_keyword": "The Picture of Dorian Gray Oscar Wilde book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Complete Tales and Poems of Edgar Allan Poe",
+    "subtitle": "Edgar Allan Poe - 1850",
+    "image_keyword": "The Complete Tales and Poems of Edgar Allan Poe Edgar Allan Poe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Bell Jar",
+    "subtitle": "Sylvia Plath - 1963",
+    "image_keyword": "The Bell Jar Sylvia Plath book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Name of the Rose",
+    "subtitle": "Umberto Eco - 1980",
+    "image_keyword": "The Name of the Rose Umberto Eco book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Castle",
+    "subtitle": "Franz Kafka - 1926",
+    "image_keyword": "The Castle Franz Kafka book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Prince",
+    "subtitle": "Niccolo Machiavelli - 1532",
+    "image_keyword": "The Prince Niccolo Machiavelli book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Treasure Island",
+    "subtitle": "Robert Louis Stevenson - 1881",
+    "image_keyword": "Treasure Island Robert Louis Stevenson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Atonement",
+    "subtitle": "Ian McEwan - 2002",
+    "image_keyword": "Atonement Ian McEwan book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Golden Notebook",
+    "subtitle": "Doris Lessing - 1962",
+    "image_keyword": "The Golden Notebook Doris Lessing book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "White Teeth",
+    "subtitle": "Zadie Smith - 2000",
+    "image_keyword": "White Teeth Zadie Smith book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Count of Monte Cristo",
+    "subtitle": "Alexandre Dumas - 1844",
+    "image_keyword": "The Count of Monte Cristo Alexandre Dumas book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "American Pastoral",
+    "subtitle": "Philip Roth - 1997",
+    "image_keyword": "American Pastoral Philip Roth book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "First Folio",
+    "subtitle": "William Shakespeare - 1623",
+    "image_keyword": "First Folio William Shakespeare book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Man Without Qualities",
+    "subtitle": "Robert Musil - 1930",
+    "image_keyword": "The Man Without Qualities Robert Musil book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Doctor Zhivago",
+    "subtitle": "Boris Pasternak - 1957",
+    "image_keyword": "Doctor Zhivago Boris Pasternak book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Tom Jones",
+    "subtitle": "Henry Fielding - 1749",
+    "image_keyword": "Tom Jones Henry Fielding book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "My Antonia",
+    "subtitle": "Willa Cather - 1918",
+    "image_keyword": "My Antonia Willa Cather book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Antigone",
+    "subtitle": "Sophocles - -441",
+    "image_keyword": "Antigone Sophocles book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Dune",
+    "subtitle": "Frank Herbert - 1965",
+    "image_keyword": "Dune Frank Herbert book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Farewell to Arms",
+    "subtitle": "Ernest Hemingway - 1929",
+    "image_keyword": "A Farewell to Arms Ernest Hemingway book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Wind in the Willows",
+    "subtitle": "Kenneth Grahame - 1908",
+    "image_keyword": "The Wind in the Willows Kenneth Grahame book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Sons and Lovers",
+    "subtitle": "D. H. Lawrence - 1913",
+    "image_keyword": "Sons and Lovers D. H. Lawrence book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Doctor Faustus",
+    "subtitle": "Thomas Mann - 1947",
+    "image_keyword": "Doctor Faustus Thomas Mann book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Dead Souls",
+    "subtitle": "Nikolai Gogol - 1842",
+    "image_keyword": "Dead Souls Nikolai Gogol book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Disgrace",
+    "subtitle": "J M Coetzee - 1999",
+    "image_keyword": "Disgrace J M Coetzee book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Interpretation of Dreams",
+    "subtitle": "Sigmund Freud - 1899",
+    "image_keyword": "The Interpretation of Dreams Sigmund Freud book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Fahrenheit 451",
+    "subtitle": "Ray Bradbury - 1953",
+    "image_keyword": "Fahrenheit 451 Ray Bradbury book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Road",
+    "subtitle": "Cormac McCarthy - 2006",
+    "image_keyword": "The Road Cormac McCarthy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Franz Kafka: The Complete Stories",
+    "subtitle": "Franz Kafka - 1971",
+    "image_keyword": "Franz Kafka: The Complete Stories Franz Kafka book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Portnoy's Complaint",
+    "subtitle": "Philip Roth - 1969",
+    "image_keyword": "Portnoy's Complaint Philip Roth book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Tale of Genji",
+    "subtitle": "Murasaki Shikibu - 1001",
+    "image_keyword": "The Tale of Genji Murasaki Shikibu book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Rabbit, Run",
+    "subtitle": "John Updike - 1960",
+    "image_keyword": "Rabbit, Run John Updike book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Amazing Adventures of Kavalier and Clay",
+    "subtitle": "Michael Chabon - 2000",
+    "image_keyword": "The Amazing Adventures of Kavalier and Clay Michael Chabon book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Song of Solomon",
+    "subtitle": "Toni Morrison - 1977",
+    "image_keyword": "Song of Solomon Toni Morrison book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Orlando: A Biography",
+    "subtitle": "Virginia Woolf - 1923",
+    "image_keyword": "Orlando: A Biography Virginia Woolf book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Steppenwolf",
+    "subtitle": "Hermann Hesse - 1927",
+    "image_keyword": "Steppenwolf Hermann Hesse book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Brief Wondrous Life of Oscar Wao",
+    "subtitle": "Junot Diaz - 2007",
+    "image_keyword": "The Brief Wondrous Life of Oscar Wao Junot Diaz book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Howards End",
+    "subtitle": "E. M. Forster - 1910",
+    "image_keyword": "Howards End E. M. Forster book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Confessions",
+    "subtitle": "Augustine - 397",
+    "image_keyword": "Confessions Augustine book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Plague",
+    "subtitle": "Albert Camus - 1947",
+    "image_keyword": "The Plague Albert Camus book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Secret History",
+    "subtitle": "Donna Tartt - 1992",
+    "image_keyword": "The Secret History Donna Tartt book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Lord Jim",
+    "subtitle": "Joseph Conrad - 1900",
+    "image_keyword": "Lord Jim Joseph Conrad book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Blood Meridian",
+    "subtitle": "Cormac McCarthy - 1986",
+    "image_keyword": "Blood Meridian Cormac McCarthy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Autobiography of Malcolm X",
+    "subtitle": "Alex Haley - 1965",
+    "image_keyword": "The Autobiography of Malcolm X Alex Haley book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Fathers and Sons",
+    "subtitle": "Ivan Turgenev - 1862",
+    "image_keyword": "Fathers and Sons Ivan Turgenev book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Waste Land",
+    "subtitle": "T. S. Eliot - 1965",
+    "image_keyword": "The Waste Land T. S. Eliot book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Confederacy of Dunces",
+    "subtitle": "John Kennedy Toole - 1980",
+    "image_keyword": "A Confederacy of Dunces John Kennedy Toole book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Light in August",
+    "subtitle": "William Faulkner - 1932",
+    "image_keyword": "Light in August William Faulkner book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Woman in White",
+    "subtitle": "Wilkie Collins - 1859",
+    "image_keyword": "The Woman in White Wilkie Collins book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The House of the Spirits",
+    "subtitle": "Isabel Allende - 1982",
+    "image_keyword": "The House of the Spirits Isabel Allende book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "All the King's Men",
+    "subtitle": "Robert Penn Warren - 1946",
+    "image_keyword": "All the King's Men Robert Penn Warren book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Maltese Falcon",
+    "subtitle": "Dashiell Hammett - 1930",
+    "image_keyword": "The Maltese Falcon Dashiell Hammett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Fear and Loathing in Las Vegas: A Savage Journey to the Heart of the American Dream",
+    "subtitle": "Hunter S. Thompson - 1971",
+    "image_keyword": "Fear and Loathing in Las Vegas: A Savage Journey to the Heart of the American Dream Hunter S. Thompson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Infinite Jest",
+    "subtitle": "David Foster Wallace - 1996",
+    "image_keyword": "Infinite Jest David Foster Wallace book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "I Know Why the Caged Bird Sings",
+    "subtitle": "Maya Angelou - 1969",
+    "image_keyword": "I Know Why the Caged Bird Sings Maya Angelou book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "On the Origin of Species",
+    "subtitle": "Charles Darwin - 1859",
+    "image_keyword": "On the Origin of Species Charles Darwin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Long Goodbye: A Novel",
+    "subtitle": "Raymond Chandler - 1953",
+    "image_keyword": "The Long Goodbye: A Novel Raymond Chandler book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Winnie the Pooh",
+    "subtitle": "A. A Milne - 1926",
+    "image_keyword": "Winnie the Pooh A. A Milne book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Tender Is the Night",
+    "subtitle": "F. Scott Fitzgerald - 1934",
+    "image_keyword": "Tender Is the Night F. Scott Fitzgerald book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Heart Is A Lonely Hunter",
+    "subtitle": "Carson McCullers - 1940",
+    "image_keyword": "The Heart Is A Lonely Hunter Carson McCullers book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Gravity's Rainbow",
+    "subtitle": "Thomas Pynchon - 1973",
+    "image_keyword": "Gravity's Rainbow Thomas Pynchon book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Call of the Wild",
+    "subtitle": "Jack London - 1903",
+    "image_keyword": "The Call of the Wild Jack London book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Second Sex",
+    "subtitle": "Simone de Beauvoir - 1949",
+    "image_keyword": "The Second Sex Simone de Beauvoir book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Wind-Up Bird Chronicle",
+    "subtitle": "Haruki Murakami - 1994",
+    "image_keyword": "The Wind-Up Bird Chronicle Haruki Murakami book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Collected Poems of W. B. Yeats",
+    "subtitle": "William Butler Yeats - 1933",
+    "image_keyword": "Collected Poems of W. B. Yeats William Butler Yeats book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The God of Small Things",
+    "subtitle": "Arundhati Roy - 1997",
+    "image_keyword": "The God of Small Things Arundhati Roy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Remains of the Day",
+    "subtitle": "Kazuo Ishiguro - 1989",
+    "image_keyword": "The Remains of the Day Kazuo Ishiguro book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Poems of Emily Dickinson",
+    "subtitle": "Emily Dickinson - 1955",
+    "image_keyword": "Poems of Emily Dickinson Emily Dickinson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Visit From The Goon Squad",
+    "subtitle": "Jennifer Egan - 2010",
+    "image_keyword": "A Visit From The Goon Squad Jennifer Egan book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Complete Stories of Flannery O'Connor",
+    "subtitle": "Flannery O'Connor - 1971",
+    "image_keyword": "The Complete Stories of Flannery O'Connor Flannery O'Connor book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "U.S.A. Trilogy",
+    "subtitle": "John Dos Passos - 1938",
+    "image_keyword": "U.S.A. Trilogy John Dos Passos book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Three Musketeers",
+    "subtitle": "Alexandre Dumas - 1844",
+    "image_keyword": "The Three Musketeers Alexandre Dumas book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Watership Down",
+    "subtitle": "Richard Adams - 1972",
+    "image_keyword": "Watership Down Richard Adams book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Prime of Miss Jean Brodie",
+    "subtitle": "Muriel Spark - 1961",
+    "image_keyword": "The Prime of Miss Jean Brodie Muriel Spark book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Nostromo",
+    "subtitle": "Joseph Conrad - 1904",
+    "image_keyword": "Nostromo Joseph Conrad book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Room of One's Own",
+    "subtitle": "Virginia Woolf - 1929",
+    "image_keyword": "A Room of One's Own Virginia Woolf book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Charterhouse of Parma",
+    "subtitle": "Stendhal - 1839",
+    "image_keyword": "The Charterhouse of Parma Stendhal book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "An American Tragedy",
+    "subtitle": "Theodore Dreiser - 1925",
+    "image_keyword": "An American Tragedy Theodore Dreiser book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Republic",
+    "subtitle": "Plato - 380",
+    "image_keyword": "The Republic Plato book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Moviegoer",
+    "subtitle": "Walker Percy - 1961",
+    "image_keyword": "The Moviegoer Walker Percy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "One Day in the Life of Ivan Denisovich",
+    "subtitle": "Aleksandr Solzhenitsyn - 1962",
+    "image_keyword": "One Day in the Life of Ivan Denisovich Aleksandr Solzhenitsyn book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Bleak House",
+    "subtitle": "Charles Dickens - 1852",
+    "image_keyword": "Bleak House Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The House of Mirth",
+    "subtitle": "Edith Wharton - 1905",
+    "image_keyword": "The House of Mirth Edith Wharton book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Stand",
+    "subtitle": "Stephen King - 1978",
+    "image_keyword": "The Stand Stephen King book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Double Helix: A Personal Account of the Discovery of the Structure of DNA",
+    "subtitle": "James D. Watson - 1968",
+    "image_keyword": "The Double Helix: A Personal Account of the Discovery of the Structure of DNA James D. Watson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "His Dark Materials",
+    "subtitle": "Philip Pullman - 1995",
+    "image_keyword": "His Dark Materials Philip Pullman book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Decameron",
+    "subtitle": "Giovanni Boccaccio - 1353",
+    "image_keyword": "Decameron Giovanni Boccaccio book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Fairy Tales and Stories",
+    "subtitle": "Hans Christian Andersen - 1843",
+    "image_keyword": "Fairy Tales and Stories Hans Christian Andersen book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Herzog",
+    "subtitle": "Saul Bellow - 1964",
+    "image_keyword": "Herzog Saul Bellow book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Things They Carried",
+    "subtitle": "Tim O'Brien - 1990",
+    "image_keyword": "The Things They Carried Tim O'Brien book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Ambassadors",
+    "subtitle": "Henry James - 1903",
+    "image_keyword": "The Ambassadors Henry James book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Macbeth",
+    "subtitle": "William Shakespeare - 1606",
+    "image_keyword": "Macbeth William Shakespeare book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Women in Love",
+    "subtitle": "D. H. Lawrence - 1920",
+    "image_keyword": "Women in Love D. H. Lawrence book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Prayer for Owen Meany",
+    "subtitle": "John Irving - 1989",
+    "image_keyword": "A Prayer for Owen Meany John Irving book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "If on a Winter's Night a Traveller",
+    "subtitle": "Italo Calvino - 1979",
+    "image_keyword": "If on a Winter's Night a Traveller Italo Calvino book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Talented Mr. Ripley",
+    "subtitle": "Patricia Highsmith - 1950",
+    "image_keyword": "The Talented Mr. Ripley Patricia Highsmith book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Wrinkle In Time",
+    "subtitle": "Madeleine L'Engle - 1962",
+    "image_keyword": "A Wrinkle In Time Madeleine L'Engle book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Wide Sargasso Sea",
+    "subtitle": "Jean Rhys - 1966",
+    "image_keyword": "Wide Sargasso Sea Jean Rhys book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Kim",
+    "subtitle": "Rudyard Kipling - 1901",
+    "image_keyword": "Kim Rudyard Kipling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Alchemist",
+    "subtitle": "Paulo Coelho - 1988",
+    "image_keyword": "The Alchemist Paulo Coelho book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Middlesex",
+    "subtitle": "Jeffrey Eugenides - 2002",
+    "image_keyword": "Middlesex Jeffrey Eugenides book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Lady Chatterley's Lover",
+    "subtitle": "D. H. Lawrence - 1928",
+    "image_keyword": "Lady Chatterley's Lover D. H. Lawrence book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "2666",
+    "subtitle": "Roberto Bolaño - 2004",
+    "image_keyword": "2666 Roberto Bolaño book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "King Lear",
+    "subtitle": "William Shakespeare - 1608",
+    "image_keyword": "King Lear William Shakespeare book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The World According to Garp",
+    "subtitle": "John Irving - 1978",
+    "image_keyword": "The World According to Garp John Irving book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Jude the Obscure",
+    "subtitle": "Thomas Hardy - 1895",
+    "image_keyword": "Jude the Obscure Thomas Hardy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Stories of Ernest Hemingway",
+    "subtitle": "Ernest Hemingway - 1987",
+    "image_keyword": "Stories of Ernest Hemingway Ernest Hemingway book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "If This Is a Man",
+    "subtitle": "Primo Levi - 1947",
+    "image_keyword": "If This Is a Man Primo Levi book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Lion, The Witch and the Wardrobe",
+    "subtitle": "C. S. Lewis - 1950",
+    "image_keyword": "The Lion, The Witch and the Wardrobe C. S. Lewis book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Communist Manifesto",
+    "subtitle": "Karl Marx, Friedrich Engels - 1848",
+    "image_keyword": "Communist Manifesto Karl Marx, Friedrich Engels book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Gulag Archipelago",
+    "subtitle": "Aleksandr Solzhenitsyn - 1973",
+    "image_keyword": "The Gulag Archipelago Aleksandr Solzhenitsyn book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Atlas Shrugged",
+    "subtitle": "Ayn Rand - 1957",
+    "image_keyword": "Atlas Shrugged Ayn Rand book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Good Soldier Svejk",
+    "subtitle": "Jaroslav Hašek - 1923",
+    "image_keyword": "The Good Soldier Svejk Jaroslav Hašek book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Austerlitz",
+    "subtitle": "W. G. Sebald - 2001",
+    "image_keyword": "Austerlitz W. G. Sebald book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Never Let Me Go",
+    "subtitle": "Kazuo Ishiguro - 2005",
+    "image_keyword": "Never Let Me Go Kazuo Ishiguro book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Democracy in America",
+    "subtitle": "Alexis de Tocqueville - 1840",
+    "image_keyword": "Democracy in America Alexis de Tocqueville book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Bonfire of the Vanities",
+    "subtitle": "Tom Wolfe - 1987",
+    "image_keyword": "Bonfire of the Vanities Tom Wolfe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Adventures of Augie March",
+    "subtitle": "Saul Bellow - 1953",
+    "image_keyword": "The Adventures of Augie March Saul Bellow book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Tree Grows in Brooklyn",
+    "subtitle": "Betty Smith - 1943",
+    "image_keyword": "A Tree Grows in Brooklyn Betty Smith book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Jungle",
+    "subtitle": "Upton Sinclair - 1906",
+    "image_keyword": "The Jungle Upton Sinclair book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Awakening",
+    "subtitle": "Kate Chopin - 1899",
+    "image_keyword": "The Awakening Kate Chopin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Brideshead Revisited",
+    "subtitle": "Evelyn Waugh - 1945",
+    "image_keyword": "Brideshead Revisited Evelyn Waugh book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Book Thief",
+    "subtitle": "Markus Zusak - 2005",
+    "image_keyword": "The Book Thief Markus Zusak book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Lucky Jim",
+    "subtitle": "Kingsley Amis - 1954",
+    "image_keyword": "Lucky Jim Kingsley Amis book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Nausea",
+    "subtitle": "Jean Paul Sartre - 1938",
+    "image_keyword": "Nausea Jean Paul Sartre book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+    "subtitle": "Robert Louis Stevenson - 1886",
+    "image_keyword": "The Strange Case of Dr. Jekyll and Mr. Hyde Robert Louis Stevenson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Molloy",
+    "subtitle": "Samuel Beckett - 1951",
+    "image_keyword": "Molloy Samuel Beckett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Gargantua and Pantagruel",
+    "subtitle": "Francois Rabelais - 1532",
+    "image_keyword": "Gargantua and Pantagruel Francois Rabelais book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Oedipus at Colonus",
+    "subtitle": "Sophocles - -401",
+    "image_keyword": "Oedipus at Colonus Sophocles book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Hobbit",
+    "subtitle": "J. R. R. Tolkien - 1937",
+    "image_keyword": "The Hobbit J. R. R. Tolkien book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Pickwick Papers",
+    "subtitle": "Charles Dickens - 1837",
+    "image_keyword": "The Pickwick Papers Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Medea",
+    "subtitle": "Euripides - -431",
+    "image_keyword": "Medea Euripides book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Poisonwood Bible",
+    "subtitle": "Barbara Kingsolver - 1998",
+    "image_keyword": "The Poisonwood Bible Barbara Kingsolver book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Dangerous Liaison",
+    "subtitle": "Pierre Choderlos de Laclos - 1782",
+    "image_keyword": "Dangerous Liaison Pierre Choderlos de Laclos book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Savage Detectives",
+    "subtitle": "Roberto Bolaño - 1998",
+    "image_keyword": "The Savage Detectives Roberto Bolaño book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Housekeeping",
+    "subtitle": "Marilynne Robinson - 1980",
+    "image_keyword": "Housekeeping Marilynne Robinson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Joy Luck Club",
+    "subtitle": "Amy Tan - 1989",
+    "image_keyword": "The Joy Luck Club Amy Tan book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Time Machine",
+    "subtitle": "H. G. Wells - 1895",
+    "image_keyword": "The Time Machine H. G. Wells book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Shining",
+    "subtitle": "Stephen King - 1977",
+    "image_keyword": "The Shining Stephen King book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Complete Sherlock Holmes",
+    "subtitle": "Arthur Conan Doyle - 1887",
+    "image_keyword": "The Complete Sherlock Holmes Arthur Conan Doyle book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Epic of Gilgamesh",
+    "subtitle": "-2100",
+    "image_keyword": "Epic of Gilgamesh  book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Spy Who Came in From the Cold",
+    "subtitle": "John le Carré - 1963",
+    "image_keyword": "The Spy Who Came in From the Cold John le Carré book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Suitable Boy",
+    "subtitle": "Vikram Seth - 1994",
+    "image_keyword": "A Suitable Boy Vikram Seth book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Season in Hell",
+    "subtitle": "Arthur Rimbaud - 1873",
+    "image_keyword": "A Season in Hell Arthur Rimbaud book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A House for Mr. Biswas",
+    "subtitle": "V. S. Naipaul - 1961",
+    "image_keyword": "A House for Mr. Biswas V. S. Naipaul book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "And Then There Were None",
+    "subtitle": "Agatha Christie - 1939",
+    "image_keyword": "And Then There Were None Agatha Christie book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Structure of Scientific Revolutions",
+    "subtitle": "Thomas Kuhn - 1962",
+    "image_keyword": "The Structure of Scientific Revolutions Thomas Kuhn book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Sentimental Education",
+    "subtitle": "Gustave Flaubert - 1869",
+    "image_keyword": "A Sentimental Education Gustave Flaubert book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Counterfeiters",
+    "subtitle": "André Gide - 1925",
+    "image_keyword": "The Counterfeiters André Gide book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Of Mice and Men",
+    "subtitle": "John Steinbeck - 1937",
+    "image_keyword": "Of Mice and Men John Steinbeck book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Money",
+    "subtitle": "Martin Amis - 1984",
+    "image_keyword": "Money Martin Amis book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Tropic of Cancer",
+    "subtitle": "Henry Miller - 1934",
+    "image_keyword": "Tropic of Cancer Henry Miller book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "War of the Worlds",
+    "subtitle": "H. G. Wells - 1898",
+    "image_keyword": "War of the Worlds H. G. Wells book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Harry Potter And The Prisoner Of Azkaban",
+    "subtitle": "J. K Rowling - 1999",
+    "image_keyword": "Harry Potter And The Prisoner Of Azkaban J. K Rowling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Cold Comfort Farm",
+    "subtitle": "Stella Gibbons - 1932",
+    "image_keyword": "Cold Comfort Farm Stella Gibbons book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Siddhartha",
+    "subtitle": "Hermann Hesse - 1922",
+    "image_keyword": "Siddhartha Hermann Hesse book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Confessions of Zeno",
+    "subtitle": "Italo Svevo - 1923",
+    "image_keyword": "Confessions of Zeno Italo Svevo book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Possession",
+    "subtitle": "A. S. Byatt - 1990",
+    "image_keyword": "Possession A. S. Byatt book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Memoirs of Hadrian",
+    "subtitle": "Marguerite Yourcenar - 1951",
+    "image_keyword": "Memoirs of Hadrian Marguerite Yourcenar book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Flowers of Evil",
+    "subtitle": "Charles Baudelaire - 1857",
+    "image_keyword": "The Flowers of Evil Charles Baudelaire book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Metamorphoses",
+    "subtitle": "Ovid - 8",
+    "image_keyword": "Metamorphoses Ovid book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Gilead",
+    "subtitle": "Marilynne Robinson - 2004",
+    "image_keyword": "Gilead Marilynne Robinson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Cloud Atlas",
+    "subtitle": "David Mitchell - 2004",
+    "image_keyword": "Cloud Atlas David Mitchell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Man's Fate",
+    "subtitle": "Andre Malraux - 1934",
+    "image_keyword": "Man's Fate Andre Malraux book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Poems of Robert Frost",
+    "subtitle": "Robert Frost - 1969",
+    "image_keyword": "The Poems of Robert Frost Robert Frost book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Father Goriot",
+    "subtitle": "Honoré de Balzac - 1835",
+    "image_keyword": "Father Goriot Honoré de Balzac book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Hunger",
+    "subtitle": "Knut Hamsun - 1890",
+    "image_keyword": "Hunger Knut Hamsun book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The End of the Affair",
+    "subtitle": "Graham Greene - 1951",
+    "image_keyword": "The End of the Affair Graham Greene book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "I, Claudius",
+    "subtitle": "Robert Graves - 1934",
+    "image_keyword": "I, Claudius Robert Graves book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Out of Africa",
+    "subtitle": "Isak Dinesen - 1937",
+    "image_keyword": "Out of Africa Isak Dinesen book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Once and Future King",
+    "subtitle": "T. H. White - 1958",
+    "image_keyword": "The Once and Future King T. H. White book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Go Tell it on the Mountain",
+    "subtitle": "James Baldwin - 1953",
+    "image_keyword": "Go Tell it on the Mountain James Baldwin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Oresteia",
+    "subtitle": "Aeschylus - -458",
+    "image_keyword": "Oresteia Aeschylus book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Tempest",
+    "subtitle": "William Shakespeare - 1623",
+    "image_keyword": "The Tempest William Shakespeare book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Americanah",
+    "subtitle": "Chimamanda Ngozi Adichie - 2013",
+    "image_keyword": "Americanah Chimamanda Ngozi Adichie book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Berlin Alexanderplatz",
+    "subtitle": "Alfred Döblin - 1929",
+    "image_keyword": "Berlin Alexanderplatz Alfred Döblin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Harry Potter and the Goblet of Fire",
+    "subtitle": "J. K Rowling - 2000",
+    "image_keyword": "Harry Potter and the Goblet of Fire J. K Rowling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Godfather",
+    "subtitle": "Mario Puzo - 1969",
+    "image_keyword": "The Godfather Mario Puzo book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Underworld",
+    "subtitle": "Don DeLillo - 1997",
+    "image_keyword": "Underworld Don DeLillo book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Wolf Hall",
+    "subtitle": "Hilary Mantel - 2009",
+    "image_keyword": "Wolf Hall Hilary Mantel book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Tale of Two Cities",
+    "subtitle": "Charles Dickens - 1859",
+    "image_keyword": "A Tale of Two Cities Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Tartar Steppe",
+    "subtitle": "Dino Buzzati - 1940",
+    "image_keyword": "The Tartar Steppe Dino Buzzati book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Stories of John Cheever",
+    "subtitle": "John Cheever - 1978",
+    "image_keyword": "The Stories of John Cheever John Cheever book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Pedro Páramo",
+    "subtitle": "Juan Rulfo - 1955",
+    "image_keyword": "Pedro Páramo Juan Rulfo book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Lover",
+    "subtitle": "Marguerite Duras - 1984",
+    "image_keyword": "The Lover Marguerite Duras book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Chronicles of Narnia",
+    "subtitle": "C. S. Lewis - 1950",
+    "image_keyword": "The Chronicles of Narnia C. S. Lewis book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Clarissa",
+    "subtitle": "Samuel Richardson - 1748",
+    "image_keyword": "Clarissa Samuel Richardson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Neuromancer",
+    "subtitle": "William Gibson - 1984",
+    "image_keyword": "Neuromancer William Gibson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Winesburg, Ohio",
+    "subtitle": "Sherwood Anderson - 1919",
+    "image_keyword": "Winesburg, Ohio Sherwood Anderson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "White Noise",
+    "subtitle": "Don DeLillo - 1985",
+    "image_keyword": "White Noise Don DeLillo book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Mahabharata",
+    "subtitle": "Vyasa - -400",
+    "image_keyword": "Mahabharata Vyasa book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Thus Spake Zarathustra",
+    "subtitle": "Friedrich Nietzsche - 1883",
+    "image_keyword": "Thus Spake Zarathustra Friedrich Nietzsche book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Anne of Green Gables",
+    "subtitle": "L. M. Montgomery - 1908",
+    "image_keyword": "Anne of Green Gables L. M. Montgomery book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Are You There God? It's Me, Margaret",
+    "subtitle": "Judy Blume - 1970",
+    "image_keyword": "Are You There God? It's Me, Margaret Judy Blume book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Brighton Rock",
+    "subtitle": "Graham Greene - 1938",
+    "image_keyword": "Brighton Rock Graham Greene book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Labyrinths",
+    "subtitle": "Jorge Luis Borges - 1962",
+    "image_keyword": "Labyrinths Jorge Luis Borges book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Persuasion",
+    "subtitle": "Jane Austen - 1818",
+    "image_keyword": "Persuasion Jane Austen book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Da Vinci Code",
+    "subtitle": "Dan Brown - 2006",
+    "image_keyword": "The Da Vinci Code Dan Brown book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Rabbit Redux",
+    "subtitle": "John Updike - 1971",
+    "image_keyword": "Rabbit Redux John Updike book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Bend in the River",
+    "subtitle": "V. S. Naipaul - 1979",
+    "image_keyword": "A Bend in the River V. S. Naipaul book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Turn of the Screw",
+    "subtitle": "Henry James - 1898",
+    "image_keyword": "The Turn of the Screw Henry James book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Adventures of Oliver Twist",
+    "subtitle": "Charles Dickens - 1837",
+    "image_keyword": "The Adventures of Oliver Twist Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Babbitt",
+    "subtitle": "Sinclair Lewis - 1922",
+    "image_keyword": "Babbitt Sinclair Lewis book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Year of Magical Thinking",
+    "subtitle": "Joan Didion - 2005",
+    "image_keyword": "The Year of Magical Thinking Joan Didion book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Shipping News",
+    "subtitle": "Annie Proulx - 1993",
+    "image_keyword": "The Shipping News Annie Proulx book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Life of Samuel Johnson",
+    "subtitle": "James Boswell - 1823",
+    "image_keyword": "The Life of Samuel Johnson James Boswell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Oblomov",
+    "subtitle": "Ivan Goncharov - 1859",
+    "image_keyword": "Oblomov Ivan Goncharov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Zorba the Greek",
+    "subtitle": "Nikos Kazantzakis - 1946",
+    "image_keyword": "Zorba the Greek Nikos Kazantzakis book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Mayor of Casterbridge",
+    "subtitle": "Thomas Hardy - 1886",
+    "image_keyword": "The Mayor of Casterbridge Thomas Hardy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Uncle Tom's Cabin",
+    "subtitle": "Harriet Beecher Stowe - 1852",
+    "image_keyword": "Uncle Tom's Cabin Harriet Beecher Stowe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Wizard of Earthsea",
+    "subtitle": "Ursula K. Le Guin - 1968",
+    "image_keyword": "A Wizard of Earthsea Ursula K. Le Guin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Good Man Is Hard to Find",
+    "subtitle": "Flannery O'Connor - 1955",
+    "image_keyword": "A Good Man Is Hard to Find Flannery O'Connor book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Household Tales",
+    "subtitle": "Brothers Grimm - 1812",
+    "image_keyword": "Household Tales Brothers Grimm book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Foundation",
+    "subtitle": "Isaac Asimov - 1951",
+    "image_keyword": "Foundation Isaac Asimov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Room With a View",
+    "subtitle": "E. M. Forster - 1908",
+    "image_keyword": "A Room With a View E. M. Forster book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Death of Virgil",
+    "subtitle": "Hermann Broch - 1945",
+    "image_keyword": "Death of Virgil Hermann Broch book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Pensées",
+    "subtitle": "Blaise Pascal - 1670",
+    "image_keyword": "Pensées Blaise Pascal book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Ragtime",
+    "subtitle": "E. L. Doctorow - 1975",
+    "image_keyword": "Ragtime E. L. Doctorow book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Naked Lunch",
+    "subtitle": "William S. Burroughs - 1959",
+    "image_keyword": "Naked Lunch William S. Burroughs book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Finnegans Wake",
+    "subtitle": "James Joyce - 1939",
+    "image_keyword": "Finnegans Wake James Joyce book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Darkness at Noon",
+    "subtitle": "Arthur Koestler - 1940",
+    "image_keyword": "Darkness at Noon Arthur Koestler book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Fine Balance",
+    "subtitle": "Rohinton Mistry - 1995",
+    "image_keyword": "A Fine Balance Rohinton Mistry book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Rabbit Is Rich",
+    "subtitle": "John Updike - 1981",
+    "image_keyword": "Rabbit Is Rich John Updike book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Moonstone",
+    "subtitle": "Wilkie Collins - 1868",
+    "image_keyword": "The Moonstone Wilkie Collins book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "American Psycho",
+    "subtitle": "Bret Easton Ellis - 1991",
+    "image_keyword": "American Psycho Bret Easton Ellis book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Confessions of Jean-Jacques Rousseau",
+    "subtitle": "Jean-Jacques Rousseau - 1782",
+    "image_keyword": "The Confessions of Jean-Jacques Rousseau Jean-Jacques Rousseau book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Our Mutual Friend",
+    "subtitle": "Charles Dickens - 1865",
+    "image_keyword": "Our Mutual Friend Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Adventures of Tom Sawyer",
+    "subtitle": "Mark Twain - 1876",
+    "image_keyword": "The Adventures of Tom Sawyer Mark Twain book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Complete Works of Plato",
+    "subtitle": "Plato - 1401",
+    "image_keyword": "The Complete Works of Plato Plato book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Sorrows of Young Werther",
+    "subtitle": "Johann Wolfgang von Goethe - 1774",
+    "image_keyword": "The Sorrows of Young Werther Johann Wolfgang von Goethe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Twenty Thousand Leagues Under the Sea",
+    "subtitle": "Jules Verne - 1870",
+    "image_keyword": "Twenty Thousand Leagues Under the Sea Jules Verne book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The General Theory of Employment, Interest and Money",
+    "subtitle": "John Maynard Keynes - 1936",
+    "image_keyword": "The General Theory of Employment, Interest and Money John Maynard Keynes book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Watchmen",
+    "subtitle": "Alan Moore - 1986",
+    "image_keyword": "Watchmen Alan Moore book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Pippi Longstocking",
+    "subtitle": "Astrid Lindgren - 1945",
+    "image_keyword": "Pippi Longstocking Astrid Lindgren book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Rabbit at Rest",
+    "subtitle": "John Updike - 1990",
+    "image_keyword": "Rabbit at Rest John Updike book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Independent People",
+    "subtitle": "Halldor Laxness - 1946",
+    "image_keyword": "Independent People Halldor Laxness book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Murder of Roger Ackroyd",
+    "subtitle": "Agatha Christie - 1926",
+    "image_keyword": "The Murder of Roger Ackroyd Agatha Christie book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Sea, The Sea",
+    "subtitle": "Iris Murdoch - 1978",
+    "image_keyword": "The Sea, The Sea Iris Murdoch book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "East of Eden",
+    "subtitle": "John Steinbeck - 1952",
+    "image_keyword": "East of Eden John Steinbeck book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Good Earth",
+    "subtitle": "Pearl S. Buck - 1931",
+    "image_keyword": "The Good Earth Pearl S. Buck book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Waves",
+    "subtitle": "Virginia Woolf - 1931",
+    "image_keyword": "The Waves Virginia Woolf book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Invisible Cities",
+    "subtitle": "Italo Calvino - 1972",
+    "image_keyword": "Invisible Cities Italo Calvino book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "At Swim Two-Birds",
+    "subtitle": "Flann O'Brien - 1939",
+    "image_keyword": "At Swim Two-Birds Flann O'Brien book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Regeneration",
+    "subtitle": "Pat Barker - 1991",
+    "image_keyword": "Regeneration Pat Barker book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Ferdydurke",
+    "subtitle": "Witold Gombrowicz - 1937",
+    "image_keyword": "Ferdydurke Witold Gombrowicz book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Dance to the Music of Time",
+    "subtitle": "Anthony Powell - 1951",
+    "image_keyword": "A Dance to the Music of Time Anthony Powell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Let Us Now Praise Famous Men",
+    "subtitle": "James Agee - 1941",
+    "image_keyword": "Let Us Now Praise Famous Men James Agee book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Harry Potter and the Half-Blood Prince",
+    "subtitle": "J. K Rowling - 2005",
+    "image_keyword": "Harry Potter and the Half-Blood Prince J. K Rowling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Selected Stories of Alice Munro",
+    "subtitle": "Alice Munro - 1996",
+    "image_keyword": "Selected Stories of Alice Munro Alice Munro book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Perfume",
+    "subtitle": "Patrick Suskind - 1985",
+    "image_keyword": "Perfume Patrick Suskind book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Brief History of Time",
+    "subtitle": "Stephen Hawking - 1988",
+    "image_keyword": "A Brief History of Time Stephen Hawking book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Life of Pi",
+    "subtitle": "Yann Martel - 2001",
+    "image_keyword": "Life of Pi Yann Martel book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Affluent Society",
+    "subtitle": "John Kenneth Galbraith - 1958",
+    "image_keyword": "The Affluent Society John Kenneth Galbraith book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "So Long, See You Tomorrow",
+    "subtitle": "William Maxwell - 1981",
+    "image_keyword": "So Long, See You Tomorrow William Maxwell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Old Wives' Tale",
+    "subtitle": "Arnold Bennett - 1908",
+    "image_keyword": "The Old Wives' Tale Arnold Bennett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Day of the Locust",
+    "subtitle": "Nathanael West - 1939",
+    "image_keyword": "The Day of the Locust Nathanael West book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Elements of Style",
+    "subtitle": "E. B. White, William Strunk Jr. - 1918",
+    "image_keyword": "The Elements of Style E. B. White, William Strunk Jr. book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Crying of Lot 49",
+    "subtitle": "Thomas Pynchon - 1966",
+    "image_keyword": "The Crying of Lot 49 Thomas Pynchon book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Gone Girl",
+    "subtitle": "Gillian Flynn - 2012",
+    "image_keyword": "Gone Girl Gillian Flynn book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Dubliners",
+    "subtitle": "James Joyce - 1914",
+    "image_keyword": "Dubliners James Joyce book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Hunchback of Notre-Dame",
+    "subtitle": "Victor Hugo - 1831",
+    "image_keyword": "The Hunchback of Notre-Dame Victor Hugo book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Harry Potter and the Order of the Phoenix",
+    "subtitle": "J. K Rowling - 2003",
+    "image_keyword": "Harry Potter and the Order of the Phoenix J. K Rowling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Doll's House",
+    "subtitle": "Henrik Ibsen - 1879",
+    "image_keyword": "A Doll's House Henrik Ibsen book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Look Homeward, Angel",
+    "subtitle": "Thomas Wolfe - 1929",
+    "image_keyword": "Look Homeward, Angel Thomas Wolfe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Harry Potter And The Chamber Of Secrets",
+    "subtitle": "J. K Rowling - 1998",
+    "image_keyword": "Harry Potter And The Chamber Of Secrets J. K Rowling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Germinal",
+    "subtitle": "Émile Zola - 1885",
+    "image_keyword": "Germinal Émile Zola book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Le Morte d'Arthur",
+    "subtitle": "Thomas Malory - 1485",
+    "image_keyword": "Le Morte d'Arthur Thomas Malory book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Malone Dies",
+    "subtitle": "Samuel Beckett - 1951",
+    "image_keyword": "Malone Dies Samuel Beckett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Histories of Herodotus",
+    "subtitle": "Herodotus - -449",
+    "image_keyword": "The Histories of Herodotus Herodotus book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Last of the Mohicans",
+    "subtitle": "James Fenimore Cooper - 1826",
+    "image_keyword": "The Last of the Mohicans James Fenimore Cooper book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Game of Thrones",
+    "subtitle": "George R. R. Martin - 1996",
+    "image_keyword": "A Game of Thrones George R. R. Martin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "2001: A Space Odyssey",
+    "subtitle": "Arthur C. Clarke - 1951",
+    "image_keyword": "2001: A Space Odyssey Arthur C. Clarke book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Persepolis",
+    "subtitle": "Marjane Satrapi - 2000",
+    "image_keyword": "Persepolis Marjane Satrapi book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Golden Bowl",
+    "subtitle": "Henry James - 1904",
+    "image_keyword": "The Golden Bowl Henry James book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Leviathan",
+    "subtitle": "Thomas Hobbes - 1651",
+    "image_keyword": "Leviathan Thomas Hobbes book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Death of Ivan Ilyich",
+    "subtitle": "Leo Tolstoy - 1886",
+    "image_keyword": "The Death of Ivan Ilyich Leo Tolstoy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Speak, Memory",
+    "subtitle": "Vladimir Nabokov - 1951",
+    "image_keyword": "Speak, Memory Vladimir Nabokov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Wonderful Wizard of Oz",
+    "subtitle": "L. Frank Baum - 1900",
+    "image_keyword": "The Wonderful Wizard of Oz L. Frank Baum book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Giovanni's Room",
+    "subtitle": "James Baldwin - 1956",
+    "image_keyword": "Giovanni's Room James Baldwin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Haunting of Hill House",
+    "subtitle": "Shirley Jackson - 1959",
+    "image_keyword": "The Haunting of Hill House Shirley Jackson book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Birdsong",
+    "subtitle": "Sebastian Faulks - 1993",
+    "image_keyword": "Birdsong Sebastian Faulks book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Princess of Cleves",
+    "subtitle": "Madame de La Fayette - 1678",
+    "image_keyword": "The Princess of Cleves Madame de La Fayette book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Do Androids Dream of Electric Sheep?",
+    "subtitle": "Philip K. Dick - 1968",
+    "image_keyword": "Do Androids Dream of Electric Sheep? Philip K. Dick book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Ethan Frome",
+    "subtitle": "Edith Wharton - 1911",
+    "image_keyword": "Ethan Frome Edith Wharton book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Where the Wild Things Are",
+    "subtitle": "Maurice Sendak - 1963",
+    "image_keyword": "Where the Wild Things Are Maurice Sendak book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Nine Stories",
+    "subtitle": "J. D. Salinger - 1953",
+    "image_keyword": "Nine Stories J. D. Salinger book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Bacchae",
+    "subtitle": "Euripides - -405",
+    "image_keyword": "The Bacchae Euripides book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Stranger in a Strange Land",
+    "subtitle": "Robert A. Heinlein - 1961",
+    "image_keyword": "Stranger in a Strange Land Robert A. Heinlein book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Electra",
+    "subtitle": "Sophocles - -409",
+    "image_keyword": "Electra Sophocles book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Bonjour Tristesse",
+    "subtitle": "Francoise Sagan - 1954",
+    "image_keyword": "Bonjour Tristesse Francoise Sagan book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Known World",
+    "subtitle": "Edward P. Jones - 2003",
+    "image_keyword": "The Known World Edward P. Jones book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Waiting for the Barbarians",
+    "subtitle": "J M Coetzee - 1980",
+    "image_keyword": "Waiting for the Barbarians J M Coetzee book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Pillars Of The Earth",
+    "subtitle": "Ken Follett - 1989",
+    "image_keyword": "The Pillars Of The Earth Ken Follett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Bastard Out of Carolina",
+    "subtitle": "Dorothy Allison - 1993",
+    "image_keyword": "Bastard Out of Carolina Dorothy Allison book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Wise Blood",
+    "subtitle": "Flannery O'Connor - 1952",
+    "image_keyword": "Wise Blood Flannery O'Connor book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Das Kapital",
+    "subtitle": "Karl Marx - 1867",
+    "image_keyword": "Das Kapital Karl Marx book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Life and Fate",
+    "subtitle": "Vasily Grossman - 1959",
+    "image_keyword": "Life and Fate Vasily Grossman book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Quran",
+    "subtitle": "651",
+    "image_keyword": "The Quran  book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Hunger Games",
+    "subtitle": "Suzanne Collins - 2008",
+    "image_keyword": "The Hunger Games Suzanne Collins book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Rainbow",
+    "subtitle": "D. H. Lawrence - 1915",
+    "image_keyword": "The Rainbow D. H. Lawrence book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Alexandria Quartet",
+    "subtitle": "Lawrence Durrell - 1957",
+    "image_keyword": "The Alexandria Quartet Lawrence Durrell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Eugene Onegin",
+    "subtitle": "Alexander Pushkin - 1825",
+    "image_keyword": "Eugene Onegin Alexander Pushkin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Giver",
+    "subtitle": "Lois Lowry - 1993",
+    "image_keyword": "The Giver Lois Lowry book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Maus",
+    "subtitle": "Art Spiegelman - 1986",
+    "image_keyword": "Maus Art Spiegelman book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Crash: A Novel",
+    "subtitle": "J. G. Ballard - 1973",
+    "image_keyword": "Crash: A Novel J. G. Ballard book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Joseph and His Brothers",
+    "subtitle": "Thomas Mann - 1933",
+    "image_keyword": "Joseph and His Brothers Thomas Mann book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Harry Potter and the Deathly Hallows",
+    "subtitle": "J. K Rowling - 2007",
+    "image_keyword": "Harry Potter and the Deathly Hallows J. K Rowling book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Notebooks of Malte Laurids Brigge",
+    "subtitle": "Rainer Maria Rilke - 1910",
+    "image_keyword": "The Notebooks of Malte Laurids Brigge Rainer Maria Rilke book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Kristin Lavransdatter",
+    "subtitle": "Sigrid Undset - 1920",
+    "image_keyword": "Kristin Lavransdatter Sigrid Undset book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Cry, the Beloved Country",
+    "subtitle": "Alan Paton - 1948",
+    "image_keyword": "Cry, the Beloved Country Alan Paton book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Fifth Season",
+    "subtitle": "N. K. Jemisin - 2015",
+    "image_keyword": "The Fifth Season N. K. Jemisin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Unnamable",
+    "subtitle": "Samuel Beckett - 1953",
+    "image_keyword": "The Unnamable Samuel Beckett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Federalist Papers",
+    "subtitle": "Alexander Hamilton, James Madison, John Jay - 1787",
+    "image_keyword": "The Federalist Papers Alexander Hamilton, James Madison, John Jay book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Beowulf",
+    "subtitle": "101",
+    "image_keyword": "Beowulf  book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Man Who Loved Children",
+    "subtitle": "Christina Stead - 1940",
+    "image_keyword": "The Man Who Loved Children Christina Stead book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Book of Disquiet",
+    "subtitle": "Fernando Pessoa - 1982",
+    "image_keyword": "The Book of Disquiet Fernando Pessoa book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Mill on the Floss",
+    "subtitle": "George Eliot - 1860",
+    "image_keyword": "The Mill on the Floss George Eliot book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Red Badge of Courage",
+    "subtitle": "Stephen Crane - 1895",
+    "image_keyword": "The Red Badge of Courage Stephen Crane book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Ivanhoe",
+    "subtitle": "Walter Scott - 1820",
+    "image_keyword": "Ivanhoe Walter Scott book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Of Human Bondage",
+    "subtitle": "W. Somerset Maugham - 1915",
+    "image_keyword": "Of Human Bondage W. Somerset Maugham book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Hero of Our Time",
+    "subtitle": "Mikhail Lermontov - 1840",
+    "image_keyword": "A Hero of Our Time Mikhail Lermontov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Secret Garden",
+    "subtitle": "Frances Hodgson Burnett - 1911",
+    "image_keyword": "The Secret Garden Frances Hodgson Burnett book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Phantom Tollbooth",
+    "subtitle": "Norton Juster - 1961",
+    "image_keyword": "The Phantom Tollbooth Norton Juster book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Notes from the Underground",
+    "subtitle": "Fyodor Dostoevsky - 1864",
+    "image_keyword": "Notes from the Underground Fyodor Dostoevsky book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Half of a Yellow Sun",
+    "subtitle": "Chimamanda Ngozi Adichie - 2007",
+    "image_keyword": "Half of a Yellow Sun Chimamanda Ngozi Adichie book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Forsyte Saga",
+    "subtitle": "John Galsworthy - 1922",
+    "image_keyword": "The Forsyte Saga John Galsworthy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Feminine Mystique",
+    "subtitle": "Betty Friedan - 1963",
+    "image_keyword": "The Feminine Mystique Betty Friedan book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Sophie's Choice",
+    "subtitle": "William Styron - 1979",
+    "image_keyword": "Sophie's Choice William Styron book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Third Policeman",
+    "subtitle": "Flann O'Brien - 1967",
+    "image_keyword": "The Third Policeman Flann O'Brien book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Collected Poems",
+    "subtitle": "Wallace Stevens - 1955",
+    "image_keyword": "Collected Poems Wallace Stevens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "High Fidelity",
+    "subtitle": "Nick Hornby - 1995",
+    "image_keyword": "High Fidelity Nick Hornby book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Tarzan of the Apes",
+    "subtitle": "Edgar Rice Burroughs - 1912",
+    "image_keyword": "Tarzan of the Apes Edgar Rice Burroughs book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Confusions of Young Törless",
+    "subtitle": "Robert Musil - 1906",
+    "image_keyword": "The Confusions of Young Törless Robert Musil book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Life, a User's Manual",
+    "subtitle": "Georges Perec - 1978",
+    "image_keyword": "Life, a User's Manual Georges Perec book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Homage to Catalonia",
+    "subtitle": "George Orwell - 1938",
+    "image_keyword": "Homage to Catalonia George Orwell book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Nightwood",
+    "subtitle": "Djuna Barnes - 1936",
+    "image_keyword": "Nightwood Djuna Barnes book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Christmas Carol",
+    "subtitle": "Charles Dickens - 1843",
+    "image_keyword": "A Christmas Carol Charles Dickens book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Left Hand Of Darkness",
+    "subtitle": "Ursula K. Le Guin - 1969",
+    "image_keyword": "The Left Hand Of Darkness Ursula K. Le Guin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "All the Pretty Horses",
+    "subtitle": "Cormac McCarthy - 1992",
+    "image_keyword": "All the Pretty Horses Cormac McCarthy book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Zen and the Art of Motorcycle Maintenance",
+    "subtitle": "Robert M. Pirsig - 1974",
+    "image_keyword": "Zen and the Art of Motorcycle Maintenance Robert M. Pirsig book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Civil War",
+    "subtitle": "Shelby Foote - 1974",
+    "image_keyword": "The Civil War Shelby Foote book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Thorn Birds",
+    "subtitle": "Colleen McCullough - 1977",
+    "image_keyword": "The Thorn Birds Colleen McCullough book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Noughts and Crosses",
+    "subtitle": "Malorie Blackman - 2001",
+    "image_keyword": "Noughts and Crosses Malorie Blackman book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "We",
+    "subtitle": "Yevgeny Zamyatin - 1921",
+    "image_keyword": "We Yevgeny Zamyatin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Glass Bead Game",
+    "subtitle": "Hermann Hesse - 1943",
+    "image_keyword": "The Glass Bead Game Hermann Hesse book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Lysistrata",
+    "subtitle": "Aristophanes - 411",
+    "image_keyword": "Lysistrata Aristophanes book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Through the Looking Glass",
+    "subtitle": "Lewis Carroll - 1871",
+    "image_keyword": "Through the Looking Glass Lewis Carroll book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Hopscotch",
+    "subtitle": "Julio Cortázar - 1963",
+    "image_keyword": "Hopscotch Julio Cortázar book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Namesake",
+    "subtitle": "Jhumpa Lahiri - 2003",
+    "image_keyword": "The Namesake Jhumpa Lahiri book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Wings of the Dove",
+    "subtitle": "Henry James - 1902",
+    "image_keyword": "Wings of the Dove Henry James book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Way We Live Now",
+    "subtitle": "Anthony Trollope - 1875",
+    "image_keyword": "The Way We Live Now Anthony Trollope book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Fountainhead",
+    "subtitle": "Ayn Rand - 1943",
+    "image_keyword": "The Fountainhead Ayn Rand book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Ada or Ardor",
+    "subtitle": "Vladimir Nabokov - 1969",
+    "image_keyword": "Ada or Ardor Vladimir Nabokov book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Human Stain",
+    "subtitle": "Philip Roth - 2000",
+    "image_keyword": "The Human Stain Philip Roth book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Bridget Jones's Diary",
+    "subtitle": "Helen Fielding - 1996",
+    "image_keyword": "Bridget Jones's Diary Helen Fielding book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Prophet",
+    "subtitle": "Kahlil Gibran - 1923",
+    "image_keyword": "The Prophet Kahlil Gibran book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Henderson The Rain King",
+    "subtitle": "Saul Bellow - 1959",
+    "image_keyword": "Henderson The Rain King Saul Bellow book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Murder on the Orient Express",
+    "subtitle": "Agatha Christie - 1934",
+    "image_keyword": "Murder on the Orient Express Agatha Christie book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Testament Of Youth",
+    "subtitle": "Vera Brittain - 1933",
+    "image_keyword": "Testament Of Youth Vera Brittain book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Relativity",
+    "subtitle": "Albert Einstein - 1917",
+    "image_keyword": "Relativity Albert Einstein book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Satanic Verses",
+    "subtitle": "Salman Rushdie - 1988",
+    "image_keyword": "Satanic Verses Salman Rushdie book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Pilgrim's Progress",
+    "subtitle": "John Bunyan - 1678",
+    "image_keyword": "Pilgrim's Progress John Bunyan book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Magus",
+    "subtitle": "John Fowles - 1966",
+    "image_keyword": "The Magus John Fowles book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Right Stuff",
+    "subtitle": "Tom Wolfe - 1979",
+    "image_keyword": "The Right Stuff Tom Wolfe book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Kite Runner",
+    "subtitle": "Khaled Hosseini - 2003",
+    "image_keyword": "The Kite Runner Khaled Hosseini book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Loving",
+    "subtitle": "Henry Green - 1945",
+    "image_keyword": "Loving Henry Green book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Call It Sleep",
+    "subtitle": "Henry Roth - 1934",
+    "image_keyword": "Call It Sleep Henry Roth book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Another Country",
+    "subtitle": "James Baldwin - 1962",
+    "image_keyword": "Another Country James Baldwin book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Silas Marner",
+    "subtitle": "George Eliot - 1861",
+    "image_keyword": "Silas Marner George Eliot book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Postman Always Rings Twice",
+    "subtitle": "James M. Cain - 1934",
+    "image_keyword": "The Postman Always Rings Twice James M. Cain book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Lonesome Dove",
+    "subtitle": "Larry McMurtry - 1985",
+    "image_keyword": "Lonesome Dove Larry McMurtry book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "I Capture the Castle",
+    "subtitle": "Dodie Smith - 1934",
+    "image_keyword": "I Capture the Castle Dodie Smith book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Decline and Fall of the Roman Empire",
+    "subtitle": "Edward Gibbon - 1776",
+    "image_keyword": "The Decline and Fall of the Roman Empire Edward Gibbon book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "A Vindication of the Rights of Woman",
+    "subtitle": "Mary Wollstonecraft - 1792",
+    "image_keyword": "A Vindication of the Rights of Woman Mary Wollstonecraft book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Nights At The Circus",
+    "subtitle": "Angela Carter - 1984",
+    "image_keyword": "Nights At The Circus Angela Carter book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Hour of the Star",
+    "subtitle": "Clarice Lispector - 1977",
+    "image_keyword": "The Hour of the Star Clarice Lispector book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Love Medicine",
+    "subtitle": "Louise Erdrich - 1984",
+    "image_keyword": "Love Medicine Louise Erdrich book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Daughter of Time",
+    "subtitle": "Josephine Tey - 1951",
+    "image_keyword": "The Daughter of Time Josephine Tey book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "In Our Time",
+    "subtitle": "Ernest Hemingway - 1925",
+    "image_keyword": "In Our Time Ernest Hemingway book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Varieties of Religious Experience",
+    "subtitle": "Will James - 1902",
+    "image_keyword": "The Varieties of Religious Experience Will James book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Roots",
+    "subtitle": "Alex Haley - 1977",
+    "image_keyword": "Roots Alex Haley book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Season of Migration to the North",
+    "subtitle": "Al-Tayyib Salih - 1966",
+    "image_keyword": "Season of Migration to the North Al-Tayyib Salih book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Goodnight Moon",
+    "subtitle": "Margaret Wise Brown - 1947",
+    "image_keyword": "Goodnight Moon Margaret Wise Brown book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Cold Mountain",
+    "subtitle": "Charles Frazier - 1997",
+    "image_keyword": "Cold Mountain Charles Frazier book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Autobiography of Alice B. Toklas",
+    "subtitle": "Gertrude Stein - 1933",
+    "image_keyword": "The Autobiography of Alice B. Toklas Gertrude Stein book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "The Thirty-Nine Steps",
+    "subtitle": "John Buchan - 1915",
+    "image_keyword": "The Thirty-Nine Steps John Buchan book cover",
+    "image_url": null,
+    "source": "BestNovels"
+  },
+  {
+    "name": "Gormenghast",
+    "subtitle": "Mervyn Peake - 1950",
+    "image_keyword": "Gormenghast Mervyn Peake book cover",
+    "image_url": null,
+    "source": "BestNovels"
   }
 ]

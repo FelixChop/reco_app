@@ -841,9 +841,17 @@ body.mode-movies .color-swatch {
 }
 
 /* Animated Info Button & Similar Users Button */
-#mlInfoBtn,
 #similarUsersBtn {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    /* Gradient vert */
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    color: white;
+    border: none;
+    animation: pulse-glow 2s infinite;
+}
+
+#mlInfoBtn {
+    /* Gradient rouge bordeaux */
+    background: linear-gradient(135deg, #7f1d1d, #b91c1c);
     color: white;
     border: none;
     animation: pulse-glow 2s infinite;

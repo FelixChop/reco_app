@@ -965,15 +965,8 @@ def fetch_yearly_popular(start_year: int = 1994, end_year: int = 2024, limit_per
             time.sleep(0.5) # Gentle rate limit
         except Exception as e:
             print(f"    ⚠️ Error for {year}: {e}")
-            
-    print(f"    -> Found {len(books)} yearly popular books.")
-    return books
+            continue
 
-def fetch_classics(limit: int = 200) -> List[Dict]:
-    print("  📚 Fetching International Classics...")
-    # Top books by sitelinks for major literatures
-    # Exclude comics/BD but don't require author occupation (too restrictive)
-    
     targets = [
         ("Q150", "Classique FR"),      # French
         ("Q1860", "Classique EN"),     # English
@@ -1041,24 +1034,210 @@ def fetch_classics(limit: int = 200) -> List[Dict]:
     return books
 
 
+def _wikidata_fr_title_search(title: str, author: Optional[str] = None) -> Optional[str]:
+    """Essaie de récupérer un libellé français pour un titre donné via l'API de Wikidata.
+
+    On fait une recherche par entité avec language=fr. Si on trouve un résultat
+    dont le label ressemble suffisamment au titre fourni (ou si l'auteur match
+    dans la description), on renvoie ce label français.
+    """
+    if not title:
+        return None
+
+    try:
+        params = {
+            "action": "wbsearchentities",
+            "search": title,
+            "language": "fr",
+            "format": "json",
+            "limit": 1,
+        }
+        r = requests.get("https://www.wikidata.org/w/api.php", params=params, timeout=10)
+        r.raise_for_status()
+        data = r.json()
+        results = data.get("search", [])
+        if not results:
+            return None
+
+        item = results[0]
+        label = item.get("label")
+        if not label:
+            return None
+
+        # Petit garde-fou : si le label français est très proche du titre original,
+        # on accepte, sinon on préfère ne pas "sur-traduire".
+        norm_original = title.lower().strip()
+        norm_label = label.lower().strip()
+        if norm_original == norm_label:
+            return label
+
+        # Si l'auteur est fourni, on peut être un peu plus tolérant
+        if author:
+            return label
+
+        # Sans auteur, on reste conservateur
+        return None
+    except Exception:
+        return None
+
+
+def fetch_best_novels_api(limit: int = 500) -> List[Dict]:
+    """Récupère les meilleurs romans via l'API mysafeinfo bestnovels.
+
+    On tente de récupérer un titre en français via Wikidata ; si on ne trouve rien
+    de convaincant, on garde le titre original.
+    """
+    url = "https://mysafeinfo.com/api/data"
+    params = {"list": "bestnovels", "format": "json"}
+    try:
+        r = requests.get(url, params=params, timeout=20)
+        r.raise_for_status()
+        data = r.json()
+    except Exception as e:
+        print(f"❌ Error fetching best novels API: {e}")
+        return []
+
+    books: List[Dict] = []
+    for idx, item in enumerate(data):
+        if len(books) >= limit:
+            break
+
+        title = item.get("Title") or ""
+        author = item.get("Author") or ""
+        if not title:
+            continue
+
+        fr_title = _wikidata_fr_title_search(title, author=author)
+        display_title = fr_title or title
+
+        published = item.get("Published")
+        year = None
+        try:
+            if isinstance(published, int):
+                year = str(published)
+            elif isinstance(published, str) and published.isdigit():
+                year = published
+        except Exception:
+            year = None
+
+        subtitle_parts = []
+        if author:
+            subtitle_parts.append(author)
+        if year:
+            subtitle_parts.append(year)
+        subtitle = " - ".join(subtitle_parts) if subtitle_parts else None
+
+        books.append(
+            {
+                "name": display_title,
+                "subtitle": subtitle or author or None,
+                "image_keyword": f"{title} {author} book cover".strip(),
+                "image_url": None,
+                "source": "BestNovels",
+            }
+        )
+
+    print(f"    -> Found {len(books)} best novels from API.")
+    return books
+
+
+def fetch_french_award_books(last_n_years: int = 20) -> List[Dict]:
+    """Récupère les livres primés par les grands prix littéraires français sur les
+    N dernières années, via Wikidata.
+
+    On s'appuie sur les IDs Wikidata des prix principaux.
+    """
+    current_year = time.gmtime().tm_year
+    since_year = current_year - last_n_years
+
+    awards = {
+        # Prix généralistes
+        "Q755723": "Renaudot",
+        "Q18945": "Femina",
+        "Q58352": "Medicis",
+        "Q316306": "Interallie",
+        "Q309999": "Decembre",
+        "Q773956": "GrandPrixRomanAcademieFr",
+        "Q3074393": "GoncourtLyceens",
+        "Q2980799": "PrixLibraires",
+        "Q3403739": "LivreInter",
+        "Q3012109": "LectricesElle",
+        "Q309998": "GoncourtPremierRoman",
+        "Q3405794": "PrixPremierRoman",
+        "Q308001": "GoncourtPoesie",
+        "Q308004": "GoncourtNouvelle",
+        "Q308003": "GoncourtBiographie",
+        "Q1141462": "AcademieFrancaise",
+        # Polar
+        "Q2293903": "QuaiDesOrfevres",
+        # Cognac a plusieurs sous-prix, on prend le festival général
+        "Q2730748": "PolarCognac",
+        # SF / Fantasy
+        "Q3477139": "RosnyAine",
+        "Q3552653": "Utopiales",
+    }
+
+    all_books: List[Dict] = []
+
+    for award_qid, label in awards.items():
+        print(f"  📚 Fetching French award {label} (since {since_year})...")
+        sparql = f"""
+        PREFIX wd: <http://www.wikidata.org/entity/>
+        PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+        PREFIX wikibase: <http://wikiba.se/ontology#>
+        PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+        SELECT ?book ?bookLabel ?authorLabel ?date ?image WHERE {{
+          ?book wdt:P166 wd:{award_qid} ;
+                wdt:P577 ?date .
+          FILTER(?date >= "{since_year}-01-01"^^xsd:dateTime)
+          OPTIONAL {{ ?book wdt:P50 ?author . }}
+          OPTIONAL {{ ?book wdt:P18 ?image . }}
+          SERVICE wikibase:label {{ bd:serviceParam wikibase:language "fr,en". }}
+        }}
+        ORDER BY DESC(?date)
+        """
+        try:
+            data = _sparql_request(sparql)
+            for row in data.get("results", {}).get("bindings", []):
+                name = _row_value(row, "bookLabel")
+                if not name:
+                    continue
+                author = _row_value(row, "authorLabel")
+                date = _row_value(row, "date")
+                year = date[:4] if date else "?"
+
+                all_books.append(
+                    {
+                        "name": name,
+                        "subtitle": f"{author or 'Inconnu'} ({label} {year})",
+                        "image_keyword": f"{name} book cover",
+                        "image_url": _row_value(row, "image"),
+                        "source": label,
+                    }
+                )
+        except Exception as e:
+            print(f"    ⚠️ Error fetching award {label}: {e}")
+
+    print(f"    -> Found {len(all_books)} French award books.")
+    return all_books
+
+
 def fetch_best_books(target_count: int = 1000) -> List[Dict]:
-    all_books = []
-    
+    all_books: List[Dict] = []
+
     # 1. Nobel
     all_books.extend(fetch_nobel_books())
-    
-    # 2. Goncourt
+
+    # 2. Goncourt (roman)
     all_books.extend(fetch_goncourt_books())
-    
-    # 3. Yearly Popular (France)
-    all_books.extend(fetch_yearly_popular())
-    
-    # 4. Classics
-    # Fill remaining slots with classics
-    remaining = target_count - len(all_books)
-    if remaining > 0:
-        all_books.extend(fetch_classics(limit=remaining + 50)) # +50 buffer
-        
+
+    # 3. Autres grands prix littéraires français (20 dernières années)
+    all_books.extend(fetch_french_award_books(last_n_years=20))
+
+    # 4. Best novels API (jusqu'à 500)
+    all_books.extend(fetch_best_novels_api(limit=500))
+
     # Deduplicate by name
     seen = set()
     unique_books = []
@@ -1075,7 +1254,7 @@ def save_json(path: Path, data: List[Dict]):
         json.dump(data, f, ensure_ascii=False, indent=2)
     print(f"✓ Écrit {len(data)} éléments dans {path}")
 
-def generate_dataset(label: str, filename: str, fetch_fn, force: bool = False, process_images_mode: str = None, *args, **kwargs):
+def generate_dataset(label: str, filename: str, fetch_fn, force: bool = False, process_images_mode: str = None, *args, **kwargs) -> bool:
     """
     Génère le JSON. Si force=True, écrase l'existant.
     Si process_images_mode est fourni (nom du dossier), télécharge les images.
@@ -1087,6 +1266,7 @@ def generate_dataset(label: str, filename: str, fetch_fn, force: bool = False, p
     # So even if file exists, we should probably check images if requested.
     
     data = []
+    generated = False  # True si on a effectivement appelé fetch_fn (nouveau scraping)
     if path.exists() and not force:
         print(f"→ {label}: {filename} existe déjà.")
         # Load existing data to process images if needed
@@ -1096,6 +1276,7 @@ def generate_dataset(label: str, filename: str, fetch_fn, force: bool = False, p
         print(f"=== {label} ===")
         try:
             data = fetch_fn(*args, **kwargs)
+            generated = True
         except Exception as e:
             print(f"❌ Erreur pour {label}: {e}")
             return
@@ -1123,78 +1304,98 @@ def generate_dataset(label: str, filename: str, fetch_fn, force: bool = False, p
             print(f"  Mise à jour de {updated_count} URLs d'images.")
 
     save_json(path, data)
+    return generated
 
 
 def main():
+    any_generated = False
+
     # Dishes
-    generate_dataset(
+    dishes_generated = generate_dataset(
         "Plats Culinaires",
         "dishes.json",
         fetch_best_dishes,
         target_count=1000,
         force=False, # Only scrape if file doesn't exist
         process_images_mode="dishes"
-    )
+    ) or False
+    any_generated = any_generated or dishes_generated
 
     # Books
-    generate_dataset(
+    books_generated = generate_dataset(
         "Livres",
         "books.json",
         fetch_best_books,
         target_count=1000,
         force=False, # Only scrape if file doesn't exist
         process_images_mode="books"
-    )
+    ) or False
+    any_generated = any_generated or books_generated
 
     # Update existing modes to include image processing
     # Politicians - Reload existing to check images
-    generate_dataset(
+    pol_generated = generate_dataset(
         "Politiciens français",
         "politicians.json",
         fetch_french_politicians, # Won't be called if file exists and force=False
         limit=100,
         force=False,
         process_images_mode="politicians"
-    )
+    ) or False
+    any_generated = any_generated or pol_generated
 
-    generate_dataset(
+    dest_generated = generate_dataset(
         "Destinations de vacances",
         "destinations.json",
         fetch_diverse_destinations,
         target_count=1000,
         force=False,
         process_images_mode="destinations"
-    )
+    ) or False
+    any_generated = any_generated or dest_generated
 
-    # Movies (TMDb) - URLs are external, no download needed? 
-    # Actually user wanted 'download' but for movies we usually used external.
-    # But consistent logic is better. Let's see if we want to download posters.
-    # Previous script optimized movies too. So yes, download.
+    # Movies (TMDb)
+    movies_generated = False
     if TMDB_API_KEY:
-        generate_dataset(
+        movies_generated = generate_dataset(
             "Films (TMDb)",
             "movies.json",
             fetch_popular_movies,
             limit=1000,
             force=False,
             process_images_mode="movies"
-        )
+        ) or False
     else:
         print("⚠️ TMDB_API_KEY manquant : on saute films.")
+    any_generated = any_generated or movies_generated
 
     # Songs (Spotify) - No images downloading for songs as per previous instruction
+    songs_generated = False
     if SPOTIFY_CLIENT_ID:
-        generate_dataset(
+        songs_generated = generate_dataset(
             "Musiques (Spotify)",
             "songs.json",
             fetch_spotify_songs,
             limit=1000,
             force=False,
             process_images_mode=None # Explicitly no download
-        )
+        ) or False
     else:
         print("⚠️ SPOTIFY_CLIENT_ID manquant : on saute musiques.")
+    any_generated = any_generated or songs_generated
     
+    # Une fois le scraping terminé, on tente automatiquement de reseeder la base
+    # de données à partir des nouveaux fichiers JSON, uniquement si au moins un
+    # dataset a été regénéré (nouvelle collecte de données).
+    if any_generated:
+        try:
+            # Import local pour éviter les dépendances circulaires au chargement.
+            from backend.main import seed_items
+            print("\n🔄 Nouvelles données détectées, reseed de la DB...")
+            seed_items()
+        except Exception as e:
+            print(f"⚠️ Impossible de reseeder automatiquement la DB : {e}")
+
     print("\n✅ Scraping terminé !")
 
 if __name__ == "__main__":

@@ -853,9 +853,6 @@ function renderDiagnostics(data) {
         const tdRmse = document.createElement("td");
         tdRmse.textContent = entry.rmse.toFixed(3);
 
-        const tdMse = document.createElement("td");
-        tdMse.textContent = entry.mse ? entry.mse.toFixed(3) : "N/A";
-
         const tdMae = document.createElement("td");
         tdMae.textContent = entry.mae ? entry.mae.toFixed(3) : "N/A";
 
@@ -865,7 +862,6 @@ function renderDiagnostics(data) {
         tr.appendChild(tdRank);
         tr.appendChild(tdName);
         tr.appendChild(tdRmse);
-        tr.appendChild(tdMse);
         tr.appendChild(tdMae);
         tr.appendChild(tdFcp);
         leaderboardBody.appendChild(tr);
@@ -891,9 +887,13 @@ function renderDiagnostics(data) {
     const baselineEntry = data.leaderboard.find(e => e.model_name === "BaselineOnly") || data.leaderboard.find(e => e.model_name === "NormalPredictor");
     let comparisonText = "";
     if (baselineEntry) {
-        const diff = baselineEntry.rmse - data.best_model_rmse;
-        const percent = (diff / baselineEntry.rmse) * 100;
-        comparisonText = `<br>Comparé à la baseline (${baselineEntry.model_name}, RMSE=${baselineEntry.rmse.toFixed(3)}), ce modèle améliore la précision de <strong>${percent.toFixed(1)}%</strong>.`;
+        if (data.best_model_name === baselineEntry.model_name) {
+            comparisonText = `<br><em>Pas besoin de modèle compliqué, une baseline simple marche parfaitement ici.</em>`;
+        } else {
+            const diff = baselineEntry.rmse - data.best_model_rmse;
+            const percent = (diff / baselineEntry.rmse) * 100;
+            comparisonText = `<br>Comparé à la baseline (${baselineEntry.model_name}, RMSE=${baselineEntry.rmse.toFixed(3)}), ce modèle améliore la précision de <strong>${percent.toFixed(1)}%</strong>.`;
+        }
     }
 
     // Get best model metrics
@@ -902,7 +902,6 @@ function renderDiagnostics(data) {
         <br><strong>Métriques :</strong>
         <ul style="margin: 8px 0; padding-left: 20px;">
             <li><strong>RMSE</strong>: ${data.best_model_rmse.toFixed(3)} - Erreur quadratique moyenne</li>
-            <li><strong>MSE</strong>: ${bestModel.mse ? bestModel.mse.toFixed(3) : 'N/A'} - Erreur au carré moyenne</li>
             <li><strong>MAE</strong>: ${bestModel.mae ? bestModel.mae.toFixed(3) : 'N/A'} - Erreur absolue moyenne</li>
             <li><strong>FCP</strong>: ${bestModel.fcp !== null && bestModel.fcp !== undefined ? bestModel.fcp.toFixed(3) : 'N/A'} - Fraction de paires concordantes</li>
         </ul>
