@@ -3,12 +3,13 @@
 # Navigate to backend directory
 cd backend
 
-# Install dependencies
+# Install dependencies (sur Render, elles sont déjà installées au build,
+# mais on laisse cette étape pour compatibilité locale si besoin)
 echo "Installing dependencies..."
 pip install -r requirements.txt
 
 # Run the server
-# We use 0.0.0.0 to be accessible externally
-# Port 8000 is standard
-echo "Starting server on port 8000..."
-python -m uvicorn main:app --host 0.0.0.0 --port 8000
+# On écoute sur le port imposé par Render (PORT), avec un fallback 8000 en local
+PORT_TO_USE=${PORT:-8000}
+echo "Starting server on port ${PORT_TO_USE}..."
+python -m uvicorn main:app --host 0.0.0.0 --port "${PORT_TO_USE}"
