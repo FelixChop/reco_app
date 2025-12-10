@@ -498,6 +498,33 @@ FRONTEND_DIR = PROJECT_ROOT / "frontend"
 app.mount("/static", StaticFiles(directory=BACKEND_DIR / "static"), name="static")
 
 
+@app.get("/", response_class=FileResponse)
+def serve_frontend_index():
+    """Serve l'index du frontend pour la racine du site (Render)."""
+    index_path = FRONTEND_DIR / "index.html"
+    if not index_path.exists():
+        raise HTTPException(status_code=404, detail="Frontend index.html not found")
+    return FileResponse(index_path)
+
+
+@app.get("/style.css", response_class=FileResponse)
+def serve_frontend_css():
+    css_path = FRONTEND_DIR / "style.css"
+    if not css_path.exists():
+        raise HTTPException(status_code=404, detail="Frontend style.css not found")
+    return FileResponse(css_path)
+
+
+@app.get("/app.js", response_class=FileResponse)
+def serve_frontend_js():
+    js_path = FRONTEND_DIR / "app.js"
+    if not js_path.exists():
+        raise HTTPException(status_code=404, detail="Frontend app.js not found")
+    return FileResponse(js_path)
+
+
+app.mount("/assets", StaticFiles(directory=FRONTEND_DIR / "assets"), name="assets")
+
 
 @app.get("/modes")
 def get_modes():
